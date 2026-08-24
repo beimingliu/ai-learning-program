@@ -1,0 +1,5 @@
+# Generated video exports and intermediate renders
+/videos/**/*.mp4
+
+# macOS metadata
+.DS_Store

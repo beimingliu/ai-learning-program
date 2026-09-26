@@ -30,6 +30,12 @@ Each `videos/**` project has its own `CLAUDE.md` with the HyperFrames rules — 
 - **Jira:** course video production and publishing is tracked on [AIRML-9771](https://aledade.atlassian.net/browse/AIRML-9771); extend its scope for new lessons rather than opening new tickets.
 - **Voice-only lessons** (no avatar) use the local Qwen3 TTS clone `bliu-voice` via `videos/<course>/<lesson>/scripts/qwen-tts.mjs`; see B201.7 for the pattern.
 
+# Knowledge sharing
+
+- GitHub is the first-class copy. With every video generation, open one PR in `analytics-ai-enablement` that updates the Confluence source (`docs/confluence/<course>.md`) and the matching course README under `workshops/` with the same content.
+- Publish that source to the Confluence page first, then push the PR so Git records what is live; record the page version in the PR.
+- Checklist per video: MP4 in `videos/`, Drive upload with domain link sharing, lesson file **Duration** and **Published** lines, Confluence section, GitHub README mirror, AIRML-9771 comment, and a commit in this repo.
+
 # Narration pacing
 
 - Do not rely on blank lines, Markdown headings, or ellipses for section timing. In the 2026-08-20 test with the default cloned voice, a blank line produced the exact same audio and timestamps as a normal space. An ellipsis produced a longer pause in one sample but also changed the delivery, so it is not a timing control.

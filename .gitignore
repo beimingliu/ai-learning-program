@@ -3,3 +3,18 @@
 
 # macOS metadata
 .DS_Store
+
+# HyperFrames caches, render scratch, and local previews
+/videos/work-*/
+/videos/**/.thumbnails/
+/videos/**/.waveform-cache/
+/videos/**/.hyperframes/preview/
+/videos/**/.hyperframes/history-id
+/videos/**/.hyperframes/hf-ids-stamped.json
+/videos/**/snapshots/*.png
+/videos/**/snapshots/*.jpg
+/videos/**/*-draft.wav
+/videos/**/.*.log
+
+# Editor settings
+/.idea/

@@ -1,0 +1,268 @@
+/* Shared F101.5 look: brand roles only (blue #003DA5, pale #EAF2FF, orange #FF6900, ink #091F31, white). */
+.scene {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: #ffffff;
+  color: var(--ink);
+  font-family: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+}
+.scene.dark {
+  background: var(--ink);
+  color: #ffffff;
+}
+/* Dot field gives the light and dark canvases texture without new colors. */
+.dots {
+  position: absolute;
+  inset: -60px;
+  background-image: radial-gradient(rgba(0, 61, 165, 0.16) 2px, transparent 2.5px);
+  background-size: 44px 44px;
+}
+.dark .dots {
+  background-image: radial-gradient(rgba(234, 242, 255, 0.13) 2px, transparent 2.5px);
+}
+.glow {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 61, 165, 0.22), rgba(0, 61, 165, 0) 70%);
+}
+.dark .glow {
+  background: radial-gradient(circle, rgba(0, 61, 165, 0.55), rgba(0, 61, 165, 0) 70%);
+}
+.glow.warm {
+  background: radial-gradient(circle, rgba(255, 105, 0, 0.2), rgba(255, 105, 0, 0) 70%);
+}
+.ghost {
+  position: absolute;
+  font-family: "Literata", Georgia, serif;
+  font-weight: 600;
+  font-size: 360px;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: rgba(0, 61, 165, 0.07);
+  white-space: nowrap;
+}
+.dark .ghost {
+  color: rgba(234, 242, 255, 0.06);
+}
+.rail {
+  position: absolute;
+  top: 54px;
+  left: 110px;
+  right: 110px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+.dark .rail {
+  color: var(--pale);
+}
+.rail .dot-o {
+  color: var(--blue);
+}
+.dark .rail .dot-o {
+  color: var(--orange);
+}
+.kicker {
+  display: block;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+.dark .kicker {
+  color: var(--orange);
+}
+.title {
+  display: block;
+  font-family: "Literata", Georgia, serif;
+  font-weight: 600;
+  font-size: 76px;
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+.dark .title {
+  color: #ffffff;
+}
+.hl {
+  color: var(--blue);
+}
+.dark .hl {
+  color: var(--orange);
+}
+.rv {
+  opacity: 0;
+}
+.mono {
+  font-family: "JetBrains Mono", Menlo, monospace;
+  font-variant-ligatures: none;
+}
+.serif {
+  font-family: "Literata", Georgia, serif;
+  font-weight: 600;
+}
+/* Claude node */
+.claude {
+  position: absolute;
+  width: 190px;
+  height: 190px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 6px solid var(--blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 18px 50px rgba(9, 31, 49, 0.25);
+}
+.claude svg {
+  width: 104px;
+  height: 104px;
+}
+.claude .cap {
+  position: absolute;
+  top: 206px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 26px;
+  font-weight: 700;
+  white-space: nowrap;
+  color: var(--ink);
+}
+.dark .claude .cap {
+  color: #ffffff;
+}
+/* Tool-call chip */
+.chip {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: #ffffff;
+  font-family: "JetBrains Mono", Menlo, monospace;
+  font-size: 26px;
+  font-weight: 600;
+  white-space: nowrap;
+  box-shadow: 0 10px 26px rgba(9, 31, 49, 0.25);
+}
+.chip .svc {
+  color: var(--orange);
+}
+.dark .chip {
+  background: var(--pale);
+  color: var(--ink);
+}
+.dark .chip .svc {
+  color: var(--blue);
+}
+/* Service tile */
+.tile {
+  position: absolute;
+  width: 210px;
+  height: 210px;
+  border-radius: 34px;
+  background: #ffffff;
+  border: 4px solid var(--pale);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  box-shadow: 0 16px 40px rgba(9, 31, 49, 0.22);
+}
+.tile svg {
+  width: 92px;
+  height: 92px;
+}
+.tile .nm {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--ink);
+}
+.mono-mark {
+  width: 92px;
+  height: 92px;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Literata", Georgia, serif;
+  font-weight: 600;
+  font-size: 60px;
+  color: #ffffff;
+  background: var(--blue);
+}
+.mono-mark.o {
+  background: var(--orange);
+  color: var(--ink);
+}
+/* Result card */
+.result {
+  position: absolute;
+  width: 420px;
+  padding: 24px 28px;
+  border-radius: 22px;
+  background: #ffffff;
+  border: 3px solid var(--blue);
+  box-shadow: 0 18px 44px rgba(9, 31, 49, 0.25);
+  color: var(--ink);
+}
+.result .rt {
+  font-size: 26px;
+  font-weight: 700;
+}
+.result .bar {
+  height: 12px;
+  margin-top: 14px;
+  border-radius: 6px;
+  background: var(--pale);
+}
+.result .src {
+  margin-top: 16px;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--blue);
+}
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 26px;
+  border-radius: 999px;
+  background: var(--orange);
+  color: var(--ink);
+  font-size: 28px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.pill.blue {
+  background: var(--blue);
+  color: #ffffff;
+}
+.pill.pale {
+  background: var(--pale);
+  color: var(--blue);
+}
+.caption {
+  position: absolute;
+  font-size: 34px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.dark .caption {
+  color: var(--pale);
+}
+.caption b {
+  color: var(--blue);
+}
+.dark .caption b {
+  color: var(--orange);
+}

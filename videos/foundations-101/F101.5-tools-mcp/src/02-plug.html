@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+  <head><meta charset="UTF-8"></head>
+  <body>
+    <template>
+      <style>
+        {{FONTS}}
+        #s02-glow { width: 1500px; height: 1500px; left: 200px; top: -200px; }
+        #s02-ghost { right: -120px; top: 640px; }
+        #s02-acr { position: absolute; left: 120px; top: 150px; font-family: "Literata", Georgia, serif; font-weight: 600; font-size: 118px; line-height: 1; color: #fff; white-space: nowrap; }
+        #s02-acr .L { display: inline-block; color: var(--orange); }
+        #s02-acr .r { display: inline-block; color: #fff; }
+        #s02-r1, #s02-r2 { margin-right: 0.26em; }
+        #s02-std { position: absolute; left: 124px; top: 300px; font-size: 36px; font-weight: 600; color: var(--pale); }
+        #s02-std b { color: var(--orange); }
+        /* cable tangle */
+        #s02-cables { position: absolute; left: 140px; top: 420px; width: 820px; height: 520px; overflow: visible; }
+        #s02-cables path { stroke-dasharray: 1; }
+        .s02-end { position: absolute; width: 74px; height: 54px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-family: "JetBrains Mono", monospace; font-size: 18px; font-weight: 800; }
+        #s02-e1 { left: 880px; top: 440px; background: var(--pale); color: var(--ink); }
+        #s02-e2 { left: 880px; top: 610px; background: #fff; color: var(--ink); border-radius: 26px; }
+        #s02-e3 { left: 880px; top: 780px; background: var(--blue); color: #fff; border-radius: 4px; }
+        #s02-e4 { left: 880px; top: 900px; background: var(--pale); color: var(--blue); border-radius: 18px 4px; }
+        #s02-lt { left: 140px; top: 960px; }
+        #s02-lp { left: 1300px; top: 960px; }
+        #s02-x { position: absolute; left: 400px; top: 560px; font-size: 200px; font-weight: 700; color: var(--orange); line-height: 1; }
+        /* one plug */
+        #s02-one { position: absolute; left: 1060px; top: 440px; width: 740px; height: 470px; }
+        #s02-bus { position: absolute; left: 0; top: 215px; width: 740px; height: 16px; border-radius: 8px; background: var(--orange); transform-origin: left center; }
+        #s02-plug { position: absolute; left: 290px; top: 150px; width: 160px; height: 146px; border-radius: 30px; background: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; box-shadow: 0 20px 50px rgba(0,0,0,0.45); }
+        #s02-plug .slot { width: 90px; height: 26px; border-radius: 13px; background: var(--ink); }
+        #s02-plug .lbl { font-family: "JetBrains Mono", monospace; font-weight: 800; font-size: 26px; color: var(--blue); }
+        .s02-dev { position: absolute; width: 120px; height: 120px; border-radius: 30px; background: #fff; display: flex; align-items: center; justify-content: center; box-shadow: 0 10px 26px rgba(0,0,0,0.35); }
+        .s02-dev svg { width: 66px; height: 66px; }
+        .s02-stem { position: absolute; width: 8px; background: var(--orange); border-radius: 4px; transform-origin: center bottom; }
+        /* tool loop */
+        #s02-loop { position: absolute; inset: 0; }
+        #s02-claude { left: 150px; top: 520px; }
+        .s02-chip { left: 400px; }
+        #s02-c1 { top: 470px; }
+        #s02-c2 { top: 560px; }
+        #s02-c3 { top: 650px; }
+        #s02-svc { position: absolute; left: 1390px; top: 500px; }
+        #s02-svc .tile { position: relative; }
+        #s02-res { left: 1020px; top: 760px; }
+        #s02-steps { position: absolute; left: 150px; top: 900px; display: flex; gap: 22px; align-items: center; }
+        #s02-steps .pill { font-size: 30px; }
+        #s02-steps .ar { font-size: 40px; color: var(--orange); font-weight: 700; }
+        #s02-runner { top: 560px; left: 400px; }
+      </style>
+      <div id="root" data-composition-id="s02" data-width="1920" data-height="1080">
+        <div class="scene dark">
+          <div class="dots" id="s02-dots"></div>
+          <div id="s02-glow" class="glow"></div>
+          <div id="s02-ghost" class="ghost">protocol</div>
+          <div class="rail"><span>What MCP is</span><span>02 <span class="dot-o">/</span> 07</span></div>
+          <div id="s02-acr"><span class="L">M</span><span class="r" id="s02-r1">odel</span><span class="L">C</span><span class="r" id="s02-r2">ontext</span><span class="L">P</span><span class="r" id="s02-r3">rotocol</span></div>
+          <div id="s02-std" class="rv">An <b>open standard</b> for connecting AI tools to other systems</div>
+
+          <div id="s02-tangle">
+            <svg id="s02-cables" viewBox="0 0 820 520">
+              <path d="M0 60 C200 -40 300 320 780 50" pathLength="1" fill="none" stroke="#EAF2FF" stroke-width="10" stroke-linecap="round" />
+              <path d="M0 220 C260 420 380 -60 780 220" pathLength="1" fill="none" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round" />
+              <path d="M0 380 C300 120 420 560 780 390" pathLength="1" fill="none" stroke="#003DA5" stroke-width="10" stroke-linecap="round" />
+              <path d="M0 480 C220 300 520 620 780 510" pathLength="1" fill="none" stroke="#EAF2FF" stroke-width="10" stroke-linecap="round" stroke-opacity="0.7" />
+            </svg>
+            <div id="s02-e1" class="s02-end rv">A</div>
+            <div id="s02-e2" class="s02-end rv">B</div>
+            <div id="s02-e3" class="s02-end rv">C</div>
+            <div id="s02-e4" class="s02-end rv">D</div>
+          </div>
+          <div id="s02-x" class="rv">×</div>
+          <div id="s02-lt" class="caption rv">a different cable for every device</div>
+          <div id="s02-lp" class="caption rv">one standard plug</div>
+
+          <div id="s02-one">
+            <div id="s02-bus" class="rv"></div>
+            <div class="s02-stem rv" style="left:86px;top:120px;height:95px"></div>
+            <div class="s02-stem rv" style="left:646px;top:120px;height:95px"></div>
+            <div class="s02-stem rv" style="left:196px;top:231px;height:110px;transform-origin:center top"></div>
+            <div class="s02-stem rv" style="left:546px;top:231px;height:110px;transform-origin:center top"></div>
+            <div class="s02-dev rv" style="left:30px;top:0">{{I:slack}}</div>
+            <div class="s02-dev rv" style="left:590px;top:0">{{I:gmail}}</div>
+            <div class="s02-dev rv" style="left:140px;top:340px">{{I:jira}}</div>
+            <div class="s02-dev rv" style="left:490px;top:340px">{{I:googledrive}}</div>
+            <div id="s02-plug" class="rv"><div class="slot"></div><div class="lbl">MCP</div></div>
+          </div>
+
+          <div id="s02-loop">
+            <div id="s02-claude" class="claude rv">{{CLAUDE}}<div class="cap">Claude</div></div>
+            <div id="s02-c1" class="chip s02-chip rv"><span class="svc">slack</span>· search_messages</div>
+            <div id="s02-c2" class="chip s02-chip rv"><span class="svc">jira</span>· read_ticket</div>
+            <div id="s02-c3" class="chip s02-chip rv"><span class="svc">calendar</span>· list_events</div>
+            <div id="s02-svc" class="rv"><div class="tile">{{I:jira}}<div class="nm">Jira</div></div></div>
+            <div id="s02-res" class="result rv"><div class="rt mono">ANALYTICS-123</div><div class="bar" style="width:92%"></div><div class="bar" style="width:64%"></div><div class="src">↗ ticket link</div></div>
+            <div id="s02-steps">
+              <span class="pill blue rv" id="s02-p1">pick a tool</span><span class="ar rv" id="s02-a1">→</span>
+              <span class="pill rv" id="s02-p2">call it</span><span class="ar rv" id="s02-a2">→</span>
+              <span class="pill pale rv" id="s02-p3">read the result</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script>
+        (function () {
+          {{H}}
+          // scene-local times; scene starts at narration 39.4s
+          tl.set("#s02-acr", { opacity: 1 }, 0);
+          tl.fromTo("#s02-acr .L", { opacity: 0, y: -120, rotation: -20 }, { opacity: 1, y: 0, rotation: 0, duration: 0.6, ease: "back.out(2.2)", stagger: 0.14 }, 0.2);
+          tl.fromTo("#s02-acr .r", { opacity: 0, x: -40, scaleX: 1.25, transformOrigin: "left center" }, { opacity: 1, x: 0, scaleX: 1, duration: 0.7, ease: "expo.out", stagger: 0.4 }, 1.2);
+          A("#s02-std", 4.0, { x: -50, y: 0, d: 0.55, e: "power4.out" });
+          P("#s02-plug", 9.5, { s: 0, d: 0.7, e: "back.out(2.4)" });
+          tl.fromTo("#s02-bus", { opacity: 1, scaleX: 0 }, { scaleX: 1, duration: 0.7, ease: "expo.inOut" }, 10.7);
+          tl.fromTo(".s02-stem", { opacity: 1, scaleY: 0 }, { scaleY: 1, duration: 0.4, ease: "power3.out", stagger: 0.08 }, 11.1);
+          P(".s02-dev", 11.3, { s: 0, st: 0.1, e: "elastic.out(1, 0.55)", d: 0.9 });
+          DRAW("#s02-cables path", 11.7, 0.9, 0.12);
+          P(".s02-end", 12.2, { s: 0, st: 0.1, e: "back.out(2.5)" });
+          tl.fromTo("#s02-x", { opacity: 0, scale: 3, rotation: -30 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.4, ease: "power4.out" }, 13.6);
+          tl.to("#s02-cables", { keyframes: { x: [0, -16, 12, -6, 0] }, duration: 0.45, ease: "none" }, 13.6);
+          tl.to("#s02-tangle", { opacity: 0.25, duration: 0.5 }, 14.3);
+          A("#s02-lp", 10.4, { y: 20, d: 0.4 });
+          A("#s02-lt", 12.6, { y: 20, d: 0.4 });
+          LOOP("#s02-plug", { scale: 1.06 }, 0.7, 12.5, 15.3);
+          tl.to("#s02-acr, #s02-std", { y: -40, opacity: 0, duration: 0.4, ease: "power2.in" }, 15.1);
+          tl.to("#s02-tangle, #s02-x, #s02-lt, #s02-lp", { opacity: 0, duration: 0.3 }, 15.1);
+          tl.to("#s02-one", { x: 520, y: -300, scale: 0.4, opacity: 0, duration: 0.6, ease: "power3.in" }, 15.1);
+          P("#s02-claude", 15.5, { s: 0.3 });
+          A("#s02-c1", 19.5, { x: -60, y: 0, d: 0.4, e: "power4.out" });
+          A("#s02-c2", 20.8, { x: -60, y: 0, d: 0.4, e: "expo.out" });
+          A("#s02-c3", 21.5, { x: -60, y: 0, d: 0.4, e: "circ.out" });
+          P("#s02-svc", 21.9, { s: 0.4 });
+          tl.to("#s02-c1, #s02-c3", { opacity: 0.55, duration: 0.3 }, 22.7);
+          tl.to("#s02-c2", { scale: 1.12, duration: 0.3, ease: "back.out(3)" }, 22.7);
+          P("#s02-p1", 22.7, { s: 0.3, d: 0.4 });
+          tl.to("#s02-c2", { x: 880, y: -30, duration: 0.6, ease: "power2.inOut" }, 23.8);
+          P("#s02-a1", 23.8, { s: 0, d: 0.3 });
+          P("#s02-p2", 23.9, { s: 0.3, d: 0.4 });
+          tl.to("#s02-svc .tile", { keyframes: { scale: [1, 1.14, 1] }, borderColor: "#FF6900", duration: 0.5 }, 24.3);
+          tl.to("#s02-c2", { opacity: 0, duration: 0.2 }, 24.35);
+          tl.fromTo("#s02-res", { opacity: 0, x: 300, y: -120, scale: 0.4 }, { opacity: 1, x: 0, y: 0, scale: 1, duration: 0.6, ease: "back.out(1.6)" }, 24.5);
+          P("#s02-a2", 24.6, { s: 0, d: 0.3 });
+          P("#s02-p3", 24.7, { s: 0.3, d: 0.4 });
+          tl.to("#s02-res", { x: -560, y: -60, scale: 0.8, duration: 0.7, ease: "power3.inOut" }, 25.3);
+          LOOP("#s02-glow", { scale: 1.12, x: 120 }, 3.2, 0, 26);
+          tl.to("#s02-ghost", { x: -260, duration: 26.4, ease: "none" }, 0);
+          tl.to("#s02-dots", { x: 44, duration: 26.4, ease: "none" }, 0);
+          window.__timelines["s02"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

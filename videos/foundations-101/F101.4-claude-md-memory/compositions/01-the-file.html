@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template>
+      <style>
+        @font-face { font-family: "Literata"; src: url("assets/fonts/Literata-600.woff2") format("woff2"); font-weight: 600; }
+        @font-face { font-family: "IBM Plex Sans"; src: url("assets/fonts/IBMPlexSans-var.woff2") format("woff2"); font-weight: 100 700; }
+        @font-face { font-family: "JetBrains Mono"; src: url("assets/fonts/JetBrainsMono-var.woff2") format("woff2"); font-weight: 100 800; }
+        #s01-tree {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 620px;
+          height: 580px;
+          padding: 34px 40px;
+        }
+        #s01-tree .row {
+          display: flex;
+          align-items: center;
+          gap: 16px;
+          height: 64px;
+          padding: 0 18px;
+          border-radius: 12px;
+          font-size: 30px;
+          color: var(--muted);
+        }
+        #s01-tree .ico {
+          display: block;
+          width: 30px;
+          height: 24px;
+          border-radius: 4px;
+          background: rgba(0, 61, 165, 0.18);
+        }
+        #s01-tree .ico.doc {
+          width: 22px;
+          height: 28px;
+          background: rgba(9, 31, 49, 0.14);
+        }
+        #s01-hit {
+          color: var(--ink);
+          font-weight: 700;
+        }
+        #s01-hit-bg {
+          position: absolute;
+          left: 40px;
+          top: 268px;
+          width: 540px;
+          height: 64px;
+          border-radius: 12px;
+          background: var(--pale);
+          border: 3px solid var(--orange);
+        }
+        #s01-file {
+          position: absolute;
+          top: 0;
+          left: 680px;
+          width: 1000px;
+          height: 580px;
+          overflow: hidden;
+        }
+        #s01-file .fhead {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 22px 36px;
+          background: var(--pale);
+          border-bottom: 2px solid var(--line);
+          font-size: 26px;
+          font-weight: 700;
+          color: var(--blue);
+        }
+        #s01-lines {
+          padding: 26px 36px 0;
+          font-size: 28px;
+          line-height: 1.75;
+          color: var(--ink);
+        }
+        #s01-lines .c {
+          color: var(--blue);
+          font-weight: 700;
+        }
+        #s01-count {
+          position: absolute;
+          left: 36px;
+          bottom: 30px;
+          display: flex;
+          align-items: baseline;
+          gap: 14px;
+          font-size: 26px;
+          color: var(--muted);
+        }
+        #s01-count-n {
+          display: inline-block;
+          min-width: 92px;
+          text-align: right;
+          font-size: 44px;
+          font-weight: 700;
+          color: var(--blue);
+          font-variant-numeric: tabular-nums;
+          transform-origin: right center;
+        }
+        #s01-over {
+          position: absolute;
+          right: 36px;
+          bottom: 30px;
+        }
+      </style>
+      <div id="root" data-composition-id="s01" data-width="1920" data-height="1080">
+        <div class="scene">
+          <div class="rail"><span>The file everyone mentions</span><span>01 / 09</span></div>
+          <div class="rail-rule"></div>
+          <div class="head">
+            <span id="s01-kicker" class="kicker">CLAUDE.md</span>
+            <span id="s01-title" class="title">A short note Claude reads <span class="hl">every session.</span></span>
+          </div>
+          <div class="stage">
+            <div id="s01-tree" class="card rv">
+              <div class="label" style="margin-bottom: 18px">team-project/</div>
+              <div id="s01-hit-bg" class="rv"></div>
+              <div class="row mono"><span class="ico"></span>data/</div>
+              <div class="row mono"><span class="ico"></span>reports/</div>
+              <div class="row mono"><span class="ico"></span>sql/</div>
+              <div id="s01-hit" class="row mono" style="position: relative"><span class="ico doc"></span>CLAUDE.md</div>
+              <div class="row mono"><span class="ico doc"></span>README.md</div>
+            </div>
+            <div id="s01-file" class="card rv">
+              <div class="fhead"><span class="mono">CLAUDE.md</span><span id="s01-every" class="pill blue rv" style="font-size: 20px; padding: 8px 18px">Read at the start of every session</span></div>
+              <div id="s01-lines" class="mono">
+                <div id="s01-l1" class="c rv"># Team notes</div>
+                <div id="s01-l2" class="rv">- Never modify files in data/raw/</div>
+                <div id="s01-l3" class="rv">- Metric definitions: docs/metrics.md</div>
+                <div id="s01-l4" class="rv">- Ask before running DELETE</div>
+                <div id="s01-l5" class="rv">- Keep answers short</div>
+              </div>
+              <div id="s01-count" class="rv"><span id="s01-count-n">5</span><span>lines</span></div>
+              <span id="s01-over" class="pill rv">Easy to overfill</span>
+            </div>
+          </div>
+          <div class="base-rule"></div>
+        </div>
+      </div>
+      <script>
+        (function () {
+          const tl = gsap.timeline({ paused: true });
+          const arrive = (s, t, y = 46, d = 0.42) => {
+            tl.set(s, { opacity: 1, y: y }, t);
+            tl.to(s, { y: 0, duration: d, ease: "power4.out" }, t);
+          };
+          const pop = (s, t, from = 0.88) =>
+            tl.fromTo(s, { opacity: 0, scale: from }, { opacity: 1, scale: 1, duration: 0.6, ease: "power3.out" }, t);
+          arrive("#s01-kicker", 0.2, 30, 0.3);
+          arrive("#s01-title", 0.3, 70, 0.5);
+          pop("#s01-tree", 1.2);
+          tl.fromTo("#s01-hit-bg", { opacity: 0, scaleX: 0.7 }, { opacity: 1, scaleX: 1, duration: 0.5, ease: "power3.out" }, 4.6);
+          pop("#s01-file", 9.6);
+          ["#s01-l1", "#s01-l2", "#s01-l3", "#s01-l4", "#s01-l5"].forEach((s, i) => arrive(s, 10.0 + i * 0.12, 26, 0.3));
+          pop("#s01-every", 12.8);
+          arrive("#s01-count", 15.8, 20, 0.3);
+          const n = document.getElementById("s01-count-n");
+          const st = { v: 5 };
+          tl.to(st, { v: 180, duration: 1.6, ease: "power2.in", onUpdate: () => (n.textContent = Math.round(st.v)) }, 16.3);
+          tl.fromTo(n, { scale: 0.8 }, { scale: 1.15, duration: 1.6, ease: "power2.in" }, 16.3);
+          pop("#s01-over", 17.9);
+          window.__timelines["s01"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

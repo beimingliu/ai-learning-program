@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template>
+      <style>
+        @font-face { font-family: "Literata"; src: url("assets/fonts/Literata-600.woff2") format("woff2"); font-weight: 600; }
+        @font-face { font-family: "IBM Plex Sans"; src: url("assets/fonts/IBMPlexSans-var.woff2") format("woff2"); font-weight: 100 700; }
+        @font-face { font-family: "JetBrains Mono"; src: url("assets/fonts/JetBrainsMono-var.woff2") format("woff2"); font-weight: 100 800; }
+        #s04-nest {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 1040px;
+          height: 580px;
+        }
+        .scope {
+          position: absolute;
+          border: 3px solid var(--blue);
+          border-radius: 18px;
+          padding: 22px 28px;
+        }
+        .scope .sh {
+          display: flex;
+          justify-content: space-between;
+          align-items: baseline;
+          gap: 20px;
+        }
+        .scope .name {
+          font-size: 32px;
+          font-weight: 700;
+          color: var(--ink);
+        }
+        .scope .who {
+          font-size: 24px;
+          font-weight: 600;
+          color: var(--blue);
+        }
+        .scope .path {
+          margin-top: 6px;
+          font-size: 22px;
+          color: var(--muted);
+        }
+        #s04-personal {
+          left: 0;
+          top: 0;
+          width: 1040px;
+          height: 580px;
+          background: #ffffff;
+        }
+        #s04-project {
+          left: 40px;
+          top: 128px;
+          width: 960px;
+          height: 420px;
+          background: var(--pale);
+        }
+        #s04-sub {
+          left: 40px;
+          top: 128px;
+          width: 874px;
+          height: 250px;
+          background: #ffffff;
+          border-style: dashed;
+        }
+        #s04-side {
+          position: absolute;
+          top: 0;
+          left: 1100px;
+          width: 580px;
+          height: 580px;
+        }
+        .note {
+          position: absolute;
+          left: 0;
+          width: 580px;
+          height: 176px;
+          padding: 22px 28px;
+        }
+        .note .t {
+          margin-top: 8px;
+          font-size: 26px;
+          font-weight: 600;
+          line-height: 1.35;
+          color: var(--ink);
+        }
+        .note .s {
+          margin-top: 8px;
+          font-size: 22px;
+          line-height: 1.35;
+          color: var(--muted);
+        }
+        #s04-n1 {
+          top: 0;
+        }
+        #s04-n2 {
+          top: 202px;
+        }
+        #s04-n3 {
+          top: 404px;
+        }
+        #s04-limit {
+          display: flex;
+          gap: 12px;
+          margin-top: 12px;
+        }
+        #s04-limit .pill {
+          white-space: nowrap;
+          font-size: 20px;
+          padding: 8px 16px;
+        }
+        #s04-def {
+          margin-top: 10px;
+          font-size: 22px;
+          line-height: 1.4;
+          color: var(--ink);
+        }
+        #s04-def b {
+          color: var(--blue);
+        }
+      </style>
+      <div id="root" data-composition-id="s04" data-width="1920" data-height="1080">
+        <div class="scene">
+          <div class="rail"><span>Where you put it</span><span>04 / 09</span></div>
+          <div class="rail-rule"></div>
+          <div class="head">
+            <span id="s04-kicker" class="kicker">Three places</span>
+            <span id="s04-title" class="title">Where the file lives decides <span class="hl">who it's for.</span></span>
+          </div>
+          <div class="stage">
+            <div id="s04-nest">
+              <div id="s04-personal" class="scope rv">
+                <div class="sh"><span class="name">Personal file</span><span class="who">You · every project</span></div>
+                <div class="path mono">~/.claude/CLAUDE.md</div>
+                <div id="s04-project" class="scope rv">
+                  <div class="sh"><span class="name">Project file</span><span class="who">Your team · shared folder</span></div>
+                  <div class="path mono">team-project/CLAUDE.md</div>
+                  <div id="s04-sub" class="scope rv">
+                    <div class="sh"><span class="name">Subfolder file</span><span class="who">Loads when Claude works there</span></div>
+                    <div class="path mono">team-project/snowflake/CLAUDE.md</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="s04-side">
+              <div id="s04-n1" class="note card rv">
+                <div class="label">Personal · your working style</div>
+                <div class="t">"Keep answers short" · "No pie charts"</div>
+                <div id="s04-limit" class="rv"><span class="pill">Course · under 100 lines</span><span class="pill pale">Docs: under 200</span></div>
+              </div>
+              <div id="s04-n2" class="note card pale rv">
+                <div class="label">Project · tables and metrics</div>
+                <div id="s04-def" class="mono rv"><b>AWV completion</b> = your team's one definition, written down once</div>
+                <div id="s04-guess" class="s rv">So Claude doesn't have to guess.</div>
+              </div>
+              <div id="s04-n3" class="note card rv">
+                <div class="label">Subfolder · only when needed</div>
+                <div class="t">A Snowflake rule stays out of the way until the work touches Snowflake.</div>
+              </div>
+            </div>
+          </div>
+          <div class="base-rule"></div>
+        </div>
+      </div>
+      <script>
+        (function () {
+          const tl = gsap.timeline({ paused: true });
+          const arrive = (s, t, y = 46, d = 0.42) => {
+            tl.set(s, { opacity: 1, y: y }, t);
+            tl.to(s, { y: 0, duration: d, ease: "power4.out" }, t);
+          };
+          const grow = (s, t) =>
+            tl.fromTo(s, { opacity: 0, scale: 0.94 }, { opacity: 1, scale: 1, duration: 0.7, ease: "power3.out" }, t);
+          arrive("#s04-kicker", 0.2, 30, 0.3);
+          arrive("#s04-title", 0.3, 70, 0.5);
+          grow("#s04-personal", 3.9);
+          arrive("#s04-n1", 8.1, 36, 0.4);
+          arrive("#s04-limit", 13.7, 20, 0.3);
+          grow("#s04-project", 17.2);
+          tl.to("#s04-personal", { borderColor: "rgba(0,61,165,0.35)", duration: 0.4 }, 17.2);
+          arrive("#s04-n2", 21.2, 36, 0.4);
+          arrive("#s04-def", 25.0, 20, 0.35);
+          arrive("#s04-guess", 29.6, 16, 0.3);
+          grow("#s04-sub", 31.8);
+          tl.to("#s04-project", { borderColor: "rgba(0,61,165,0.35)", duration: 0.4 }, 31.8);
+          tl.to("#s04-sub", { borderColor: "#FF6900", duration: 0.4 }, 38.5);
+          arrive("#s04-n3", 38.4, 36, 0.4);
+          window.__timelines["s04"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

@@ -1,7 +1,7 @@
 # Building with AI 201 — Everyday Agentic Work
 
 **Version:** 1.0  
-**Last content review:** August 12, 2026  
+**Last content review:** September 25, 2026  
 **Prerequisite:** AI Foundations 101 or its placement exercise  
 **Length:** Seven lessons, approximately 22 minutes, plus a 30–45 minute capstone
 
@@ -21,7 +21,7 @@ Analysts, operators, and early builders who want practical leverage without yet 
 
 ## Outcomes
 
-By the end, the learner can open the correct workspace, choose an approved access route, use model and effort controls deliberately, match autonomy to risk, steer and recover, independently inspect changes, and package one recurring task for reuse.
+By the end, the learner can open the correct workspace, choose an approved access route, use model and effort controls deliberately, match autonomy to risk, steer and recover, independently inspect changes, and package one recurring task for reuse. Permission modes, including auto mode, are taught here (B201.4) rather than in Foundations 101.
 
 ## Lesson map
 

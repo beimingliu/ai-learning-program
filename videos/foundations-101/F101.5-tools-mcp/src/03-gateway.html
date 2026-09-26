@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+  <head><meta charset="UTF-8"></head>
+  <body>
+    <template>
+      <style>
+        {{FONTS}}
+        #s03-head { position: absolute; left: 120px; top: 120px; width: 1680px; }
+        #s03-title { margin-top: 16px; }
+        #s03-glow { width: 1200px; height: 1200px; left: 400px; top: 150px; }
+        /* hub diagram */
+        #s03-hub { position: absolute; inset: 0; }
+        #s03-claude { left: 170px; top: 540px; }
+        #s03-gate { position: absolute; left: 640px; top: 520px; width: 380px; height: 230px; border-radius: 40px; background: var(--blue); color: #fff; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 24px 60px rgba(0,61,165,0.35); }
+        #s03-gate .g1 { font-family: "Literata", Georgia, serif; font-weight: 600; font-size: 50px; }
+        #s03-gate .g2 { font-size: 24px; font-weight: 600; color: var(--pale); }
+        #s03-badge { position: absolute; left: 700px; top: 478px; }
+        #s03-wires { position: absolute; inset: 0; width: 1920px; height: 1080px; overflow: visible; }
+        #s03-wires path { stroke-dasharray: 1; }
+        .s03-t { position: absolute; width: 110px; height: 110px; border-radius: 24px; background: #fff; border: 4px solid var(--pale); display: flex; align-items: center; justify-content: center; box-shadow: 0 12px 30px rgba(9,31,49,0.18); }
+        .s03-t svg { width: 58px; height: 58px; }
+        .s03-t.more { font-size: 24px; font-weight: 700; color: var(--blue); background: var(--pale); }
+        #s03-person { position: absolute; left: 445px; top: 575px; width: 120px; height: 120px; border-radius: 50%; background: var(--orange); color: var(--ink); display: flex; align-items: center; justify-content: center; box-shadow: 0 14px 34px rgba(255,105,0,0.45); }
+        #s03-person svg { width: 70px; height: 70px; }
+        #s03-cap { left: 170px; top: 900px; width: 1080px; line-height: 1.3; }
+        /* setup walk-through */
+        #s03-setup { position: absolute; inset: 0; }
+        #s03-term { position: absolute; left: 120px; top: 330px; width: 900px; height: 600px; border-radius: 22px; background: var(--t-bg); color: var(--t-fg); font-family: "JetBrains Mono", Menlo, monospace; overflow: hidden; box-shadow: 0 30px 70px rgba(9,31,49,0.35); }
+        #s03-term .bar { display: flex; align-items: center; gap: 16px; padding: 16px 26px; border-bottom: 1px solid var(--t-border); color: var(--t-muted); font-size: 20px; }
+        #s03-term .dt { display: flex; gap: 9px; }
+        #s03-term .dt i { width: 13px; height: 13px; border-radius: 50%; display: block; background: var(--t-border); }
+        #s03-tb { padding: 30px 34px; font-size: 28px; line-height: 1.55; }
+        #s03-typed { display: inline-block; overflow: hidden; white-space: nowrap; vertical-align: bottom; width: 0; }
+        .s03-row { display: flex; gap: 16px; white-space: nowrap; }
+        .t-coral { color: var(--t-coral); }
+        .t-green { color: var(--t-green); }
+        .t-muted { color: var(--t-muted); }
+        #s03-menu { margin-top: 18px; padding: 18px 22px; border: 1px solid var(--t-border); border-radius: 12px; }
+        #s03-menu .h { color: var(--t-muted); font-size: 22px; margin-bottom: 8px; }
+        .s03-opt { position: relative; padding: 2px 12px; border-radius: 8px; }
+        .s03-opt.sel { background: #2f3a4a; color: #fff; }
+        #s03-sub { margin: 6px 0 0 36px; }
+        #s03-ok { margin-top: 18px; }
+        /* browser mock */
+        #s03-web { position: absolute; left: 1100px; top: 330px; width: 700px; height: 600px; border-radius: 22px; background: #fff; border: 3px solid var(--pale); overflow: hidden; box-shadow: 0 30px 70px rgba(9,31,49,0.25); }
+        #s03-web .wb { height: 58px; background: var(--pale); display: flex; align-items: center; gap: 12px; padding: 0 22px; }
+        #s03-web .url { flex: 1; height: 34px; border-radius: 17px; background: #fff; font-size: 20px; line-height: 34px; padding-left: 18px; color: var(--muted); }
+        .s03-pg { position: absolute; left: 0; top: 58px; width: 100%; height: 542px; padding: 50px 60px; }
+        .s03-pg .h { font-family: "Literata", Georgia, serif; font-weight: 600; font-size: 44px; color: var(--ink); line-height: 1.15; }
+        .s03-pg .f { height: 60px; margin-top: 26px; border-radius: 14px; border: 3px solid var(--pale); }
+        .s03-btn { margin-top: 34px; display: inline-flex; padding: 16px 40px; border-radius: 14px; background: var(--blue); color: #fff; font-size: 30px; font-weight: 700; }
+        .s03-pg .svc { display: flex; align-items: center; gap: 22px; margin-top: 30px; font-size: 32px; font-weight: 600; color: var(--ink); }
+        .s03-pg .svc svg { width: 70px; height: 70px; }
+        #s03-cursor { position: absolute; left: 1500px; top: 900px; width: 44px; height: 54px; }
+        #s03-step { position: absolute; left: 120px; top: 960px; display: flex; gap: 18px; align-items: center; }
+        #s03-step .pill { font-size: 26px; padding: 10px 22px; }
+      </style>
+      <div id="root" data-composition-id="s03" data-width="1920" data-height="1080">
+        <div class="scene">
+          <div class="dots" id="s03-dots"></div>
+          <div id="s03-glow" class="glow"></div>
+          <div class="rail"><span>The Gateway you already have</span><span>03 <span class="dot-o">/</span> 07</span></div>
+          <div id="s03-head">
+            <span id="s03-kicker" class="kicker rv">Already installed</span>
+            <span id="s03-title" class="title rv">One approved connection, <span class="hl">many services.</span></span>
+          </div>
+
+          <div id="s03-hub">
+            <svg id="s03-wires" viewBox="0 0 1920 1080">
+              <path id="s03-w0" d="M370 635 L640 635" pathLength="1" fill="none" stroke="#003DA5" stroke-width="8" stroke-linecap="round" />
+              <path class="s03-w" d="M1024 635 C1204 635 1239 340 1439 340" pathLength="1" fill="none" stroke="#003DA5" stroke-width="5" stroke-linecap="round" />
+              <path class="s03-w" d="M1024 635 C1204 635 1339 460 1539 460" pathLength="1" fill="none" stroke="#003DA5" stroke-width="5" stroke-linecap="round" />
+              <path class="s03-w" d="M1024 635 C1204 635 1389 580 1589 580" pathLength="1" fill="none" stroke="#003DA5" stroke-width="5" stroke-linecap="round" />
+              <path class="s03-w" d="M1024 635 C1204 635 1389 700 1589 700" pathLength="1" fill="none" stroke="#003DA5" stroke-width="5" stroke-linecap="round" />
+              <path class="s03-w" d="M1024 635 C1204 635 1339 820 1539 820" pathLength="1" fill="none" stroke="#003DA5" stroke-width="5" stroke-linecap="round" />
+              <path class="s03-w" d="M1024 635 C1204 635 1239 940 1439 940" pathLength="1" fill="none" stroke="#003DA5" stroke-width="5" stroke-linecap="round" />
+              <circle class="s03-end" cx="1439" cy="340" r="7" fill="#003DA5" />
+              <circle class="s03-end" cx="1539" cy="460" r="7" fill="#003DA5" />
+              <circle class="s03-end" cx="1589" cy="580" r="7" fill="#003DA5" />
+              <circle class="s03-end" cx="1589" cy="700" r="7" fill="#003DA5" />
+              <circle class="s03-end" cx="1539" cy="820" r="7" fill="#003DA5" />
+              <circle class="s03-end" cx="1439" cy="940" r="7" fill="#003DA5" />
+              <circle id="s03-port" cx="1024" cy="635" r="11" fill="#FF6900" stroke="#fff" stroke-width="4" />
+            </svg>
+            <div id="s03-claude" class="claude rv">{{CLAUDE}}<div class="cap">Claude Code</div></div>
+            <div id="s03-gate" class="rv"><div class="g1">MCP Gateway</div><div class="g2">approved · already installed</div></div>
+            <div class="s03-t rv" style="left:1445px;top:285px">{{I:slack}}</div>
+            <div class="s03-t rv" style="left:1545px;top:405px">{{I:gmail}}</div>
+            <div class="s03-t rv" style="left:1595px;top:525px">{{I:jira}}</div>
+            <div class="s03-t rv" style="left:1595px;top:645px">{{I:googledrive}}</div>
+            <div class="s03-t rv" style="left:1545px;top:765px">{{I:glean}}</div>
+            <div class="s03-t more rv" style="left:1445px;top:885px">+ more</div>
+            <div id="s03-person" class="rv">{{I:person}}</div>
+            <div id="s03-cap" class="caption rv">For most services, it connects <b>as you.</b> Claude sees only what your account can see.</div>
+          </div>
+
+          <div id="s03-setup">
+            <div id="s03-term" class="rv">
+              <div class="bar"><span class="dt"><i></i><i></i><i></i></span><span>claude</span><span>~/analytics</span></div>
+              <div id="s03-tb">
+                <div class="s03-row"><span class="t-coral">&gt;</span><span id="s03-typed">/mcp</span></div>
+                <div id="s03-menu" class="rv">
+                  <div class="h">Manage MCP servers</div>
+                  <div id="s03-o1" class="s03-opt">❯ MCPGateway <span class="t-muted" id="s03-state">· needs sign-in</span></div>
+                  <div id="s03-sub" class="rv">
+                    <div id="s03-auth" class="s03-opt">Authenticate</div>
+                    <div id="s03-reauth" class="s03-opt t-muted">Re-authenticate</div>
+                  </div>
+                </div>
+                <div id="s03-ok" class="rv">
+                  <div class="s03-row"><span id="s03-retry" class="s03-opt">↻ Retry</span></div>
+                  <div class="s03-row"><span class="t-green">●</span><span>slack · search_messages</span><span class="t-green">done</span></div>
+                </div>
+              </div>
+            </div>
+            <div id="s03-web" class="rv">
+              <div class="wb"><span class="url">sign-in.example</span></div>
+              <div id="s03-pg1" class="s03-pg"><div class="h">Okta sign-in</div><div class="f"></div><div class="f"></div><div class="s03-btn">Sign in</div></div>
+              <div id="s03-pg2" class="s03-pg rv"><div class="h">Allow the Gateway to use this service?</div><div class="svc">{{I:slack}}Slack</div><div class="s03-btn" id="s03-approve">Approve</div></div>
+            </div>
+            <svg id="s03-cursor" class="rv" viewBox="0 0 44 54"><path d="M4 2 L4 44 L15 34 L23 52 L31 48 L23 31 L38 31 Z" fill="#091F31" stroke="#fff" stroke-width="3" /></svg>
+            <div id="s03-step">
+              <span class="pill blue rv" id="s03-s1">1 · /mcp → Authenticate</span>
+              <span class="pill pale rv" id="s03-s2">2 · approve each service once</span>
+              <span class="pill rv" id="s03-s3">3 · stopped working? Re-authenticate</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script>
+        (function () {
+          {{H}}
+          A("#s03-kicker", 0.2, { y: 20, d: 0.35 });
+          A("#s03-title", 0.35, { x: -80, y: 0, d: 0.6, e: "expo.out" });
+          P("#s03-claude", 1.2, { s: 0.3 });
+          tl.fromTo("#s03-gate", { opacity: 0, scaleY: 0.1, scaleX: 1.4 }, { opacity: 1, scaleY: 1, scaleX: 1, duration: 0.7, ease: "elastic.out(1, 0.7)" }, 6.2);
+          DRAW("#s03-w0", 6.6, 0.5);
+          DRAW(".s03-w", 7.9, 0.7, 0.08);
+          tl.fromTo(".s03-end", { scale: 0, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.3, ease: "back.out(3)", stagger: 0.08 }, 8.4);
+          tl.fromTo("#s03-port", { scale: 0, transformOrigin: "50% 50%" }, { scale: 1, duration: 0.35, ease: "back.out(3)" }, 7.7);
+          P(".s03-t", 8.2, { s: 0, st: 0.09, e: "back.out(2.2)" });
+          LOOP("#s03-gate", { scale: 1.03 }, 0.9, 9.4, 10.3);
+          // setup walk-through
+          tl.to("#s03-hub", { opacity: 0, scale: 0.92, duration: 0.4, ease: "power2.in" }, 10.2);
+          tl.fromTo("#s03-term", { opacity: 0, y: 80, rotationX: 18 }, { opacity: 1, y: 0, rotationX: 0, duration: 0.6, ease: "power3.out" }, 10.5);
+          tl.to("#s03-typed", { width: "4ch", duration: 0.6, ease: "steps(4)" }, 12.2);
+          A("#s03-menu", 13.0, { y: 20, d: 0.3 });
+          tl.to("#s03-o1", { backgroundColor: "#2f3a4a", duration: 0.2 }, 14.1);
+          A("#s03-sub", 15.3, { x: -20, y: 0, d: 0.3 });
+          tl.to("#s03-auth", { backgroundColor: "#2f3a4a", color: "#ffffff", duration: 0.2 }, 15.9);
+          P("#s03-s1", 15.9, { s: 0.4, d: 0.4 });
+          tl.fromTo("#s03-web", { opacity: 0, x: 200, rotationY: -25 }, { opacity: 1, x: 0, rotationY: 0, duration: 0.7, ease: "expo.out" }, 17.8);
+          tl.to("#s03-pg1", { x: -700, duration: 0.5, ease: "power3.inOut" }, 20.1);
+          tl.fromTo("#s03-pg2", { opacity: 1, x: 700 }, { x: 0, duration: 0.5, ease: "power3.inOut" }, 20.1);
+          tl.fromTo("#s03-cursor", { opacity: 0, x: 200, y: 120 }, { opacity: 1, x: -290, y: -90, duration: 1.2, ease: "power2.inOut" }, 21.6);
+          tl.to("#s03-approve", { keyframes: { scale: [1, 0.9, 1.05, 1] }, backgroundColor: "#FF6900", color: "#091F31", duration: 0.4 }, 22.9);
+          P("#s03-s2", 23.0, { s: 0.4, d: 0.4 });
+          tl.to("#s03-web, #s03-cursor", { opacity: 0.35, duration: 0.4 }, 24.4);
+          tl.to("#s03-menu", { opacity: 0.35, duration: 0.3 }, 24.6);
+          A("#s03-ok", 25.2, { y: 20, d: 0.35 });
+          tl.to("#s03-retry", { backgroundColor: "#2f3a4a", color: "#ffffff", duration: 0.2 }, 25.3);
+          // re-authenticate
+          tl.to("#s03-ok", { opacity: 0.25, duration: 0.3 }, 28.0);
+          tl.to("#s03-menu", { opacity: 1, duration: 0.3 }, 28.0);
+          tl.set("#s03-state", { textContent: "· sign-in expired" }, 28.0);
+          tl.to("#s03-auth", { backgroundColor: "rgba(0,0,0,0)", color: "#9b9b9b", duration: 0.2 }, 30.4);
+          tl.to("#s03-reauth", { backgroundColor: "#2f3a4a", color: "#ffffff", duration: 0.2 }, 30.5);
+          P("#s03-s3", 30.5, { s: 0.4, d: 0.4 });
+          // back to hub: connects as you
+          tl.to("#s03-setup", { opacity: 0, y: 40, duration: 0.4, ease: "power2.in" }, 33.2);
+          tl.to("#s03-hub", { opacity: 1, scale: 1, duration: 0.5, ease: "power3.out" }, 33.5);
+          tl.fromTo("#s03-person", { opacity: 0, scale: 3, y: -200 }, { opacity: 1, scale: 1, y: 0, duration: 0.45, ease: "power4.in" }, 34.6);
+          tl.to("#s03-w0", { keyframes: { strokeWidth: [8, 14, 8] }, duration: 0.3 }, 35.05);
+          tl.to(".s03-t", { borderColor: "#FF6900", duration: 0.3, stagger: 0.06 }, 35.3);
+          tl.to(".s03-w", { stroke: "#FF6900", duration: 0.3, stagger: 0.06 }, 35.3);
+          tl.to(".s03-end", { fill: "#FF6900", duration: 0.3, stagger: 0.06 }, 35.3);
+          tl.to("#s03-w0", { stroke: "#FF6900", duration: 0.3 }, 35.1);
+          A("#s03-cap", 36.4, { y: 24, d: 0.45 });
+          LOOP("#s03-person", { scale: 1.08 }, 0.6, 36.2, 40.4);
+          LOOP("#s03-glow", { scale: 1.12, x: 80 }, 3.3, 0, 40);
+          tl.to("#s03-dots", { x: -44, duration: 40.7, ease: "none" }, 0);
+          window.__timelines["s03"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

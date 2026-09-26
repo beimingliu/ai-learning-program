@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head><meta charset="UTF-8"></head>
+  <body>
+    <template>
+      <style>
+        {{FONTS}}
+        #s07-head { position: absolute; left: 120px; top: 120px; width: 1680px; }
+        #s07-title { margin-top: 16px; }
+        #s07-glow { width: 1100px; height: 1100px; left: 900px; top: 200px; }
+        #s07-ghost { left: 60px; top: 720px; }
+        #s07-prompt { position: absolute; left: 120px; top: 360px; width: 980px; padding: 34px 40px; border-radius: 28px; background: var(--ink); color: #fff; box-shadow: 0 24px 60px rgba(9,31,49,0.35); }
+        #s07-prompt .k { font-size: 22px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--orange); }
+        #s07-prompt .t { margin-top: 16px; font-family: "JetBrains Mono", Menlo, monospace; font-size: 30px; line-height: 1.5; }
+        .s07-seg { opacity: 0.5; }
+        .s07-seg.hot { color: var(--orange); }
+        #s07-res { position: absolute; left: 1180px; top: 360px; width: 620px; padding: 30px 34px; border-radius: 26px; background: #fff; border: 4px solid var(--blue); color: var(--ink); box-shadow: 0 24px 60px rgba(9,31,49,0.25); }
+        #s07-res .h { font-size: 30px; font-weight: 700; }
+        #s07-res .bar { height: 14px; border-radius: 7px; background: var(--pale); margin-top: 14px; }
+        .s07-link { margin-top: 18px; display: flex; align-items: center; gap: 14px; padding: 14px 18px; border-radius: 16px; background: var(--pale); font-size: 26px; font-weight: 700; color: var(--blue); }
+        .s07-link svg { width: 40px; height: 40px; }
+        #s07-src { position: absolute; left: 1180px; top: 360px; width: 620px; height: 440px; border-radius: 26px; background: #fff; border: 4px solid var(--orange); padding: 30px 34px; color: var(--ink); box-shadow: 0 24px 60px rgba(9,31,49,0.3); }
+        #s07-src .h { display: flex; align-items: center; gap: 16px; font-size: 30px; font-weight: 700; }
+        #s07-src svg { width: 52px; height: 52px; }
+        #s07-src .bar { height: 14px; border-radius: 7px; background: var(--pale); margin-top: 16px; }
+        #s07-match { position: absolute; left: 34px; top: 190px; width: 552px; height: 60px; border-radius: 10px; background: rgba(255,105,0,0.25); border: 3px solid var(--orange); }
+        #s07-cursor { position: absolute; left: 1300px; top: 900px; width: 44px; height: 54px; }
+        #s07-steps { position: absolute; left: 120px; top: 880px; display: flex; align-items: center; gap: 20px; }
+        #s07-steps .pill { font-size: 30px; padding: 14px 28px; }
+        #s07-steps .ar { font-size: 40px; font-weight: 700; color: var(--blue); }
+        #s07-check { position: absolute; left: 1640px; top: 290px; width: 150px; height: 150px; }
+      </style>
+      <div id="root" data-composition-id="s07" data-width="1920" data-height="1080">
+        <div class="scene">
+          <div class="dots" id="s07-dots"></div>
+          <div id="s07-glow" class="glow warm"></div>
+          <svg id="s07-ghost" class="ghost" aria-hidden="true" width="1400" height="330" viewBox="0 0 1400 330"><text x="0" y="280" font-family="Literata, Georgia, serif" font-weight="600" font-size="360" fill="#003DA5" fill-opacity="0.07">try it</text></svg>
+          <div class="rail"><span>Make one research request</span><span>07 <span class="dot-o">/</span> 07</span></div>
+          <div id="s07-head">
+            <span id="s07-kicker" class="kicker rv">Your turn</span>
+            <span id="s07-title" class="title rv">One question you'd <span class="hl">dig through docs</span> to answer.</span>
+          </div>
+          <div id="s07-prompt" class="rv">
+            <div class="k">Ask Claude</div>
+            <div class="t"><span class="s07-seg hot" id="s07-p1">Search Glean for how we define metric X.</span> <span class="s07-seg" id="s07-p2">Summarize it,</span> <span class="s07-seg" id="s07-p3">link each source,</span> <span class="s07-seg hot" id="s07-p4">and change nothing.</span></div>
+          </div>
+          <div id="s07-res" class="rv"><div class="h">Metric X: summary</div><div class="bar"></div><div class="bar" style="width:80%"></div><div class="bar" style="width:60%"></div><div class="s07-link" id="s07-l1">{{I:confluence}}↗ Metric X · team page</div><div class="s07-link">{{I:googledrive}}↗ Metric X notes</div></div>
+          <div id="s07-src" class="rv"><div class="h">{{I:confluence}}Metric X · team page</div><div class="bar"></div><div class="bar" style="width:70%"></div><div class="bar" style="width:90%;margin-top:40px"></div><div class="bar" style="width:50%"></div><div id="s07-match"></div><div class="bar" style="margin-top:100px"></div><div class="bar" style="width:65%"></div></div>
+          <svg id="s07-cursor" class="rv" viewBox="0 0 44 54"><path d="M4 2 L4 44 L15 34 L23 52 L31 48 L23 31 L38 31 Z" fill="#091F31" stroke="#fff" stroke-width="3" /></svg>
+          <div id="s07-check" class="rv">{{I:check}}</div>
+          <div id="s07-steps">
+            <span class="pill blue rv" id="s07-s1">ask</span><span class="ar rv" id="s07-a1">→</span>
+            <span class="pill pale rv" id="s07-s2">summary with links</span><span class="ar rv" id="s07-a2">→</span>
+            <span class="pill rv" id="s07-s3">open one link and check</span>
+          </div>
+        </div>
+      </div>
+      <script>
+        (function () {
+          {{H}}
+          A("#s07-kicker", 0.1, { y: 20, d: 0.3 });
+          A("#s07-title", 0.25, { y: 60, d: 0.6, e: "expo.out" });
+          tl.fromTo("#s07-prompt", { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.5, ease: "power4.out" }, 3.6);
+          tl.to("#s07-p1", { opacity: 1, duration: 0.5 }, 4.4);
+          P("#s07-s1", 4.6, { s: 0.4, d: 0.4 });
+          tl.to("#s07-p2", { opacity: 1, duration: 0.4 }, 7.2);
+          tl.to("#s07-p3", { opacity: 1, duration: 0.4 }, 9.1);
+          tl.to("#s07-p4", { opacity: 1, duration: 0.4 }, 10.5);
+          tl.fromTo("#s07-res", { opacity: 0, x: 120, rotationY: -25 }, { opacity: 1, x: 0, rotationY: 0, duration: 0.6, ease: "expo.out" }, 7.6);
+          P("#s07-a1", 8.0, { s: 0, d: 0.3 });
+          P("#s07-s2", 8.1, { s: 0.4, d: 0.4 });
+          tl.fromTo("#s07-cursor", { opacity: 0, x: 0, y: 0 }, { opacity: 1, x: -20, y: -290, duration: 0.8, ease: "power2.inOut" }, 11.6);
+          tl.to("#s07-l1", { keyframes: { scale: [1, 0.95, 1.03, 1] }, backgroundColor: "#FF6900", color: "#091F31", duration: 0.35 }, 12.4);
+          tl.fromTo("#s07-src", { opacity: 0, scale: 0.5, x: -200, y: 150 }, { opacity: 1, scale: 1, x: 0, y: 0, duration: 0.6, ease: "back.out(1.4)" }, 12.9);
+          tl.to("#s07-cursor", { opacity: 0, duration: 0.2 }, 12.9);
+          tl.to("#s07-prompt", { opacity: 0, x: -80, duration: 0.35, ease: "power2.in" }, 12.6);
+          tl.to("#s07-res", { x: -1060, duration: 0.6, ease: "power3.inOut" }, 12.7);
+          P("#s07-a2", 13.3, { s: 0, d: 0.3 });
+          P("#s07-s3", 13.4, { s: 0.4, d: 0.4 });
+          tl.fromTo("#s07-match", { opacity: 0, scaleX: 0 }, { opacity: 1, scaleX: 1, transformOrigin: "left center", duration: 0.5, ease: "power3.out" }, 14.7);
+          tl.fromTo("#s07-check", { opacity: 0, scale: 0, rotation: -90 }, { opacity: 1, scale: 1, rotation: 0, duration: 0.55, ease: "back.out(2.4)" }, 15.3);
+          LOOP("#s07-glow", { scale: 1.12 }, 2.5, 0, 16.5);
+          tl.to("#s07-ghost", { x: 120, duration: 17, ease: "none" }, 0);
+          window.__timelines["s07"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1920, height=1080">
+    <title>F101.4 CLAUDE.md and Auto Memory</title>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.14.2/dist/gsap.min.js"></script>
+    <style>
+      @font-face {
+        font-family: "Literata";
+        src: url("assets/fonts/Literata-600.woff2") format("woff2");
+        font-weight: 600;
+      }
+      @font-face {
+        font-family: "IBM Plex Sans";
+        src: url("assets/fonts/IBMPlexSans-var.woff2") format("woff2");
+        font-weight: 100 700;
+      }
+      @font-face {
+        font-family: "JetBrains Mono";
+        src: url("assets/fonts/JetBrainsMono-var.woff2") format("woff2");
+        font-weight: 100 800;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        width: 1920px;
+        height: 1080px;
+        overflow: hidden;
+        background: #ffffff;
+      }
+      :root {
+        --blue: #003da5;
+        --pale: #eaf2ff;
+        --orange: #ff6900;
+        --ink: #091f31;
+        --muted: rgba(9, 31, 49, 0.72);
+        --line: rgba(0, 61, 165, 0.28);
+        --t-bg: #1e1e1e;
+        --t-elev: #262626;
+        --t-fg: #e5e5e5;
+        --t-muted: #9b9b9b;
+        --t-faint: #808080;
+        --t-border: #3a3a3a;
+        --t-coral: #d97757;
+        --t-green: #4ebe96;
+        --t-info: #5a9cf8;
+      }
+      #root {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        font-family: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+        color: var(--ink);
+      }
+      #root > div[data-composition-src] {
+        position: absolute;
+        inset: 0;
+      }
+
+      /* Shared course shell (A-1, full-frame voice-only variant) */
+      .scene {
+        position: absolute;
+        inset: 0;
+        background: #ffffff;
+        overflow: hidden;
+      }
+      .scene.dark {
+        background: var(--ink);
+        color: #ffffff;
+      }
+      .rail {
+        position: absolute;
+        top: 58px;
+        left: 120px;
+        right: 120px;
+        display: flex;
+        justify-content: space-between;
+        font-size: 22px;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--blue);
+      }
+      .rail-rule {
+        position: absolute;
+        top: 104px;
+        left: 120px;
+        width: 1680px;
+        height: 3px;
+        background: var(--blue);
+      }
+      .base-rule {
+        position: absolute;
+        bottom: 52px;
+        left: 120px;
+        width: 1680px;
+        height: 3px;
+        background: var(--blue);
+      }
+      .dark .rail {
+        color: #ffffff;
+      }
+      .dark .rail-rule {
+        background: var(--orange);
+      }
+      .dark .base-rule {
+        background: var(--orange);
+      }
+      .head {
+        position: absolute;
+        top: 150px;
+        left: 120px;
+        width: 1680px;
+      }
+      .kicker {
+        display: block;
+        font-size: 22px;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--blue);
+        opacity: 0;
+      }
+      .dark .kicker {
+        color: #ffffff;
+      }
+      .title {
+        display: block;
+        margin-top: 18px;
+        max-width: 1600px;
+        font-family: "Literata", Georgia, serif;
+        font-weight: 600;
+        font-size: 74px;
+        line-height: 1.1;
+        letter-spacing: -0.015em;
+        color: var(--ink);
+        opacity: 0;
+      }
+      .dark .title {
+        color: #ffffff;
+      }
+      .hl {
+        color: var(--blue);
+      }
+      .dark .hl {
+        color: var(--orange);
+      }
+      .stage {
+        position: absolute;
+        top: 390px;
+        left: 120px;
+        width: 1680px;
+        height: 580px;
+      }
+      .rv {
+        opacity: 0;
+      }
+      .card {
+        border: 3px solid var(--blue);
+        border-radius: 18px;
+        background: #ffffff;
+      }
+      .card.pale {
+        background: var(--pale);
+      }
+      .card.warn {
+        border-color: var(--orange);
+      }
+      .label {
+        font-size: 20px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--blue);
+      }
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 26px;
+        border-radius: 999px;
+        background: var(--orange);
+        color: var(--ink);
+        font-size: 28px;
+        font-weight: 700;
+      }
+      .pill.blue {
+        background: var(--blue);
+        color: #ffffff;
+      }
+      .pill.pale {
+        background: var(--pale);
+        color: var(--blue);
+      }
+      .mono {
+        font-family: "JetBrains Mono", Menlo, monospace;
+        font-variant-ligatures: none;
+      }
+      .serif {
+        font-family: "Literata", Georgia, serif;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+      }
+      .rule-line {
+        display: block;
+        height: 5px;
+        border-radius: 3px;
+        background: var(--orange);
+        transform-origin: left center;
+      }
+      .num {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        flex: 0 0 auto;
+        width: 46px;
+        height: 46px;
+        border-radius: 50%;
+        background: var(--pale);
+        color: var(--blue);
+        font-size: 20px;
+        font-weight: 700;
+      }
+      .num.on {
+        background: var(--orange);
+        color: var(--ink);
+      }
+      /* Claude Code terminal surface (tokens mirror shared/cc-cli-refence) */
+      .term {
+        background: var(--t-bg);
+        border-radius: 18px;
+        color: var(--t-fg);
+        font-family: "JetBrains Mono", Menlo, monospace;
+        font-variant-ligatures: none;
+        overflow: hidden;
+      }
+      .term .bar {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        padding: 18px 30px;
+        border-bottom: 1px solid var(--t-border);
+        color: var(--t-muted);
+        font-size: 20px;
+      }
+      .term .dots {
+        display: flex;
+        gap: 10px;
+      }
+      .term .dots i {
+        display: block;
+        width: 14px;
+        height: 14px;
+        border-radius: 50%;
+      }
+      .term .dots i:nth-child(1) {
+        background: #e5484d;
+      }
+      .term .dots i:nth-child(2) {
+        background: #e0a458;
+      }
+      .term .dots i:nth-child(3) {
+        background: #4ebe96;
+      }
+      .t-coral {
+        color: var(--t-coral);
+      }
+      .t-green {
+        color: var(--t-green);
+      }
+      .t-info {
+        color: var(--t-info);
+      }
+      .t-muted {
+        color: var(--t-muted);
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root" data-composition-id="main" data-start="0" data-width="1920" data-height="1080" data-duration="208.5">
+      <div id="el-s00" data-composition-id="s00" data-composition-src="compositions/00-series-introduction.html" data-start="0" data-duration="8.4" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div id="el-s01" data-composition-id="s01" data-composition-src="compositions/01-the-file.html" data-start="8.4" data-duration="18.7" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div id="el-s02" data-composition-id="s02" data-composition-src="compositions/02-eighty-percent.html" data-start="27.1" data-duration="15" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div id="el-s03" data-composition-id="s03" data-composition-src="compositions/03-write-less.html" data-start="42.1" data-duration="29.45" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div id="el-s04" data-composition-id="s04" data-composition-src="compositions/04-three-places.html" data-start="71.55" data-duration="44.05" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div id="el-s05" data-composition-id="s05" data-composition-src="compositions/05-no-tiebreaker.html" data-start="115.6" data-duration="18" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div id="el-s06" data-composition-id="s06" data-composition-src="compositions/06-guidance.html" data-start="133.6" data-duration="9.3" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div id="el-s07" data-composition-id="s07" data-composition-src="compositions/07-auto-memory.html" data-start="142.9" data-duration="22.1" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div id="el-s08" data-composition-id="s08" data-composition-src="compositions/08-one-line.html" data-start="165" data-duration="33.5" data-track-index="1" data-width="1920" data-height="1080"></div>
+      <div id="el-s09" data-composition-id="s09" data-composition-src="compositions/09-continue-learning.html" data-start="198.5" data-duration="10" data-track-index="1" data-width="1920" data-height="1080"></div>
+
+      <audio id="narration" src="audio/f1014-narration-bliu.wav" data-start="0" data-duration="206.97" data-track-index="10" data-volume="1"></audio>
+    </div>
+    <script>
+      window.__timelines["main"] = gsap.timeline({ paused: true });
+    </script>
+  </body>
+</html>

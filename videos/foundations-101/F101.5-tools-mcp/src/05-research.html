@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+  <head><meta charset="UTF-8"></head>
+  <body>
+    <template>
+      <style>
+        {{FONTS}}
+        #s05-head { position: absolute; left: 120px; top: 120px; width: 1680px; }
+        #s05-title { margin-top: 16px; }
+        #s05-q { position: absolute; left: 120px; top: 300px; display: flex; align-items: center; gap: 18px; padding: 18px 30px; border-radius: 24px; background: var(--pale); font-size: 34px; font-weight: 600; color: var(--ink); }
+        #s05-q .av { width: 56px; height: 56px; border-radius: 50%; background: var(--orange); color: var(--ink); display: flex; align-items: center; justify-content: center; font-weight: 700; }
+        .s05-lane { position: absolute; top: 420px; width: 820px; height: 520px; border-radius: 32px; }
+        #s05-L { left: 120px; background: #fff; border: 4px solid var(--pale); }
+        #s05-R { left: 980px; background: var(--ink); }
+        .s05-lh { position: absolute; left: 34px; top: 24px; font-size: 24px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; }
+        #s05-L .s05-lh { color: var(--blue); }
+        #s05-R .s05-lh { color: var(--orange); }
+        .s05-clock { position: absolute; right: 30px; top: 18px; display: flex; align-items: center; gap: 12px; font-size: 24px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+        #s05-L .s05-clock { color: var(--ink); }
+        #s05-R .s05-clock { color: #fff; }
+        .s05-dial { width: 48px; height: 48px; border-radius: 50%; border: 4px solid currentColor; position: relative; }
+        .s05-hand { position: absolute; left: 20px; top: 4px; width: 4px; height: 18px; border-radius: 2px; background: currentColor; transform-origin: 2px 18px; }
+        /* by hand: stacked windows */
+        .s05-win { position: absolute; width: 520px; height: 300px; border-radius: 20px; background: #fff; border: 4px solid var(--blue); box-shadow: 0 14px 34px rgba(9,31,49,0.18); padding: 20px 24px; }
+        .s05-win .wh { display: flex; align-items: center; gap: 14px; font-size: 26px; font-weight: 700; color: var(--ink); }
+        .s05-win svg { width: 44px; height: 44px; }
+        .s05-win .bar { height: 14px; border-radius: 7px; background: var(--pale); margin-top: 16px; }
+        #s05-w1 { left: 40px; top: 100px; }
+        #s05-w2 { left: 140px; top: 150px; }
+        #s05-w3 { left: 240px; top: 200px; }
+        #s05-hcur { position: absolute; left: 600px; top: 420px; width: 44px; height: 54px; }
+        #s05-sigh { position: absolute; left: 40px; bottom: 26px; font-size: 26px; font-weight: 600; color: var(--muted); }
+        /* with Claude */
+        #s05-cl { position: absolute; left: 40px; top: 100px; width: 110px; height: 110px; border-radius: 50%; background: #fff; display: flex; align-items: center; justify-content: center; }
+        #s05-cl svg { width: 64px; height: 64px; }
+        .s05-call { position: absolute; left: 180px; display: flex; align-items: center; gap: 12px; padding: 10px 20px; border-radius: 999px; background: var(--pale); color: var(--ink); font-family: "JetBrains Mono", monospace; font-size: 22px; font-weight: 600; white-space: nowrap; }
+        .s05-call .svc { color: var(--blue); font-weight: 800; }
+        .s05-call .ok { color: var(--blue); font-weight: 800; }
+        #s05-c1 { top: 104px; }
+        #s05-c2 { top: 164px; }
+        #s05-c3 { top: 224px; }
+        #s05-docs { position: absolute; left: 180px; top: 292px; display: flex; gap: 14px; }
+        .s05-doc { width: 92px; height: 110px; border-radius: 12px; background: #fff; display: flex; align-items: center; justify-content: center; }
+        .s05-doc svg { width: 52px; height: 52px; }
+        #s05-sum { position: absolute; left: 40px; top: 300px; width: 740px; padding: 22px 26px; border-radius: 22px; background: #fff; color: var(--ink); box-shadow: 0 20px 50px rgba(0,0,0,0.4); }
+        #s05-sum .h { font-size: 28px; font-weight: 700; }
+        #s05-sum .bar { height: 14px; border-radius: 7px; background: var(--pale); margin-top: 14px; }
+        #s05-sum .links { display: flex; gap: 12px; margin-top: 18px; }
+        #s05-sum .links .pill { font-size: 22px; padding: 8px 16px; }
+        #s05-done { position: absolute; right: 30px; bottom: 26px; }
+        /* cautions */
+        #s05-cau { position: absolute; inset: 0; }
+        .s05-cc { position: absolute; top: 400px; width: 800px; height: 540px; border-radius: 32px; padding: 40px 46px; }
+        #s05-k1 { left: 120px; background: var(--pale); }
+        #s05-k2 { left: 1000px; background: var(--ink); color: #fff; }
+        .s05-cc .n { font-family: "Literata", Georgia, serif; font-weight: 600; font-size: 44px; line-height: 1.15; }
+        #s05-k1 .n { color: var(--ink); }
+        .s05-cc .s { margin-top: 18px; font-size: 28px; font-weight: 500; line-height: 1.35; }
+        #s05-k1 .s { color: var(--ink); }
+        #s05-k2 .s { color: var(--pale); }
+        #s05-k2 .n b { color: var(--orange); }
+        #s05-k1 .n b { color: var(--blue); }
+        #s05-empty { position: absolute; left: 46px; bottom: 40px; width: 708px; height: 170px; border-radius: 22px; background: #fff; border: 4px dashed var(--blue); display: flex; align-items: center; justify-content: center; gap: 22px; font-size: 28px; font-weight: 700; color: var(--blue); }
+        #s05-empty svg { width: 60px; height: 60px; }
+        #s05-doorlock { opacity: 0; }
+        #s05-lag { position: absolute; left: 46px; bottom: 40px; width: 708px; height: 170px; }
+        .s05-lagrow { position: absolute; left: 0; width: 708px; height: 70px; border-radius: 16px; display: flex; align-items: center; gap: 16px; padding: 0 20px; font-size: 24px; font-weight: 700; }
+        #s05-lr1 { top: 0; background: rgba(234,242,255,0.14); color: #fff; }
+        #s05-lr2 { top: 92px; background: #fff; color: var(--ink); }
+        .s05-dotrow { display: flex; gap: 10px; }
+        .s05-dotrow i { display: block; width: 26px; height: 26px; border-radius: 50%; background: var(--orange); }
+        #s05-lr1 .s05-dotrow i { background: var(--pale); }
+        #s05-lr1 .s05-dotrow i.miss { background: transparent; border: 3px dashed var(--pale); }
+      </style>
+      <div id="root" data-composition-id="s05" data-width="1920" data-height="1080">
+        <div class="scene">
+          <div class="dots" id="s05-dots"></div>
+          <div class="rail"><span>Let Claude do the research</span><span>05 <span class="dot-o">/</span> 07</span></div>
+          <div id="s05-head">
+            <span id="s05-kicker" class="kicker rv">Glean</span>
+            <span id="s05-title" class="title rv">Where this <span class="hl">saves the most time.</span></span>
+          </div>
+          <div id="s05-race">
+            <div id="s05-q" class="rv"><span class="av">?</span>"How does your team define metric X?"</div>
+            <div id="s05-L" class="s05-lane rv">
+              <div class="s05-lh">By hand</div>
+              <div class="s05-clock"><span class="s05-dial"><span class="s05-hand" id="s05-h1"></span></span><span>time spent</span></div>
+              <div id="s05-w1" class="s05-win rv"><div class="wh">{{I:confluence}}Confluence · search</div><div class="bar"></div><div class="bar" style="width:70%"></div></div>
+              <div id="s05-w2" class="s05-win rv"><div class="wh">{{I:googledrive}}Drive · search</div><div class="bar"></div><div class="bar" style="width:60%"></div></div>
+              <div id="s05-w3" class="s05-win rv"><div class="wh">{{I:slack}}Slack · search</div><div class="bar"></div><div class="bar" style="width:80%"></div></div>
+              <svg id="s05-hcur" class="rv" viewBox="0 0 44 54"><path d="M4 2 L4 44 L15 34 L23 52 L31 48 L23 31 L38 31 Z" fill="#091F31" stroke="#fff" stroke-width="3" /></svg>
+              <div id="s05-sigh" class="rv">…still looking</div>
+            </div>
+            <div id="s05-R" class="s05-lane rv">
+              <div class="s05-lh">With Claude</div>
+              <div class="s05-clock"><span class="s05-dial"><span class="s05-hand" id="s05-h2"></span></span><span>time spent</span></div>
+              <div id="s05-cl" class="rv">{{CLAUDE}}</div>
+              <div id="s05-c1" class="s05-call rv"><span class="svc">glean</span>· search "metric X definition"<span class="ok">✓</span></div>
+              <div id="s05-c2" class="s05-call rv"><span class="svc">glean</span>· search "metric X numerator"<span class="ok">✓</span></div>
+              <div id="s05-c3" class="s05-call rv"><span class="svc">glean</span>· search "metric X team doc"<span class="ok">✓</span></div>
+              <div id="s05-docs"><div class="s05-doc rv">{{I:confluence}}</div><div class="s05-doc rv">{{I:googledrive}}</div><div class="s05-doc rv">{{I:slack}}</div></div>
+              <div id="s05-sum" class="rv"><div class="h">Metric X: how Team A defines it</div><div class="bar"></div><div class="bar" style="width:75%"></div><div class="links"><span class="pill pale">↗ team page</span><span class="pill pale">↗ notes doc</span></div></div>
+              <span id="s05-done" class="pill rv">done · 2 sources linked</span>
+            </div>
+          </div>
+          <div id="s05-cau">
+            <div id="s05-k1" class="s05-cc rv">
+              <div class="n">Empty result? It may be <b>access</b>, not absence.</div>
+              <div class="s">Glean only finds what you can already open.</div>
+              <div id="s05-empty">{{I:glean}}<span>0 results</span><span id="s05-doorlock">{{I:lock}}</span></div>
+            </div>
+            <div id="s05-k2" class="s05-cc rv">
+              <div class="n">For Slack, ask for <b>Slack directly.</b></div>
+              <div class="s">Glean's copy of Slack is delayed and can miss messages.</div>
+              <div id="s05-lag">
+                <div id="s05-lr1" class="s05-lagrow"><span style="width:180px">via Glean</span><span class="s05-dotrow"><i></i><i></i><i class="miss"></i><i></i><i class="miss"></i><i class="miss"></i></span></div>
+                <div id="s05-lr2" class="s05-lagrow"><span style="width:180px">Slack direct</span><span class="s05-dotrow"><i></i><i></i><i></i><i></i><i></i><i></i></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <script>
+        (function () {
+          {{H}}
+          A("#s05-kicker", 0.2, { y: 20, d: 0.35 });
+          A("#s05-title", 0.35, { y: 60, d: 0.6, e: "expo.out" });
+          tl.fromTo("#s05-q", { opacity: 0, scale: 0.6, x: -40 }, { opacity: 1, scale: 1, x: 0, duration: 0.55, ease: "back.out(1.8)" }, 3.5);
+          tl.fromTo("#s05-L", { opacity: 0, x: -120 }, { opacity: 1, x: 0, duration: 0.6, ease: "power4.out" }, 7.2);
+          // by hand: three searches, clock crawls
+          tl.to("#s05-h1", { rotation: 360 * 14, duration: 17, ease: "none" }, 7.6);
+          tl.fromTo("#s05-hcur", { opacity: 0, x: 0, y: 0 }, { opacity: 1, x: -380, y: -220, duration: 0.7, ease: "power2.inOut" }, 7.8);
+          A("#s05-w1", 8.3, { y: 40, d: 0.4, e: "power2.out" });
+          tl.to("#s05-hcur", { x: -270, y: -170, duration: 0.6, ease: "power2.inOut" }, 9.6);
+          A("#s05-w2", 9.9, { y: 40, d: 0.4, e: "power2.out" });
+          tl.to("#s05-hcur", { x: -160, y: -120, duration: 0.6, ease: "power2.inOut" }, 10.6);
+          A("#s05-w3", 10.9, { y: 40, d: 0.4, e: "power2.out" });
+          // with Claude
+          tl.fromTo("#s05-R", { opacity: 0, x: 120 }, { opacity: 1, x: 0, duration: 0.6, ease: "expo.out" }, 11.6);
+          P("#s05-cl", 12.0, { s: 0.3 });
+          tl.to("#s05-h2", { rotation: 360, duration: 12, ease: "none" }, 12.2);
+          tl.fromTo("#s05-c1", { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.35, ease: "power4.out" }, 13.2);
+          P(".s05-doc", 14.4, { s: 0.2, st: 0.2, e: "back.out(2)" });
+          tl.fromTo("#s05-c2", { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.35, ease: "expo.out" }, 20.8);
+          tl.fromTo("#s05-c3", { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.35, ease: "circ.out" }, 21.6);
+          tl.to("#s05-docs", { y: 150, opacity: 0, duration: 0.3, ease: "power2.in" }, 16.6);
+          tl.fromTo("#s05-sum", { opacity: 0, y: 120, scale: 0.8 }, { opacity: 1, y: 60, scale: 1, duration: 0.6, ease: "back.out(1.6)" }, 16.9);
+          P("#s05-done", 25.6, { s: 0.4, d: 0.45 });
+          A("#s05-sigh", 25.8, { y: 16, d: 0.35 });
+          tl.to("#s05-L", { opacity: 0.55, duration: 0.5 }, 25.6);
+          tl.to("#s05-w1, #s05-w2, #s05-w3", { rotation: function (i) { return [-4, 3, -2][i]; }, duration: 0.5, ease: "power2.out" }, 25.6);
+          // cautions
+          tl.to("#s05-race", { opacity: 0, y: -30, duration: 0.4, ease: "power2.in" }, 28.7);
+          tl.set("#s05-kicker", { textContent: "Two things worth knowing" }, 29.1);
+          tl.set("#s05-title", { innerHTML: "Glean is fast, <span class=\"hl\">not perfect.</span>" }, 29.1);
+          tl.fromTo("#s05-title", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.45, ease: "expo.out" }, 29.1);
+          tl.fromTo("#s05-k1", { opacity: 0, rotationY: -70, x: -60 }, { opacity: 1, rotationY: 0, x: 0, duration: 0.7, ease: "power3.out" }, 30.9);
+          tl.fromTo("#s05-empty", { scale: 0.8 }, { keyframes: { scale: [0.8, 1.04, 1] }, duration: 0.5 }, 35.2);
+          tl.to("#s05-doorlock", { opacity: 1, duration: 0.3 }, 36.8);
+          tl.fromTo("#s05-k2", { opacity: 0, rotationY: 70, x: 60 }, { opacity: 1, rotationY: 0, x: 0, duration: 0.7, ease: "power3.out" }, 40.4);
+          tl.fromTo("#s05-lr1 i", { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.25, stagger: 0.25, ease: "power2.out" }, 45.0);
+          tl.fromTo("#s05-lr2 i", { opacity: 0, x: -30 }, { opacity: 1, x: 0, duration: 0.2, stagger: 0.1, ease: "power2.out" }, 42.8);
+          tl.to("#s05-dots", { x: 44, y: 22, duration: 49.5, ease: "none" }, 0);
+          window.__timelines["s05"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

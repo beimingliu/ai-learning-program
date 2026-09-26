@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Teleprompter</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #111; color: #eee;
+    font-family: -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
+    height: 100vh; display: flex; flex-direction: column; overflow: hidden;
+  }
+  /* editor view */
+  #editor { flex: 1; display: flex; flex-direction: column; padding: 16px; gap: 10px; }
+  #editor textarea {
+    flex: 1; background: #1c1c1c; color: #eee; border: 1px solid #333;
+    border-radius: 8px; padding: 14px; font-size: 15px; line-height: 1.6;
+    font-family: ui-monospace, Menlo, monospace; resize: none;
+  }
+  #editor .hint { color: #888; font-size: 13px; }
+  /* starter prompt box */
+  #promptBox { background: #1c1c1c; border: 1px solid #333; border-radius: 8px; }
+  #promptBox .prompt-head {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 10px 14px; border-bottom: 1px solid #333;
+  }
+  #promptBox .prompt-head span { font-size: 13px; color: #bbb; font-weight: 600; }
+  #copyPromptBtn {
+    background: #2a2a2a; color: #eee; border: 1px solid #444; border-radius: 6px;
+    padding: 6px 14px; font-size: 13px; cursor: pointer;
+  }
+  #copyPromptBtn:hover { background: #3a3a3a; }
+  #copyPromptBtn.copied { background: #22c55e; border-color: #22c55e; color: #111; font-weight: 700; }
+  #promptText {
+    display: block; width: 100%; height: 150px; background: transparent; color: #999;
+    border: 0; padding: 12px 14px; font-size: 12px; line-height: 1.5;
+    font-family: ui-monospace, Menlo, monospace; resize: none;
+  }
+  #editor .row { display: flex; gap: 10px; align-items: center; }
+  #startBtn {
+    align-self: flex-start; background: #ffd600; color: #111; border: 0;
+    border-radius: 8px; padding: 12px 22px; font-size: 16px; font-weight: 700; cursor: pointer;
+  }
+  /* prompter view */
+  #prompter { flex: 1; display: none; flex-direction: column; }
+  #viewport { flex: 1; overflow: hidden; position: relative; }
+  #viewport::before, #viewport::after {
+    content: ""; position: absolute; left: 0; right: 0; height: 18vh; z-index: 2; pointer-events: none;
+  }
+  #viewport::before { top: 0; background: linear-gradient(#111, transparent); }
+  #viewport::after { bottom: 0; background: linear-gradient(transparent, #111); }
+  #marker {
+    position: absolute; top: 33%; left: 0; right: 0; height: 0; z-index: 3; pointer-events: none;
+    border-top: 1px solid rgba(255, 214, 0, .55);
+  }
+  #marker::before, #marker::after {
+    content: ""; position: absolute; top: -7px; border: 7px solid transparent;
+  }
+  #marker::before { left: 6px; border-left-color: rgba(255, 214, 0, .8); }
+  #marker::after { right: 6px; border-right-color: rgba(255, 214, 0, .8); }
+  #script {
+    position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+    width: min(820px, 88%); padding: 40vh 0 60vh; will-change: top;
+  }
+  .slide-label {
+    color: #ffd600; font-size: clamp(18px, 2.2vw, 28px); font-weight: 700;
+    margin: 1.4em 0 .4em; letter-spacing: .04em; text-transform: uppercase;
+    border-bottom: 1px solid #444; padding-bottom: .2em;
+  }
+  #script p, #script li {
+    font-size: clamp(26px, 3.4vw, 46px); line-height: 1.45; margin: .5em 0; font-weight: 600;
+  }
+  #script ul { padding-left: 1.2em; }
+  /* control bar */
+  #controls {
+    display: none; align-items: center; gap: 14px; padding: 12px 18px;
+    background: #1a1a1a; border-top: 1px solid #333; z-index: 5; flex-wrap: wrap;
+  }
+  #controls button {
+    background: #2a2a2a; color: #eee; border: 1px solid #444; border-radius: 8px;
+    padding: 10px 14px; font-size: 15px; cursor: pointer;
+  }
+  #controls button:hover { background: #3a3a3a; }
+  #controls button.primary { background: #ffd600; color: #111; border-color: #ffd600; font-weight: 700; min-width: 76px; }
+  #controls label { font-size: 14px; color: #bbb; display: flex; align-items: center; gap: 8px; }
+  #controls input[type=range] { width: 170px; accent-color: #ffd600; }
+  #speedVal, #slideStatus { font-variant-numeric: tabular-nums; color: #eee; min-width: 38px; }
+  #slideNav { margin-left: auto; display: flex; align-items: center; gap: 10px; }
+  .kbd { background: #333; border-radius: 4px; padding: 1px 6px; font-size: 12px; color: #ccc; }
+  .dim { color: #777; font-size: 12px; }
+</style>
+</head>
+<body>
+
+<div id="editor">
+  <textarea id="src" placeholder="# Slide 1: Intro
+Good morning everyone. Today I want to walk through our Q3 results...
+
+# Slide 2: Adoption
+Usage grew 40 percent week over week...">Welcome to the Analytics AI Enablement education series. Today in Foundations, we focus on Claude dot M D and auto memory.
+
+If you've used Claude Code for a while, you've probably seen a file called Claude dot M D, and wondered whether you're supposed to do something with it.
+
+It's a short note Claude reads at the start of every session, so you don't have to repeat yourself. It's also easy to overfill.
+
+When Anthropic released Opus 5, the Claude Code team deleted about eighty percent of its own system prompt. That's the set of instructions Claude gets before you type anything. The new model didn't need most of them.
+
+Your file works the same way. You don't need a rule for every situation. Claude handles most everyday work without detailed instructions, and every line takes up room in its context.
+
+Use it for things Claude can't work out on its own. Tell it which files to leave alone, which commands not to run, and where the source of truth lives. And if you've corrected Claude on the same thing twice, and it'll keep coming up, write it down.
+
+For most work, you'll use one of three places.
+
+Your personal file follows you into every project on your machine. Put your own working style there, such as keep answers short, or no pie charts. Our course guideline is under a hundred lines.
+
+A project file lives in the folder your team shares. Table locations and metric definitions go there. If your team counts annual wellness visit completion one particular way, write that down, so Claude doesn't have to guess.
+
+A file inside a subfolder only kicks in when Claude opens files in that folder, so a Snowflake rule stays out of the way until the work touches Snowflake.
+
+Claude combines the files it has loaded, and one doesn't replace another. If two files disagree, Claude could follow either one. Remove the rule that's out of date. If both are still right, reword them to say when each one applies.
+
+The file guides Claude, but it doesn't enforce anything. It won't block an action or make an answer right, so you still check the work.
+
+You may also have seen Claude say it saved a memory. That's auto memory. Unlike Claude dot M D, Claude writes these notes itself, and they stay on your machine. It's on by default and mostly takes care of itself. If you spot a note that's wrong, fix it. If it looks right, you don't need to do anything.
+
+Now try it. Think of one rule you've had to explain to Claude more than once, and write it as one specific line. "Never modify the source export" is specific. "Be careful with the data" isn't.
+
+Type slash memory, and choose your personal file if the rule is just for you, or the project file if it's for your team. Paste the line in. To check it worked, start a new session, type slash context, and look for your file on the list.
+
+Explore other videos in this series, and leave a comment in the Analytics AI knowledge sharing channel so we can improve the course.</textarea>
+  <div class="hint">
+    Paste your script. Slide boundaries: <span class="kbd"># Slide N: Title</span> or <span class="kbd">Slide N: Title</span> on its own line.
+    No slide lines means one continuous scroll.
+  </div>
+  <div id="promptBox">
+    <div class="prompt-head">
+      <span>Starter prompt: give this to an AI along with your notes to get a formatted script</span>
+      <button id="copyPromptBtn">Copy Prompt</button>
+    </div>
+    <textarea id="promptText" readonly>Turn my notes into a teleprompter script using this exact format:
+
+Rules:
+- Start every slide with a heading line: "# Slide N: Title" (N = slide number, Title = short name). The line MUST start with the # character, that is how the tool detects slide boundaries.
+- Everything under a slide heading is the spoken script for that slide: what I say out loud while that slide is on screen.
+- Write in spoken language, first person, short sentences. One sentence or thought per line.
+- Keep each line under ~12 words so it reads well on a scrolling prompter.
+- Use blank lines to separate paragraphs.
+- Use "- " bullets only for quick reminder cues I glance at, not full sentences.
+- Use **bold** sparingly for words I should stress.
+- No other markdown (no tables, no images, no nested headings beyond #, no horizontal rules).
+- Output ONLY the formatted script, no commentary.
+
+Example of the format:
+
+# Slide 1: Intro
+Good morning everyone.
+Today I want to walk through our Q3 results.
+Three things matter this quarter.
+- adoption numbers
+- the Cortex migration
+- what is next
+
+# Slide 2: Adoption
+Usage grew **40 percent** week over week.
+That is the fastest ramp we have ever seen.
+
+Here are my notes:
+[PASTE YOUR NOTES HERE]</textarea>
+  </div>
+  <div class="row">
+    <button id="startBtn">Start Prompter</button>
+  </div>
+</div>
+
+<div id="prompter">
+  <div id="viewport">
+    <div id="marker"></div>
+    <div id="script"></div>
+  </div>
+  <div id="controls">
+    <button id="playBtn" class="primary">Pause</button>
+    <button id="backBtn" title="rewind a bit">&#9664;&#9664;</button>
+    <button id="fwdBtn" title="skip ahead">&#9654;&#9654;</button>
+    <label>Speed <input type="range" id="speed" min="0.1" max="2" step="0.1" value="1"> <span id="speedVal">1.0x</span></label>
+    <label>Size <input type="range" id="size" min="20" max="64" value="40"></label>
+    <div id="slideNav">
+      <button id="prevSlide">&#9664; Slide</button>
+      <span id="slideStatus">1/1</span>
+      <button id="nextSlide">Slide &#9654;</button>
+    </div>
+    <span class="dim"><span class="kbd">space</span> play/pause &nbsp; <span class="kbd">&uarr;/&darr;</span> speed &nbsp; <span class="kbd">&larr;/&rarr;</span> slide &nbsp; <span class="kbd">esc</span> edit</span>
+  </div>
+</div>
+
+<script>
+(function () {
+  const src = document.getElementById('src');
+  const editor = document.getElementById('editor');
+  const prompter = document.getElementById('prompter');
+  const controls = document.getElementById('controls');
+  const scriptEl = document.getElementById('script');
+  const viewport = document.getElementById('viewport');
+  const playBtn = document.getElementById('playBtn');
+  const speedSlider = document.getElementById('speed');
+  const speedVal = document.getElementById('speedVal');
+  const sizeSlider = document.getElementById('size');
+  const slideStatus = document.getElementById('slideStatus');
+
+  const BASE_SPEED = 42;     // px per second at 1.0x
+  let playing = true;
+  let speed = 1;             // multiplier, 0.1x to 2x
+  let offset = 0;            // current scroll offset in px
+  let slideOffsets = [0];    // px offset of each slide heading within scriptEl
+  let rafId = null, lastT = null;
+
+  // minimal markdown to HTML: headings -> slide labels, bullets, bold/italic, paragraphs
+  function mdToHtml(md) {
+    const lines = md.split(/\r?\n/);
+    let html = '', inList = false, slideIdx = -1;
+    const fmt = s => s
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
+      .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+      .replace(/\*(.+?)\*/g, '<em>$1</em>');
+    for (const raw of lines) {
+      const line = raw.trim();
+      // headings: "# Slide 24: Title" or bare "Slide 24: Title"
+      const h = line.match(/^#{1,3}\s+(.*)$/) || line.match(/^(slide\s+\d+\s*[:\-.].*)$/i);
+      if (h) {
+        if (inList) { html += '</ul>'; inList = false; }
+        slideIdx++;
+        const text = fmt(h[1]).replace(/^slide\s*\d+\s*[:\-.]?\s*/i, '');
+        html += '<div class="slide-label" data-slide="' + slideIdx + '">' + text + '</div>';
+      } else if (/^[-*]\s+/.test(line)) {
+        if (!inList) { html += '<ul>'; inList = true; }
+        html += '<li>' + fmt(line.replace(/^[-*]\s+/, '')) + '</li>';
+      } else if (line !== '') {
+        if (inList) { html += '</ul>'; inList = false; }
+        html += '<p>' + fmt(line) + '</p>';
+      } else if (inList) {
+        html += '</ul>'; inList = false;
+      }
+    }
+    if (inList) html += '</ul>';
+    return html;
+  }
+
+  function computeSlideOffsets() {
+    const tops = Array.from(scriptEl.querySelectorAll('.slide-label')).map(el => el.offsetTop);
+    slideOffsets = tops.length ? tops : [0];
+    updateSlideStatus();
+  }
+
+  function currentSlideIndex() {
+    let i = 0;
+    for (let k = 0; k < slideOffsets.length; k++) {
+      if (slideOffsets[k] <= offset + 4) i = k;
+    }
+    return i;
+  }
+
+  function updateSlideStatus() {
+    slideStatus.textContent = (currentSlideIndex() + 1) + '/' + slideOffsets.length;
+  }
+
+  function maxOffset() {
+    return scriptEl.scrollHeight - viewport.clientHeight * 0.33 - viewport.clientHeight * 0.5;
+  }
+
+  function render() {
+    // keep the current line at the 33% reading marker
+    scriptEl.style.top = (viewport.clientHeight * 0.33 - offset) + 'px';
+  }
+
+  function tick(t) {
+    if (lastT == null) lastT = t;
+    const dt = (t - lastT) / 1000;
+    lastT = t;
+    if (playing) {
+      offset = Math.min(offset + BASE_SPEED * speed * dt, maxOffset());
+      render();
+      updateSlideStatus();
+    }
+    rafId = requestAnimationFrame(tick);
+  }
+
+  function jumpToSlide(i) {
+    i = Math.max(0, Math.min(slideOffsets.length - 1, i));
+    offset = slideOffsets[i];
+    render();
+    updateSlideStatus();
+  }
+
+  function nudge(px) {
+    offset = Math.max(0, Math.min(offset + px, maxOffset()));
+    render();
+    updateSlideStatus();
+  }
+
+  function setPlaying(p) {
+    playing = p;
+    playBtn.textContent = playing ? 'Pause' : 'Play';
+  }
+
+  function applySize() {
+    scriptEl.querySelectorAll('p, li').forEach(el => el.style.fontSize = sizeSlider.value + 'px');
+  }
+
+  function start() {
+    if (!src.value.trim()) {
+      src.value = '# Slide 1: Intro\nGood morning everyone. Today I want to walk through our Q3 results.\n\n# Slide 2: Adoption\nUsage grew 40 percent week over week.';
+    }
+    scriptEl.innerHTML = mdToHtml(src.value);
+    applySize();
+    editor.style.display = 'none';
+    prompter.style.display = 'flex';
+    controls.style.display = 'flex';
+    offset = 0;
+    // wait a frame so layout is real before measuring heading positions
+    requestAnimationFrame(() => { computeSlideOffsets(); render(); });
+    setPlaying(true);
+    if (!rafId) rafId = requestAnimationFrame(tick);
+  }
+
+  function stopToEdit() {
+    prompter.style.display = 'none';
+    controls.style.display = 'none';
+    editor.style.display = 'flex';
+  }
+
+  document.getElementById('startBtn').addEventListener('click', start);
+
+  const copyBtn = document.getElementById('copyPromptBtn');
+  const promptText = document.getElementById('promptText');
+  copyBtn.addEventListener('click', () => {
+    // navigator.clipboard is often blocked on file:// pages; use the
+    // selection-based fallback first, clipboard API only in secure contexts
+    if (window.isSecureContext && navigator.clipboard) {
+      navigator.clipboard.writeText(promptText.value);
+    } else {
+      promptText.select();
+      document.execCommand('copy');
+      promptText.blur();
+    }
+    copyBtn.textContent = 'Copied';
+    copyBtn.classList.add('copied');
+    setTimeout(() => { copyBtn.textContent = 'Copy Prompt'; copyBtn.classList.remove('copied'); }, 1500);
+  });
+
+  playBtn.addEventListener('click', () => setPlaying(!playing));
+  document.getElementById('backBtn').addEventListener('click', () => nudge(-viewport.clientHeight * 0.3));
+  document.getElementById('fwdBtn').addEventListener('click', () => nudge(viewport.clientHeight * 0.3));
+  document.getElementById('prevSlide').addEventListener('click', () => {
+    // find the last slide boundary before the current position.
+    // threshold absorbs auto-scroll drift between clicks, so rapid clicking
+    // keeps walking backward instead of resetting to the same slide start
+    const threshold = Math.max(40, BASE_SPEED * speed * 1.2);
+    let target = 0;
+    for (let k = 0; k < slideOffsets.length; k++) {
+      if (slideOffsets[k] <= offset - threshold) target = k;
+    }
+    jumpToSlide(target);
+  });
+  document.getElementById('nextSlide').addEventListener('click', () => jumpToSlide(currentSlideIndex() + 1));
+
+  speedSlider.addEventListener('input', () => {
+    speed = parseFloat(speedSlider.value);
+    speedVal.textContent = speed.toFixed(1) + 'x';
+  });
+  sizeSlider.addEventListener('input', () => { applySize(); computeSlideOffsets(); });
+
+  window.addEventListener('resize', () => { computeSlideOffsets(); render(); });
+
+  document.addEventListener('keydown', e => {
+    if (prompter.style.display !== 'flex') return;
+    switch (e.key) {
+      case ' ': e.preventDefault(); setPlaying(!playing); break;
+      case 'ArrowUp':
+        e.preventDefault();
+        speedSlider.value = Math.min(2, Math.round((speed + 0.1) * 10) / 10);
+        speedSlider.dispatchEvent(new Event('input'));
+        break;
+      case 'ArrowDown':
+        e.preventDefault();
+        speedSlider.value = Math.max(0.1, Math.round((speed - 0.1) * 10) / 10);
+        speedSlider.dispatchEvent(new Event('input'));
+        break;
+      case 'ArrowRight': document.getElementById('nextSlide').click(); break;
+      case 'ArrowLeft': document.getElementById('prevSlide').click(); break;
+      case 'PageDown': e.preventDefault(); nudge(viewport.clientHeight * 0.3); break;
+      case 'PageUp': e.preventDefault(); nudge(-viewport.clientHeight * 0.3); break;
+      case 'Escape': stopToEdit(); break;
+    }
+  });
+})();
+</script>
+</body>
+</html>

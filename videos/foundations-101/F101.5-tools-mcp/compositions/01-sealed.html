@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head><meta charset="UTF-8"></head>
+  <body>
+    <template>
+      <style>
+        @font-face { font-family: "Literata"; src: url("assets/fonts/Literata-600.woff2") format("woff2"); font-weight: 600; }
+        @font-face { font-family: "IBM Plex Sans"; src: url("assets/fonts/IBMPlexSans-var.woff2") format("woff2"); font-weight: 100 700; }
+        @font-face { font-family: "JetBrains Mono"; src: url("assets/fonts/JetBrainsMono-var.woff2") format("woff2"); font-weight: 100 800; }
+        #s01-head { position: absolute; left: 120px; top: 120px; width: 1680px; }
+        #s01-title { margin-top: 16px; }
+        #s01-glow { width: 1100px; height: 1100px; left: 1000px; top: 200px; }
+        #s01-box { position: absolute; left: 140px; top: 380px; width: 880px; height: 560px; border-radius: 40px; background: rgba(234, 242, 255, 0.6); }
+        #s01-boxsvg { position: absolute; left: 140px; top: 380px; width: 880px; height: 560px; overflow: visible; }
+        #s01-boxsvg rect { stroke-dasharray: 1; }
+        #s01-boxlabel { position: absolute; left: 180px; top: 400px; font-size: 22px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue); }
+        #s01-claude { left: 200px; top: 565px; }
+        .s01-item { position: absolute; left: 500px; display: flex; align-items: center; gap: 20px; padding: 14px 24px 14px 16px; border-radius: 22px; background: #fff; box-shadow: 0 10px 26px rgba(9,31,49,0.14); }
+        .s01-item svg { width: 72px; height: 72px; }
+        .s01-item span { font-size: 30px; font-weight: 600; color: var(--ink); white-space: nowrap; }
+        #s01-i1 { top: 440px; }
+        #s01-i2 { top: 600px; }
+        #s01-i3 { top: 760px; }
+        #s01-ring { position: absolute; left: 488px; top: 588px; width: 480px; height: 124px; border-radius: 28px; border: 5px solid var(--orange); }
+        .s01-t { position: absolute; }
+        .s01-t .tile { position: relative; width: 200px; height: 200px; }
+        .s01-t .tile svg { width: 84px; height: 84px; }
+        .s01-lock { position: absolute; right: -22px; top: -22px; width: 72px; height: 72px; border-radius: 50%; background: #fff; border: 4px solid var(--ink); display: flex; align-items: center; justify-content: center; }
+        .s01-lock svg { width: 40px; height: 40px; }
+        #s01-t1 { left: 1220px; top: 380px; }
+        #s01-t2 { left: 1560px; top: 520px; }
+        #s01-t3 { left: 1260px; top: 740px; }
+        #s01-lines { position: absolute; inset: 0; width: 1920px; height: 1080px; overflow: visible; }
+        #s01-lines path { stroke-dasharray: 1; }
+        #s01-port { position: absolute; left: 986px; top: 606px; width: 68px; height: 88px; border-radius: 20px; background: var(--orange); display: flex; align-items: center; justify-content: center; font-family: "JetBrains Mono", monospace; font-weight: 800; font-size: 20px; color: var(--ink); writing-mode: vertical-rl; box-shadow: 0 10px 26px rgba(255,105,0,0.4); }
+        #s01-cap1, #s01-cap2 { left: 140px; top: 968px; }
+      </style>
+      <div id="root" data-composition-id="s01" data-width="1920" data-height="1080">
+        <div class="scene">
+          <div class="dots" id="s01-dots"></div>
+          <div id="s01-glow" class="glow warm"></div>
+          <div class="rail"><span>What MCP is</span><span>01 <span class="dot-o">/</span> 07</span></div>
+          <div id="s01-head">
+            <span id="s01-kicker" class="kicker rv">Without a connection</span>
+            <span id="s01-title" class="title rv">Claude only sees <span class="hl">what it's connected to.</span></span>
+          </div>
+          <div id="s01-box" class="rv"></div>
+          <svg id="s01-boxsvg" viewBox="0 0 880 560"><rect x="2" y="2" width="876" height="556" rx="40" pathLength="1" fill="none" stroke="#003DA5" stroke-width="5" /></svg>
+          <div id="s01-boxlabel" class="rv">What Claude has on its own</div>
+          <div id="s01-claude" class="claude rv"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#d97757" d="m4.7144 15.9555 4.7174-2.6471.079-.2307-.079-.1275h-.2307l-.7893-.0486-2.6956-.0729-2.3375-.0971-2.2646-.1214-.5707-.1215-.5343-.7042.0546-.3522.4797-.3218.686.0608 1.5179.1032 2.2767.1578 1.6514.0972 2.4468.255h.3886l.0546-.1579-.1336-.0971-.1032-.0972L6.973 9.8356l-2.55-1.6879-1.3356-.9714-.7225-.4918-.3643-.4614-.1578-1.0078.6557-.7225.8803.0607.2246.0607.8925.686 1.9064 1.4754 2.4893 1.8336.3643.3035.1457-.1032.0182-.0728-.164-.2733-1.3539-2.4467-1.445-2.4893-.6435-1.032-.17-.6194c-.0607-.255-.1032-.4674-.1032-.7285L6.287.1335 6.6997 0l.9957.1336.419.3642.6192 1.4147 1.0018 2.2282 1.5543 3.0296.4553.8985.2429.8318.091.255h.1579v-.1457l.1275-1.706.2368-2.0947.2307-2.6957.0789-.7589.3764-.9107.7468-.4918.5828.2793.4797.686-.0668.4433-.2853 1.8517-.5586 2.9021-.3643 1.9429h.2125l.2429-.2429.9835-1.3053 1.6514-2.0643.7286-.8196.85-.9046.5464-.4311h1.0321l.759 1.1293-.34 1.1657-1.0625 1.3478-.8804 1.1414-1.2628 1.7-.7893 1.36.0729.1093.1882-.0183 2.8535-.607 1.5421-.2794 1.8396-.3157.8318.3886.091.3946-.3278.8075-1.967.4857-2.3072.4614-3.4364.8136-.0425.0304.0486.0607 1.5482.1457.6618.0364h1.621l3.0175.2247.7892.522.4736.6376-.079.4857-1.2142.6193-1.6393-.3886-3.825-.9107-1.3113-.3279h-.1822v.1093l1.0929 1.0686 2.0035 1.8092 2.5075 2.3314.1275.5768-.3218.4554-.34-.0486-2.2039-1.6575-.85-.7468-1.9246-1.621h-.1275v.17l.4432.6496 2.3436 3.5214.1214 1.0807-.17.3521-.6071.2125-.6679-.1214-1.3721-1.9246L14.38 17.959l-1.1414-1.9428-.1397.079-.674 7.2552-.3156.3703-.7286.2793-.6071-.4614-.3218-.7468.3218-1.4753.3886-1.9246.3157-1.53.2853-1.9004.17-.6314-.0121-.0425-.1397.0182-1.4328 1.9672-2.1796 2.9446-1.7243 1.8456-.4128.164-.7164-.3704.0667-.6618.4008-.5889 2.386-3.0357 1.4389-1.882.929-1.0868-.0062-.1579h-.0546l-6.3385 4.1164-1.1293.1457-.4857-.4554.0608-.7467.2307-.2429 1.9064-1.3114Z"/></svg></div>
+          <div id="s01-i1" class="s01-item rv"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M8 10h48a4 4 0 0 1 4 4v28a4 4 0 0 1-4 4H28L14 58V46H8a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4z" fill="#003DA5"/><rect x="14" y="20" width="32" height="5" rx="2.5" fill="#EAF2FF"/><rect x="14" y="31" width="22" height="5" rx="2.5" fill="#EAF2FF"/></svg><span>The conversation</span></div>
+          <div id="s01-i2" class="s01-item rv"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M14 4h26l14 14v42H14z" fill="#003DA5"/><path d="M40 4v14h14z" fill="#EAF2FF"/><rect x="22" y="30" width="24" height="4" rx="2" fill="#EAF2FF"/><rect x="22" y="40" width="24" height="4" rx="2" fill="#EAF2FF"/><rect x="22" y="50" width="16" height="4" rx="2" fill="#EAF2FF"/></svg><span>Files on your machine</span></div>
+          <div id="s01-i3" class="s01-item rv"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="26" fill="none" stroke="#003DA5" stroke-width="6"/><ellipse cx="32" cy="32" rx="11" ry="26" fill="none" stroke="#003DA5" stroke-width="5"/><path d="M8 24h48M8 40h48" stroke="#003DA5" stroke-width="5"/></svg><span>What it can run or look up</span></div>
+          <div id="s01-ring" class="rv"></div>
+          <svg id="s01-lines" viewBox="0 0 1920 1080">
+            <path d="M1054 650 C1130 620 1150 500 1220 480" pathLength="1" fill="none" stroke="#FF6900" stroke-width="6" stroke-linecap="round" />
+            <path d="M1054 650 C1250 660 1400 620 1560 620" pathLength="1" fill="none" stroke="#FF6900" stroke-width="6" stroke-linecap="round" />
+            <path d="M1054 650 C1130 700 1160 830 1260 840" pathLength="1" fill="none" stroke="#FF6900" stroke-width="6" stroke-linecap="round" />
+          </svg>
+          <div id="s01-t1" class="s01-t rv"><div class="tile"><svg viewBox="52 42 88 66" aria-hidden="true"><path fill="#4285f4" d="M58 108h14V74L52 59v43c0 3.32 2.69 6 6 6"/><path fill="#34a853" d="M120 108h14c3.32 0 6-2.69 6-6V59l-20 15"/><path fill="#fbbc04" d="M120 48v26l20-15v-8c0-7.42-8.47-11.65-14.4-7.2"/><path fill="#ea4335" d="M72 74V48l24 18 24-18v26L96 92"/><path fill="#c5221f" d="M52 51v8l20 15V48l-5.6-4.2c-5.94-4.45-14.4-.22-14.4 7.2"/></svg><div class="nm">Email</div></div><div class="s01-lock"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M20 30v-8a12 12 0 0 1 24 0v8" fill="none" stroke="#091F31" stroke-width="7"/><rect x="12" y="28" width="40" height="30" rx="7" fill="#091F31"/><circle cx="32" cy="42" r="5" fill="#FF6900"/></svg></div></div>
+          <div id="s01-t2" class="s01-t rv"><div class="tile"><svg viewBox="0 0 256 256" aria-hidden="true"><defs><linearGradient x1="98.03%" y1="0.16%" x2="58.89%" y2="40.77%" id="jiraA6"><stop stop-color="#0052CC" offset="18%"/><stop stop-color="#2684FF" offset="100%"/></linearGradient><linearGradient x1="100.67%" y1="0.46%" x2="55.4%" y2="44.73%" id="jiraB6"><stop stop-color="#0052CC" offset="18%"/><stop stop-color="#2684FF" offset="100%"/></linearGradient></defs><path d="M244.657778,0 L121.706667,0 C121.706667,14.7201046 127.554205,28.837312 137.962891,39.2459977 C148.371577,49.6546835 162.488784,55.5022222 177.208889,55.5022222 L199.857778,55.5022222 L199.857778,77.3688889 C199.877391,107.994155 224.699178,132.815943 255.324444,132.835556 L255.324444,10.6666667 C255.324444,4.7756 250.548815,0 244.657778,0 Z" fill="#2684FF"/><path d="M183.822222,61.2622222 L60.8711111,61.2622222 C60.8907238,91.8874888 85.7125112,116.709276 116.337778,116.728889 L138.986667,116.728889 L138.986667,138.666667 C139.025905,169.291923 163.863607,194.097803 194.488889,194.097778 L194.488889,71.9288889 C194.488889,66.0378516 189.71326,61.2622222 183.822222,61.2622222 Z" fill="url(#jiraA6)"/><path d="M122.951111,122.488889 L0,122.488889 C0,153.14192 24.8491913,177.991111 55.5022222,177.991111 L78.2222222,177.991111 L78.2222222,199.857778 C78.241767,230.45532 103.020285,255.265647 133.617778,255.324444 L133.617778,133.155556 C133.617778,127.264518 128.842148,122.488889 122.951111,122.488889 Z" fill="url(#jiraB6)"/></svg><div class="nm">Jira tickets</div></div><div class="s01-lock"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M20 30v-8a12 12 0 0 1 24 0v8" fill="none" stroke="#091F31" stroke-width="7"/><rect x="12" y="28" width="40" height="30" rx="7" fill="#091F31"/><circle cx="32" cy="42" r="5" fill="#FF6900"/></svg></div></div>
+          <div id="s01-t3" class="s01-t rv"><div class="tile"><svg viewBox="0 0 127 127" aria-hidden="true"><path d="M27.2 80c0 7.3-5.9 13.2-13.2 13.2C6.7 93.2.8 87.3.8 80c0-7.3 5.9-13.2 13.2-13.2h13.2V80zm6.6 0c0-7.3 5.9-13.2 13.2-13.2 7.3 0 13.2 5.9 13.2 13.2v33c0 7.3-5.9 13.2-13.2 13.2-7.3 0-13.2-5.9-13.2-13.2V80z" fill="#E01E5A"/><path d="M47 27c-7.3 0-13.2-5.9-13.2-13.2C33.8 6.5 39.7.6 47 .6c7.3 0 13.2 5.9 13.2 13.2V27H47zm0 6.7c7.3 0 13.2 5.9 13.2 13.2 0 7.3-5.9 13.2-13.2 13.2H13.9C6.6 60.1.7 54.2.7 46.9c0-7.3 5.9-13.2 13.2-13.2H47z" fill="#36C5F0"/><path d="M99.9 46.9c0-7.3 5.9-13.2 13.2-13.2 7.3 0 13.2 5.9 13.2 13.2 0 7.3-5.9 13.2-13.2 13.2H99.9V46.9zm-6.6 0c0 7.3-5.9 13.2-13.2 13.2-7.3 0-13.2-5.9-13.2-13.2V13.8C66.9 6.5 72.8.6 80.1.6c7.3 0 13.2 5.9 13.2 13.2v33.1z" fill="#2EB67D"/><path d="M80.1 99.8c7.3 0 13.2 5.9 13.2 13.2 0 7.3-5.9 13.2-13.2 13.2-7.3 0-13.2-5.9-13.2-13.2V99.8h13.2zm0-6.6c-7.3 0-13.2-5.9-13.2-13.2 0-7.3 5.9-13.2 13.2-13.2h33.1c7.3 0 13.2 5.9 13.2 13.2 0 7.3-5.9 13.2-13.2 13.2H80.1z" fill="#ECB22E"/></svg><div class="nm">Slack threads</div></div><div class="s01-lock"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M20 30v-8a12 12 0 0 1 24 0v8" fill="none" stroke="#091F31" stroke-width="7"/><rect x="12" y="28" width="40" height="30" rx="7" fill="#091F31"/><circle cx="32" cy="42" r="5" fill="#FF6900"/></svg></div></div>
+          <div id="s01-port" class="rv">MCP</div>
+          <div id="s01-cap1" class="caption rv">Already in a file on your machine? <b>No connection needed.</b></div>
+          <div id="s01-cap2" class="caption rv">For everything else, Claude uses <b>MCP.</b></div>
+        </div>
+      </div>
+      <script>
+        (function () {
+          const tl = gsap.timeline({ paused: true });
+          const A = (s, t, o = {}) => tl.fromTo(s, { opacity: 0, x: o.x || 0, y: o.y === undefined ? 40 : o.y, scale: o.s || 1 }, { opacity: 1, x: 0, y: 0, scale: 1, duration: o.d || 0.5, ease: o.e || "power3.out", stagger: o.st || 0 }, t);
+          const P = (s, t, o = {}) => tl.fromTo(s, { opacity: 0, scale: o.s || 0.5 }, { opacity: 1, scale: 1, duration: o.d || 0.6, ease: o.e || "back.out(1.7)", stagger: o.st || 0 }, t);
+          const OUT = (s, t, d) => tl.to(s, { opacity: 0, duration: d || 0.35, ease: "power2.in" }, t);
+          const DRAW = (s, t, d, st) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d || 0.8, ease: "power2.inOut", stagger: st || 0 }, t);
+          const LOOP = (s, props, cyc, from, to) => tl.to(s, Object.assign({ duration: cyc, yoyo: true, repeat: Math.max(0, Math.floor((to - from) / cyc) - 1), ease: "sine.inOut" }, props), from);
+          A("#s01-kicker", 0.3, { y: 20, d: 0.35 });
+          A("#s01-title", 0.45, { y: 60, d: 0.6, e: "expo.out" });
+          tl.fromTo("#s01-box", { opacity: 0 }, { opacity: 1, duration: 0.8, ease: "sine.out" }, 1.0);
+          DRAW("#s01-boxsvg rect", 1.0, 1.2);
+          A("#s01-boxlabel", 1.8, { x: -30, y: 0, d: 0.4 });
+          P("#s01-claude", 1.6, { s: 0.3, d: 0.7 });
+          A("#s01-i1", 10.9, { x: -40, y: 0, d: 0.45, e: "power4.out" });
+          A("#s01-i2", 11.9, { x: -40, y: 0, d: 0.45, e: "power2.out" });
+          A("#s01-i3", 13.9, { x: -40, y: 0, d: 0.45, e: "circ.out" });
+          [["#s01-t1", 16.4], ["#s01-t2", 18.0], ["#s01-t3", 20.8]].forEach(function (p, i) {
+            tl.fromTo(p[0], { opacity: 0, y: -80, rotation: i % 2 ? 6 : -6 }, { opacity: 0.5, y: 0, rotation: i % 2 ? 3 : -3, duration: 0.6, ease: "bounce.out" }, p[1]);
+            tl.to(p[0], { keyframes: { x: [0, -14, 12, -8, 5, 0] }, duration: 0.45, ease: "none" }, p[1] + 0.65);
+          });
+          tl.fromTo("#s01-ring", { opacity: 0, scale: 1.2 }, { opacity: 1, scale: 1, duration: 0.5, ease: "back.out(2)" }, 22.5);
+          A("#s01-cap1", 22.9, { y: 24, d: 0.45 });
+          OUT("#s01-cap1", 27.1, 0.3);
+          OUT("#s01-ring", 27.1, 0.3);
+          P("#s01-port", 27.4, { s: 0, d: 0.55, e: "back.out(2.4)" });
+          A("#s01-cap2", 27.6, { y: 24, d: 0.45, e: "expo.out" });
+          DRAW("#s01-lines path", 28.0, 0.8, 0.12);
+          tl.to(".s01-lock", { scale: 0, rotation: 90, opacity: 0, duration: 0.4, ease: "back.in(2)", stagger: 0.1 }, 28.5);
+          tl.to(".s01-t", { opacity: 1, rotation: 0, duration: 0.5, ease: "power2.out", stagger: 0.1 }, 28.6);
+          tl.to(".s01-t .tile", { borderColor: "#FF6900", duration: 0.5, stagger: 0.1 }, 28.6);
+          LOOP("#s01-t2", { y: -10 }, 1.9, 29.2, 30.4);
+          LOOP("#s01-glow", { scale: 1.15, x: -60 }, 3.2, 0, 30);
+          tl.to("#s01-dots", { x: -44, y: -22, duration: 30, ease: "none" }, 0);
+          window.__timelines["s01"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

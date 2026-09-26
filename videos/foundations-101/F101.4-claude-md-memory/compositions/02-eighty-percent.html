@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template>
+      <style>
+        @font-face { font-family: "Literata"; src: url("assets/fonts/Literata-600.woff2") format("woff2"); font-weight: 600; }
+        @font-face { font-family: "IBM Plex Sans"; src: url("assets/fonts/IBMPlexSans-var.woff2") format("woff2"); font-weight: 100 700; }
+        @font-face { font-family: "JetBrains Mono"; src: url("assets/fonts/JetBrainsMono-var.woff2") format("woff2"); font-weight: 100 800; }
+        #s02-stat {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 760px;
+          height: 580px;
+          padding: 44px 48px;
+        }
+        #s02-num-wrap {
+          display: flex;
+          align-items: baseline;
+          width: 660px;
+          height: 250px;
+        }
+        #s02-scale {
+          display: inline-block;
+          white-space: nowrap;
+          transform-origin: left bottom;
+        }
+        #s02-num {
+          display: inline-block;
+          font-family: "Literata", Georgia, serif;
+          font-weight: 600;
+          font-size: 230px;
+          line-height: 1;
+          color: var(--blue);
+          font-variant-numeric: tabular-nums;
+        }
+        #s02-pct {
+          display: inline-block;
+          font-family: "Literata", Georgia, serif;
+          font-weight: 600;
+          font-size: 150px;
+          line-height: 1;
+          color: var(--blue);
+        }
+        #s02-cap {
+          margin-top: 26px;
+          font-size: 36px;
+          font-weight: 600;
+          line-height: 1.3;
+          color: var(--ink);
+        }
+        #s02-chip {
+          margin-top: 34px;
+        }
+        #s02-src {
+          position: absolute;
+          left: 48px;
+          bottom: 34px;
+          font-size: 20px;
+          color: var(--muted);
+        }
+        #s02-doc {
+          position: absolute;
+          top: 0;
+          left: 820px;
+          width: 860px;
+          height: 580px;
+          padding: 36px 44px;
+        }
+        #s02-doc .dh {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 24px;
+        }
+        #s02-bars {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+        }
+        #s02-bars .bar {
+          display: block;
+          height: 22px;
+          border-radius: 11px;
+          background: rgba(0, 61, 165, 0.22);
+          transform-origin: left center;
+        }
+        #s02-bars .bar.keep {
+          background: var(--blue);
+        }
+        #s02-def {
+          position: absolute;
+          left: 44px;
+          right: 44px;
+          bottom: 34px;
+          padding: 18px 24px;
+          border-radius: 12px;
+          background: var(--pale);
+          font-size: 26px;
+          line-height: 1.35;
+          color: var(--ink);
+        }
+      </style>
+      <div id="root" data-composition-id="s02" data-width="1920" data-height="1080">
+        <div class="scene">
+          <div class="rail"><span>Write less, not more</span><span>02 / 09</span></div>
+          <div class="rail-rule"></div>
+          <div class="head">
+            <span id="s02-kicker" class="kicker">Opus 5 release</span>
+            <span id="s02-title" class="title">The new model needed <span class="hl">less instruction.</span></span>
+          </div>
+          <div class="stage">
+            <div id="s02-stat" class="card pale rv">
+              <div id="s02-num-wrap"><span id="s02-scale"><span id="s02-num">0</span><span id="s02-pct">%</span></span></div>
+              <div id="s02-cap">of the Claude Code system prompt, deleted</div>
+              <div id="s02-chip" class="rv"><span class="pill">The new model didn't need most of it</span></div>
+              <div id="s02-src">Source: Boris Cherny, Y Combinator interview</div>
+            </div>
+            <div id="s02-doc" class="card rv">
+              <div class="dh"><span class="label">System prompt</span><span class="mono" style="font-size: 20px; color: var(--muted)">before you type anything</span></div>
+              <div id="s02-bars">
+                <span class="bar keep" style="width: 88%"></span>
+                <span class="bar cut" style="width: 72%"></span>
+                <span class="bar cut" style="width: 94%"></span>
+                <span class="bar cut" style="width: 61%"></span>
+                <span class="bar keep" style="width: 79%"></span>
+                <span class="bar cut" style="width: 85%"></span>
+                <span class="bar cut" style="width: 67%"></span>
+                <span class="bar cut" style="width: 90%"></span>
+                <span class="bar cut" style="width: 58%"></span>
+                <span class="bar cut" style="width: 76%"></span>
+              </div>
+              <div id="s02-def" class="rv">The set of instructions Claude gets before you type anything.</div>
+            </div>
+          </div>
+          <div class="base-rule"></div>
+        </div>
+      </div>
+      <script>
+        (function () {
+          const tl = gsap.timeline({ paused: true });
+          const arrive = (s, t, y = 46, d = 0.42) => {
+            tl.set(s, { opacity: 1, y: y }, t);
+            tl.to(s, { y: 0, duration: d, ease: "power4.out" }, t);
+          };
+          const pop = (s, t) =>
+            tl.fromTo(s, { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.6, ease: "power3.out" }, t);
+          arrive("#s02-kicker", 0.2, 30, 0.3);
+          arrive("#s02-title", 0.3, 70, 0.5);
+          pop("#s02-doc", 1.0);
+          gsap.utils.toArray("#s02-bars .bar").forEach((b, i) => {
+            tl.fromTo(b, { scaleX: 0 }, { scaleX: 1, duration: 0.5, ease: "power3.out" }, 1.3 + i * 0.05);
+          });
+          pop("#s02-stat", 4.2);
+          const n = document.getElementById("s02-num");
+          const st = { v: 0 };
+          tl.to(st, { v: 80, duration: 1.8, ease: "power2.out", onUpdate: () => (n.textContent = Math.round(st.v)) }, 5.0);
+          tl.fromTo("#s02-scale", { scale: 0.6 }, { scale: 1, duration: 1.8, ease: "power2.out" }, 5.0);
+          gsap.utils.toArray("#s02-bars .cut").forEach((b, i) => {
+            tl.to(b, { scaleX: 0.04, opacity: 0.35, duration: 0.35, ease: "power2.in" }, 5.1 + i * 0.2);
+          });
+          arrive("#s02-def", 8.5, 24, 0.35);
+          arrive("#s02-chip", 12.6, 30, 0.35);
+          window.__timelines["s02"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

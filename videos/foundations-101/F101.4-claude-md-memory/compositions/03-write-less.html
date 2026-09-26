@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template>
+      <style>
+        @font-face { font-family: "Literata"; src: url("assets/fonts/Literata-600.woff2") format("woff2"); font-weight: 600; }
+        @font-face { font-family: "IBM Plex Sans"; src: url("assets/fonts/IBMPlexSans-var.woff2") format("woff2"); font-weight: 100 700; }
+        @font-face { font-family: "JetBrains Mono"; src: url("assets/fonts/JetBrainsMono-var.woff2") format("woff2"); font-weight: 100 800; }
+        #s03-long {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 640px;
+          height: 580px;
+          padding: 32px 38px;
+        }
+        #s03-long .lh {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 18px;
+        }
+        #s03-rules {
+          font-size: 24px;
+          line-height: 1.6;
+          color: var(--muted);
+        }
+        #s03-meter {
+          position: absolute;
+          left: 38px;
+          right: 38px;
+          bottom: 30px;
+        }
+        #s03-meter .track {
+          position: relative;
+          height: 16px;
+          margin-top: 10px;
+          border-radius: 8px;
+          background: var(--pale);
+          overflow: hidden;
+        }
+        #s03-fill {
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          background: var(--orange);
+          transform-origin: left center;
+        }
+        #s03-handled {
+          position: absolute;
+          left: 38px;
+          top: 400px;
+        }
+        #s03-right {
+          position: absolute;
+          top: 0;
+          left: 700px;
+          width: 980px;
+          height: 580px;
+        }
+        #s03-right .rh {
+          margin-bottom: 18px;
+        }
+        #s03-right .item {
+          display: flex;
+          align-items: center;
+          gap: 22px;
+          height: 96px;
+          margin-bottom: 18px;
+          padding: 0 30px;
+          font-size: 34px;
+          font-weight: 600;
+          color: var(--ink);
+        }
+        #s03-twice {
+          position: absolute;
+          left: 0;
+          bottom: 0;
+          width: 980px;
+          height: 110px;
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 0 30px;
+          border: 3px solid var(--orange);
+          border-radius: 18px;
+          background: #fff4ec;
+        }
+        #s03-twice .q {
+          font-size: 28px;
+          font-weight: 600;
+          color: var(--ink);
+        }
+      </style>
+      <div id="root" data-composition-id="s03" data-width="1920" data-height="1080">
+        <div class="scene">
+          <div class="rail"><span>Write less, not more</span><span>03 / 09</span></div>
+          <div class="rail-rule"></div>
+          <div class="head">
+            <span id="s03-kicker" class="kicker">Your file works the same way</span>
+            <span id="s03-title" class="title">Write what Claude <span class="hl">can't work out on its own.</span></span>
+          </div>
+          <div class="stage">
+            <div id="s03-long" class="card rv">
+              <div class="lh"><span class="label">A rule for every situation</span></div>
+              <div id="s03-rules" class="mono">
+                <div class="rr rv">- Explain each step before you start</div>
+                <div class="rr rv">- Use clear variable names</div>
+                <div class="rr rv">- Comment every function</div>
+                <div class="rr rv">- Check for null values</div>
+                <div class="rr rv">- Format dates consistently</div>
+                <div class="rr rv">- Prefer readable SQL</div>
+                <div class="rr rv">- Handle edge cases carefully</div>
+                <div class="rr rv">- Double-check your math</div>
+              </div>
+              <span id="s03-handled" class="pill pale rv">Claude handles most of this already</span>
+              <div id="s03-meter" class="rv">
+                <div class="label" style="font-size: 20px">Context used by these lines</div>
+                <div class="track"><span id="s03-fill"></span></div>
+              </div>
+            </div>
+            <div id="s03-right">
+              <div id="s03-rh" class="rh label rv">What Claude can't guess</div>
+              <div id="s03-i1" class="card item rv"><span class="num">01</span>Which files to leave alone</div>
+              <div id="s03-i2" class="card item rv"><span class="num">02</span>Which commands not to run</div>
+              <div id="s03-i3" class="card item rv"><span class="num">03</span>Where the source of truth lives</div>
+              <div id="s03-twice" class="rv">
+                <span class="q">Corrected Claude twice, and it'll keep coming up?</span>
+                <span id="s03-write" class="pill rv">Write it down</span>
+              </div>
+            </div>
+          </div>
+          <div class="base-rule"></div>
+        </div>
+      </div>
+      <script>
+        (function () {
+          const tl = gsap.timeline({ paused: true });
+          const arrive = (s, t, y = 46, d = 0.42) => {
+            tl.set(s, { opacity: 1, y: y }, t);
+            tl.to(s, { y: 0, duration: d, ease: "power4.out" }, t);
+          };
+          const pop = (s, t) =>
+            tl.fromTo(s, { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.6, ease: "power3.out" }, t);
+          arrive("#s03-kicker", 0.2, 30, 0.3);
+          arrive("#s03-title", 0.3, 70, 0.5);
+          pop("#s03-long", 2.4);
+          gsap.utils.toArray("#s03-rules .rr").forEach((r, i) => arrive(r, 2.8 + i * 0.28, 20, 0.28));
+          arrive("#s03-meter", 8.8, 20, 0.3);
+          tl.fromTo("#s03-fill", { scaleX: 0 }, { scaleX: 0.78, duration: 2.2, ease: "power2.out" }, 9.1);
+          tl.to("#s03-rules", { opacity: 0.3, duration: 0.5, ease: "power1.out" }, 5.6);
+          pop("#s03-handled", 5.6);
+          arrive("#s03-rh", 2.6, 30, 0.3);
+          pop("#s03-i1", 16.0);
+          pop("#s03-i2", 18.3);
+          pop("#s03-i3", 21.8);
+          tl.to("#s03-i3 .num", { backgroundColor: "#FF6900", color: "#091F31", duration: 0.3 }, 22.0);
+          pop("#s03-twice", 25.6);
+          pop("#s03-write", 28.3);
+          window.__timelines["s03"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

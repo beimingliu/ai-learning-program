@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+  </head>
+  <body>
+    <template>
+      <style>
+        @font-face { font-family: "Literata"; src: url("assets/fonts/Literata-600.woff2") format("woff2"); font-weight: 600; }
+        @font-face { font-family: "IBM Plex Sans"; src: url("assets/fonts/IBMPlexSans-var.woff2") format("woff2"); font-weight: 100 700; }
+        @font-face { font-family: "JetBrains Mono"; src: url("assets/fonts/JetBrainsMono-var.woff2") format("woff2"); font-weight: 100 800; }
+        #s00-card {
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 1100px;
+          padding: 40px 48px 44px;
+        }
+        #s00-card .serif {
+          font-size: 48px;
+          line-height: 1.2;
+          color: var(--ink);
+        }
+        #s00-line {
+          margin-top: 28px;
+          width: 100%;
+        }
+        #s00-chips {
+          position: absolute;
+          top: 290px;
+          left: 0;
+          display: flex;
+          gap: 28px;
+        }
+        #s00-chips .chipcard {
+          width: 536px;
+          padding: 26px 32px;
+        }
+        #s00-chips .who {
+          margin-top: 10px;
+          font-size: 34px;
+          font-weight: 600;
+          color: var(--ink);
+        }
+        #s00-map {
+          position: absolute;
+          top: 470px;
+          left: 0;
+          display: flex;
+          align-items: center;
+          gap: 16px;
+          font-size: 28px;
+          font-weight: 600;
+          color: var(--ink);
+        }
+        #s00-map .num {
+          margin-left: 18px;
+        }
+        #s00-map .num:first-child {
+          margin-left: 0;
+        }
+      </style>
+      <div id="root" data-composition-id="s00" data-width="1920" data-height="1080">
+        <div class="scene">
+          <div class="rail"><span>Analytics AI Enablement</span><span>F101.4</span></div>
+          <div class="rail-rule"></div>
+          <div class="head">
+            <span id="s00-kicker" class="kicker">Foundations 101</span>
+            <span id="s00-title" class="title">CLAUDE.md and <span class="hl">auto memory</span></span>
+          </div>
+          <div class="stage">
+            <div id="s00-card" class="card pale rv">
+              <div class="serif">Write less. Write what Claude can't guess.</div>
+              <span id="s00-line" class="rule-line"></span>
+            </div>
+            <div id="s00-chips">
+              <div id="s00-chip-a" class="card chipcard rv">
+                <div class="label">CLAUDE.md</div>
+                <div class="who">You write it</div>
+              </div>
+              <div id="s00-chip-b" class="card pale chipcard rv">
+                <div class="label">Auto memory</div>
+                <div class="who">Claude writes it</div>
+              </div>
+            </div>
+            <div id="s00-map" class="rv"><span class="num">01</span>What to write<span class="num">02</span>Where to put it<span class="num">03</span>How to check it loaded</div>
+          </div>
+          <div class="base-rule"></div>
+        </div>
+      </div>
+      <script>
+        (function () {
+          const tl = gsap.timeline({ paused: true });
+          function arrive(sel, t, y, d) {
+            tl.set(sel, { opacity: 1, y: y || 46 }, t);
+            tl.to(sel, { y: 0, duration: d || 0.42, ease: "power4.out" }, t);
+          }
+          function pop(sel, t) {
+            tl.fromTo(sel, { opacity: 0, scale: 0.86 }, { opacity: 1, scale: 1, duration: 0.6, ease: "power3.out" }, t);
+          }
+          arrive("#s00-kicker", 0.2, 30, 0.3);
+          arrive("#s00-title", 0.3, 70, 0.5);
+          pop("#s00-card", 4.1);
+          tl.fromTo("#s00-line", { scaleX: 0 }, { scaleX: 1, duration: 1.0, ease: "power2.out" }, 4.6);
+          pop("#s00-chip-a", 5.9);
+          pop("#s00-chip-b", 7.1);
+          tl.set("#s00-map", { opacity: 1, y: 30 }, 7.7);
+          tl.to("#s00-map", { y: 0, duration: 0.4, ease: "power4.out" }, 7.7);
+          window.__timelines["s00"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

@@ -12,6 +12,8 @@
   Primary source for MCP connections, scopes, authentication, tool discovery, and security considerations.
 - [Model configuration — Anthropic](https://code.claude.com/docs/en/model-config)
   Primary source for the default model, family aliases, model selection, organization restrictions, and effort controls.
+- [Using Claude Code: Spending your effort — Thariq Shihipar, Anthropic](https://claude.dev/blog/spending-your-effort/)
+  What each effort level changes, from Terminal-Bench 3.0 and three build tests (September 25, 2026). Source for F101.6 and B201.3 effort guidance; recommended further reading.
 - [Choose a permission mode — Anthropic](https://code.claude.com/docs/en/permission-modes)
   Primary source for Manual, Accept Edits, Plan, and Auto modes across supported interfaces.
 - [Checkpointing — Anthropic](https://code.claude.com/docs/en/checkpointing)

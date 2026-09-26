@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head><meta charset="UTF-8"></head>
+  <body>
+    <template>
+      <style>
+        @font-face { font-family: "Literata"; src: url("assets/fonts/Literata-600.woff2") format("woff2"); font-weight: 600; }
+        @font-face { font-family: "IBM Plex Sans"; src: url("assets/fonts/IBMPlexSans-var.woff2") format("woff2"); font-weight: 100 700; }
+        @font-face { font-family: "JetBrains Mono"; src: url("assets/fonts/JetBrainsMono-var.woff2") format("woff2"); font-weight: 100 800; }
+        #s00-glow { width: 1400px; height: 1400px; left: 900px; top: -300px; }
+        #s00-ghost { left: -40px; bottom: -70px; }
+        #s00-head { position: absolute; left: 120px; top: 300px; width: 1000px; }
+        #s00-title { font-size: 112px; margin-top: 22px; }
+        #s00-sub { margin-top: 36px; font-size: 38px; font-weight: 600; color: var(--pale); }
+        #s00-sub .o { color: var(--orange); }
+        #s00-d { left: 1260px; top: 300px; width: 420px; }
+        #s00-d svg { width: 420px; height: 420px; }
+        #s00-d text { font-family: "IBM Plex Sans", Arial, sans-serif; font-size: 20px; font-weight: 700; fill: #EAF2FF; }
+      </style>
+      <div id="root" data-composition-id="s00" data-width="1920" data-height="1080">
+        <div class="scene dark">
+          <div class="dots"></div><div id="s00-glow" class="glow"></div><div id="s00-ghost" class="ghost">effort</div>
+          <div class="rail"><span>Analytics AI Enablement</span><span>B201.3 <span class="dot-o">●</span> Building with AI</span></div>
+          <div id="s00-head">
+            <span id="s00-kicker" class="kicker rv">Building with AI 201</span>
+            <span id="s00-title" class="title rv">Model and effort <span class="hl">in practice</span></span>
+            <div id="s00-sub" class="rv">How much Claude checks <span class="o">·</span> how much you steer</div>
+          </div>
+          <div id="s00-d" class="dial rv">
+            <svg viewBox="0 0 300 300"><circle cx="150" cy="150" r="120" fill="none" stroke="#EAF2FF" stroke-opacity="0.25" stroke-width="22"/>
+              <text x="33" y="272" text-anchor="middle">low</text><text x="-6" y="92" text-anchor="middle">medium</text><text x="150" y="-14" text-anchor="middle">high</text><text x="306" y="92" text-anchor="middle">xhigh</text><text x="267" y="272" text-anchor="middle">max</text>
+              <g id="s00-n"><rect x="146" y="46" width="8" height="104" rx="4" fill="#FF6900"/></g><circle cx="150" cy="150" r="16" fill="#fff"/></svg>
+            <div class="dl">Effort</div><div class="ds">how hard it works</div>
+          </div>
+        </div>
+      </div>
+      <script>
+        (function () {
+          const DUR = 9.92;
+          const tl = gsap.timeline({ paused: true });
+          const A = (s, t, o = {}) => tl.fromTo(s, { opacity: 0, x: o.x || 0, y: o.y === undefined ? 40 : o.y, scale: o.s || 1 }, { opacity: 1, x: 0, y: 0, scale: 1, duration: o.d || 0.5, ease: o.e || "power3.out", stagger: o.st || 0 }, t);
+          const P = (s, t, o = {}) => tl.fromTo(s, { opacity: 0, scale: o.s || 0.5 }, { opacity: 1, scale: 1, duration: o.d || 0.6, ease: o.e || "back.out(1.7)", stagger: o.st || 0 }, t);
+          const OUT = (s, t, d) => tl.to(s, { opacity: 0, duration: d || 0.35, ease: "power2.in" }, t);
+          const DRAW = (s, t, d, st) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d || 0.8, ease: "power2.inOut", stagger: st || 0 }, t);
+          const LOOP = (s, props, cyc, from, to) => tl.to(s, Object.assign({ duration: cyc, yoyo: true, repeat: Math.max(0, Math.floor((to - from) / cyc) - 1), ease: "sine.inOut" }, props), from);
+          A("#s00-kicker", 0.2, { y: 24, d: 0.35 });
+          A("#s00-title", 0.4, { y: 80, d: 0.7, e: "expo.out" });
+          P("#s00-d", 1.2, { s: 0.3, d: 0.8, e: "back.out(1.8)" });
+          tl.fromTo("#s00-n", { svgOrigin: "150 150", rotation: -135 }, { rotation: 135, duration: 2.2, ease: "power2.inOut" }, 1.9);
+          tl.to("#s00-n", { svgOrigin: "150 150", rotation: 0, duration: 1.2, ease: "elastic.out(1, 0.5)" }, 4.2);
+          A("#s00-sub", 6.70, { x: -60, y: 0, d: 0.6, e: "power4.out" });
+          tl.to("#s00-ghost", { x: 120, duration: DUR, ease: "none" }, 0);
+          LOOP("#s00-glow", { scale: 1.12 }, 2.5, 0, DUR - 0.5);
+          window.__timelines["s00"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

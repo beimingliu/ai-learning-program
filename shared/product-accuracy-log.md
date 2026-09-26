@@ -15,7 +15,8 @@
 | Context and compaction | [Explore the context window](https://code.claude.com/docs/en/context-window) | Verified 2026-08-12 |
 | CLAUDE.md scopes (managed / user / project / local), subdirectory on-demand loading, concatenation order, and auto memory (machine-local, on by default) | [How Claude remembers your project](https://code.claude.com/docs/en/memory) | Verified 2026-08-21 |
 | MCP concepts and connection scopes | [MCP documentation](https://code.claude.com/docs/en/mcp) | Verified 2026-08-12 |
-| Model aliases and effort controls | [Model configuration](https://code.claude.com/docs/en/model-config) | Verified 2026-08-12 |
+| Model aliases and effort controls | [Model configuration](https://code.claude.com/docs/en/model-config) | Verified 2026-09-26 |
+| What effort changes, where it helps, the effort rule of thumb | [Spending your effort](https://claude.dev/blog/spending-your-effort/) | Verified 2026-09-26 (vendor benchmark; cite as Anthropic's own runs) |
 | Permission-mode concepts | [Permission modes](https://code.claude.com/docs/en/permission-modes) | Verified 2026-08-12 |
 | Checkpoint and external-side-effect limits | [Checkpointing](https://code.claude.com/docs/en/checkpointing) | Verified 2026-08-12 |
 

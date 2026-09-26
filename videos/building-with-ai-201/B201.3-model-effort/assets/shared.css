@@ -1,0 +1,329 @@
+/* Shared F101.5 look: brand roles only (blue #003DA5, pale #EAF2FF, orange #FF6900, ink #091F31, white). */
+.scene {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: #ffffff;
+  color: var(--ink);
+  font-family: "IBM Plex Sans", "Helvetica Neue", Arial, sans-serif;
+}
+.scene.dark {
+  background: var(--ink);
+  color: #ffffff;
+}
+/* Dot field gives the light and dark canvases texture without new colors. */
+.dots {
+  position: absolute;
+  inset: -60px;
+  background-image: radial-gradient(rgba(0, 61, 165, 0.16) 2px, transparent 2.5px);
+  background-size: 44px 44px;
+}
+.dark .dots {
+  background-image: radial-gradient(rgba(234, 242, 255, 0.13) 2px, transparent 2.5px);
+}
+.glow {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(0, 61, 165, 0.22), rgba(0, 61, 165, 0) 70%);
+}
+.dark .glow {
+  background: radial-gradient(circle, rgba(0, 61, 165, 0.55), rgba(0, 61, 165, 0) 70%);
+}
+.glow.warm {
+  background: radial-gradient(circle, rgba(255, 105, 0, 0.2), rgba(255, 105, 0, 0) 70%);
+}
+.ghost {
+  position: absolute;
+  font-family: "Literata", Georgia, serif;
+  font-weight: 600;
+  font-size: 360px;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: rgba(0, 61, 165, 0.07);
+  white-space: nowrap;
+}
+.dark .ghost {
+  color: rgba(234, 242, 255, 0.06);
+}
+.rail {
+  position: absolute;
+  top: 54px;
+  left: 110px;
+  right: 110px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+.dark .rail {
+  color: var(--pale);
+}
+.rail .dot-o {
+  color: var(--blue);
+}
+.dark .rail .dot-o {
+  color: var(--orange);
+}
+.kicker {
+  display: block;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+.dark .kicker {
+  color: var(--orange);
+}
+.title {
+  display: block;
+  font-family: "Literata", Georgia, serif;
+  font-weight: 600;
+  font-size: 76px;
+  line-height: 1.08;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+.dark .title {
+  color: #ffffff;
+}
+.hl {
+  color: var(--blue);
+}
+.dark .hl {
+  color: var(--orange);
+}
+.rv {
+  opacity: 0;
+}
+.mono {
+  font-family: "JetBrains Mono", Menlo, monospace;
+  font-variant-ligatures: none;
+}
+.serif {
+  font-family: "Literata", Georgia, serif;
+  font-weight: 600;
+}
+/* Claude node */
+.claude {
+  position: absolute;
+  width: 190px;
+  height: 190px;
+  border-radius: 50%;
+  background: #ffffff;
+  border: 6px solid var(--blue);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 18px 50px rgba(9, 31, 49, 0.25);
+}
+.claude svg {
+  width: 104px;
+  height: 104px;
+}
+.claude .cap {
+  position: absolute;
+  top: 206px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 26px;
+  font-weight: 700;
+  white-space: nowrap;
+  color: var(--ink);
+}
+.dark .claude .cap {
+  color: #ffffff;
+}
+/* Tool-call chip */
+.chip {
+  position: absolute;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  background: var(--ink);
+  color: #ffffff;
+  font-family: "JetBrains Mono", Menlo, monospace;
+  font-size: 26px;
+  font-weight: 600;
+  white-space: nowrap;
+  box-shadow: 0 10px 26px rgba(9, 31, 49, 0.25);
+}
+.chip .svc {
+  color: var(--orange);
+}
+.dark .chip {
+  background: var(--pale);
+  color: var(--ink);
+}
+.dark .chip .svc {
+  color: var(--blue);
+}
+/* Service tile */
+.tile {
+  position: absolute;
+  width: 210px;
+  height: 210px;
+  border-radius: 34px;
+  background: #ffffff;
+  border: 4px solid var(--pale);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  box-shadow: 0 16px 40px rgba(9, 31, 49, 0.22);
+}
+.tile svg {
+  width: 92px;
+  height: 92px;
+}
+.tile .nm {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--ink);
+}
+.mono-mark {
+  width: 92px;
+  height: 92px;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Literata", Georgia, serif;
+  font-weight: 600;
+  font-size: 60px;
+  color: #ffffff;
+  background: var(--blue);
+}
+.mono-mark.o {
+  background: var(--orange);
+  color: var(--ink);
+}
+/* Result card */
+.result {
+  position: absolute;
+  width: 420px;
+  padding: 24px 28px;
+  border-radius: 22px;
+  background: #ffffff;
+  border: 3px solid var(--blue);
+  box-shadow: 0 18px 44px rgba(9, 31, 49, 0.25);
+  color: var(--ink);
+}
+.result .rt {
+  font-size: 26px;
+  font-weight: 700;
+}
+.result .bar {
+  height: 12px;
+  margin-top: 14px;
+  border-radius: 6px;
+  background: var(--pale);
+}
+.result .src {
+  margin-top: 16px;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--blue);
+}
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 26px;
+  border-radius: 999px;
+  background: var(--orange);
+  color: var(--ink);
+  font-size: 28px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.pill.blue {
+  background: var(--blue);
+  color: #ffffff;
+}
+.pill.pale {
+  background: var(--pale);
+  color: var(--blue);
+}
+.caption {
+  position: absolute;
+  font-size: 34px;
+  font-weight: 600;
+  color: var(--ink);
+}
+.dark .caption {
+  color: var(--pale);
+}
+.caption b {
+  color: var(--blue);
+}
+.dark .caption b {
+  color: var(--orange);
+}
+/* F101.6 / F101.7 additions */
+.mchip {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  background: #ffffff;
+  border: 3px solid var(--pale);
+  color: var(--ink);
+  font-size: 28px;
+  font-weight: 700;
+  white-space: nowrap;
+  box-shadow: 0 8px 22px rgba(9, 31, 49, 0.16);
+}
+.mchip i { width: 14px; height: 14px; border-radius: 50%; background: var(--blue); flex: 0 0 auto; }
+.mchip.oai i { background: var(--ink); }
+.mchip.ow i { background: var(--orange); }
+.mchip.big { font-size: 34px; padding: 16px 30px; border-color: var(--orange); }
+.term {
+  position: absolute;
+  border-radius: 20px;
+  background: var(--t-bg);
+  border: 2px solid var(--t-border);
+  color: var(--t-fg);
+  font-family: "JetBrains Mono", Menlo, monospace;
+  font-variant-ligatures: none;
+  box-shadow: 0 24px 60px rgba(9, 31, 49, 0.35);
+  overflow: hidden;
+}
+.term .bar { height: 44px; display: flex; align-items: center; gap: 10px; padding: 0 18px; background: var(--t-elev); color: #a6a6a6; font-size: 18px; }
+.term .bar b { width: 12px; height: 12px; border-radius: 50%; background: var(--t-border); }
+.term .row { padding: 10px 26px; font-size: 26px; }
+.term .row.sel { background: rgba(217, 119, 87, 0.18); color: #fff; }
+.term .row .m { color: var(--t-muted); }
+.term .cmd { color: var(--t-coral); }
+.dial { position: absolute; width: 300px; text-align: center; }
+.dial svg { width: 300px; height: 300px; overflow: visible; }
+.dial .dl { margin-top: 6px; font-family: "Literata", Georgia, serif; font-weight: 600; font-size: 44px; color: var(--ink); }
+.dial .ds { font-size: 26px; font-weight: 600; color: var(--blue); }
+.dark .dial .dl { color: #fff; }
+.dark .dial .ds { color: var(--orange); }
+.card {
+  position: absolute;
+  padding: 30px 36px;
+  border-radius: 28px;
+  background: #ffffff;
+  border: 4px solid var(--blue);
+  color: var(--ink);
+  box-shadow: 0 20px 50px rgba(9, 31, 49, 0.2);
+}
+.card.o { border-color: var(--orange); }
+.card.pale { background: var(--pale); border-color: var(--pale); }
+.card .k { font-size: 22px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue); }
+.card.o .k { color: var(--orange); }
+.card .h { margin-top: 10px; font-family: "Literata", Georgia, serif; font-weight: 600; font-size: 40px; line-height: 1.2; }
+.card .p { margin-top: 12px; font-size: 26px; font-weight: 500; line-height: 1.4; color: var(--muted); }
+.stamp { position: absolute; padding: 10px 20px; border-radius: 12px; border: 3px solid var(--orange); color: var(--orange); font-size: 22px; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; background: rgba(255, 105, 0, 0.08); }
+.fwd { display: inline-flex; align-items: center; gap: 12px; padding: 12px 24px; border-radius: 16px; background: var(--pale); color: var(--blue); font-size: 26px; font-weight: 700; white-space: nowrap; }
+.fwd::before { content: "→"; color: var(--orange); font-size: 30px; }
+.dark .fwd { background: rgba(234, 242, 255, 0.12); color: #fff; }

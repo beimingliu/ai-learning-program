@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head><meta charset="UTF-8"></head>
+  <body>
+    <template>
+      <style>
+        {{FONTS}}
+        #s08-glow { width: 1400px; height: 1400px; left: 700px; top: -200px; }
+        #s08-head { position: absolute; left: 120px; top: 260px; width: 1200px; }
+        #s08-title { font-size: 104px; margin-top: 20px; }
+        #s08-card { position: absolute; left: 120px; top: 560px; width: 1120px; padding: 40px 46px; border-radius: 30px; background: rgba(234,242,255,0.1); border: 3px solid rgba(234,242,255,0.35); }
+        #s08-card .serif { font-size: 44px; line-height: 1.25; color: #fff; }
+        #s08-pill { margin-top: 28px; }
+        #s08-orbit { position: absolute; left: 1380px; top: 380px; width: 420px; height: 420px; }
+        #s08-orbit .claude { left: 115px; top: 115px; }
+        #s08-ring { position: absolute; inset: 0; width: 420px; height: 420px; }
+        .s08-sat { position: absolute; width: 84px; height: 84px; border-radius: 24px; background: #fff; display: flex; align-items: center; justify-content: center; }
+        .s08-sat svg { width: 50px; height: 50px; }
+      </style>
+      <div id="root" data-composition-id="s08" data-width="1920" data-height="1080">
+        <div class="scene dark">
+          <div class="dots" id="s08-dots"></div>
+          <div id="s08-glow" class="glow"></div>
+          <div class="rail"><span>Continue learning</span><span>F101.6 <span class="dot-o">●</span> Foundations</span></div>
+          <div id="s08-head">
+            <span id="s08-kicker" class="kicker rv">Foundations 101</span>
+            <span id="s08-title" class="title rv">Keep learning. <span class="hl">Improve the course.</span></span>
+          </div>
+          <div id="s08-card" class="rv">
+            <div class="serif">Explore other videos in this series, and leave a comment so we can improve the course.</div>
+            <div id="s08-pill" class="rv"><span class="pill">#analytics-ai-knowledge-sharing</span></div>
+          </div>
+          <div id="s08-orbit">
+            <svg id="s08-ring" viewBox="0 0 420 420"><circle cx="210" cy="210" r="190" fill="none" stroke="#EAF2FF" stroke-opacity="0.35" stroke-width="3" stroke-dasharray="10 12" /></svg>
+            <div id="s08-spin" style="position:absolute;inset:0">
+              <div class="s08-sat rv" style="left:168px;top:-22px">{{I:glean}}</div>
+              <div class="s08-sat rv" style="left:358px;top:110px">{{I:slack}}</div>
+            </div>
+            <div class="claude rv" id="s08-c">{{CLAUDE}}</div>
+          </div>
+        </div>
+      </div>
+      <script>
+        (function () {
+          {{H}}
+          A("#s08-kicker", 0.2, { y: 24, d: 0.3 });
+          A("#s08-title", 0.35, { y: 70, d: 0.6, e: "expo.out" });
+          tl.fromTo("#s08-card", { opacity: 0, x: -80 }, { opacity: 1, x: 0, duration: 0.6, ease: "power4.out" }, 1.1);
+          P("#s08-c", 1.4, { s: 0.3 });
+          P(".s08-sat", 1.8, { s: 0, st: 0.12, e: "back.out(2)" });
+          P("#s08-pill", 4.2, { s: 0.6, d: 0.5 });
+          tl.to("#s08-spin", { rotation: 50, transformOrigin: "210px 210px", duration: DUR, ease: "none" }, 0);
+          tl.to(".s08-sat", { rotation: -50, duration: DUR, ease: "none" }, 0);
+          LOOP("#s08-glow", { scale: 1.1 }, 2.4, 0, DUR - 0.5);
+          window.__timelines["s08"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

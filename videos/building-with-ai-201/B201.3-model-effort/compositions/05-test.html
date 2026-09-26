@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head><meta charset="UTF-8"></head>
+  <body>
+    <template>
+      <style>
+        @font-face { font-family: "Literata"; src: url("assets/fonts/Literata-600.woff2") format("woff2"); font-weight: 600; }
+        @font-face { font-family: "IBM Plex Sans"; src: url("assets/fonts/IBMPlexSans-var.woff2") format("woff2"); font-weight: 100 700; }
+        @font-face { font-family: "JetBrains Mono"; src: url("assets/fonts/JetBrainsMono-var.woff2") format("woff2"); font-weight: 100 800; }
+        #s05-head { position: absolute; left: 120px; top: 110px; width: 1680px; }
+        #s05-title { margin-top: 16px; }
+        #s05-glow { width: 1100px; height: 1100px; left: -100px; top: 300px; }
+        #s05-pa { position: absolute; inset: 0; }
+        #s05-rule { left: 120px; top: 320px; width: 1680px; }
+        #s05-rule .g { margin-top: 20px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+        #s05-rule .c { padding: 20px 22px; border-radius: 18px; background: var(--pale); }
+        #s05-rule .c b { display: block; font-family: "JetBrains Mono", monospace; font-size: 30px; color: var(--blue); }
+        #s05-rule .c span { font-size: 26px; font-weight: 600; }
+        #s05-def { margin-top: 18px; font-size: 22px; font-weight: 600; color: var(--muted); }
+        #s05-runs { position: absolute; left: 120px; top: 640px; width: 1680px; display: flex; gap: 30px; }
+        .s05-run { flex: 1; padding: 24px 30px; border-radius: 26px; background: #fff; border: 4px solid var(--pale); box-shadow: 0 16px 40px rgba(9,31,49,0.14); }
+        .s05-run .k { font-size: 22px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue); }
+        .s05-run .k b { color: var(--orange); }
+        .s05-cols { margin-top: 16px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+        .s05-col .l { font-size: 22px; font-weight: 700; color: var(--muted); }
+        .s05-col .v { margin-top: 6px; font-size: 30px; font-weight: 700; }
+        .s05-col .bar { margin-top: 10px; height: 16px; border-radius: 8px; background: var(--pale); overflow: hidden; }
+        .s05-col .bar i { display: block; height: 100%; background: var(--blue); transform-origin: left center; }
+        #s05-r2 .s05-col .bar i { background: var(--orange); }
+        #s05-cap { left: 120px; top: 940px; }
+        #s05-pb { position: absolute; inset: 0; opacity: 0; }
+        .s05-fk { top: 340px; width: 800px; height: 400px; }
+        #s05-f1 { left: 120px; } #s05-f2 { left: 1000px; }
+        .s05-fk .h { font-size: 48px; }
+        .s05-fk .pill { position: absolute; left: 36px; bottom: 34px; }
+        #s05-foot { position: absolute; left: 120px; top: 820px; font-family: "Literata", Georgia, serif; font-weight: 600; font-size: 46px; }
+        #s05-foot b { color: var(--blue); }
+      </style>
+      <div id="root" data-composition-id="s05" data-width="1920" data-height="1080">
+        <div class="scene">
+          <div class="dots" id="s05-dots"></div>
+          <div id="s05-glow" class="glow"></div>
+          <div class="rail"><span>Test it on your own task</span><span>05 <span class="dot-o">/</span> 06</span></div>
+          <div id="s05-head">
+            <span id="s05-kicker" class="kicker rv">Models change with each release</span>
+            <span id="s05-title" class="title rv">A starting point. <span class="hl">Then test it.</span></span>
+          </div>
+          <div id="s05-pa">
+            <div id="s05-rule" class="card rv">
+              <div class="k">Rule of thumb · a starting point, from the article</div>
+              <div class="g">
+                <div class="c"><b>low</b><span>quick, in-the-loop drafts</span></div>
+                <div class="c"><b>medium</b><span>most everyday work</span></div>
+                <div class="c"><b>high</b><span>verification, edge cases</span></div>
+                <div class="c"><b>max</b><span>hands-off hard problems</span></div>
+              </div>
+              <div id="s05-def">Each model sets its own default · check /effort · as of Oct 2026</div>
+            </div>
+            <div id="s05-runs">
+              <div class="s05-run rv" id="s05-r1"><div class="k">Run A · default effort</div>
+                <div class="s05-cols">
+                  <div class="s05-col"><div class="l">checks</div><div class="v">2 of 3</div></div>
+                  <div class="s05-col"><div class="l">missed</div><div class="v">null dates</div></div>
+                  <div class="s05-col"><div class="l">time</div><div class="bar"><i style="transform:scaleX(0.35)"></i></div></div>
+                  <div class="s05-col"><div class="l">usage</div><div class="bar"><i style="transform:scaleX(0.3)"></i></div></div>
+                </div></div>
+              <div class="s05-run rv" id="s05-r2"><div class="k">Run B · <b>one change: effort</b></div>
+                <div class="s05-cols">
+                  <div class="s05-col"><div class="l">checks</div><div class="v">3 of 3</div></div>
+                  <div class="s05-col"><div class="l">missed</div><div class="v">none</div></div>
+                  <div class="s05-col"><div class="l">time</div><div class="bar"><i id="s05-t2"></i></div></div>
+                  <div class="s05-col"><div class="l">usage</div><div class="bar"><i id="s05-u2"></i></div></div>
+                </div></div>
+            </div>
+            <div id="s05-cap" class="caption rv">More effort has to <b>show up in your checks.</b></div>
+          </div>
+          <div id="s05-pb">
+            <div id="s05-f1" class="card s05-fk"><div class="k">Higher run caught edge cases</div><div class="h">Keep high effort for the verify step.</div><span class="pill blue">keep high for verify</span></div>
+            <div id="s05-f2" class="card o s05-fk"><div class="k">Both runs, wrong approach</div><div class="h">Go back to the task or the model.</div><span class="pill">task · or model</span></div>
+            <div id="s05-foot">One run is <b>a practical check</b>, not an evaluation.</div>
+          </div>
+        </div>
+      </div>
+      <script>
+        (function () {
+          const DUR = 53.61;
+          const tl = gsap.timeline({ paused: true });
+          const A = (s, t, o = {}) => tl.fromTo(s, { opacity: 0, x: o.x || 0, y: o.y === undefined ? 40 : o.y, scale: o.s || 1 }, { opacity: 1, x: 0, y: 0, scale: 1, duration: o.d || 0.5, ease: o.e || "power3.out", stagger: o.st || 0 }, t);
+          const P = (s, t, o = {}) => tl.fromTo(s, { opacity: 0, scale: o.s || 0.5 }, { opacity: 1, scale: 1, duration: o.d || 0.6, ease: o.e || "back.out(1.7)", stagger: o.st || 0 }, t);
+          const OUT = (s, t, d) => tl.to(s, { opacity: 0, duration: d || 0.35, ease: "power2.in" }, t);
+          const DRAW = (s, t, d, st) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d || 0.8, ease: "power2.inOut", stagger: st || 0 }, t);
+          const LOOP = (s, props, cyc, from, to) => tl.to(s, Object.assign({ duration: cyc, yoyo: true, repeat: Math.max(0, Math.floor((to - from) / cyc) - 1), ease: "sine.inOut" }, props), from);
+          A("#s05-kicker", 0.2, { y: 20, d: 0.35 });
+          A("#s05-title", 0.35, { y: 60, d: 0.6, e: "expo.out" });
+          A("#s05-rule", 1.0, { y: 50, d: 0.55, e: "expo.out" });
+          tl.fromTo("#s05-rule .c", { opacity: 0, y: 20 }, { opacity: 1, y: 0, duration: 0.35, stagger: 0.15 }, 1.3);
+          tl.to("#s05-def", { keyframes: { color: ["#091F31", "#FF6900", "#091F31"] }, duration: 1.2 }, 3.68);
+          var p = 9.68;
+          tl.to("#s05-rule", { scale: 0.92, y: -20, transformOrigin: "top left", opacity: 0.4, duration: 0.5 }, p);
+          tl.fromTo("#s05-r1", { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.5, ease: "power4.out" }, 12.95);
+          tl.fromTo("#s05-r1 .s05-col", { opacity: 0 }, { opacity: 1, duration: 0.3, stagger: 0.4 }, 16.56);
+          var b = 22.83;
+          tl.fromTo("#s05-r2", { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.5, ease: "power4.out" }, b);
+          tl.fromTo("#s05-r2 .s05-col", { opacity: 0 }, { opacity: 1, duration: 0.3, stagger: 0.25 }, b + 0.5);
+          tl.fromTo("#s05-t2, #s05-u2", { scaleX: 0 }, { scaleX: 0.85, duration: 1.0, ease: "power3.out", stagger: 0.2 }, 27.20);
+          A("#s05-cap", 29.55 - 0.3, { y: 20, d: 0.4 });
+          var f = 32.47;
+          tl.to("#s05-pa", { opacity: 0, y: -30, duration: 0.45, ease: "power2.in" }, f - 0.5);
+          tl.set("#s05-pb", { opacity: 1 }, f - 0.05);
+          tl.fromTo("#s05-f1", { opacity: 0, x: -120 }, { opacity: 1, x: 0, duration: 0.55, ease: "power4.out" }, f);
+          tl.fromTo("#s05-f2", { opacity: 0, x: 120 }, { opacity: 1, x: 0, duration: 0.55, ease: "power4.out" }, 39.35);
+          A("#s05-foot", 45.51 - 0.4, { y: 24, d: 0.45 });
+          LOOP("#s05-glow", { scale: 1.12, x: 50 }, 3.2, 0, DUR - 0.5);
+          tl.to("#s05-dots", { x: -44, y: -22, duration: DUR, ease: "none" }, 0);
+          window.__timelines["s05"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

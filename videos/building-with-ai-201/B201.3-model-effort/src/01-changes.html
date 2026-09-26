@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+  <head><meta charset="UTF-8"></head>
+  <body>
+    <template>
+      <style>
+        {{FONTS}}
+        #s01-head { position: absolute; left: 120px; top: 120px; width: 1680px; }
+        #s01-title { margin-top: 16px; }
+        #s01-glow { width: 1200px; height: 1200px; left: 900px; top: 100px; }
+        #s01-pa { position: absolute; inset: 0; }
+        #s01-dm { left: 140px; top: 380px; }
+        #s01-de { left: 500px; top: 380px; }
+        #s01-src { position: absolute; left: 920px; top: 350px; }
+        .s01-t { left: 920px; width: 880px; }
+        #s01-t1 { top: 450px; } #s01-t2 { top: 650px; }
+        #s01-pb { position: absolute; inset: 0; opacity: 0; }
+        .s01-c { top: 350px; width: 800px; height: 460px; }
+        #s01-c1 { left: 120px; } #s01-c2 { left: 1000px; border-color: var(--orange); }
+        .s01-c svg { width: 130px; height: 130px; }
+        .s01-c .hr { margin-top: 18px; font-family: "Literata", Georgia, serif; font-weight: 600; font-size: 64px; }
+        .s01-c .p { font-size: 32px; }
+        .s01-c .tag { position: absolute; right: 36px; top: 36px; }
+        #s01-cap { left: 120px; top: 880px; }
+      </style>
+      <div id="root" data-composition-id="s01" data-width="1920" data-height="1080">
+        <div class="scene">
+          <div class="dots" id="s01-dots"></div>
+          <div id="s01-glow" class="glow"></div>
+          <div class="rail"><span>What effort changes</span><span>01 <span class="dot-o">/</span> 06</span></div>
+          <div id="s01-head">
+            <span id="s01-kicker" class="kicker rv">From Foundations 101</span>
+            <span id="s01-title" class="title rv">Effort changes <span class="hl">two things.</span></span>
+          </div>
+          <div id="s01-pa">
+            <div id="s01-dm" class="dial rv">
+              <svg viewBox="0 0 300 300"><circle cx="150" cy="150" r="120" fill="none" stroke="#003DA5" stroke-opacity="0.15" stroke-width="22"/><g id="s01-nm"><rect x="146" y="46" width="8" height="104" rx="4" fill="#091F31"/></g><circle cx="150" cy="150" r="16" fill="#091F31"/></svg>
+              <div class="dl">Model</div><div class="ds">how capable</div>
+            </div>
+            <div id="s01-de" class="dial rv">
+              <svg viewBox="0 0 300 300"><circle cx="150" cy="150" r="120" fill="none" stroke="#FF6900" stroke-opacity="0.3" stroke-width="22"/><g id="s01-ne"><rect x="146" y="46" width="8" height="104" rx="4" fill="#FF6900"/></g><circle cx="150" cy="150" r="16" fill="#091F31"/></svg>
+              <div class="dl">Effort</div><div class="ds">how hard it works</div>
+            </div>
+            <div id="s01-src" class="rv"><span class="fwd">“Spending your effort” · Thariq Shihipar, Claude Code team · Sept 2026</span></div>
+            <div id="s01-t1" class="card s01-t rv"><div class="k">One</div><div class="h">How much Claude checks its own work</div></div>
+            <div id="s01-t2" class="card o s01-t rv"><div class="k">Two</div><div class="h">How much Claude decides on its own</div></div>
+          </div>
+          <div id="s01-pb">
+            <div id="s01-c1" class="card s01-c">
+              <span class="pill pale tag">low effort</span>
+              <svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="52" fill="none" stroke="#003DA5" stroke-width="8"/><g id="s01-h1"><rect x="57" y="18" width="6" height="44" rx="3" fill="#FF6900"/></g><circle cx="60" cy="60" r="7" fill="#091F31"/></svg>
+              <div class="hr">1 hour</div>
+              <div class="p">A solid first version, then expect feedback.</div>
+            </div>
+            <div id="s01-c2" class="card s01-c">
+              <span class="pill tag">high effort</span>
+              <svg viewBox="0 0 120 120"><circle cx="60" cy="60" r="52" fill="none" stroke="#FF6900" stroke-width="8"/><g id="s01-h2"><rect x="57" y="18" width="6" height="44" rx="3" fill="#003DA5"/></g><circle cx="60" cy="60" r="7" fill="#091F31"/></svg>
+              <div class="hr">12 hours</div>
+              <div class="p">Test, second-guess, and polish without asking.</div>
+            </div>
+            <div id="s01-cap" class="caption rv">Effort tells Claude <b>which deadline it has.</b></div>
+          </div>
+        </div>
+      </div>
+      <script>
+        (function () {
+          {{H}}
+          A("#s01-kicker", 0.2, { y: 20, d: 0.35 });
+          A("#s01-title", 0.35, { y: 60, d: 0.6, e: "expo.out" });
+          P("#s01-dm", {{T:model decides}} - 0.2, { s: 0.3, d: 0.6 });
+          tl.fromTo("#s01-nm", { svgOrigin: "150 150", rotation: -135 }, { rotation: 20, duration: 1.2, ease: "elastic.out(1, 0.5)" }, {{T:model decides}} + 0.3);
+          P("#s01-de", {{T:effort decides}} - 0.2, { s: 0.3, d: 0.6 });
+          tl.fromTo("#s01-ne", { svgOrigin: "150 150", rotation: -135 }, { rotation: 0, duration: 1.2, ease: "elastic.out(1, 0.5)" }, {{T:effort decides}} + 0.3);
+          var c = {{T:Claude Code team}};
+          tl.to("#s01-dm", { opacity: 0.3, scale: 0.9, duration: 0.5 }, c - 0.6);
+          A("#s01-src", c - 0.4, { x: 60, y: 0, d: 0.5, e: "expo.out" });
+          tl.to("#s01-ne", { svgOrigin: "150 150", rotation: 135, duration: 1.6, ease: "power2.inOut", yoyo: true, repeat: 1 }, {{T:every effort level}});
+          A("#s01-t1", {{T:checks its own}} - 0.2, { x: 80, y: 0, d: 0.5, e: "power4.out" });
+          A("#s01-t2", {{T:decides on its own}} - 0.2, { x: 80, y: 0, d: 0.5, e: "power4.out" });
+          var d = {{T:Think of a deadline}};
+          tl.to("#s01-pa", { opacity: 0, y: -30, duration: 0.45, ease: "power2.in" }, d - 0.3);
+          tl.set("#s01-pb", { opacity: 1 }, d);
+          tl.fromTo("#s01-c1", { opacity: 0, x: -120 }, { opacity: 1, x: 0, duration: 0.55, ease: "power4.out" }, {{T:first version}} - 0.6);
+          tl.fromTo("#s01-h1", { svgOrigin: "60 60", rotation: 0 }, { rotation: 360, duration: 1.2, ease: "power2.inOut" }, {{T:first version}});
+          tl.fromTo("#s01-c2", { opacity: 0, x: 120 }, { opacity: 1, x: 0, duration: 0.55, ease: "power4.out" }, {{T:second guess}} - 0.8);
+          tl.fromTo("#s01-h2", { svgOrigin: "60 60", rotation: 0 }, { rotation: 1440, duration: 2.4, ease: "power2.inOut" }, {{T:second guess}} - 0.2);
+          A("#s01-cap", {{T:which deadline}} - 0.4, { y: 24, d: 0.45 });
+          LOOP("#s01-glow", { scale: 1.12, x: -60 }, 3.2, 0, DUR - 0.5);
+          tl.to("#s01-dots", { x: -44, y: -22, duration: DUR, ease: "none" }, 0);
+          window.__timelines["s01"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

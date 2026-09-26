@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head><meta charset="UTF-8"></head>
+  <body>
+    <template>
+      <style>
+        {{FONTS}}
+        #s07-glow { width: 1400px; height: 1400px; left: 700px; top: -200px; }
+        #s07-head { position: absolute; left: 120px; top: 260px; width: 1200px; }
+        #s07-title { font-size: 104px; margin-top: 20px; }
+        #s07-card { position: absolute; left: 120px; top: 560px; width: 1120px; padding: 40px 46px; border-radius: 30px; background: rgba(234,242,255,0.1); border: 3px solid rgba(234,242,255,0.35); }
+        #s07-card .serif { font-size: 44px; line-height: 1.25; color: #fff; }
+        #s07-pill { margin-top: 28px; }
+        #s07-orbit { position: absolute; left: 1380px; top: 380px; width: 420px; height: 420px; }
+        #s07-orbit .claude { left: 115px; top: 115px; }
+        #s07-ring { position: absolute; inset: 0; width: 420px; height: 420px; }
+        .s07-sat { position: absolute; width: 84px; height: 84px; border-radius: 24px; background: #fff; display: flex; align-items: center; justify-content: center; }
+        .s07-sat svg { width: 50px; height: 50px; }
+      </style>
+      <div id="root" data-composition-id="s07" data-width="1920" data-height="1080">
+        <div class="scene dark">
+          <div class="dots" id="s07-dots"></div>
+          <div id="s07-glow" class="glow"></div>
+          <div class="rail"><span>Continue learning</span><span>B201.3 <span class="dot-o">●</span> Building with AI</span></div>
+          <div id="s07-head">
+            <span id="s07-kicker" class="kicker rv">Building with AI 201</span>
+            <span id="s07-title" class="title rv">Keep learning. <span class="hl">Improve the course.</span></span>
+          </div>
+          <div id="s07-card" class="rv">
+            <div class="serif">Explore other videos in this series, and leave a comment so we can improve the course.</div>
+            <div id="s07-pill" class="rv"><span class="pill">#analytics-ai-knowledge-sharing</span></div>
+          </div>
+          <div id="s07-orbit">
+            <svg id="s07-ring" viewBox="0 0 420 420"><circle cx="210" cy="210" r="190" fill="none" stroke="#EAF2FF" stroke-opacity="0.35" stroke-width="3" stroke-dasharray="10 12" /></svg>
+            <div id="s07-spin" style="position:absolute;inset:0">
+              <div class="s07-sat rv" style="left:168px;top:-22px">{{I:glean}}</div>
+              <div class="s07-sat rv" style="left:358px;top:110px">{{I:slack}}</div>
+            </div>
+            <div class="claude rv" id="s07-c">{{CLAUDE}}</div>
+          </div>
+        </div>
+      </div>
+      <script>
+        (function () {
+          {{H}}
+          A("#s07-kicker", 0.2, { y: 24, d: 0.3 });
+          A("#s07-title", 0.35, { y: 70, d: 0.6, e: "expo.out" });
+          tl.fromTo("#s07-card", { opacity: 0, x: -80 }, { opacity: 1, x: 0, duration: 0.6, ease: "power4.out" }, 1.1);
+          P("#s07-c", 1.4, { s: 0.3 });
+          P(".s07-sat", 1.8, { s: 0, st: 0.12, e: "back.out(2)" });
+          P("#s07-pill", 4.2, { s: 0.6, d: 0.5 });
+          tl.to("#s07-spin", { rotation: 50, transformOrigin: "210px 210px", duration: DUR, ease: "none" }, 0);
+          tl.to(".s07-sat", { rotation: -50, duration: DUR, ease: "none" }, 0);
+          LOOP("#s07-glow", { scale: 1.1 }, 2.4, 0, DUR - 0.5);
+          window.__timelines["s07"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

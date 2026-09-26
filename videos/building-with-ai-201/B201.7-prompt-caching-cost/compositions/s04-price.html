@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head><meta charset="UTF-8"></head>
+  <body>
+    <template>
+      <style>
+        #s04-root { position: absolute; inset: 0; }
+        #s04-head { position: absolute; left: 140px; top: 128px; width: 1640px; }
+        #s04-price { position: absolute; left: 140px; top: 330px; width: 780px; height: 560px; padding: 40px 44px; }
+        #s04-speed { position: absolute; left: 1000px; top: 330px; width: 780px; height: 560px; padding: 40px 44px; }
+        .s04-lbl { font-size: 22px; letter-spacing: 0.12em; color: var(--muted); }
+        .s04-prow { position: absolute; left: 44px; right: 44px; display: flex; align-items: flex-end; gap: 26px; }
+        .s04-col { display: flex; flex-direction: column; align-items: center; gap: 14px; width: 190px; }
+        .s04-bar { width: 150px; border-radius: 8px 8px 0 0; transform-origin: bottom center; }
+        .s04-x { white-space: nowrap; font-size: 44px; font-weight: 700; }
+        .s04-n { font-size: 24px; color: var(--muted); text-align: center; }
+        #s04-base { position: absolute; left: 44px; right: 44px; top: 452px; height: 2px; background: var(--line); }
+        .s04-srow { position: absolute; left: 44px; right: 44px; }
+        .s04-srow .n { font-size: 26px; color: var(--muted); }
+        .s04-track { position: relative; margin-top: 14px; height: 64px; border-radius: 8px; background: rgba(169, 188, 205, 0.08); }
+        .s04-fill { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 8px; transform-origin: left center; }
+        .s04-sec { position: absolute; top: 50%; font-size: 36px; font-weight: 700; transform: translateY(-50%); }
+        #s04-drop { position: absolute; left: 44px; bottom: 44px; font-size: 30px; }
+      </style>
+      <div data-hf-id="hf-5jeg" id="s04-root" data-composition-id="s04" data-width="1920" data-height="1080">
+        <div data-hf-id="hf-fasr" id="s04-head" class="headline">A cache hit is <span data-hf-id="hf-ig3d" class="t-hit">cheaper</span> and <span data-hf-id="hf-21dy" class="t-hit">faster</span>.</div>
+        <div data-hf-id="hf-u85z" id="s04-price" class="card">
+          <div data-hf-id="hf-f3oi" class="s04-lbl mono">PRICE PER INPUT TOKEN</div>
+          <div data-hf-id="hf-27sc" class="s04-prow" style="top:120px;height:332px">
+            <div data-hf-id="hf-kjue" class="s04-col"><div data-hf-id="hf-vozk" class="s04-x mono t-hit" id="s04-x1">0.1×</div><div data-hf-id="hf-hqiz" id="s04-b1" class="s04-bar" style="height:26px;background:var(--hit)"></div></div>
+            <div data-hf-id="hf-xyai" class="s04-col"><div data-hf-id="hf-qhn1" class="s04-x mono" id="s04-x2">1×</div><div data-hf-id="hf-p4j2" id="s04-b2" class="s04-bar" style="height:220px;background:#6c9bff"></div></div>
+            <div data-hf-id="hf-yclj" class="s04-col"><div data-hf-id="hf-dszq" class="s04-x mono t-miss" id="s04-x3">1.25×</div><div data-hf-id="hf-fur2" id="s04-b3" class="s04-bar" style="height:275px;background:var(--miss)"></div></div>
+          </div>
+          <div data-hf-id="hf-qlau" id="s04-base"></div>
+          <div data-hf-id="hf-eyza" class="s04-prow" style="top:470px">
+            <div data-hf-id="hf-yqwk" class="s04-col"><div data-hf-id="hf-z0ep" class="s04-n" id="s04-n1">cache read*</div></div>
+            <div data-hf-id="hf-z57l" class="s04-col"><div data-hf-id="hf-cbtv" class="s04-n" id="s04-n2">normal input</div></div>
+            <div data-hf-id="hf-zjim" class="s04-col"><div data-hf-id="hf-xnw2" class="s04-n" id="s04-n3">cache write</div></div>
+          </div>
+        </div>
+        <div data-hf-id="hf-mvqh" id="s04-speed" class="card">
+          <div data-hf-id="hf-seqf" class="s04-lbl mono">TIME TO FIRST TOKEN · 100K-TOKEN PROMPT</div>
+          <div data-hf-id="hf-4xtq" class="s04-srow" style="top:130px">
+            <div data-hf-id="hf-mrzv" class="n">No cache</div>
+            <div data-hf-id="hf-kakt" class="s04-track"><div data-hf-id="hf-sq6c" id="s04-f1" class="s04-fill" style="width:640px;background:#6c9bff"></div><div data-hf-id="hf-g699" id="s04-s1" class="s04-sec mono" style="left:560px;color:#07192a">11.5 s</div></div>
+          </div>
+          <div data-hf-id="hf-t42z" class="s04-srow" style="top:290px">
+            <div data-hf-id="hf-p5zt" class="n">Cache hit</div>
+            <div data-hf-id="hf-g3b5" class="s04-track"><div data-hf-id="hf-4awf" id="s04-f2" class="s04-fill" style="width:134px;background:var(--hit)"></div><div data-hf-id="hf-50ip" id="s04-s2" class="s04-sec mono t-hit" style="left:158px">2.4 s</div></div>
+          </div>
+          <div data-hf-id="hf-rsfa" id="s04-drop" class="serif">About <span data-hf-id="hf-amuz" class="t-hit">79% less</span> waiting on every call.</div>
+        </div>
+        <div data-hf-id="hf-k1jp" class="src">* most Claude models; Opus 5.5 is 0.05×. Sources: Anthropic prompt caching docs (Claude pricing) · Anthropic prompt caching announcement (latency)</div>
+      </div>
+      <script>
+        (() => {
+          const tl = gsap.timeline({ paused: true });
+          tl.fromTo("#s04-head", { y: 26, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, ease: "power3.out" }, 0.2);
+          tl.fromTo("#s04-price", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: "power3.out" }, 0.5);
+          tl.fromTo("#s04-b2", { scaleY: 0 }, { scaleY: 1, duration: 0.6, ease: "power2.out" }, 2.8);
+          tl.fromTo("#s04-x2, #s04-n2", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 3.1);
+          tl.fromTo("#s04-b1", { scaleY: 0 }, { scaleY: 1, duration: 0.5, ease: "back.out(2)" }, 1.9);
+          tl.fromTo("#s04-x1, #s04-n1", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.4 }, 2.1);
+          tl.fromTo("#s04-b3", { scaleY: 0 }, { scaleY: 1, duration: 0.6, ease: "power2.out" }, 6.4);
+          tl.fromTo("#s04-x3, #s04-n3", { opacity: 0, y: 10 }, { opacity: 1, y: 0, duration: 0.4 }, 6.7);
+          tl.fromTo("#s04-speed", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: "power3.out" }, 9.2);
+          tl.fromTo("#s04-f1", { scaleX: 0 }, { scaleX: 1, duration: 1.2, ease: "power1.inOut" }, 15.2);
+          tl.fromTo("#s04-s1", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 16.2);
+          tl.fromTo("#s04-f2", { scaleX: 0 }, { scaleX: 1, duration: 0.35, ease: "power2.out" }, 17.4);
+          tl.fromTo("#s04-s2", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 17.6);
+          tl.fromTo("#s04-drop", { y: 18, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5 }, 18.2);
+          tl.fromTo("#s04-root .src", { opacity: 0 }, { opacity: 1, duration: 0.5 }, 1.0);
+          tl.to("#s04-root > *", { opacity: 0, duration: 0.4 }, 20.15);
+          window.__timelines["s04"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

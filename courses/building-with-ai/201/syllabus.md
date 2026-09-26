@@ -3,7 +3,7 @@
 **Version:** 1.0  
 **Last content review:** August 12, 2026  
 **Prerequisite:** AI Foundations 101 or its placement exercise  
-**Length:** Six lessons, approximately 18 minutes, plus a 30–45 minute capstone
+**Length:** Seven lessons, approximately 22 minutes, plus a 30–45 minute capstone
 
 ## Lesson format
 
@@ -33,6 +33,7 @@ Each lesson file is the source of truth for its key concept and learner outcome;
 - [B201.4 — Plan, Permissions, and Safe Autonomy](lessons/B201.4-plan-permissions-autonomy.md)
 - [B201.5 — Steer, Stop, Inspect, and Recover](lessons/B201.5-steer-stop-recover.md)
 - [B201.6 — Save the Workflow and Use the Control Panel](lessons/B201.6-save-workflow-control-panel.md)
+- [B201.7 — Prompt Caching and the Cost of Agentic Work](lessons/B201.7-prompt-caching-cost.md)
 
 ## Capstone: recurring workflow
 

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+  <head><meta charset="UTF-8"></head>
+  <body>
+    <template>
+      <style>
+        #s05-root { position: absolute; inset: 0; }
+        .s05-head { position: absolute; left: 140px; top: 128px; width: 1640px; }
+        #s05-table { position: absolute; left: 140px; top: 300px; width: 1640px; }
+        .s05-tr { display: grid; grid-template-columns: 300px 620px 150px 1fr; align-items: center; height: 108px; padding: 0 36px; border-bottom: 1px solid var(--line); font-size: 32px; }
+        .s05-th { height: 60px; font-size: 21px; letter-spacing: 0.12em; color: var(--faint); }
+        .s05-tr .calls { color: var(--muted); }
+        .s05-hit { display: flex; align-items: center; gap: 24px; }
+        .s05-track { position: relative; width: 300px; height: 30px; border-radius: 6px; background: rgba(169, 188, 205, 0.1); }
+        .s05-fill { position: absolute; left: 0; top: 0; bottom: 0; border-radius: 6px; transform-origin: left center; background: var(--hit); }
+        .s05-pct { white-space: nowrap; width: 130px; font-size: 44px; font-weight: 700; }
+        #s05-r3 { background: rgba(255, 105, 0, 0.08); }
+        #s05-r3 .s05-pct { color: var(--miss); }
+        .s05-same { padding: 2px 10px; margin: -2px -10px; border-radius: 6px; }
+        #s05-caption { position: absolute; left: 140px; top: 690px; width: 1640px; display: flex; gap: 30px; }
+        #s05-caption .card { flex: 1; padding: 28px 34px; font-size: 32px; line-height: 1.35; }
+        #s05-caption b { font-weight: 600; }
+        #s05-pipes { position: absolute; left: 140px; top: 290px; width: 1640px; height: 300px; }
+        .s05-pipe { position: absolute; left: 0; display: flex; align-items: center; height: 110px; }
+        .s05-node { height: 86px; padding: 0 28px; display: flex; align-items: center; border-radius: 10px; font-size: 28px; font-weight: 600; background: var(--surface2); border: 2px solid var(--line); white-space: nowrap; }
+        .s05-node.proxy { color: var(--miss); background: rgba(255, 105, 0, 0.08); }
+        .s05-arrow { position: relative; height: 4px; background: var(--muted); transform-origin: left center; }
+        .s05-arrow::after { content: ""; position: absolute; right: -2px; top: -9px; border-left: 16px solid var(--muted); border-top: 11px solid transparent; border-bottom: 11px solid transparent; }
+        .s05-arrow span { position: absolute; left: 50%; top: -40px; transform: translateX(-50%); font-size: 20px; color: var(--faint); white-space: nowrap; }
+        .s05-pipe .chip { margin-left: 30px; }
+        #s05-bytes { position: absolute; left: 140px; top: 620px; width: 1640px; height: 330px; padding: 30px 40px; }
+        #s05-bytes .lbl { font-size: 21px; letter-spacing: 0.12em; color: var(--faint); }
+        .s05-call { position: absolute; left: 40px; display: flex; align-items: center; gap: 24px; font-size: 27px; }
+        .s05-call .k { width: 110px; color: var(--muted); font-size: 22px; }
+        .s05-call code { font-family: "JetBrains Mono", Menlo, monospace; padding: 12px 18px; border-radius: 8px; background: rgba(7, 25, 42, 0.7); white-space: nowrap; }
+        .s05-call code i { font-style: normal; color: var(--miss); }
+        .s05-verdict { position: absolute; right: 40px; width: 470px; font-size: 27px; line-height: 1.35; }
+      </style>
+      <div data-hf-id="hf-848w" id="s05-root" data-composition-id="s05" data-width="1920" data-height="1080">
+        <div data-hf-id="hf-qdvz" id="s05-h1" class="s05-head headline">90 days of my own sessions</div>
+        <div data-hf-id="hf-zkiu" id="s05-h2" class="s05-head headline">Same models. <span data-hf-id="hf-h7w2" class="t-hit">Different harness.</span></div>
+        <div data-hf-id="hf-hj37" id="s05-h3" class="s05-head headline">Where the cache broke, in my tests</div>
+
+        <div data-hf-id="hf-htle" id="s05-table">
+          <div data-hf-id="hf-lzld" class="s05-tr s05-th mono"><span data-hf-id="hf-7z3z">HARNESS</span><span data-hf-id="hf-9186">MODEL</span><span data-hf-id="hf-9tvm">CALLS</span><span data-hf-id="hf-q0jy">CACHE HIT RATE</span></div>
+          <div data-hf-id="hf-hrfj" class="s05-tr" id="s05-r1"><span data-hf-id="hf-w2n4">Claude Code</span><span data-hf-id="hf-w3m5">Claude (Opus 5, 5.5)</span><span data-hf-id="hf-8jpf" class="calls mono">4,071</span>
+            <span data-hf-id="hf-d321" class="s05-hit"><span data-hf-id="hf-cvtj" class="s05-pct mono t-hit" id="s05-p1">93%</span><span data-hf-id="hf-vher" class="s05-track"><span data-hf-id="hf-9qrj" class="s05-fill" id="s05-f1" style="width:279px"></span></span></span></div>
+          <div data-hf-id="hf-93jo" class="s05-tr" id="s05-r2"><span data-hf-id="hf-bnwi">Codex CLI</span><span data-hf-id="hf-uckh"><span data-hf-id="hf-a6do" class="s05-same" id="s05-m2">GPT-5.6 / GPT-6</span></span><span data-hf-id="hf-f9kl" class="calls mono">14,926</span>
+            <span data-hf-id="hf-goel" class="s05-hit"><span data-hf-id="hf-486z" class="s05-pct mono t-hit" id="s05-p2">90%</span><span data-hf-id="hf-s7vn" class="s05-track"><span data-hf-id="hf-sik3" class="s05-fill" id="s05-f2" style="width:271px"></span></span></span></div>
+          <div data-hf-id="hf-9v7h" class="s05-tr" id="s05-r3"><span data-hf-id="hf-8x20">Claude Code</span><span data-hf-id="hf-l73p"><span data-hf-id="hf-gmrv" class="s05-same" id="s05-m3">GPT-5.6 / GPT-6</span><span data-hf-id="hf-tkon" class="t-muted" style="font-size:24px"> + open-weight, before Sep 24</span></span><span data-hf-id="hf-kqr1" class="calls mono">1,050</span>
+            <span data-hf-id="hf-hvbo" class="s05-hit"><span data-hf-id="hf-0eul" class="s05-pct mono" id="s05-p3">0%</span><span data-hf-id="hf-rtkm" class="s05-track"></span></span></div>
+        </div>
+        <div data-hf-id="hf-k7n8" id="s05-caption">
+          <div data-hf-id="hf-zxrq" class="card" id="s05-cap1"><b data-hf-id="hf-fm1t">The provider</b> decides what <b data-hf-id="hf-oo3p">can</b> be cached.</div>
+          <div data-hf-id="hf-mndn" class="card" id="s05-cap2"><b data-hf-id="hf-no3i" class="t-hit">The harness</b> decides whether each request starts with <b data-hf-id="hf-gmvh">the same bytes</b> as the last.</div>
+        </div>
+
+        <div id="s05-pipes">
+          <div class="s05-pipe" id="s05-pa" style="top:10px">
+            <div class="s05-node" style="width:250px">Codex</div>
+            <div class="s05-arrow" id="s05-aa1" style="width:190px"><span>OpenAI format</span></div>
+            <div class="s05-node" id="s05-pxa" style="width:330px">LiteLLM passes it on</div>
+            <div class="s05-arrow" id="s05-aa2" style="width:110px"></div>
+            <div class="s05-node" style="width:220px">OpenAI API</div>
+            <span class="chip hit" id="s05-ca">90% hit</span>
+          </div>
+          <div class="s05-pipe" id="s05-pb" style="top:170px">
+            <div class="s05-node" style="width:250px">Claude Code</div>
+            <div class="s05-arrow" id="s05-ab1" style="width:190px"><span>Anthropic format</span></div>
+            <div class="s05-node proxy" id="s05-proxy" style="width:330px">LiteLLM translates</div>
+            <div class="s05-arrow" id="s05-ab2" style="width:110px"></div>
+            <div class="s05-node" style="width:220px">OpenAI API</div>
+            <span class="chip miss" id="s05-cb">0% hit</span>
+          </div>
+        </div>
+
+        <div data-hf-id="hf-vzdw" id="s05-bytes" class="card">
+          <div data-hf-id="hf-3n0v" class="lbl mono">THE SAME MID-CONVERSATION NOTICE, AS CLAUDE CODE SENDS IT</div>
+          <div data-hf-id="hf-4ony" class="s05-call" id="s05-c1" style="top:92px"><span data-hf-id="hf-ix2i" class="k mono">call 1</span><code data-hf-id="hf-8oa3">"content": <i data-hf-id="hf-hcte">[{"type": "text", "text": "…"}]</i></code></div>
+          <div data-hf-id="hf-atoy" class="s05-call" id="s05-c2" style="top:196px"><span data-hf-id="hf-60j8" class="k mono">call 2+</span><code data-hf-id="hf-rw0b">"content": <i data-hf-id="hf-5vnm">"…"</i></code></div>
+          <div data-hf-id="hf-8xv5" class="s05-verdict" id="s05-v1" style="top:84px"><span data-hf-id="hf-z346" class="chip hit">Anthropic: cache still hits</span></div>
+          <div data-hf-id="hf-3vph" class="s05-verdict" id="s05-v2" style="top:188px"><span data-hf-id="hf-mn39" class="chip miss">Translated: different bytes</span></div>
+        </div>
+        <div data-hf-id="hf-561w" id="s05-foot" class="src">In my replay tests, every call re-wrote the whole context. That Anthropic treats both forms alike is inferred from its hit rate.</div>
+        <div id="s05-src1" class="src">Source: the author's own logs, Jun 27 to Sep 25, 2026, all through one LiteLLM proxy · one person's usage, not a benchmark</div>
+      </div>
+      <script>
+        (() => {
+          const tl = gsap.timeline({ paused: true });
+          const up = (sel, t, d = 0.6) => tl.fromTo(sel, { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: d, ease: "power3.out" }, t);
+          up("#s05-h1", 0.2);
+          up("#s05-table .s05-th", 0.6, 0.4);
+          tl.fromTo("#s05-src1", { opacity: 0 }, { opacity: 1, duration: 0.5 }, 3.8);
+          tl.to("#s05-src1", { opacity: 0, duration: 0.3 }, 34.6);
+          up("#s05-r1", 7.1);
+          tl.fromTo("#s05-f1", { scaleX: 0 }, { scaleX: 1, duration: 0.9, ease: "power2.out" }, 9.6);
+          up("#s05-r2", 12.3);
+          tl.fromTo("#s05-f2", { scaleX: 0 }, { scaleX: 1, duration: 0.9, ease: "power2.out" }, 14.4);
+          up("#s05-r3", 16.1);
+          tl.fromTo("#s05-p3", { scale: 0.5, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.5, ease: "back.out(3)" }, 20.4);
+          tl.to("#s05-h1", { opacity: 0, duration: 0.3 }, 24.1);
+          up("#s05-h2", 24.4);
+          tl.to("#s05-m2, #s05-m3", { backgroundColor: "rgba(0, 193, 212, 0.22)", duration: 0.4 }, 24.6);
+          tl.to("#s05-r1", { opacity: 0.35, duration: 0.4 }, 24.6);
+          up("#s05-cap1", 27.1);
+          up("#s05-cap2", 29.8);
+          tl.to("#s05-h2, #s05-table, #s05-caption", { opacity: 0, duration: 0.45 }, 34.6);
+          up("#s05-h3", 35.0);
+          tl.fromTo("#s05-pa, #s05-pb", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 35.3);
+          tl.fromTo("#s05-pxa, #s05-proxy", { scale: 0.85, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.4, ease: "back.out(2)" }, 36.5);
+          tl.fromTo("#s05-aa1", { scaleX: 0 }, { scaleX: 1, duration: 0.4, ease: "power2.inOut" }, 39.9);
+          tl.fromTo("#s05-aa2", { scaleX: 0 }, { scaleX: 1, duration: 0.4, ease: "power2.inOut" }, 42.4);
+          tl.fromTo("#s05-ca", { scale: 0.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.4, ease: "back.out(2.4)" }, 43.0);
+          tl.fromTo("#s05-ab1", { scaleX: 0 }, { scaleX: 1, duration: 0.4, ease: "power2.inOut" }, 44.0);
+          tl.fromTo("#s05-proxy", { borderColor: "rgba(169,188,205,0.24)" }, { borderColor: "#ff6900", duration: 0.3, immediateRender: false }, 45.4);
+          tl.fromTo("#s05-ab2", { scaleX: 0 }, { scaleX: 1, duration: 0.4, ease: "power2.inOut" }, 46.0);
+          tl.fromTo("#s05-cb", { scale: 0.6, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.4, ease: "back.out(2.4)" }, 46.5);
+          up("#s05-bytes", 47.0);
+          up("#s05-c1", 53.5, 0.5);
+          up("#s05-c2", 55.5, 0.5);
+          tl.fromTo("#s05-v1", { x: 20, opacity: 0 }, { x: 0, opacity: 1, duration: 0.45, ease: "power2.out" }, 57.5);
+          tl.to("#s05-v1", { opacity: 0, duration: 0.3 }, 61.6);
+          tl.fromTo("#s05-v2", { x: 20, opacity: 0 }, { x: 0, opacity: 1, duration: 0.45, ease: "power2.out" }, 62.0);
+          tl.fromTo("#s05-c1 code i, #s05-c2 code i", { opacity: 0.6 }, { opacity: 1, duration: 0.25, yoyo: true, repeat: 3 }, 63.6);
+          tl.fromTo("#s05-foot", { opacity: 0 }, { opacity: 1, duration: 0.5 }, 64.4);
+          tl.to("#s05-root > *", { opacity: 0, duration: 0.4 }, 66.95);
+          window.__timelines["s05"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+  <head><meta charset="UTF-8"></head>
+  <body>
+    <template>
+      <style>
+        #s03-root { position: absolute; inset: 0; }
+        #s03-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+        #s03-panel { position: absolute; left: 140px; top: 128px; width: 560px; }
+        #s03-head { margin-top: 18px; font-size: 56px; line-height: 1.14; }
+        #s03-steps { position: relative; margin-top: 44px; height: 420px; }
+        .s03-line { font-size: 30px; line-height: 1.4; color: var(--muted); margin-bottom: 22px; }
+        .s03-line b { color: var(--fg); font-weight: 600; }
+        #s03-chips { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 8px; }
+        .s03-rule { position: absolute; left: 0; top: 0; width: 560px; height: 460px; padding: 30px 32px; }
+        .s03-rule .no { font-size: 24px; color: var(--hit); letter-spacing: 0.1em; }
+        .s03-rule .t { margin-top: 12px; font-size: 42px; line-height: 1.18; }
+        .s03-rule .d { margin-top: 18px; font-size: 27px; line-height: 1.4; color: var(--muted); }
+        #s03-ring { position: absolute; left: 32px; top: 250px; width: 170px; height: 170px; }
+        #s03-ring-t { position: absolute; left: 32px; top: 250px; width: 170px; height: 170px; display: flex; align-items: center; justify-content: center; font-size: 36px; font-weight: 700; }
+        #s03-ring-note { position: absolute; left: 230px; top: 282px; width: 300px; font-size: 26px; line-height: 1.4; color: var(--muted); }
+        .s03-tag { position: absolute; left: 0; top: 0; font-size: 22px; font-weight: 600; white-space: nowrap; }
+        #s03-kv { color: var(--fg); padding: 6px 12px; border-radius: 6px; background: rgba(7, 25, 42, 0.85); border: 2px solid var(--brand); }
+        #s03-tok { color: var(--miss); padding: 6px 12px; border-radius: 6px; background: rgba(7, 25, 42, 0.85); border: 2px solid var(--miss); }
+        #s03-ax-t, #s03-ax-l { color: var(--faint); font-weight: 500; }
+      </style>
+      <div data-hf-id="hf-4ups" id="s03-root" data-composition-id="s03" data-width="1920" data-height="1080">
+        <canvas data-hf-id="hf-niox" id="s03-canvas" width="1920" height="1080"></canvas>
+        <div data-hf-id="hf-0gw2" id="s03-panel">
+          <div data-hf-id="hf-hd52" id="s03-eyebrow" class="eyebrow">What the cache stores</div>
+          <div data-hf-id="hf-r2is" id="s03-head" class="serif">Work the model already did</div>
+          <div data-hf-id="hf-4v8x" id="s03-steps">
+            <div data-hf-id="hf-ov89" id="s03-p1">
+              <div data-hf-id="hf-lnkx" id="s03-l1" class="s03-line">Before writing, the model stores a <b data-hf-id="hf-ad58">key</b> and a <b data-hf-id="hf-fgq2">value</b> for every token, at every layer.</div>
+              <div data-hf-id="hf-onqh" id="s03-chips">
+                <span data-hf-id="hf-nonw" id="s03-c1" class="chip brand">= the KV cache</span>
+              </div>
+              <div data-hf-id="hf-8adx" id="s03-l2" class="s03-line" style="margin-top:34px">Next request, same first 20 tokens:</div>
+              <div data-hf-id="hf-493u" style="display:flex;gap:14px">
+                <span data-hf-id="hf-uc2u" id="s03-c2" class="chip hit">20 reused</span>
+                <span data-hf-id="hf-sm9p" id="s03-c3" class="chip brand">4 new</span>
+              </div>
+            </div>
+            <div data-hf-id="hf-32oz" id="s03-r1" class="s03-rule card">
+              <div data-hf-id="hf-xpt7" class="no mono">RULE 1</div>
+              <div data-hf-id="hf-dmgz" class="t serif">Only an exact prefix counts</div>
+              <div data-hf-id="hf-j9ta" id="s03-r1d" class="d">Change one token near the top and <span data-hf-id="hf-ywyw" class="t-miss">everything after it</span> is processed again.</div>
+            </div>
+            <div data-hf-id="hf-s77c" id="s03-r2" class="s03-rule card">
+              <div data-hf-id="hf-xbi6" class="no mono">RULE 2</div>
+              <div data-hf-id="hf-q2b8" class="t serif">The cache expires</div>
+              <svg data-hf-id="hf-k870" id="s03-ring" viewBox="0 0 170 170">
+                <circle data-hf-id="hf-vuru" cx="85" cy="85" r="72" fill="none" stroke="rgba(169,188,205,0.2)" stroke-width="12" />
+                <circle data-hf-id="hf-283z" id="s03-arc" cx="85" cy="85" r="72" fill="none" stroke="#00c1d4" stroke-width="12" stroke-linecap="round" stroke-dasharray="452.4" stroke-dashoffset="0" transform="rotate(-90 85 85)" />
+              </svg>
+              <div data-hf-id="hf-eur0" id="s03-ring-t" class="mono">5:00</div>
+              <div data-hf-id="hf-gu0c" id="s03-ring-note">Default on Claude.<br data-hf-id="hf-x5px">Reset each time the cache is used.</div>
+            </div>
+          </div>
+        </div>
+        <div data-hf-id="hf-mg32" id="s03-kv" class="s03-tag mono">K · V</div>
+        <div data-hf-id="hf-5j40" id="s03-tok" class="s03-tag mono">token 4 changed</div>
+        <div data-hf-id="hf-6w9v" id="s03-ax-t" class="s03-tag mono">tokens →</div>
+        <div data-hf-id="hf-jvbm" id="s03-ax-l" class="s03-tag mono">layers ↑</div>
+      </div>
+      <script>
+        window.__hf = window.__hf || {};
+        window.__hf.buildReady = window.__hf.buildReady || {};
+        window.__hf.buildReady["s03-three"] = new Promise((r) => (window.__s03Ready = r));
+      </script>
+      <script type="module">
+        import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.181.2/+esm";
+
+        const COLS = 24, ROWS = 8, GAP = 0.56, SIZE = 0.44;
+        const canvas = document.getElementById("s03-canvas");
+        const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true, preserveDrawingBuffer: true });
+        renderer.setPixelRatio(1);
+        renderer.setSize(1920, 1080, false);
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(30, 1920 / 1080, 0.1, 200);
+        camera.setViewOffset(1920, 1080, -330, 40, 1920, 1080);
+        camera.position.set(0, 3.2, 24);
+        camera.lookAt(0, 0.2, 0);
+        scene.add(new THREE.HemisphereLight(0xffffff, 0x0e2a44, 1.6));
+        const dir = new THREE.DirectionalLight(0xffffff, 1.4);
+        dir.position.set(-6, 10, 12);
+        scene.add(dir);
+
+        const group = new THREE.Group();
+        scene.add(group);
+        const geo = new THREE.BoxGeometry(SIZE, SIZE, SIZE * 1.6);
+        geo.translate(0, SIZE / 2, 0);
+        const edges = new THREE.EdgesGeometry(new THREE.BoxGeometry(SIZE, SIZE, SIZE * 1.6));
+        const slotMat = new THREE.LineBasicMaterial({ color: 0x7d93a8, transparent: true, opacity: 0.16 });
+        const x0 = -((COLS - 1) * GAP) / 2, y0 = -((ROWS - 1) * GAP) / 2;
+        const cells = [];
+        for (let c = 0; c < COLS; c++) {
+          for (let r = 0; r < ROWS; r++) {
+            const x = x0 + c * GAP, y = y0 + r * GAP;
+            const slot = new THREE.LineSegments(edges, slotMat);
+            slot.position.set(x, y, 0);
+            group.add(slot);
+            const mat = new THREE.MeshStandardMaterial({ color: 0x3d7bff, emissive: 0x3d7bff, emissiveIntensity: 0.45, roughness: 0.45, metalness: 0.1, transparent: true });
+            const m = new THREE.Mesh(geo, mat);
+            m.position.set(x, y - SIZE / 2, 0);
+            group.add(m);
+            cells.push({ c, r, m, mat });
+          }
+        }
+
+        const P = { blue: new THREE.Color(0x3d7bff), teal: new THREE.Color(0x00c1d4), orange: new THREE.Color(0xff6900), white: new THREE.Color(0xdfe9ff), slot: new THREE.Color(0x1c3a5a) };
+        const k = (t, a, d) => Math.min(1, Math.max(0, (t - a) / d));
+        const tri = (t, a, d) => { const x = (t - a) / d; return x <= 0 || x >= 1 ? 0 : 1 - Math.abs(2 * x - 1); };
+        const tmp = new THREE.Color();
+
+        const tags = {
+          kv: document.getElementById("s03-kv"),
+          tok: document.getElementById("s03-tok"),
+          axT: document.getElementById("s03-ax-t"),
+          axL: document.getElementById("s03-ax-l"),
+        };
+        const v = new THREE.Vector3();
+        function place(el, x, y, z, dx, dy) {
+          v.set(x, y, z);
+          group.localToWorld(v);
+          v.project(camera);
+          el.style.left = Math.round((v.x * 0.5 + 0.5) * 1920 + dx) + "px";
+          el.style.top = Math.round((-v.y * 0.5 + 0.5) * 1080 + dy) + "px";
+        }
+
+        function renderAt(t) {
+          group.rotation.y = -0.42 + 0.08 * Math.sin(t * 0.12);
+          group.rotation.x = 0.16;
+          for (const { c, r, m, mat } of cells) {
+            const first = c < 20;
+            let built = first ? k(t, 0.8 + c * 0.13 + r * 0.012, 0.3) : k(t, 18.5 + (c - 20) * 0.22 + r * 0.012, 0.3);
+            tmp.copy(first ? P.blue : P.white);
+            if (first) tmp.lerp(P.teal, k(t, 16.7 + c * 0.03, 0.25));
+            tmp.lerp(P.teal, k(t, 20.1 + c * 0.02, 0.4));
+            if (c === 3) tmp.lerp(P.orange, k(t, 23.8, 0.2));
+            if (c > 3) tmp.lerp(P.orange, k(t, 26.1 + (c - 4) * 0.06, 0.2));
+            tmp.lerp(P.teal, k(t, 29.3, 0.5));
+            const dim = k(t, 29.8, 3.2) * (1 - k(t, 33.8 + c * 0.02, 0.35));
+            tmp.lerp(P.slot, dim * 0.8);
+            let s = built;
+            if (c === 3) s *= 1 + 0.35 * tri(t, 23.7, 0.5);
+            if (c > 3) s *= 1 - 0.8 * tri(t, 26.0 + (c - 4) * 0.06, 0.35);
+            if (first) s *= 1 + 0.18 * tri(t, 16.6 + c * 0.03, 0.4);
+            m.scale.set(1, Math.max(0.001, s), 1);
+            m.visible = s > 0.002;
+            mat.color.copy(tmp);
+            mat.emissive.copy(tmp);
+            mat.opacity = 0.95 - dim * 0.4;
+          }
+          place(tags.kv, x0 + 6 * GAP, y0 + (ROWS - 1) * GAP + SIZE, 0, -40, -64);
+          place(tags.tok, x0 + 3 * GAP, y0 + (ROWS - 1) * GAP + SIZE, 0, -90, -64);
+          place(tags.axT, x0 + 10 * GAP, y0 - SIZE, 0.6, 0, 18);
+          place(tags.axL, x0, y0 - SIZE, 0.6, -20, 18);
+          renderer.render(scene, camera);
+        }
+
+        // Driven by the scene's GSAP timeline (local time), so seeks and renders stay in sync.
+        window.__s03Render = renderAt;
+        renderAt(window.__timelines["s03"] ? window.__timelines["s03"].time() : 0);
+        window.__s03Ready();
+      </script>
+      <script>
+        (() => {
+          const tl = gsap.timeline({ paused: true, onUpdate: () => window.__s03Render && window.__s03Render(tl.time()) });
+          tl.fromTo("#s03-eyebrow", { opacity: 0 }, { opacity: 1, duration: 0.5 }, 0.3);
+          tl.fromTo("#s03-head", { y: 26, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, ease: "power3.out" }, 0.5);
+          tl.fromTo("#s03-l1", { y: 18, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5, ease: "power2.out" }, 4.4);
+          tl.fromTo("#s03-kv", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 5.4);
+          tl.to("#s03-kv", { opacity: 0, duration: 0.4 }, 12.0);
+          tl.fromTo("#s03-ax-t", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 6.9);
+          tl.fromTo("#s03-ax-l", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 8.4);
+          tl.fromTo("#s03-c1", { scale: 0.7, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.45, ease: "back.out(2.4)" }, 10.9);
+          tl.fromTo("#s03-l2", { y: 18, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5 }, 12.4);
+          tl.fromTo("#s03-c2", { scale: 0.7, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.45, ease: "back.out(2.4)" }, 16.7);
+          tl.fromTo("#s03-c3", { scale: 0.7, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.45, ease: "back.out(2.4)" }, 18.5);
+          tl.to("#s03-p1", { opacity: 0, y: -16, duration: 0.4 }, 19.7);
+          tl.fromTo("#s03-r1", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: "power3.out" }, 20.1);
+          tl.fromTo("#s03-r1d", { opacity: 0 }, { opacity: 1, duration: 0.5 }, 23.8);
+          tl.fromTo("#s03-tok", { opacity: 0 }, { opacity: 1, duration: 0.3 }, 23.8);
+          tl.to("#s03-tok", { opacity: 0, duration: 0.3 }, 28.9);
+          tl.to("#s03-r1", { opacity: 0, y: -16, duration: 0.4 }, 28.9);
+          tl.fromTo("#s03-r2", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: "power3.out" }, 29.3);
+          const clock = { s: 300 };
+          const ringT = document.getElementById("s03-ring-t");
+          const setClock = () => { const s = Math.round(clock.s); ringT.textContent = `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`; };
+          tl.fromTo(clock, { s: 300 }, { s: 6, duration: 3.2, ease: "power1.in", onUpdate: setClock, immediateRender: false }, 29.8);
+          tl.fromTo("#s03-arc", { attr: { "stroke-dashoffset": 0 } }, { attr: { "stroke-dashoffset": 443 }, duration: 3.2, ease: "power1.in" }, 29.8);
+          tl.to(clock, { s: 300, duration: 0.5, ease: "power2.out", onUpdate: setClock }, 33.8);
+          tl.to("#s03-arc", { attr: { "stroke-dashoffset": 0 }, duration: 0.5, ease: "power2.out" }, 33.8);
+          tl.fromTo("#s03-ring-note", { opacity: 0 }, { opacity: 1, duration: 0.5 }, 32.7);
+          tl.to("#s03-panel, #s03-ax-t, #s03-ax-l, #s03-canvas", { opacity: 0, duration: 0.4 }, 36.2);
+          window.__timelines["s03"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

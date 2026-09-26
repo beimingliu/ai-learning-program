@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head><meta charset="UTF-8"></head>
+  <body>
+    <template>
+      <style>
+        #s09-root { position: absolute; inset: 0; }
+        #s09-wrap { position: absolute; left: 140px; top: 300px; width: 1640px; }
+        #s09-title { margin-top: 26px; font-size: 96px; line-height: 1.05; }
+        #s09-card { margin-top: 56px; display: flex; align-items: center; gap: 34px; padding: 34px 40px; width: 1400px; }
+        #s09-card .t { font-size: 32px; line-height: 1.4; color: var(--muted); }
+        #s09-card .t b { color: var(--fg); font-weight: 600; }
+        #s09-ch { font-size: 26px; white-space: nowrap; flex: 0 0 auto; }
+      </style>
+      <div data-hf-id="hf-ricw" id="s09-root" data-composition-id="s09" data-width="1920" data-height="1080">
+        <div data-hf-id="hf-iezy" id="s09-wrap">
+          <div data-hf-id="hf-1syd" id="s09-eyebrow" class="eyebrow">Building with AI 201 · B201.7</div>
+          <div data-hf-id="hf-rql7" id="s09-title" class="serif">Keep learning. Improve the course.</div>
+          <div data-hf-id="hf-bzbl" id="s09-card" class="card">
+            <div data-hf-id="hf-8gn0" class="t"><b data-hf-id="hf-jt0z">Explore the other videos</b> in this series, and tell us what to improve in</div>
+            <span data-hf-id="hf-mbrf" id="s09-ch" class="chip miss">#analytics-ai-knowledge-sharing</span>
+          </div>
+        </div>
+      </div>
+      <script>
+        (() => {
+          const tl = gsap.timeline({ paused: true });
+          tl.fromTo("#s09-eyebrow", { opacity: 0 }, { opacity: 1, duration: 0.5 }, 0.2);
+          tl.fromTo("#s09-title", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" }, 0.4);
+          tl.fromTo("#s09-card", { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: "power3.out" }, 1.4);
+          tl.fromTo("#s09-ch", { scale: 0.7, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.45, ease: "back.out(2.4)" }, 4.4);
+          tl.to("#s09-wrap", { opacity: 0, duration: 0.8 }, 9.6);
+          window.__timelines["s09"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

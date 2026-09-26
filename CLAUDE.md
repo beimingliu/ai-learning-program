@@ -23,6 +23,13 @@ Each `videos/**` project has its own `CLAUDE.md` with the HyperFrames rules — 
 - Name each exported MP4 exactly after its canonical lesson filename under `courses/<course>/.../lessons/`, without the `.md` extension. Preserve the course code, capitalization, punctuation, and hyphenation; append `.mp4`.
 - Example: `courses/foundations-101/lessons/F101.0-from-chatbot-to-agent.md` → `videos/F101.0-from-chatbot-to-agent.mp4`.
 
+# Publishing
+
+- **Drive:** final MP4s go in the "education videos" folder [`1_uPd_gC_AW6Ee-n0f9BN_8t5b2xVCXH1`](https://drive.google.com/drive/folders/1_uPd_gC_AW6Ee-n0f9BN_8t5b2xVCXH1), one subfolder per course: `foundations-101`, `building-with-ai-201` (`1WMKBHxazfXJ_6UyVZalkfuvCm555XwlL`). The MCP gateway's `drive_files_create` takes metadata only and cannot upload a video, so copy the file into the Drive for Desktop mount at `~/Library/CloudStorage/GoogleDrive-bliu@aledade.com/My Drive/analytics ai fluency/education videos/<course>/` and let it sync. Uploads inherit domain "anyone with the link can view". Link videos as `https://drive.google.com/file/d/<id>/view`.
+- **Wiki:** Confluence pages are published from Markdown sources in the `analytics-ai-enablement` repo under `docs/confluence/`; its `README.md` maps each source file to a page ID. Edit the source in a PR first, then publish the full file body. Course pages are siblings under parent `3216572453` in space `IA`: AI Foundations 101 `3219882030`, Building with AI 201 `3219128363`, AI Thinking 201 `3219357757`.
+- **Jira:** course video production and publishing is tracked on [AIRML-9771](https://aledade.atlassian.net/browse/AIRML-9771); extend its scope for new lessons rather than opening new tickets.
+- **Voice-only lessons** (no avatar) use the local Qwen3 TTS clone `bliu-voice` via `videos/<course>/<lesson>/scripts/qwen-tts.mjs`; see B201.7 for the pattern.
+
 # Narration pacing
 
 - Do not rely on blank lines, Markdown headings, or ellipses for section timing. In the 2026-08-20 test with the default cloned voice, a blank line produced the exact same audio and timestamps as a normal space. An ellipsis produced a longer pause in one sample but also changed the delivery, so it is not a timing control.

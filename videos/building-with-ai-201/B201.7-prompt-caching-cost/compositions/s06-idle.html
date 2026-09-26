@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head><meta charset="UTF-8"></head>
+  <body>
+    <template>
+      <style>
+        #s06-root { position: absolute; inset: 0; }
+        #s06-head { position: absolute; left: 140px; top: 128px; width: 1640px; }
+        #s06-chart { position: absolute; left: 140px; top: 300px; width: 1640px; height: 640px; padding: 40px 60px; }
+        #s06-chart .lbl { font-size: 21px; letter-spacing: 0.12em; color: var(--faint); }
+        #s06-plot { position: absolute; left: 60px; right: 60px; top: 120px; height: 380px; }
+        .s06-col { position: absolute; bottom: 0; width: 250px; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; height: 100%; }
+        .s06-bar { width: 200px; border-radius: 8px 8px 0 0; transform-origin: bottom center; }
+        .s06-pct { white-space: nowrap; margin-bottom: 14px; font-size: 48px; font-weight: 700; }
+        .s06-x { position: absolute; top: 400px; width: 250px; text-align: center; font-size: 28px; color: var(--muted); }
+        #s06-base { position: absolute; left: 60px; right: 60px; top: 500px; height: 2px; background: var(--line); }
+        #s06-cut { position: absolute; left: 773px; top: 96px; width: 4px; height: 430px; background: repeating-linear-gradient(var(--fg) 0 12px, transparent 12px 22px); transform-origin: top center; }
+        #s06-cut-l { position: absolute; left: 794px; top: 96px; font-size: 24px; color: var(--fg); white-space: nowrap; }
+        #s06-note { position: absolute; left: 60px; bottom: 34px; font-size: 30px; }
+      </style>
+      <div data-hf-id="hf-vgjc" id="s06-root" data-composition-id="s06" data-width="1920" data-height="1080">
+        <div data-hf-id="hf-zm6x" id="s06-head" class="headline">Time is the other half.</div>
+        <div data-hf-id="hf-7e32" id="s06-chart" class="card">
+          <div data-hf-id="hf-ia8c" class="lbl mono">CACHE HIT RATE BY IDLE TIME BEFORE THE CALL · CLAUDE CODE + CLAUDE MODELS · MY LOGS</div>
+          <div data-hf-id="hf-z9g2" id="s06-plot"></div>
+          <div data-hf-id="hf-9b38" id="s06-base"></div>
+          <div data-hf-id="hf-206t" id="s06-cut"></div>
+          <div data-hf-id="hf-x9uh" id="s06-cut-l" class="mono">5-minute lifetime ends</div>
+          <div data-hf-id="hf-nm6w" id="s06-note" class="serif">Past five minutes, most of the context was <span data-hf-id="hf-2tab" class="t-miss">written again</span>, at 1.25×.</div>
+        </div>
+        <div data-hf-id="hf-fqjj" class="src">Source: the author's own Claude Code logs, Claude models, 2,395 main-session calls · not a benchmark</div>
+      </div>
+      <script>
+        (() => {
+          const data = [["< 1 min", 99, "hit"], ["1–5 min", 98, "hit"], ["5–60 min", 26, "miss"], ["> 1 hour", 4, "miss"]];
+          const plot = document.getElementById("s06-plot");
+          data.forEach(([x, p, cls], i) => {
+            const left = 60 + i * 390;
+            plot.insertAdjacentHTML("beforeend",
+              `<div class="s06-col" id="s06-c${i}" style="left:${left}px;height:390px"><div class="s06-pct mono t-${cls}" id="s06-p${i}">${p}%</div><div class="s06-bar" id="s06-b${i}" style="height:${Math.max(6, p * 2.9)}px;background:var(--${cls})"></div></div>` +
+              `<div class="s06-x mono" id="s06-x${i}" style="left:${left}px">${x}</div>`);
+          });
+          const tl = gsap.timeline({ paused: true });
+          tl.fromTo("#s06-head", { y: 26, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, ease: "power3.out" }, 0.2);
+          tl.fromTo("#s06-chart", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: "power3.out" }, 0.8);
+          tl.fromTo("#s06-x0, #s06-x1, #s06-x2, #s06-x3", { opacity: 0 }, { opacity: 1, duration: 0.4, stagger: 0.08 }, 1.4);
+          [[0, 7.3], [1, 7.8]].forEach(([i, t]) => {
+            tl.fromTo(`#s06-b${i}`, { scaleY: 0 }, { scaleY: 1, duration: 0.6, ease: "power2.out" }, t);
+            tl.fromTo(`#s06-p${i}`, { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.4 }, t + 0.35);
+          });
+          tl.fromTo("#s06-cut", { scaleY: 0 }, { scaleY: 1, duration: 0.5, ease: "power2.out" }, 9.7);
+          tl.fromTo("#s06-cut-l", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 10.0);
+          [[2, 12.6], [3, 13.3]].forEach(([i, t]) => {
+            tl.fromTo(`#s06-b${i}`, { scaleY: 0 }, { scaleY: 1, duration: 0.5, ease: "power2.out" }, t);
+            tl.fromTo(`#s06-p${i}`, { opacity: 0, y: 12 }, { opacity: 1, y: 0, duration: 0.4 }, t + 0.3);
+          });
+          tl.fromTo("#s06-note", { y: 18, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5 }, 13.9);
+          tl.fromTo("#s06-root .src", { opacity: 0 }, { opacity: 1, duration: 0.5 }, 1.4);
+          tl.to("#s06-root > *", { opacity: 0, duration: 0.4 }, 16.85);
+          window.__timelines["s06"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

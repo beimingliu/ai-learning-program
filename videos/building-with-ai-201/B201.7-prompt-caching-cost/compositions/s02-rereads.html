@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+  <head><meta charset="UTF-8"></head>
+  <body>
+    <template>
+      <style>
+        #s02-root { position: absolute; inset: 0; }
+        #s02-head { position: absolute; left: 140px; top: 128px; width: 1640px; }
+        #s02-chat { position: absolute; left: 140px; top: 330px; width: 520px; height: 430px; padding: 34px 36px; }
+        #s02-chat .lbl, #s02-agent .lbl { font-size: 22px; letter-spacing: 0.12em; color: var(--muted); }
+        .s02-bubble { margin-top: 26px; padding: 18px 22px; border-radius: 12px; font-size: 26px; line-height: 1.35; }
+        #s02-q { background: var(--surface2); margin-left: 60px; }
+        #s02-a { background: rgba(238, 243, 247, 0.08); margin-right: 40px; color: var(--muted); }
+        #s02-chat .foot { position: absolute; left: 36px; bottom: 30px; font-size: 22px; color: var(--faint); }
+        #s02-agent { position: absolute; left: 740px; top: 330px; width: 1040px; height: 430px; padding: 34px 36px; }
+        #s02-legend { position: absolute; left: 36px; top: 80px; display: flex; gap: 12px; }
+        #s02-legend span { padding: 6px 14px; border-radius: 6px; font-size: 19px; color: #07192a; font-weight: 600; }
+        .s02-row { position: absolute; left: 36px; display: flex; align-items: center; gap: 16px; }
+        .s02-row .n { width: 80px; font-size: 20px; color: var(--faint); }
+        .s02-bar { display: flex; height: 38px; transform-origin: left center; }
+        .s02-bar b { display: block; height: 100%; }
+        .s02-bar b:first-child { border-radius: 5px 0 0 5px; }
+        .s02-bar em { display: block; width: 12px; height: 100%; margin-left: 4px; border-radius: 2px; background: var(--fg); }
+        #s02-stat { position: absolute; left: 740px; top: 800px; width: 1040px; height: 150px; padding: 26px 36px; display: flex; align-items: center; gap: 36px; }
+        #s02-stat .big { flex: 0 0 auto; font-size: 64px; font-weight: 700; color: var(--fg); white-space: nowrap; }
+        #s02-stat .txt { font-size: 28px; line-height: 1.35; color: var(--muted); }
+        #s02-bottom { position: absolute; left: 140px; top: 820px; width: 520px; font-size: 34px; line-height: 1.3; }
+      </style>
+      <div data-hf-id="hf-8ks8" id="s02-root" data-composition-id="s02" data-width="1920" data-height="1080">
+        <div data-hf-id="hf-onaz" id="s02-head" class="headline">A chat answers once. An agent re-sends everything.</div>
+
+        <div data-hf-id="hf-s4ok" id="s02-chat" class="card">
+          <div data-hf-id="hf-hs25" class="lbl mono">CHAT</div>
+          <div data-hf-id="hf-t5wl" id="s02-q" class="s02-bubble">Which region had the highest readmission rate?</div>
+          <div data-hf-id="hf-zs5v" id="s02-a" class="s02-bubble">The Northeast, at 14.2%.</div>
+          <div data-hf-id="hf-abj5" class="foot mono">1 request</div>
+        </div>
+
+        <div data-hf-id="hf-zutx" id="s02-agent" class="card">
+          <div data-hf-id="hf-p1dj" class="lbl mono">AGENT · EVERY TOOL CALL SENDS</div>
+          <div data-hf-id="hf-irlw" id="s02-legend">
+            <span data-hf-id="hf-4v7k" style="background:#3d7bff">system prompt</span>
+            <span data-hf-id="hf-tjv4" style="background:#6c9bff">tools</span>
+            <span data-hf-id="hf-wwpy" style="background:#9dbcff">files read</span>
+            <span data-hf-id="hf-t258" style="background:#c9dafc">results so far</span>
+            <span data-hf-id="hf-ncvi" style="background:#eef3f7">output</span>
+          </div>
+          <div data-hf-id="hf-plyg" id="s02-rows"></div>
+        </div>
+
+        <div data-hf-id="hf-8ztk" id="s02-stat" class="card">
+          <div data-hf-id="hf-dtjq" class="big mono">100+ : 1</div>
+          <div data-hf-id="hf-tmqs" class="txt">input tokens read for every output token written, in my Claude Code and Codex sessions</div>
+        </div>
+        <div data-hf-id="hf-3ifg" id="s02-bottom" class="serif">Agentic work mostly costs <span data-hf-id="hf-geob" class="t-hit">re-reading</span> the same context.</div>
+        <div data-hf-id="hf-n69l" class="src">Source: the author's own Claude Code and Codex logs, 90 days · one person's usage, not a benchmark</div>
+      </div>
+      <script>
+        (() => {
+          const rows = document.getElementById("s02-rows");
+          const calls = [
+            [120, 90, 20, 10],
+            [120, 90, 110, 60],
+            [120, 90, 200, 130],
+            [120, 90, 290, 210],
+            [120, 90, 380, 290],
+          ];
+          const colors = ["#3d7bff", "#6c9bff", "#9dbcff", "#c9dafc"];
+          calls.forEach((segs, i) => {
+            const r = document.createElement("div");
+            r.className = "s02-row";
+            r.style.top = 150 + i * 52 + "px";
+            r.innerHTML = `<span class="n mono">call ${i + 1}</span><div class="s02-bar" id="s02-bar${i}">` +
+              segs.map((w, k) => `<b style="width:${w}px;background:${colors[k]}"></b>`).join("") + "<em></em></div>";
+            rows.appendChild(r);
+          });
+          const tl = gsap.timeline({ paused: true });
+          tl.fromTo("#s02-head", { y: 26, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, ease: "power3.out" }, 0.2);
+          tl.fromTo("#s02-chat", { x: -40, opacity: 0 }, { x: 0, opacity: 1, duration: 0.6, ease: "power3.out" }, 0.5);
+          tl.fromTo("#s02-q", { y: 16, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4 }, 1.0);
+          tl.fromTo("#s02-a", { y: 16, opacity: 0 }, { y: 0, opacity: 1, duration: 0.4 }, 1.7);
+          tl.fromTo("#s02-agent", { x: 40, opacity: 0 }, { x: 0, opacity: 1, duration: 0.6, ease: "power3.out" }, 3.0);
+          [8.0, 9.3, 10.6, 12.4, 12.9].forEach((t, k) => {
+            tl.fromTo(`#s02-legend span:nth-child(${k + 1})`, { y: 12, opacity: 0 }, { y: 0, opacity: 1, duration: 0.35, ease: "back.out(2)" }, t);
+          });
+          for (let i = 0; i < 5; i++) {
+            tl.fromTo(`#s02-bar${i}`, { scaleX: 0 }, { scaleX: 1, duration: 0.7, ease: "power2.out" }, 3.6 + i * 0.9);
+            tl.fromTo(`#s02-rows .s02-row:nth-child(${i + 1}) .n`, { opacity: 0 }, { opacity: 1, duration: 0.3 }, 3.6 + i * 0.9);
+          }
+          tl.fromTo("#s02-stat", { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: "power3.out" }, 15.8);
+          tl.fromTo("#s02-stat .big", { scale: 0.85 }, { scale: 1, duration: 0.6, ease: "back.out(2)" }, 16.3);
+          tl.fromTo(".s02-bar b:nth-child(-n+4)", { filter: "brightness(1)" }, { filter: "brightness(1.35)", duration: 0.5, yoyo: true, repeat: 3, ease: "sine.inOut" }, 19.2);
+          tl.fromTo("#s02-bottom", { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: "power3.out" }, 19.2);
+          tl.fromTo("#s02-root .src", { opacity: 0 }, { opacity: 1, duration: 0.5 }, 16.3);
+          tl.to("#s02-root > *", { opacity: 0, duration: 0.4 }, 23.42);
+          window.__timelines["s02"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

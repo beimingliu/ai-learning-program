@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+  <head><meta charset="UTF-8"></head>
+  <body>
+    <template>
+      <style>
+        #s07-root { position: absolute; inset: 0; }
+        #s07-canvas { position: absolute; inset: 0; width: 100%; height: 100%; display: block; }
+        #s07-panel { position: absolute; left: 140px; top: 128px; width: 600px; }
+        #s07-head { margin-top: 18px; font-size: 56px; line-height: 1.14; }
+        #s07-ctx { margin-top: 26px; font-size: 30px; color: var(--muted); }
+        #s07-meter { margin-top: 40px; padding: 28px 34px; }
+        #s07-meter .lbl { font-size: 21px; letter-spacing: 0.12em; color: var(--faint); }
+        #s07-num { white-space: nowrap; margin-top: 18px; font-size: 104px; font-weight: 700; line-height: 1; }
+        #s07-mode { position: relative; margin-top: 12px; height: 36px; font-size: 26px; color: var(--muted); }
+        #s07-mode span { position: absolute; left: 0; top: 0; white-space: nowrap; }
+        #s07-axis { position: relative; margin-top: 14px; height: 34px; font-size: 24px; color: var(--faint); }
+        #s07-axis span { position: absolute; left: 0; top: 0; white-space: nowrap; }
+        #s07-legend { margin-top: 26px; display: flex; gap: 14px; }
+        #s07-small { position: absolute; left: 140px; top: 800px; width: 600px; padding: 26px 32px; font-size: 27px; line-height: 1.4; }
+        #s07-small b { color: var(--fg); font-weight: 600; }
+        .s07-tag { position: absolute; left: 0; top: 0; font-size: 22px; color: var(--faint); white-space: nowrap; }
+      </style>
+      <div data-hf-id="hf-zqcw" id="s07-root" data-composition-id="s07" data-width="1920" data-height="1080">
+        <canvas data-hf-id="hf-jilh" id="s07-canvas" width="1920" height="1080"></canvas>
+        <div data-hf-id="hf-k26m" id="s07-panel">
+          <div data-hf-id="hf-8jm3" id="s07-eyebrow" class="eyebrow">A worked example · modeled</div>
+          <div data-hf-id="hf-b0ye" id="s07-head" class="serif">One hard task, 100 calls</div>
+          <div data-hf-id="hf-i6f1" id="s07-ctx" class="mono">context grows 30K → 129K tokens</div>
+          <div data-hf-id="hf-nov9" id="s07-axis" class="mono"><span data-hf-id="hf-1u82" id="s07-a1">bar height = tokens sent</span><span data-hf-id="hf-6afc" id="s07-a2">bar height = what you pay</span></div>
+          <div data-hf-id="hf-t34w" id="s07-meter" class="card">
+            <div data-hf-id="hf-9m08" class="lbl mono">INPUT COST VS. IDEAL</div>
+            <div data-hf-id="hf-1ufh" id="s07-num" class="mono t-hit">1.6×</div>
+            <div data-hf-id="hf-7rl1" id="s07-mode"><span data-hf-id="hf-zdcd" id="s07-m1">my measured 93% hit rate</span><span data-hf-id="hf-3sv7" id="s07-m2">no hits, every call re-written</span></div>
+          </div>
+          <div data-hf-id="hf-yoe7" id="s07-legend">
+            <span data-hf-id="hf-qvpy" class="chip hit">read 0.1×</span>
+            <span data-hf-id="hf-3xqn" class="chip miss">written 1.25×</span>
+          </div>
+        </div>
+        <div data-hf-id="hf-lfpa" id="s07-small" class="card t-muted"><b data-hf-id="hf-17ad">Short 8-call task:</b> same pattern, about a fortieth of the dollars. <b data-hf-id="hf-znt1">Choose the model you want.</b></div>
+        <div id="s07-src" class="src">Modeled from Claude list prices and the author's measured hit rate · an estimate, not a measured bill</div>
+        <div data-hf-id="hf-fz8l" id="s07-t1" class="s07-tag mono">call 1</div>
+        <div data-hf-id="hf-e8e5" id="s07-t100" class="s07-tag mono">call 100</div>
+      </div>
+      <script>
+        window.__hf = window.__hf || {};
+        window.__hf.buildReady = window.__hf.buildReady || {};
+        window.__hf.buildReady["s07-three"] = new Promise((r) => (window.__s07Ready = r));
+      </script>
+      <script type="module">
+        import * as THREE from "https://cdn.jsdelivr.net/npm/three@0.181.2/+esm";
+
+        const N = 100, UNIT = 2.4 / 129, X0 = -4.95, DX = 0.1, W = 0.07, D = 0.5;
+        const canvas = document.getElementById("s07-canvas");
+        const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true, preserveDrawingBuffer: true });
+        renderer.setPixelRatio(1);
+        renderer.setSize(1920, 1080, false);
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(32, 1920 / 1080, 0.1, 200);
+        camera.setViewOffset(1920, 1080, -400, -40, 1920, 1080);
+        scene.add(new THREE.HemisphereLight(0xffffff, 0x0e2a44, 1.5));
+        const dir = new THREE.DirectionalLight(0xffffff, 1.5);
+        dir.position.set(-8, 12, 10);
+        scene.add(dir);
+
+        const geo = new THREE.BoxGeometry(W, 1, D);
+        geo.translate(0, 0.5, 0);
+        const bars = [];
+        const colBlue = new THREE.Color(0x3d7bff), colTeal = new THREE.Color(0x00c1d4), colOrange = new THREE.Color(0xff6900);
+        for (let i = 0; i < N; i++) {
+          const ctx = 30 + i;
+          const low = new THREE.Mesh(geo, new THREE.MeshStandardMaterial({ color: colBlue, emissive: colBlue, emissiveIntensity: 0.35, roughness: 0.5 }));
+          const top = new THREE.Mesh(geo, new THREE.MeshStandardMaterial({ color: colOrange, emissive: colOrange, emissiveIntensity: 0.4, roughness: 0.5 }));
+          low.position.x = top.position.x = X0 + i * DX;
+          scene.add(low, top);
+          bars.push({ i, H: ctx * UNIT, low, top });
+        }
+        const floor = new THREE.Mesh(new THREE.PlaneGeometry(11, 1.6), new THREE.MeshBasicMaterial({ color: 0x0e2a44, transparent: true, opacity: 0.6 }));
+        floor.rotation.x = -Math.PI / 2;
+        floor.position.set(0, -0.01, 0);
+        scene.add(floor);
+
+        const k = (t, a, d) => Math.min(1, Math.max(0, (t - a) / d));
+        const tmp = new THREE.Color();
+        const tags = { t1: document.getElementById("s07-t1"), t100: document.getElementById("s07-t100") };
+        const v = new THREE.Vector3();
+        function place(el, x, y, z, dx, dy) {
+          v.set(x, y, z).project(camera);
+          el.style.left = Math.round((v.x * 0.5 + 0.5) * 1920 + dx) + "px";
+          el.style.top = Math.round((-v.y * 0.5 + 0.5) * 1080 + dy) + "px";
+        }
+
+        function renderAt(t) {
+          const ang = -0.22 + 0.06 * k(t, 0, 24);
+          camera.position.set(Math.sin(ang) * 19.5, 3.0, Math.cos(ang) * 19.5);
+          camera.lookAt(0, 1.35, 0);
+          for (const { i, H, low, top } of bars) {
+            const h = H * k(t, 4.7 + i * 0.03, 0.35);
+            const pB = k(t, 10.1 + i * 0.012, 0.8);
+            const pC = k(t, 15.2 + i * 0.035, 0.7);
+            const lowH = (h * (1 - pB) + 0.093 * h * pB) * (1 - pC);
+            const topH = 0.0875 * h * pB * (1 - pC) + 1.25 * h * pC;
+            low.scale.y = Math.max(0.0001, lowH);
+            low.visible = lowH > 0.001;
+            top.scale.y = Math.max(0.0001, topH);
+            top.visible = topH > 0.001;
+            top.position.y = lowH;
+            tmp.copy(colBlue).lerp(colTeal, pB);
+            low.material.color.copy(tmp);
+            low.material.emissive.copy(tmp);
+          }
+          place(tags.t1, X0, 0, D, -40, 14);
+          place(tags.t100, X0 + (N - 1) * DX, 0, D, -60, 14);
+          renderer.render(scene, camera);
+        }
+
+        window.__s07Render = renderAt;
+        renderAt(window.__timelines["s07"] ? window.__timelines["s07"].time() : 0);
+        window.__s07Ready();
+      </script>
+      <script>
+        (() => {
+          const tl = gsap.timeline({ paused: true, onUpdate: () => window.__s07Render && window.__s07Render(tl.time()) });
+          tl.fromTo("#s07-eyebrow", { opacity: 0 }, { opacity: 1, duration: 0.5 }, 0.2);
+          tl.fromTo("#s07-head", { y: 26, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, ease: "power3.out" }, 0.4);
+          tl.fromTo("#s07-t1, #s07-t100", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 4.7);
+          tl.fromTo("#s07-src", { opacity: 0 }, { opacity: 1, duration: 0.5 }, 1.0);
+          tl.fromTo("#s07-ctx", { y: 14, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5 }, 6.1);
+          tl.fromTo("#s07-meter", { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: "power3.out" }, 10.1);
+          tl.fromTo("#s07-legend", { y: 14, opacity: 0 }, { y: 0, opacity: 1, duration: 0.5 }, 10.6);
+          const num = document.getElementById("s07-num");
+          const m = { x: 1.6 };
+          tl.fromTo(m, { x: 1.6 }, {
+            x: 11.2, duration: 4.4, ease: "power1.inOut", immediateRender: false,
+            onUpdate: () => { num.textContent = m.x.toFixed(1) + "×"; },
+          }, 15.2);
+          tl.fromTo(num, { color: "#00c1d4" }, { color: "#ff6900", duration: 0.6, immediateRender: false }, 15.3);
+          tl.fromTo("#s07-m2", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 15.2);
+          tl.fromTo("#s07-m1", { opacity: 1 }, { opacity: 0, duration: 0.3, immediateRender: false }, 15.2);
+          tl.fromTo("#s07-a1", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 6.1);
+          tl.to("#s07-a1", { opacity: 0, duration: 0.3 }, 9.8);
+          tl.fromTo("#s07-a2", { opacity: 0 }, { opacity: 1, duration: 0.4 }, 10.0);
+          tl.fromTo("#s07-small", { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: "power3.out" }, 21.7);
+          tl.to("#s07-panel, #s07-small, #s07-t1, #s07-t100, #s07-canvas, #s07-src", { opacity: 0, duration: 0.4 }, 26.95);
+          window.__timelines["s07"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

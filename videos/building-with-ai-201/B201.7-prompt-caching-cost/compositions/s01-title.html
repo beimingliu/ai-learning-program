@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head><meta charset="UTF-8"></head>
+  <body>
+    <template>
+      <style>
+        #s01-root { position: absolute; inset: 0; }
+        #s01-wrap { position: absolute; left: 140px; top: 270px; width: 1640px; }
+        #s01-series { font-size: 26px; }
+        #s01-title { margin-top: 30px; font-size: 118px; line-height: 1.02; }
+        #s01-sub { margin-top: 30px; font-size: 36px; color: var(--muted); }
+        #s01-row { position: absolute; left: 140px; top: 760px; display: flex; gap: 12px; }
+        #s01-row i { display: block; width: 44px; height: 44px; border-radius: 6px; background: var(--hit); }
+        #s01-row i.m { background: var(--miss); }
+        #s01-badge { position: absolute; right: 140px; bottom: 60px; font-size: 20px; color: var(--faint); }
+      </style>
+      <div data-hf-id="hf-qdxc" id="s01-root" data-composition-id="s01" data-width="1920" data-height="1080">
+        <div data-hf-id="hf-gyl2" id="s01-wrap">
+          <div data-hf-id="hf-k3v8" id="s01-series" class="eyebrow">Analytics AI Enablement · Building with AI 201</div>
+          <div data-hf-id="hf-q58v" id="s01-title" class="serif">Prompt caching</div>
+          <div data-hf-id="hf-l08a" id="s01-sub">and what agentic work really costs</div>
+        </div>
+        <div data-hf-id="hf-y1um" id="s01-row"></div>
+        <div data-hf-id="hf-q9hq" id="s01-badge" class="mono">B201.7 · accurate as of September 2026</div>
+      </div>
+      <script>
+        (() => {
+          const row = document.getElementById("s01-row");
+          for (let i = 0; i < 30; i++) {
+            const b = document.createElement("i");
+            if (i >= 27) b.className = "m";
+            row.appendChild(b);
+          }
+          const tl = gsap.timeline({ paused: true });
+          tl.fromTo("#s01-series", { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: "power3.out" }, 0.3);
+          tl.fromTo("#s01-title", { y: 40, opacity: 0 }, { y: 0, opacity: 1, duration: 0.8, ease: "power3.out" }, 0.5);
+          tl.fromTo("#s01-sub", { y: 24, opacity: 0 }, { y: 0, opacity: 1, duration: 0.6, ease: "power2.out" }, 0.9);
+          tl.fromTo("#s01-row i", { scaleY: 0, opacity: 0 }, { scaleY: 1, opacity: 1, duration: 0.35, ease: "back.out(2)", stagger: 0.035 }, 1.2);
+          tl.fromTo("#s01-row i:not(.m)", { opacity: 1 }, { opacity: 0.55, duration: 0.5, ease: "sine.inOut", stagger: { each: 0.05, from: "start" }, yoyo: true, repeat: 3 }, 3.2);
+          tl.fromTo("#s01-badge", { opacity: 0 }, { opacity: 1, duration: 0.6 }, 1.6);
+          tl.to("#s01-wrap, #s01-row, #s01-badge", { opacity: 0, duration: 0.4 }, 7.85);
+          window.__timelines["s01"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

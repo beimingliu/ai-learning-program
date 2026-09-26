@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head><meta charset="UTF-8"></head>
+  <body>
+    <template>
+      <style>
+        #s08-root { position: absolute; inset: 0; }
+        #s08-head { position: absolute; left: 140px; top: 128px; width: 1640px; }
+        #s08-list { position: absolute; left: 140px; top: 290px; width: 1640px; }
+        .s08-item { display: grid; grid-template-columns: 96px 1fr 360px; align-items: center; gap: 30px; height: 158px; padding: 0 40px; margin-bottom: 18px; }
+        .s08-n { width: 72px; height: 72px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 34px; font-weight: 700; background: rgba(0, 193, 212, 0.14); color: var(--hit); border: 2px solid var(--hit); }
+        .s08-t { font-size: 38px; line-height: 1.2; }
+        .s08-d { margin-top: 8px; font-size: 25px; color: var(--muted); }
+        .s08-tag { justify-self: end; white-space: nowrap; }
+      </style>
+      <div data-hf-id="hf-tdq0" id="s08-root" data-composition-id="s08" data-width="1920" data-height="1080">
+        <div data-hf-id="hf-lqcn" id="s08-head" class="headline">Four habits</div>
+        <div data-hf-id="hf-thb5" id="s08-list">
+          <div data-hf-id="hf-vyxd" class="s08-item card" id="s08-i1">
+            <div data-hf-id="hf-g5vm" class="s08-n mono">1</div>
+            <div data-hf-id="hf-yeow"><div data-hf-id="hf-8k2h" class="s08-t serif">Pair each model with its own harness</div><div data-hf-id="hf-jzs7" class="s08-d">Claude models in Claude Code, GPT models in Codex</div></div>
+            <span data-hf-id="hf-g4ej" class="chip hit s08-tag">my logs: 0% → 90%</span>
+          </div>
+          <div data-hf-id="hf-zx1e" class="s08-item card" id="s08-i2">
+            <div data-hf-id="hf-gk6n" class="s08-n mono">2</div>
+            <div data-hf-id="hf-y7yw"><div data-hf-id="hf-fb63" class="s08-t serif">After a long break, start fresh</div><div data-hf-id="hf-xdfy" class="s08-d">or turn on the one-hour cache if your setup offers it</div></div>
+            <span data-hf-id="hf-hkdt" class="chip miss s08-tag">est. cold resume ≈ 12×</span>
+          </div>
+          <div data-hf-id="hf-3v5f" class="s08-item card" id="s08-i3">
+            <div data-hf-id="hf-gyho" class="s08-n mono">3</div>
+            <div data-hf-id="hf-x11t"><div data-hf-id="hf-4ke9" class="s08-t serif">Don't switch models or compact mid-task</div><div data-hf-id="hf-il20" class="s08-d">both discard the cache</div></div>
+            <span data-hf-id="hf-sot2" class="chip miss s08-tag">cache reset</span>
+          </div>
+          <div data-hf-id="hf-gdnw" class="s08-item card" id="s08-i4">
+            <div data-hf-id="hf-hcsp" class="s08-n mono">4</div>
+            <div data-hf-id="hf-xfcu"><div data-hf-id="hf-fcsw" class="s08-t serif">Check hit rate after 10 calls</div><div data-hf-id="hf-f1db" class="s08-d">before you give a new pairing a day of work</div></div>
+            <span data-hf-id="hf-mc04" class="chip brand s08-tag">/usage</span>
+          </div>
+        </div>
+      </div>
+      <script>
+        (() => {
+          const tl = gsap.timeline({ paused: true });
+          tl.fromTo("#s08-head", { y: 26, opacity: 0 }, { y: 0, opacity: 1, duration: 0.7, ease: "power3.out" }, 0.1);
+          [0.3, 8.4, 17.6, 23.6].forEach((t, i) => {
+            const id = `#s08-i${i + 1}`;
+            tl.fromTo(id, { x: -40, opacity: 0 }, { x: 0, opacity: 1, duration: 0.55, ease: "power3.out" }, t);
+            tl.fromTo(`${id} .s08-tag`, { scale: 0.7, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.4, ease: "back.out(2.4)" }, t + 0.5);
+            tl.fromTo(`${id} .s08-n`, { backgroundColor: "rgba(0, 193, 212, 0.14)", color: "#00c1d4" }, { backgroundColor: "#00c1d4", color: "#07192a", duration: 0.3 }, t + 0.2);
+            if (i > 0) tl.to(`#s08-i${i} .s08-n`, { backgroundColor: "rgba(0, 193, 212, 0.14)", color: "#00c1d4", duration: 0.3 }, t + 0.2);
+          });
+          tl.to("#s08-root > *", { opacity: 0, duration: 0.4 }, 30.5);
+          window.__timelines["s08"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

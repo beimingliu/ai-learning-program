@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head><meta charset="UTF-8"></head>
+  <body>
+    <template>
+      <style>
+        {{FONTS}}
+        #s03-head { position: absolute; left: 120px; top: 110px; width: 1680px; }
+        #s03-title { margin-top: 14px; font-size: 70px; }
+        #s03-glow { width: 1200px; height: 1200px; left: 900px; top: 200px; }
+        /* Side columns mirror each other; every row shares one height and gap so rows line up across the frame. */
+        #s03-ctx, #s03-tools { position: absolute; top: 300px; width: 440px; display: flex; flex-direction: column; gap: 14px; }
+        #s03-ctx { left: 120px; }
+        #s03-tools { left: 1360px; }
+        .s03-k { height: 28px; font-size: 22px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue); }
+        .s03-k.gap { margin-top: 18px; }
+        .s03-row { height: 56px; display: flex; align-items: center; gap: 14px; padding: 0 22px; white-space: nowrap; }
+        .s03-cc { border-radius: 16px; background: #fff; border: 3px solid var(--pale); font-family: "JetBrains Mono", monospace; font-size: 24px; font-weight: 600; box-shadow: 0 8px 20px rgba(9,31,49,0.1); }
+        .s03-cc svg { width: 30px; height: 30px; flex: 0 0 auto; }
+        #s03-tools .chip { position: relative; font-size: 24px; box-shadow: 0 8px 20px rgba(9,31,49,0.18); }
+        .s03-hum { border-radius: 999px; background: var(--orange); color: var(--ink); font-size: 24px; font-weight: 700; box-shadow: 0 8px 20px rgba(255,105,0,0.3); }
+        .s03-hum svg { width: 28px; height: 28px; flex: 0 0 auto; color: var(--ink); }
+        /* Ring: r=200 centered at x=960; labels sit on it at -90, 30 and 150 degrees. */
+        #s03-mid { position: absolute; left: 650px; top: 300px; width: 620px; height: 520px; }
+        #s03-claude { left: 215px; top: 115px; }
+        #s03-ring { position: absolute; left: 100px; top: 0; width: 420px; height: 420px; overflow: visible; }
+        #s03-dot { position: absolute; left: 297px; top: -3px; width: 26px; height: 26px; border-radius: 50%; background: var(--orange); box-shadow: 0 0 22px rgba(255,105,0,0.7); }
+        #s03-dec { padding: 14px 22px; border-radius: 16px; background: var(--ink); color: #fff; font-family: "JetBrains Mono", monospace; font-size: 22px; white-space: nowrap; }
+        #s03-dec b { color: var(--orange); }
+        #s03-res { position: absolute; left: 120px; top: 850px; display: flex; gap: 20px; align-items: center; }
+        #s03-res .s03-k { display: flex; align-items: center; height: 64px; }
+        .s03-rc { height: 64px; display: flex; align-items: center; gap: 12px; padding: 0 24px; border-radius: 16px; background: #fff; border: 3px solid var(--blue); font-size: 26px; font-weight: 700; box-shadow: 0 8px 20px rgba(9,31,49,0.1); }
+        .s03-rc.bad { border-color: var(--orange); }
+        .s03-rc .m { font-family: "JetBrains Mono", monospace; font-size: 22px; color: var(--muted); font-weight: 600; }
+        .s03-rc .m + .m { margin-left: 18px; }
+        .s03-rc .ok { color: var(--blue); } .s03-rc .no { color: var(--orange); }
+        #s03-cap { left: 120px; top: 980px; }
+      </style>
+      <div data-hf-id="hf-3azd" id="root" data-composition-id="s03" data-width="1920" data-height="1080">
+        <div data-hf-id="hf-wua0" class="scene">
+          <div data-hf-id="hf-7qcj" class="dots" id="s03-dots"></div>
+          <div data-hf-id="hf-ft1i" id="s03-glow" class="glow warm"></div>
+          <div data-hf-id="hf-qzq8" class="rail"><span data-hf-id="hf-bvmj">Replay the Jaffle Shop</span><span data-hf-id="hf-s2le">03 <span data-hf-id="hf-hlzb" class="dot-o">/</span> 06</span></div>
+          <div data-hf-id="hf-2k46" id="s03-head">
+            <span data-hf-id="hf-mwi0" id="s03-kicker" class="kicker rv">From F101.2</span>
+            <span data-hf-id="hf-ux0n" id="s03-title" class="title rv">The same four parts, <span data-hf-id="hf-hwmw" class="hl">in a real run.</span></span>
+          </div>
+          <div data-hf-id="hf-if4f" id="s03-ctx">
+            <div data-hf-id="hf-tsuo" class="s03-k rv" id="s03-ck">Context</div>
+            <div data-hf-id="hf-2zlx" class="s03-row s03-cc rv">{{I:file}}brief</div>
+            <div data-hf-id="hf-ga2b" class="s03-row s03-cc rv">{{I:file}}raw_orders.csv</div>
+            <div data-hf-id="hf-jcqh" class="s03-row s03-cc rv">{{I:file}}raw_payments.csv</div>
+            <div data-hf-id="hf-ykx3" class="s03-row s03-cc rv">{{I:file}}metric-definitions.md</div>
+          </div>
+          <div data-hf-id="hf-xq5i" id="s03-mid">
+            <svg data-hf-id="hf-k2us" id="s03-ring" viewBox="0 0 420 420"><circle data-hf-id="hf-2g4n" cx="210" cy="210" r="200" pathLength="1" fill="none" stroke="#FF6900" stroke-width="5" stroke-dasharray="1" /></svg>
+            <div data-hf-id="hf-fqs4" id="s03-dot" class="rv"></div>
+            <div data-hf-id="hf-uu89" class="anchor" style="left:310px;top:10px"><div data-hf-id="hf-e5tj" class="ring-lab s03-lp rv">read</div></div>
+            <div data-hf-id="hf-w305" class="anchor" style="left:483px;top:310px"><div data-hf-id="hf-637d" class="ring-lab s03-lp rv">calculate</div></div>
+            <div data-hf-id="hf-dpjh" class="anchor" style="left:137px;top:310px"><div data-hf-id="hf-6yrp" class="ring-lab s03-lp rv">check</div></div>
+            <div data-hf-id="hf-tbp5" id="s03-claude" class="claude rv">{{CLAUDE}}</div>
+            <div data-hf-id="hf-fv6m" class="anchor" style="left:310px;top:480px"><div data-hf-id="hf-dxwg" id="s03-dec" class="rv"><b data-hf-id="hf-6ov8">decides:</b> join payments → orders on order_id</div></div>
+          </div>
+          <div data-hf-id="hf-4ggp" id="s03-tools">
+            <div data-hf-id="hf-xfmb" class="s03-k rv" id="s03-tk">Tools</div>
+            <span data-hf-id="hf-swra" class="s03-row chip rv"><span data-hf-id="hf-7qbp" class="svc">read</span> raw_orders.csv</span>
+            <span data-hf-id="hf-qgq0" class="s03-row chip rv"><span data-hf-id="hf-pybu" class="svc">run</span> python</span>
+            <span data-hf-id="hf-4mgr" class="s03-row chip rv"><span data-hf-id="hf-xz18" class="svc">write</span> report.html</span>
+            <div data-hf-id="hf-2g8q" class="s03-k gap rv" id="s03-yk">You</div>
+            <div data-hf-id="hf-ivj9" class="s03-row s03-hum rv" id="s03-h1">{{I:person}}Esc · stop early</div>
+            <div data-hf-id="hf-g0sw" class="s03-row s03-hum rv" id="s03-h2">{{I:person}}approve the plan</div>
+            <div data-hf-id="hf-ufxg" class="s03-row s03-hum rv" id="s03-h3">{{I:person}}good enough?</div>
+          </div>
+          <div data-hf-id="hf-a06q" id="s03-res">
+            <div data-hf-id="hf-8ked" class="s03-k rv" id="s03-rk">First pass</div>
+            <div data-hf-id="hf-s9n5" class="s03-rc rv" id="s03-rt">Total <span data-hf-id="hf-xtm7" class="m">$1,103</span> <span data-hf-id="hf-nd5k" class="ok">✓</span></div>
+            <div data-hf-id="hf-jjm8" class="s03-rc bad rv" id="s03-rm">Monthly <span data-hf-id="hf-wml2" class="m">Feb ✗ · Mar ✗</span> <span data-hf-id="hf-uji1" class="m">verified: $400 · $279</span></div>
+          </div>
+          <div data-hf-id="hf-x012" id="s03-cap" class="caption rv">Not "close enough." <b data-hf-id="hf-sm6v">One part broke, and you can find which one.</b></div>
+        </div>
+      </div>
+      <script>
+        (function () {
+          {{H}}
+          A("#s03-kicker", 0.15, { y: 20, d: 0.3 });
+          A("#s03-title", 0.3, { y: 60, d: 0.6, e: "expo.out" });
+          P("#s03-claude", 0.9, { s: 0.3, d: 0.6 });
+          DRAW("#s03-ring circle", 1.2, 1.0);
+          var c = {{T:The brief}};
+          A("#s03-ck", c - 0.1, { x: -30, y: 0, d: 0.3 });
+          tl.fromTo("#s03-ctx .s03-cc", { opacity: 0, x: -80 }, { opacity: 1, x: 0, duration: 0.4, ease: "power4.out", stagger: 0.35 }, c);
+          var d = {{T:model decided}};
+          tl.fromTo("#s03-dec", { opacity: 0, y: -30, scale: 0.7 }, { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: "back.out(2)" }, d + 0.3);
+          tl.to("#s03-claude", { keyframes: { scale: [1, 1.1, 1] }, duration: 0.5 }, d);
+          var t = {{T:Tools read}};
+          A("#s03-tk", t - 0.1, { x: 30, y: 0, d: 0.3 });
+          tl.fromTo("#s03-tools .chip", { opacity: 0, x: -200 }, { opacity: 1, x: 0, duration: 0.45, ease: "expo.out", stagger: 0.6 }, t + 0.2);
+          var l = {{T:loop went around}};
+          P(".s03-lp", l, { s: 0, st: 0.15, e: "back.out(2.4)", d: 0.4 });
+          tl.set("#s03-dot", { opacity: 1 }, l + 0.3);
+          tl.to("#s03-dot", { rotation: 360 * 3, transformOrigin: "13px 213px", duration: 5.5, ease: "power1.inOut" }, l + 0.3);
+          var y = {{T:You were in}};
+          tl.to("#s03-tools .chip", { opacity: 0.85, duration: 0.4 }, y - 0.3);
+          A("#s03-yk", y - 0.1, { x: 30, y: 0, d: 0.3 });
+          tl.fromTo("#s03-h1", { opacity: 0, scale: 0.4, y: -40 }, { opacity: 1, scale: 1, y: 0, duration: 0.45, ease: "back.out(2.4)" }, {{T:stopped it}});
+          tl.fromTo("#s03-h2", { opacity: 0, scale: 0.4, y: -40 }, { opacity: 1, scale: 1, y: 0, duration: 0.45, ease: "back.out(2.4)" }, {{T:approved the plan}});
+          tl.fromTo("#s03-h3", { opacity: 0, scale: 0.4, y: -40 }, { opacity: 1, scale: 1, y: 0, duration: 0.45, ease: "back.out(2.4)" }, {{T:decided when}});
+          var f = {{T:first pass}};
+          A("#s03-rk", f, { x: -30, y: 0, d: 0.3 });
+          A("#s03-rt", {{T:total was correct}}, { y: 30, d: 0.4 });
+          tl.fromTo("#s03-rm", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.4, ease: "power4.out" }, {{T:monthly breakdown}});
+          tl.to("#s03-rm", { keyframes: { x: [0, -12, 10, -6, 0] }, duration: 0.45, ease: "none" }, {{T:monthly breakdown}} + 0.5);
+          A("#s03-cap", {{T:close enough}} - 0.3, { y: 24, d: 0.45 });
+          LOOP("#s03-glow", { scale: 1.12, x: -60 }, 3.2, 0, DUR - 0.5);
+          tl.to("#s03-dots", { x: -44, y: -22, duration: DUR, ease: "none" }, 0);
+          window.__timelines["s03"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head><meta charset="UTF-8"></head>
+  <body>
+    <template>
+      <style>
+        {{FONTS}}
+        #s02-head { position: absolute; left: 120px; top: 110px; width: 1680px; }
+        #s02-title { margin-top: 14px; font-size: 70px; }
+        #s02-glow { width: 1200px; height: 1200px; left: 400px; top: 100px; }
+        #s02-harness { position: absolute; left: 110px; top: 300px; width: 1700px; height: 720px; border-radius: 48px; border: 5px solid var(--blue); background: rgba(234,242,255,0.35); }
+        #s02-hl { position: absolute; left: 150px; top: 276px; padding: 6px 20px; border-radius: 12px; background: var(--blue); color: #fff; font-size: 24px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+        /* Context and tools are mirrored columns: same top, label height, row height and gap. */
+        #s02-ctx, #s02-tools { position: absolute; top: 400px; width: 460px; display: flex; flex-direction: column; gap: 14px; }
+        #s02-ctx { left: 170px; }
+        #s02-tools { left: 1290px; }
+        .s02-lab { height: 28px; font-size: 22px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--blue); white-space: nowrap; }
+        .s02-row { height: 60px; display: flex; align-items: center; padding: 0 24px; font-size: 26px; font-weight: 600; white-space: nowrap; }
+        .s02-cc { border-radius: 16px; background: #fff; border: 3px solid var(--pale); box-shadow: 0 8px 20px rgba(9,31,49,0.1); }
+        #s02-loop { position: absolute; left: 690px; top: 390px; width: 540px; height: 540px; overflow: visible; }
+        #s02-loop circle { stroke-dasharray: 1; }
+        #s02-claude { left: 865px; top: 565px; }
+        #s02-dot { position: absolute; left: 947px; top: 397px; width: 26px; height: 26px; border-radius: 50%; background: var(--orange); box-shadow: 0 0 22px rgba(255,105,0,0.7); }
+        #s02-modlab { position: absolute; left: 810px; top: 775px; text-align: center; width: 300px; }
+        #s02-tools .chip { position: relative; box-shadow: 0 8px 20px rgba(9,31,49,0.18); }
+        .s02-ref { display: inline-block; align-self: flex-start; padding: 6px 14px; border-radius: 10px; background: var(--ink); color: #fff; font-size: 20px; font-weight: 700; }
+        #s02-fwd { position: absolute; left: 1290px; top: 930px; }
+        #s02-reply { position: absolute; left: 1290px; top: 750px; font-size: 24px; font-weight: 600; color: var(--muted); }
+      </style>
+      <div data-hf-id="hf-m6ce" id="root" data-composition-id="s02" data-width="1920" data-height="1080">
+        <div data-hf-id="hf-wua0" class="scene">
+          <div data-hf-id="hf-04r8" class="dots" id="s02-dots"></div>
+          <div data-hf-id="hf-z03o" id="s02-glow" class="glow"></div>
+          <div data-hf-id="hf-qzq8" class="rail"><span data-hf-id="hf-ygl2">The four parts</span><span data-hf-id="hf-q0lh">02 <span data-hf-id="hf-hlzb" class="dot-o">/</span> 06</span></div>
+          <div data-hf-id="hf-xlah" id="s02-head">
+            <span data-hf-id="hf-1jzv" id="s02-kicker" class="kicker rv">Inside the agent</span>
+            <span data-hf-id="hf-atv6" id="s02-title" class="title rv">Model, tools, context, <span data-hf-id="hf-utxe" class="hl">joined by a loop.</span></span>
+          </div>
+          <div data-hf-id="hf-fl68" id="s02-harness" class="rv"></div>
+          <div data-hf-id="hf-194m" id="s02-hl" class="rv">Claude Code · harness</div>
+          <div data-hf-id="hf-dgbn" id="s02-ctx" class="rv">
+            <div data-hf-id="hf-e88h" class="s02-lab">Context · what it can see now</div>
+            <div data-hf-id="hf-3yax" class="s02-row s02-cc rv">your brief</div>
+            <div data-hf-id="hf-oimq" class="s02-row s02-cc rv">files it has read</div>
+            <div data-hf-id="hf-hrbn" class="s02-row s02-cc rv">results so far</div>
+            <span data-hf-id="hf-3fsu" class="s02-ref rv" id="s02-r3">F101.3</span>
+          </div>
+          <svg data-hf-id="hf-l1hb" id="s02-loop" viewBox="0 0 540 540"><circle data-hf-id="hf-asw5" cx="270" cy="270" r="250" pathLength="1" fill="none" stroke="#FF6900" stroke-width="6" stroke-linecap="round" /></svg>
+          <div data-hf-id="hf-t9z5" id="s02-dot" class="rv"></div>
+          <div data-hf-id="hf-pqje" class="anchor" style="left:960px;top:410px"><div data-hf-id="hf-d7aa" class="ring-lab s02-st rv">gather</div></div>
+          <div data-hf-id="hf-sf20" class="anchor" style="left:1210px;top:660px"><div data-hf-id="hf-64mb" class="ring-lab s02-st rv">act</div></div>
+          <div data-hf-id="hf-jwuj" class="anchor" style="left:960px;top:910px"><div data-hf-id="hf-g753" class="ring-lab s02-st rv">observe</div></div>
+          <div data-hf-id="hf-as6q" class="anchor" style="left:710px;top:660px"><div data-hf-id="hf-x3sv" class="ring-lab s02-st rv">check</div></div>
+          <div data-hf-id="hf-iky2" id="s02-claude" class="claude rv">{{CLAUDE}}</div>
+          <div data-hf-id="hf-gnmd" id="s02-modlab" class="rv"><div data-hf-id="hf-jt1k" class="s02-lab">Model · reasons</div><span data-hf-id="hf-gwpo" class="s02-ref">F101.6</span></div>
+          <div data-hf-id="hf-uzl0" id="s02-tools">
+            <div data-hf-id="hf-dvl9" class="s02-lab rv" id="s02-tl">Tools · act</div>
+            <span data-hf-id="hf-xbp5" class="s02-row chip rv"><span data-hf-id="hf-7qbp" class="svc">read</span> file</span>
+            <span data-hf-id="hf-h2au" class="s02-row chip rv"><span data-hf-id="hf-pybu" class="svc">run</span> code</span>
+            <span data-hf-id="hf-8k07" class="s02-row chip rv"><span data-hf-id="hf-hgmi" class="svc">glean</span> search</span>
+            <span data-hf-id="hf-j8mx" class="s02-row chip rv"><span data-hf-id="hf-xz18" class="svc">write</span> report</span>
+          </div>
+          <div data-hf-id="hf-2kmg" id="s02-reply" class="rv">without tools: only a reply</div>
+          <div data-hf-id="hf-jdpz" id="s02-fwd" class="rv"><span data-hf-id="hf-xkrf" class="fwd">Building with AI 201</span></div>
+        </div>
+      </div>
+      <script>
+        (function () {
+          {{H}}
+          A("#s02-kicker", 0.15, { y: 20, d: 0.3 });
+          A("#s02-title", 0.3, { y: 60, d: 0.6, e: "expo.out" });
+          var m = {{T:model reasons}};
+          P("#s02-claude", m - 0.2, { s: 0.2, d: 0.7, e: "back.out(2)" });
+          A("#s02-modlab", m + 0.4, { y: 20, d: 0.4 });
+          LOOP("#s02-claude", { scale: 1.05 }, 0.9, m + 1.2, {{T:Tools act}});
+          tl.set("#s02-modlab .s02-ref", { opacity: 0 }, 0);
+          P("#s02-modlab .s02-ref", {{T:part you chose}}, { s: 0.3, d: 0.4 });
+          var t = {{T:Tools act}};
+          A("#s02-tl", t - 0.1, { x: 40, y: 0, d: 0.4 });
+          tl.fromTo("#s02-tools .chip", { opacity: 0, x: -260, scale: 0.6 }, { opacity: 1, x: 0, scale: 1, duration: 0.5, ease: "expo.out", stagger: 0.35 }, t + 0.3);
+          A("#s02-reply", {{T:Without tools}}, { y: 16, d: 0.4 });
+          OUT("#s02-reply", {{T:Context is what}} - 0.4, 0.3);
+          var c = {{T:Context is what}};
+          tl.fromTo("#s02-ctx", { opacity: 0, x: -120 }, { opacity: 1, x: 0, duration: 0.55, ease: "power4.out" }, c - 0.1);
+          tl.fromTo("#s02-ctx .s02-cc", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.4, ease: "back.out(1.8)", stagger: 0.55 }, {{T:your brief}});
+          P("#s02-r3", {{T:You met it}} + 1.0, { s: 0.3, d: 0.4 });
+          var l = {{T:loop joins}};
+          DRAW("#s02-loop circle", l - 0.1, 1.1);
+          P(".s02-st", l + 0.6, { s: 0, st: 0.15, e: "back.out(2.4)", d: 0.45 });
+          tl.set("#s02-dot", { opacity: 1 }, {{T:gathers context}});
+          tl.to("#s02-dot", { rotation: 360, transformOrigin: "13px 263px", duration: 4.2, ease: "none" }, {{T:gathers context}});
+          tl.to(".s02-st", { backgroundColor: "#FF6900", duration: 0.25, stagger: 1.05, yoyo: true, repeat: 1 }, {{T:gathers context}});
+          var h = {{T:Claude Code is the harness}};
+          tl.fromTo("#s02-harness", { opacity: 0, scale: 1.08 }, { opacity: 1, scale: 1, duration: 0.7, ease: "expo.out" }, h);
+          P("#s02-hl", h + 0.4, { s: 0.4, d: 0.4 });
+          tl.to("#s02-dot", { rotation: 720, transformOrigin: "13px 263px", duration: DUR - h - 4.8, ease: "none" }, h);
+          A("#s02-fwd", {{T:Building with AI}}, { x: -30, y: 0, d: 0.4 });
+          LOOP("#s02-glow", { scale: 1.1 }, 3, 0, DUR - 0.5);
+          tl.to("#s02-dots", { x: -44, y: -22, duration: DUR, ease: "none" }, 0);
+          window.__timelines["s02"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

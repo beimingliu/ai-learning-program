@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head><meta charset="UTF-8"></head>
+  <body>
+    <template>
+      <style>
+        {{FONTS}}
+        #s00-glow { width: 1400px; height: 1400px; left: 900px; top: -300px; }
+        #s00-ghost { left: -40px; bottom: -70px; }
+        #s00-head { position: absolute; left: 120px; top: 290px; width: 1000px; }
+        #s00-title { font-size: 104px; margin-top: 22px; }
+        #s00-sub { margin-top: 36px; font-size: 38px; font-weight: 600; color: var(--pale); }
+        #s00-sub .o { color: var(--orange); }
+        #s00-sys { position: absolute; left: 1220px; top: 250px; width: 600px; height: 600px; }
+        #s00-ring { position: absolute; inset: 0; width: 600px; height: 600px; overflow: visible; }
+        #s00-sys .claude { left: 205px; top: 205px; }
+        .s00-part { padding: 12px 22px; border-radius: 999px; background: var(--pale); color: var(--ink); font-size: 28px; font-weight: 700; white-space: nowrap; }
+        #s00-dot { position: absolute; left: 287px; top: 12px; width: 26px; height: 26px; border-radius: 50%; background: var(--orange); box-shadow: 0 0 24px rgba(255,105,0,0.8); }
+      </style>
+      <div data-hf-id="hf-nnng" id="root" data-composition-id="s00" data-width="1920" data-height="1080">
+        <div data-hf-id="hf-ezh0" class="scene dark">
+          <div data-hf-id="hf-zx1w" class="dots"></div><div data-hf-id="hf-nlle" id="s00-glow" class="glow"></div><div data-hf-id="hf-c2nq" id="s00-ghost" class="ghost">loop</div>
+          <div data-hf-id="hf-qzq8" class="rail"><span data-hf-id="hf-z3na">Analytics AI Enablement</span><span data-hf-id="hf-gyoq">F101.7 <span data-hf-id="hf-t7jb" class="dot-o">●</span> Foundations</span></div>
+          <div data-hf-id="hf-08c3" id="s00-head">
+            <span data-hf-id="hf-96ov" id="s00-kicker" class="kicker rv">Foundations 101</span>
+            <span data-hf-id="hf-gz5m" id="s00-title" class="title rv">The agentic system <span data-hf-id="hf-p4oq" class="hl">and subagents</span></span>
+            <div data-hf-id="hf-97xq" id="s00-sub" class="rv">Agent <span data-hf-id="hf-r1hz" class="o">=</span> model <span data-hf-id="hf-lh7l" class="o">+</span> tools <span data-hf-id="hf-kak5" class="o">+</span> context <span data-hf-id="hf-lhh8" class="o">+</span> loop</div>
+          </div>
+          <div data-hf-id="hf-qrjc" id="s00-sys">
+            <svg data-hf-id="hf-cudl" id="s00-ring" viewBox="0 0 600 600"><circle data-hf-id="hf-dyqd" cx="300" cy="300" r="275" fill="none" stroke="#EAF2FF" stroke-opacity="0.4" stroke-width="4" stroke-dasharray="1" pathLength="1" id="s00-rc" /></svg>
+            <div data-hf-id="hf-cfu3" id="s00-dot" class="rv"></div>
+            <div data-hf-id="hf-qjjt" class="claude rv" id="s00-c">{{CLAUDE}}</div>
+            <div data-hf-id="hf-u0uo" class="anchor" style="left:300px;top:25px"><div data-hf-id="hf-2l96" class="s00-part rv">model</div></div>
+            <div data-hf-id="hf-q480" class="anchor" style="left:575px;top:300px"><div data-hf-id="hf-r7z0" class="s00-part rv">tools</div></div>
+            <div data-hf-id="hf-zkvs" class="anchor" style="left:300px;top:575px"><div data-hf-id="hf-figs" class="s00-part rv">context</div></div>
+            <div data-hf-id="hf-m6cu" class="anchor" style="left:25px;top:300px"><div data-hf-id="hf-1jxn" class="s00-part rv">loop</div></div>
+          </div>
+        </div>
+      </div>
+      <script>
+        (function () {
+          {{H}}
+          A("#s00-kicker", 0.2, { y: 24, d: 0.35 });
+          A("#s00-title", 0.4, { y: 80, d: 0.7, e: "expo.out" });
+          P("#s00-c", 1.1, { s: 0.2, d: 0.8, e: "back.out(2)" });
+          DRAW("#s00-rc", 1.3, 1.4);
+          P(".s00-part", 1.8, { s: 0, st: 0.18, e: "elastic.out(1, 0.6)", d: 1.0 });
+          tl.set("#s00-dot", { opacity: 1 }, 2.8);
+          tl.to("#s00-dot", { rotation: 360 * 2, transformOrigin: "13px 288px", duration: DUR - 3, ease: "none" }, 2.8);
+          A("#s00-sub", {{T:agentic system}}, { x: -60, y: 0, d: 0.6, e: "power4.out" });
+          tl.to("#s00-ghost", { x: 120, duration: DUR, ease: "none" }, 0);
+          LOOP("#s00-glow", { scale: 1.12 }, 2.5, 0, DUR - 0.5);
+          window.__timelines["s00"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

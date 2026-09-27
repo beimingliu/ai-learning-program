@@ -1,0 +1,3725 @@
+{
+  "voices": [
+    {
+      "id": "01",
+      "path": "assets/voice/01.wav",
+      "duration_s": 8.843,
+      "words": [
+        {
+          "id": "w0",
+          "text": "Welcome",
+          "start": 0.14,
+          "end": 0.51
+        },
+        {
+          "id": "w1",
+          "text": "to",
+          "start": 0.55,
+          "end": 0.67
+        },
+        {
+          "id": "w2",
+          "text": "the",
+          "start": 0.67,
+          "end": 0.89
+        },
+        {
+          "id": "w3",
+          "text": "Analytics",
+          "start": 0.89,
+          "end": 1.55
+        },
+        {
+          "id": "w4",
+          "text": "AI",
+          "start": 1.58,
+          "end": 1.71
+        },
+        {
+          "id": "w5",
+          "text": "Enablement",
+          "start": 1.71,
+          "end": 2.48
+        },
+        {
+          "id": "w6",
+          "text": "Education",
+          "start": 2.48,
+          "end": 3.28
+        },
+        {
+          "id": "w7",
+          "text": "Series.",
+          "start": 3.29,
+          "end": 3.84
+        },
+        {
+          "id": "w8",
+          "text": "Today",
+          "start": 3.98,
+          "end": 4.11
+        },
+        {
+          "id": "w9",
+          "text": "in",
+          "start": 4.16,
+          "end": 4.28
+        },
+        {
+          "id": "w10",
+          "text": "Foundations,",
+          "start": 4.28,
+          "end": 5.12
+        },
+        {
+          "id": "w11",
+          "text": "we",
+          "start": 5.12,
+          "end": 5.25
+        },
+        {
+          "id": "w12",
+          "text": "focus",
+          "start": 5.29,
+          "end": 5.7
+        },
+        {
+          "id": "w13",
+          "text": "on",
+          "start": 5.7,
+          "end": 5.86
+        },
+        {
+          "id": "w14",
+          "text": "the",
+          "start": 5.86,
+          "end": 6.11
+        },
+        {
+          "id": "w15",
+          "text": "agentic",
+          "start": 6.11,
+          "end": 6.69
+        },
+        {
+          "id": "w16",
+          "text": "system",
+          "start": 6.69,
+          "end": 7.18
+        },
+        {
+          "id": "w17",
+          "text": "and",
+          "start": 7.18,
+          "end": 7.39
+        },
+        {
+          "id": "w18",
+          "text": "subagents.",
+          "start": 7.69,
+          "end": 8.48
+        }
+      ]
+    },
+    {
+      "id": "02",
+      "path": "assets/voice/02.wav",
+      "duration_s": 23.948,
+      "words": [
+        {
+          "id": "w0",
+          "text": "You",
+          "start": 0.14,
+          "end": 0.28
+        },
+        {
+          "id": "w1",
+          "text": "ask",
+          "start": 0.28,
+          "end": 0.54
+        },
+        {
+          "id": "w2",
+          "text": "Claude",
+          "start": 0.57,
+          "end": 1.04
+        },
+        {
+          "id": "w3",
+          "text": "a",
+          "start": 1.14,
+          "end": 1.22
+        },
+        {
+          "id": "w4",
+          "text": "question,",
+          "start": 1.29,
+          "end": 2.21
+        },
+        {
+          "id": "w5",
+          "text": "it",
+          "start": 2.27,
+          "end": 2.42
+        },
+        {
+          "id": "w6",
+          "text": "reads",
+          "start": 2.42,
+          "end": 2.96
+        },
+        {
+          "id": "w7",
+          "text": "six",
+          "start": 2.96,
+          "end": 3.28
+        },
+        {
+          "id": "w8",
+          "text": "files,",
+          "start": 3.28,
+          "end": 4.03
+        },
+        {
+          "id": "w9",
+          "text": "runs",
+          "start": 4.03,
+          "end": 4.4
+        },
+        {
+          "id": "w10",
+          "text": "some",
+          "start": 4.41,
+          "end": 4.79
+        },
+        {
+          "id": "w11",
+          "text": "code,",
+          "start": 4.79,
+          "end": 5.36
+        },
+        {
+          "id": "w12",
+          "text": "and",
+          "start": 5.39,
+          "end": 5.61
+        },
+        {
+          "id": "w13",
+          "text": "hands",
+          "start": 5.61,
+          "end": 6.02
+        },
+        {
+          "id": "w14",
+          "text": "back",
+          "start": 6.02,
+          "end": 6.35
+        },
+        {
+          "id": "w15",
+          "text": "a",
+          "start": 6.35,
+          "end": 6.43
+        },
+        {
+          "id": "w16",
+          "text": "number.",
+          "start": 6.43,
+          "end": 6.96
+        },
+        {
+          "id": "w17",
+          "text": "What",
+          "start": 7.1,
+          "end": 7.24
+        },
+        {
+          "id": "w18",
+          "text": "just",
+          "start": 7.24,
+          "end": 7.5
+        },
+        {
+          "id": "w19",
+          "text": "happened",
+          "start": 7.57,
+          "end": 8
+        },
+        {
+          "id": "w20",
+          "text": "in",
+          "start": 8.1,
+          "end": 8.18
+        },
+        {
+          "id": "w21",
+          "text": "there?",
+          "start": 8.25,
+          "end": 8.73
+        },
+        {
+          "id": "w22",
+          "text": "You've",
+          "start": 9.03,
+          "end": 9.26
+        },
+        {
+          "id": "w23",
+          "text": "been",
+          "start": 9.26,
+          "end": 9.57
+        },
+        {
+          "id": "w24",
+          "text": "using",
+          "start": 9.57,
+          "end": 9.95
+        },
+        {
+          "id": "w25",
+          "text": "this",
+          "start": 9.95,
+          "end": 10.26
+        },
+        {
+          "id": "w26",
+          "text": "system",
+          "start": 10.26,
+          "end": 10.67
+        },
+        {
+          "id": "w27",
+          "text": "for",
+          "start": 10.89,
+          "end": 10.95
+        },
+        {
+          "id": "w28",
+          "text": "six",
+          "start": 10.95,
+          "end": 11.18
+        },
+        {
+          "id": "w29",
+          "text": "lessons.",
+          "start": 11.18,
+          "end": 11.76
+        },
+        {
+          "id": "w30",
+          "text": "This",
+          "start": 11.9,
+          "end": 12.11
+        },
+        {
+          "id": "w31",
+          "text": "is",
+          "start": 12.11,
+          "end": 12.28
+        },
+        {
+          "id": "w32",
+          "text": "the",
+          "start": 12.28,
+          "end": 12.54
+        },
+        {
+          "id": "w33",
+          "text": "one",
+          "start": 12.54,
+          "end": 12.8
+        },
+        {
+          "id": "w34",
+          "text": "where",
+          "start": 12.8,
+          "end": 13.23
+        },
+        {
+          "id": "w35",
+          "text": "we",
+          "start": 13.23,
+          "end": 13.4
+        },
+        {
+          "id": "w36",
+          "text": "open",
+          "start": 13.4,
+          "end": 13.55
+        },
+        {
+          "id": "w37",
+          "text": "it",
+          "start": 13.55,
+          "end": 14.03
+        },
+        {
+          "id": "w38",
+          "text": "up.",
+          "start": 14.03,
+          "end": 14.4
+        },
+        {
+          "id": "w39",
+          "text": "Four",
+          "start": 14.4,
+          "end": 14.76
+        },
+        {
+          "id": "w40",
+          "text": "parts",
+          "start": 14.81,
+          "end": 15.28
+        },
+        {
+          "id": "w41",
+          "text": "work",
+          "start": 15.28,
+          "end": 15.47
+        },
+        {
+          "id": "w42",
+          "text": "together,",
+          "start": 15.69,
+          "end": 16.6
+        },
+        {
+          "id": "w43",
+          "text": "and",
+          "start": 16.6,
+          "end": 16.67
+        },
+        {
+          "id": "w44",
+          "text": "once",
+          "start": 16.81,
+          "end": 16.97
+        },
+        {
+          "id": "w45",
+          "text": "you",
+          "start": 17.15,
+          "end": 17.2
+        },
+        {
+          "id": "w46",
+          "text": "can",
+          "start": 17.2,
+          "end": 17.44
+        },
+        {
+          "id": "w47",
+          "text": "name",
+          "start": 17.44,
+          "end": 17.75
+        },
+        {
+          "id": "w48",
+          "text": "them,",
+          "start": 17.75,
+          "end": 18.32
+        },
+        {
+          "id": "w49",
+          "text": "you",
+          "start": 18.46,
+          "end": 18.65
+        },
+        {
+          "id": "w50",
+          "text": "can",
+          "start": 18.65,
+          "end": 18.93
+        },
+        {
+          "id": "w51",
+          "text": "say",
+          "start": 18.99,
+          "end": 19.29
+        },
+        {
+          "id": "w52",
+          "text": "which",
+          "start": 19.32,
+          "end": 19.87
+        },
+        {
+          "id": "w53",
+          "text": "one",
+          "start": 19.87,
+          "end": 20.09
+        },
+        {
+          "id": "w54",
+          "text": "failed",
+          "start": 20.59,
+          "end": 20.87
+        },
+        {
+          "id": "w55",
+          "text": "instead",
+          "start": 20.87,
+          "end": 21.65
+        },
+        {
+          "id": "w56",
+          "text": "of",
+          "start": 21.65,
+          "end": 21.86
+        },
+        {
+          "id": "w57",
+          "text": "blaming",
+          "start": 21.86,
+          "end": 22.65
+        },
+        {
+          "id": "w58",
+          "text": "the",
+          "start": 22.65,
+          "end": 22.98
+        },
+        {
+          "id": "w59",
+          "text": "AI.",
+          "start": 22.98,
+          "end": 23.28
+        }
+      ]
+    },
+    {
+      "id": "03",
+      "path": "assets/voice/03.wav",
+      "duration_s": 53.989,
+      "words": [
+        {
+          "id": "w0",
+          "text": "the",
+          "start": 0.15,
+          "end": 0.25
+        },
+        {
+          "id": "w1",
+          "text": "model",
+          "start": 0.26,
+          "end": 0.69
+        },
+        {
+          "id": "w2",
+          "text": "reasons.",
+          "start": 0.69,
+          "end": 1.44
+        },
+        {
+          "id": "w3",
+          "text": "It",
+          "start": 1.56,
+          "end": 1.61
+        },
+        {
+          "id": "w4",
+          "text": "reads",
+          "start": 1.61,
+          "end": 2.03
+        },
+        {
+          "id": "w5",
+          "text": "the",
+          "start": 2.03,
+          "end": 2.28
+        },
+        {
+          "id": "w6",
+          "text": "goal",
+          "start": 2.28,
+          "end": 2.64
+        },
+        {
+          "id": "w7",
+          "text": "and",
+          "start": 2.64,
+          "end": 2.88
+        },
+        {
+          "id": "w8",
+          "text": "decides",
+          "start": 2.89,
+          "end": 3.48
+        },
+        {
+          "id": "w9",
+          "text": "the",
+          "start": 3.48,
+          "end": 3.73
+        },
+        {
+          "id": "w10",
+          "text": "next",
+          "start": 3.73,
+          "end": 4.07
+        },
+        {
+          "id": "w11",
+          "text": "step.",
+          "start": 4.07,
+          "end": 5.02
+        },
+        {
+          "id": "w12",
+          "text": "That's",
+          "start": 5.03,
+          "end": 5.31
+        },
+        {
+          "id": "w13",
+          "text": "the",
+          "start": 5.31,
+          "end": 5.46
+        },
+        {
+          "id": "w14",
+          "text": "part",
+          "start": 5.46,
+          "end": 5.65
+        },
+        {
+          "id": "w15",
+          "text": "you",
+          "start": 5.69,
+          "end": 5.92
+        },
+        {
+          "id": "w16",
+          "text": "chose",
+          "start": 5.92,
+          "end": 6.4
+        },
+        {
+          "id": "w17",
+          "text": "in",
+          "start": 6.4,
+          "end": 6.56
+        },
+        {
+          "id": "w18",
+          "text": "the",
+          "start": 6.56,
+          "end": 6.64
+        },
+        {
+          "id": "w19",
+          "text": "last",
+          "start": 6.79,
+          "end": 7.08
+        },
+        {
+          "id": "w20",
+          "text": "lesson.",
+          "start": 7.08,
+          "end": 8.07
+        },
+        {
+          "id": "w21",
+          "text": "Tools",
+          "start": 8.2,
+          "end": 8.62
+        },
+        {
+          "id": "w22",
+          "text": "act.",
+          "start": 8.62,
+          "end": 9.28
+        },
+        {
+          "id": "w23",
+          "text": "They",
+          "start": 9.28,
+          "end": 9.72
+        },
+        {
+          "id": "w24",
+          "text": "read",
+          "start": 9.72,
+          "end": 10.13
+        },
+        {
+          "id": "w25",
+          "text": "files,",
+          "start": 10.19,
+          "end": 10.93
+        },
+        {
+          "id": "w26",
+          "text": "run",
+          "start": 10.93,
+          "end": 11.16
+        },
+        {
+          "id": "w27",
+          "text": "code,",
+          "start": 11.65,
+          "end": 11.91
+        },
+        {
+          "id": "w28",
+          "text": "search",
+          "start": 11.93,
+          "end": 12.57
+        },
+        {
+          "id": "w29",
+          "text": "glean,",
+          "start": 12.63,
+          "end": 13.35
+        },
+        {
+          "id": "w30",
+          "text": "and",
+          "start": 13.35,
+          "end": 13.67
+        },
+        {
+          "id": "w31",
+          "text": "write",
+          "start": 13.67,
+          "end": 14.08
+        },
+        {
+          "id": "w32",
+          "text": "the",
+          "start": 14.08,
+          "end": 14.57
+        },
+        {
+          "id": "w33",
+          "text": "report.",
+          "start": 14.57,
+          "end": 15.46
+        },
+        {
+          "id": "w34",
+          "text": "Without",
+          "start": 15.98,
+          "end": 16.16
+        },
+        {
+          "id": "w35",
+          "text": "tools,",
+          "start": 16.16,
+          "end": 16.64
+        },
+        {
+          "id": "w36",
+          "text": "the",
+          "start": 16.79,
+          "end": 16.88
+        },
+        {
+          "id": "w37",
+          "text": "model",
+          "start": 16.88,
+          "end": 17.29
+        },
+        {
+          "id": "w38",
+          "text": "can",
+          "start": 17.29,
+          "end": 17.52
+        },
+        {
+          "id": "w39",
+          "text": "only",
+          "start": 17.53,
+          "end": 17.7
+        },
+        {
+          "id": "w40",
+          "text": "reply.",
+          "start": 18.2,
+          "end": 18.51
+        },
+        {
+          "id": "w41",
+          "text": "Context",
+          "start": 18.51,
+          "end": 19.08
+        },
+        {
+          "id": "w42",
+          "text": "is",
+          "start": 19.08,
+          "end": 19.24
+        },
+        {
+          "id": "w43",
+          "text": "what",
+          "start": 19.24,
+          "end": 19.56
+        },
+        {
+          "id": "w44",
+          "text": "the",
+          "start": 19.57,
+          "end": 19.81
+        },
+        {
+          "id": "w45",
+          "text": "model",
+          "start": 19.81,
+          "end": 20.22
+        },
+        {
+          "id": "w46",
+          "text": "can",
+          "start": 20.22,
+          "end": 20.46
+        },
+        {
+          "id": "w47",
+          "text": "see",
+          "start": 20.46,
+          "end": 20.69
+        },
+        {
+          "id": "w48",
+          "text": "right",
+          "start": 20.7,
+          "end": 21.05
+        },
+        {
+          "id": "w49",
+          "text": "now.",
+          "start": 21.15,
+          "end": 21.68
+        },
+        {
+          "id": "w50",
+          "text": "Your",
+          "start": 21.68,
+          "end": 21.99
+        },
+        {
+          "id": "w51",
+          "text": "brief,",
+          "start": 22.07,
+          "end": 22.7
+        },
+        {
+          "id": "w52",
+          "text": "the",
+          "start": 22.87,
+          "end": 23.03
+        },
+        {
+          "id": "w53",
+          "text": "files",
+          "start": 23.03,
+          "end": 23.52
+        },
+        {
+          "id": "w54",
+          "text": "it",
+          "start": 23.55,
+          "end": 23.74
+        },
+        {
+          "id": "w55",
+          "text": "has",
+          "start": 23.74,
+          "end": 23.78
+        },
+        {
+          "id": "w56",
+          "text": "read",
+          "start": 24.28,
+          "end": 24.44
+        },
+        {
+          "id": "w57",
+          "text": "and",
+          "start": 24.46,
+          "end": 24.77
+        },
+        {
+          "id": "w58",
+          "text": "the",
+          "start": 24.77,
+          "end": 25.07
+        },
+        {
+          "id": "w59",
+          "text": "results",
+          "start": 25.1,
+          "end": 25.8
+        },
+        {
+          "id": "w60",
+          "text": "so",
+          "start": 25.8,
+          "end": 26
+        },
+        {
+          "id": "w61",
+          "text": "far.",
+          "start": 26,
+          "end": 26.62
+        },
+        {
+          "id": "w62",
+          "text": "You",
+          "start": 26.62,
+          "end": 26.93
+        },
+        {
+          "id": "w63",
+          "text": "met",
+          "start": 26.93,
+          "end": 27.24
+        },
+        {
+          "id": "w64",
+          "text": "it",
+          "start": 27.24,
+          "end": 27.49
+        },
+        {
+          "id": "w65",
+          "text": "in",
+          "start": 27.49,
+          "end": 27.74
+        },
+        {
+          "id": "w66",
+          "text": "F101.3.",
+          "start": 27.74,
+          "end": 29.6
+        },
+        {
+          "id": "w67",
+          "text": "The",
+          "start": 29.6,
+          "end": 29.9
+        },
+        {
+          "id": "w68",
+          "text": "loop",
+          "start": 29.9,
+          "end": 30.16
+        },
+        {
+          "id": "w69",
+          "text": "joins",
+          "start": 30.65,
+          "end": 30.8
+        },
+        {
+          "id": "w70",
+          "text": "them.",
+          "start": 30.8,
+          "end": 31.52
+        },
+        {
+          "id": "w71",
+          "text": "Claude",
+          "start": 31.67,
+          "end": 32.02
+        },
+        {
+          "id": "w72",
+          "text": "gathers",
+          "start": 32.02,
+          "end": 32.56
+        },
+        {
+          "id": "w73",
+          "text": "context,",
+          "start": 33.08,
+          "end": 33.36
+        },
+        {
+          "id": "w74",
+          "text": "uses",
+          "start": 33.36,
+          "end": 33.66
+        },
+        {
+          "id": "w75",
+          "text": "a",
+          "start": 33.71,
+          "end": 33.77
+        },
+        {
+          "id": "w76",
+          "text": "tool,",
+          "start": 33.77,
+          "end": 34.25
+        },
+        {
+          "id": "w77",
+          "text": "looks",
+          "start": 34.25,
+          "end": 34.65
+        },
+        {
+          "id": "w78",
+          "text": "at",
+          "start": 34.68,
+          "end": 34.84
+        },
+        {
+          "id": "w79",
+          "text": "the",
+          "start": 34.84,
+          "end": 35.08
+        },
+        {
+          "id": "w80",
+          "text": "result,",
+          "start": 35.09,
+          "end": 35.84
+        },
+        {
+          "id": "w81",
+          "text": "checks",
+          "start": 35.84,
+          "end": 36.04
+        },
+        {
+          "id": "w82",
+          "text": "its",
+          "start": 36.54,
+          "end": 36.63
+        },
+        {
+          "id": "w83",
+          "text": "progress,",
+          "start": 36.63,
+          "end": 37.36
+        },
+        {
+          "id": "w84",
+          "text": "and",
+          "start": 37.51,
+          "end": 37.62
+        },
+        {
+          "id": "w85",
+          "text": "then",
+          "start": 37.63,
+          "end": 37.98
+        },
+        {
+          "id": "w86",
+          "text": "goes",
+          "start": 37.99,
+          "end": 38.35
+        },
+        {
+          "id": "w87",
+          "text": "around",
+          "start": 38.35,
+          "end": 38.42
+        },
+        {
+          "id": "w88",
+          "text": "again",
+          "start": 38.92,
+          "end": 39.34
+        },
+        {
+          "id": "w89",
+          "text": "or",
+          "start": 39.34,
+          "end": 39.5
+        },
+        {
+          "id": "w90",
+          "text": "stops.",
+          "start": 39.55,
+          "end": 40.22
+        },
+        {
+          "id": "w91",
+          "text": "That",
+          "start": 40.23,
+          "end": 40.59
+        },
+        {
+          "id": "w92",
+          "text": "loop",
+          "start": 40.59,
+          "end": 40.94
+        },
+        {
+          "id": "w93",
+          "text": "is",
+          "start": 40.95,
+          "end": 41.13
+        },
+        {
+          "id": "w94",
+          "text": "what",
+          "start": 41.13,
+          "end": 41.45
+        },
+        {
+          "id": "w95",
+          "text": "makes",
+          "start": 41.48,
+          "end": 41.88
+        },
+        {
+          "id": "w96",
+          "text": "it",
+          "start": 41.88,
+          "end": 42.38
+        },
+        {
+          "id": "w97",
+          "text": "agentic.",
+          "start": 42.38,
+          "end": 43.01
+        },
+        {
+          "id": "w98",
+          "text": "Claude",
+          "start": 43.05,
+          "end": 43.42
+        },
+        {
+          "id": "w99",
+          "text": "code",
+          "start": 43.46,
+          "end": 43.91
+        },
+        {
+          "id": "w100",
+          "text": "is",
+          "start": 43.91,
+          "end": 44.07
+        },
+        {
+          "id": "w101",
+          "text": "the",
+          "start": 44.08,
+          "end": 44.32
+        },
+        {
+          "id": "w102",
+          "text": "harness",
+          "start": 44.47,
+          "end": 44.9
+        },
+        {
+          "id": "w103",
+          "text": "around",
+          "start": 44.9,
+          "end": 45.36
+        },
+        {
+          "id": "w104",
+          "text": "all",
+          "start": 45.36,
+          "end": 45.88
+        },
+        {
+          "id": "w105",
+          "text": "four.",
+          "start": 45.88,
+          "end": 46.21
+        },
+        {
+          "id": "w106",
+          "text": "It",
+          "start": 46.21,
+          "end": 46.37
+        },
+        {
+          "id": "w107",
+          "text": "decides",
+          "start": 46.37,
+          "end": 46.95
+        },
+        {
+          "id": "w108",
+          "text": "what",
+          "start": 46.95,
+          "end": 47.28
+        },
+        {
+          "id": "w109",
+          "text": "the",
+          "start": 47.28,
+          "end": 47.53
+        },
+        {
+          "id": "w110",
+          "text": "model",
+          "start": 47.53,
+          "end": 47.94
+        },
+        {
+          "id": "w111",
+          "text": "sees",
+          "start": 47.94,
+          "end": 48.27
+        },
+        {
+          "id": "w112",
+          "text": "and",
+          "start": 48.27,
+          "end": 48.52
+        },
+        {
+          "id": "w113",
+          "text": "what",
+          "start": 48.52,
+          "end": 48.84
+        },
+        {
+          "id": "w114",
+          "text": "it's",
+          "start": 49.01,
+          "end": 49.17
+        },
+        {
+          "id": "w115",
+          "text": "allowed",
+          "start": 49.34,
+          "end": 49.67
+        },
+        {
+          "id": "w116",
+          "text": "to",
+          "start": 49.75,
+          "end": 49.91
+        },
+        {
+          "id": "w117",
+          "text": "do.",
+          "start": 49.91,
+          "end": 50.39
+        },
+        {
+          "id": "w118",
+          "text": "Building",
+          "start": 50.42,
+          "end": 50.76
+        },
+        {
+          "id": "w119",
+          "text": "with",
+          "start": 50.82,
+          "end": 51.12
+        },
+        {
+          "id": "w120",
+          "text": "A.I.",
+          "start": 51.21,
+          "end": 51.8
+        },
+        {
+          "id": "w121",
+          "text": "201",
+          "start": 51.8,
+          "end": 52.17
+        },
+        {
+          "id": "w122",
+          "text": "covers",
+          "start": 52.68,
+          "end": 53.14
+        },
+        {
+          "id": "w123",
+          "text": "it.",
+          "start": 53.14,
+          "end": 53.42
+        }
+      ]
+    },
+    {
+      "id": "04",
+      "path": "assets/voice/04.wav",
+      "duration_s": 53.641,
+      "words": [
+        {
+          "id": "w0",
+          "text": "Let's",
+          "start": 0.14,
+          "end": 0.5
+        },
+        {
+          "id": "w1",
+          "text": "replay",
+          "start": 0.5,
+          "end": 1.11
+        },
+        {
+          "id": "w2",
+          "text": "the",
+          "start": 1.11,
+          "end": 1.41
+        },
+        {
+          "id": "w3",
+          "text": "Jeffershop",
+          "start": 1.41,
+          "end": 2.41
+        },
+        {
+          "id": "w4",
+          "text": "analysis",
+          "start": 2.41,
+          "end": 3.24
+        },
+        {
+          "id": "w5",
+          "text": "from",
+          "start": 3.24,
+          "end": 3.65
+        },
+        {
+          "id": "w6",
+          "text": "F101.2.",
+          "start": 3.65,
+          "end": 5.36
+        },
+        {
+          "id": "w7",
+          "text": "The",
+          "start": 5.5,
+          "end": 5.64
+        },
+        {
+          "id": "w8",
+          "text": "brief,",
+          "start": 5.65,
+          "end": 6.3
+        },
+        {
+          "id": "w9",
+          "text": "the",
+          "start": 6.32,
+          "end": 6.8
+        },
+        {
+          "id": "w10",
+          "text": "two",
+          "start": 6.8,
+          "end": 7.17
+        },
+        {
+          "id": "w11",
+          "text": "CSV",
+          "start": 7.31,
+          "end": 7.76
+        },
+        {
+          "id": "w12",
+          "text": "files,",
+          "start": 7.76,
+          "end": 8.69
+        },
+        {
+          "id": "w13",
+          "text": "and",
+          "start": 8.77,
+          "end": 8.91
+        },
+        {
+          "id": "w14",
+          "text": "the",
+          "start": 8.91,
+          "end": 9.07
+        },
+        {
+          "id": "w15",
+          "text": "metric",
+          "start": 9.16,
+          "end": 9.54
+        },
+        {
+          "id": "w16",
+          "text": "definitions",
+          "start": 9.54,
+          "end": 10.31
+        },
+        {
+          "id": "w17",
+          "text": "were",
+          "start": 10.31,
+          "end": 10.41
+        },
+        {
+          "id": "w18",
+          "text": "the",
+          "start": 10.41,
+          "end": 10.92
+        },
+        {
+          "id": "w19",
+          "text": "context.",
+          "start": 10.92,
+          "end": 11.39
+        },
+        {
+          "id": "w20",
+          "text": "The",
+          "start": 11.66,
+          "end": 11.77
+        },
+        {
+          "id": "w21",
+          "text": "model",
+          "start": 11.77,
+          "end": 12.16
+        },
+        {
+          "id": "w22",
+          "text": "decided",
+          "start": 12.24,
+          "end": 12.77
+        },
+        {
+          "id": "w23",
+          "text": "to",
+          "start": 12.77,
+          "end": 12.93
+        },
+        {
+          "id": "w24",
+          "text": "join",
+          "start": 12.93,
+          "end": 13.24
+        },
+        {
+          "id": "w25",
+          "text": "payments",
+          "start": 13.31,
+          "end": 13.91
+        },
+        {
+          "id": "w26",
+          "text": "to",
+          "start": 13.93,
+          "end": 14.09
+        },
+        {
+          "id": "w27",
+          "text": "orders",
+          "start": 14.09,
+          "end": 14.53
+        },
+        {
+          "id": "w28",
+          "text": "by",
+          "start": 14.65,
+          "end": 14.87
+        },
+        {
+          "id": "w29",
+          "text": "order",
+          "start": 14.93,
+          "end": 15.49
+        },
+        {
+          "id": "w30",
+          "text": "id.",
+          "start": 15.5,
+          "end": 15.76
+        },
+        {
+          "id": "w31",
+          "text": "Tools",
+          "start": 15.9,
+          "end": 16.33
+        },
+        {
+          "id": "w32",
+          "text": "read",
+          "start": 16.39,
+          "end": 16.8
+        },
+        {
+          "id": "w33",
+          "text": "the",
+          "start": 16.8,
+          "end": 17.16
+        },
+        {
+          "id": "w34",
+          "text": "files,",
+          "start": 17.16,
+          "end": 18
+        },
+        {
+          "id": "w35",
+          "text": "ran",
+          "start": 18,
+          "end": 18.26
+        },
+        {
+          "id": "w36",
+          "text": "the",
+          "start": 18.26,
+          "end": 18.52
+        },
+        {
+          "id": "w37",
+          "text": "calculation,",
+          "start": 18.52,
+          "end": 19.68
+        },
+        {
+          "id": "w38",
+          "text": "and",
+          "start": 19.68,
+          "end": 20.06
+        },
+        {
+          "id": "w39",
+          "text": "wrote",
+          "start": 20.06,
+          "end": 20.68
+        },
+        {
+          "id": "w40",
+          "text": "the",
+          "start": 20.68,
+          "end": 20.81
+        },
+        {
+          "id": "w41",
+          "text": "HTML",
+          "start": 21.32,
+          "end": 21.57
+        },
+        {
+          "id": "w42",
+          "text": "report.",
+          "start": 21.57,
+          "end": 22.72
+        },
+        {
+          "id": "w43",
+          "text": "The",
+          "start": 22.86,
+          "end": 22.97
+        },
+        {
+          "id": "w44",
+          "text": "loop",
+          "start": 22.97,
+          "end": 23.29
+        },
+        {
+          "id": "w45",
+          "text": "went",
+          "start": 23.35,
+          "end": 23.65
+        },
+        {
+          "id": "w46",
+          "text": "around",
+          "start": 23.65,
+          "end": 24.15
+        },
+        {
+          "id": "w47",
+          "text": "several",
+          "start": 24.15,
+          "end": 24.73
+        },
+        {
+          "id": "w48",
+          "text": "times.",
+          "start": 24.74,
+          "end": 25.31
+        },
+        {
+          "id": "w49",
+          "text": "Read,",
+          "start": 25.58,
+          "end": 26.24
+        },
+        {
+          "id": "w50",
+          "text": "calculate,",
+          "start": 26.24,
+          "end": 27.16
+        },
+        {
+          "id": "w51",
+          "text": "check,",
+          "start": 27.23,
+          "end": 27.79
+        },
+        {
+          "id": "w52",
+          "text": "and",
+          "start": 27.79,
+          "end": 28.04
+        },
+        {
+          "id": "w53",
+          "text": "read",
+          "start": 28.18,
+          "end": 28.39
+        },
+        {
+          "id": "w54",
+          "text": "again.",
+          "start": 28.39,
+          "end": 29.12
+        },
+        {
+          "id": "w55",
+          "text": "You",
+          "start": 29.26,
+          "end": 29.36
+        },
+        {
+          "id": "w56",
+          "text": "were",
+          "start": 29.36,
+          "end": 29.67
+        },
+        {
+          "id": "w57",
+          "text": "in",
+          "start": 29.67,
+          "end": 29.76
+        },
+        {
+          "id": "w58",
+          "text": "the",
+          "start": 29.84,
+          "end": 30.06
+        },
+        {
+          "id": "w59",
+          "text": "loop",
+          "start": 30.08,
+          "end": 30.38
+        },
+        {
+          "id": "w60",
+          "text": "too.",
+          "start": 30.38,
+          "end": 30.84
+        },
+        {
+          "id": "w61",
+          "text": "You",
+          "start": 31.02,
+          "end": 31.17
+        },
+        {
+          "id": "w62",
+          "text": "stopped",
+          "start": 31.17,
+          "end": 31.85
+        },
+        {
+          "id": "w63",
+          "text": "it",
+          "start": 31.86,
+          "end": 32.04
+        },
+        {
+          "id": "w64",
+          "text": "before",
+          "start": 32.04,
+          "end": 32.6
+        },
+        {
+          "id": "w65",
+          "text": "it",
+          "start": 32.67,
+          "end": 32.69
+        },
+        {
+          "id": "w66",
+          "text": "wrote",
+          "start": 32.83,
+          "end": 33.28
+        },
+        {
+          "id": "w67",
+          "text": "code",
+          "start": 33.29,
+          "end": 33.68
+        },
+        {
+          "id": "w68",
+          "text": "too",
+          "start": 33.68,
+          "end": 33.89
+        },
+        {
+          "id": "w69",
+          "text": "early.",
+          "start": 34.02,
+          "end": 34.8
+        },
+        {
+          "id": "w70",
+          "text": "You",
+          "start": 34.94,
+          "end": 35.1
+        },
+        {
+          "id": "w71",
+          "text": "approved",
+          "start": 35.1,
+          "end": 35.91
+        },
+        {
+          "id": "w72",
+          "text": "the",
+          "start": 35.91,
+          "end": 36.21
+        },
+        {
+          "id": "w73",
+          "text": "plan,",
+          "start": 36.21,
+          "end": 36.78
+        },
+        {
+          "id": "w74",
+          "text": "and",
+          "start": 36.78,
+          "end": 36.98
+        },
+        {
+          "id": "w75",
+          "text": "you",
+          "start": 36.99,
+          "end": 37.19
+        },
+        {
+          "id": "w76",
+          "text": "decided",
+          "start": 37.19,
+          "end": 37.7
+        },
+        {
+          "id": "w77",
+          "text": "when",
+          "start": 37.7,
+          "end": 37.99
+        },
+        {
+          "id": "w78",
+          "text": "the",
+          "start": 37.99,
+          "end": 38.12
+        },
+        {
+          "id": "w79",
+          "text": "result",
+          "start": 38.21,
+          "end": 38.63
+        },
+        {
+          "id": "w80",
+          "text": "was",
+          "start": 38.63,
+          "end": 38.83
+        },
+        {
+          "id": "w81",
+          "text": "good",
+          "start": 38.84,
+          "end": 39.12
+        },
+        {
+          "id": "w82",
+          "text": "enough.",
+          "start": 39.12,
+          "end": 39.82
+        },
+        {
+          "id": "w83",
+          "text": "And",
+          "start": 39.98,
+          "end": 40.06
+        },
+        {
+          "id": "w84",
+          "text": "the",
+          "start": 40.06,
+          "end": 40.28
+        },
+        {
+          "id": "w85",
+          "text": "first",
+          "start": 40.28,
+          "end": 40.65
+        },
+        {
+          "id": "w86",
+          "text": "pass",
+          "start": 40.65,
+          "end": 40.88
+        },
+        {
+          "id": "w87",
+          "text": "wasn't",
+          "start": 40.94,
+          "end": 41.37
+        },
+        {
+          "id": "w88",
+          "text": "right.",
+          "start": 41.37,
+          "end": 42
+        },
+        {
+          "id": "w89",
+          "text": "The",
+          "start": 42.14,
+          "end": 42.21
+        },
+        {
+          "id": "w90",
+          "text": "total",
+          "start": 42.21,
+          "end": 42.57
+        },
+        {
+          "id": "w91",
+          "text": "was",
+          "start": 42.57,
+          "end": 42.78
+        },
+        {
+          "id": "w92",
+          "text": "correct,",
+          "start": 42.78,
+          "end": 43.44
+        },
+        {
+          "id": "w93",
+          "text": "but",
+          "start": 43.44,
+          "end": 43.65
+        },
+        {
+          "id": "w94",
+          "text": "the",
+          "start": 43.65,
+          "end": 43.81
+        },
+        {
+          "id": "w95",
+          "text": "monthly",
+          "start": 43.95,
+          "end": 44.35
+        },
+        {
+          "id": "w96",
+          "text": "breakdown",
+          "start": 44.35,
+          "end": 44.97
+        },
+        {
+          "id": "w97",
+          "text": "was",
+          "start": 44.97,
+          "end": 45.19
+        },
+        {
+          "id": "w98",
+          "text": "wrong.",
+          "start": 45.19,
+          "end": 45.71
+        },
+        {
+          "id": "w99",
+          "text": "A",
+          "start": 45.71,
+          "end": 45.9
+        },
+        {
+          "id": "w100",
+          "text": "right",
+          "start": 45.9,
+          "end": 46.21
+        },
+        {
+          "id": "w101",
+          "text": "total",
+          "start": 46.21,
+          "end": 46.59
+        },
+        {
+          "id": "w102",
+          "text": "with",
+          "start": 46.59,
+          "end": 46.9
+        },
+        {
+          "id": "w103",
+          "text": "a",
+          "start": 46.9,
+          "end": 46.97
+        },
+        {
+          "id": "w104",
+          "text": "wrong",
+          "start": 46.97,
+          "end": 47.34
+        },
+        {
+          "id": "w105",
+          "text": "breakdown",
+          "start": 47.36,
+          "end": 48.04
+        },
+        {
+          "id": "w106",
+          "text": "isn't",
+          "start": 48.04,
+          "end": 48.36
+        },
+        {
+          "id": "w107",
+          "text": "close",
+          "start": 48.5,
+          "end": 49.07
+        },
+        {
+          "id": "w108",
+          "text": "enough.",
+          "start": 49.17,
+          "end": 50.37
+        },
+        {
+          "id": "w109",
+          "text": "One",
+          "start": 50.54,
+          "end": 50.6
+        },
+        {
+          "id": "w110",
+          "text": "part",
+          "start": 50.6,
+          "end": 50.87
+        },
+        {
+          "id": "w111",
+          "text": "broke,",
+          "start": 50.87,
+          "end": 51.34
+        },
+        {
+          "id": "w112",
+          "text": "and",
+          "start": 51.34,
+          "end": 51.54
+        },
+        {
+          "id": "w113",
+          "text": "you",
+          "start": 51.54,
+          "end": 51.69
+        },
+        {
+          "id": "w114",
+          "text": "can",
+          "start": 51.78,
+          "end": 51.94
+        },
+        {
+          "id": "w115",
+          "text": "find",
+          "start": 51.94,
+          "end": 52.21
+        },
+        {
+          "id": "w116",
+          "text": "which",
+          "start": 52.21,
+          "end": 52.55
+        },
+        {
+          "id": "w117",
+          "text": "one.",
+          "start": 52.55,
+          "end": 53
+        }
+      ]
+    },
+    {
+      "id": "05",
+      "path": "assets/voice/05.wav",
+      "duration_s": 51.152,
+      "words": [
+        {
+          "id": "w0",
+          "text": "You",
+          "start": 0.14,
+          "end": 0.28
+        },
+        {
+          "id": "w1",
+          "text": "caught",
+          "start": 0.28,
+          "end": 0.81
+        },
+        {
+          "id": "w2",
+          "text": "that",
+          "start": 0.88,
+          "end": 1.21
+        },
+        {
+          "id": "w3",
+          "text": "mismatch",
+          "start": 1.21,
+          "end": 1.95
+        },
+        {
+          "id": "w4",
+          "text": "with",
+          "start": 1.95,
+          "end": 2.31
+        },
+        {
+          "id": "w5",
+          "text": "a",
+          "start": 2.32,
+          "end": 2.4
+        },
+        {
+          "id": "w6",
+          "text": "sub-agent.",
+          "start": 2.45,
+          "end": 3.28
+        },
+        {
+          "id": "w7",
+          "text": "A",
+          "start": 3.28,
+          "end": 3.42
+        },
+        {
+          "id": "w8",
+          "text": "sub-agent",
+          "start": 3.42,
+          "end": 4.18
+        },
+        {
+          "id": "w9",
+          "text": "is",
+          "start": 4.23,
+          "end": 4.42
+        },
+        {
+          "id": "w10",
+          "text": "a",
+          "start": 4.42,
+          "end": 4.51
+        },
+        {
+          "id": "w11",
+          "text": "second",
+          "start": 4.51,
+          "end": 5.07
+        },
+        {
+          "id": "w12",
+          "text": "agent",
+          "start": 5.07,
+          "end": 5.59
+        },
+        {
+          "id": "w13",
+          "text": "that",
+          "start": 5.6,
+          "end": 5.92
+        },
+        {
+          "id": "w14",
+          "text": "Claude",
+          "start": 5.92,
+          "end": 6.25
+        },
+        {
+          "id": "w15",
+          "text": "stars",
+          "start": 6.76,
+          "end": 6.87
+        },
+        {
+          "id": "w16",
+          "text": "for",
+          "start": 6.87,
+          "end": 7.09
+        },
+        {
+          "id": "w17",
+          "text": "one",
+          "start": 7.15,
+          "end": 7.42
+        },
+        {
+          "id": "w18",
+          "text": "job.",
+          "start": 7.44,
+          "end": 8
+        },
+        {
+          "id": "w19",
+          "text": "It",
+          "start": 8.14,
+          "end": 8.18
+        },
+        {
+          "id": "w20",
+          "text": "gets",
+          "start": 8.18,
+          "end": 8.49
+        },
+        {
+          "id": "w21",
+          "text": "its",
+          "start": 8.54,
+          "end": 8.81
+        },
+        {
+          "id": "w22",
+          "text": "own",
+          "start": 8.81,
+          "end": 9.07
+        },
+        {
+          "id": "w23",
+          "text": "context",
+          "start": 9.08,
+          "end": 9.69
+        },
+        {
+          "id": "w24",
+          "text": "window.",
+          "start": 9.78,
+          "end": 10.56
+        },
+        {
+          "id": "w25",
+          "text": "It",
+          "start": 10.7,
+          "end": 10.72
+        },
+        {
+          "id": "w26",
+          "text": "doesn't",
+          "start": 10.72,
+          "end": 11.27
+        },
+        {
+          "id": "w27",
+          "text": "see",
+          "start": 11.27,
+          "end": 11.46
+        },
+        {
+          "id": "w28",
+          "text": "your",
+          "start": 11.51,
+          "end": 11.79
+        },
+        {
+          "id": "w29",
+          "text": "conversation.",
+          "start": 11.84,
+          "end": 12.8
+        },
+        {
+          "id": "w30",
+          "text": "It",
+          "start": 12.94,
+          "end": 12.99
+        },
+        {
+          "id": "w31",
+          "text": "sees",
+          "start": 12.99,
+          "end": 13.37
+        },
+        {
+          "id": "w32",
+          "text": "only",
+          "start": 13.37,
+          "end": 13.7
+        },
+        {
+          "id": "w33",
+          "text": "the",
+          "start": 13.75,
+          "end": 14.03
+        },
+        {
+          "id": "w34",
+          "text": "brief",
+          "start": 14.03,
+          "end": 14.49
+        },
+        {
+          "id": "w35",
+          "text": "Claude",
+          "start": 14.58,
+          "end": 15.07
+        },
+        {
+          "id": "w36",
+          "text": "writes",
+          "start": 15.07,
+          "end": 15.62
+        },
+        {
+          "id": "w37",
+          "text": "for",
+          "start": 15.63,
+          "end": 15.79
+        },
+        {
+          "id": "w38",
+          "text": "it",
+          "start": 15.79,
+          "end": 16.3
+        },
+        {
+          "id": "w39",
+          "text": "and",
+          "start": 16.3,
+          "end": 16.47
+        },
+        {
+          "id": "w40",
+          "text": "the",
+          "start": 16.47,
+          "end": 16.78
+        },
+        {
+          "id": "w41",
+          "text": "files",
+          "start": 16.78,
+          "end": 17.24
+        },
+        {
+          "id": "w42",
+          "text": "it",
+          "start": 17.31,
+          "end": 17.48
+        },
+        {
+          "id": "w43",
+          "text": "reads",
+          "start": 17.49,
+          "end": 18
+        },
+        {
+          "id": "w44",
+          "text": "itself.",
+          "start": 18,
+          "end": 18.96
+        },
+        {
+          "id": "w45",
+          "text": "It",
+          "start": 19.1,
+          "end": 19.13
+        },
+        {
+          "id": "w46",
+          "text": "does",
+          "start": 19.13,
+          "end": 19.45
+        },
+        {
+          "id": "w47",
+          "text": "its",
+          "start": 19.5,
+          "end": 19.74
+        },
+        {
+          "id": "w48",
+          "text": "job",
+          "start": 19.74,
+          "end": 19.99
+        },
+        {
+          "id": "w49",
+          "text": "and",
+          "start": 20,
+          "end": 20.26
+        },
+        {
+          "id": "w50",
+          "text": "it",
+          "start": 20.26,
+          "end": 20.43
+        },
+        {
+          "id": "w51",
+          "text": "sends",
+          "start": 20.43,
+          "end": 20.86
+        },
+        {
+          "id": "w52",
+          "text": "back",
+          "start": 20.86,
+          "end": 21.21
+        },
+        {
+          "id": "w53",
+          "text": "a",
+          "start": 21.21,
+          "end": 21.29
+        },
+        {
+          "id": "w54",
+          "text": "short",
+          "start": 21.29,
+          "end": 21.72
+        },
+        {
+          "id": "w55",
+          "text": "summary.",
+          "start": 21.72,
+          "end": 22.64
+        },
+        {
+          "id": "w56",
+          "text": "That",
+          "start": 22.78,
+          "end": 22.93
+        },
+        {
+          "id": "w57",
+          "text": "separation",
+          "start": 22.93,
+          "end": 23.66
+        },
+        {
+          "id": "w58",
+          "text": "is",
+          "start": 23.67,
+          "end": 23.81
+        },
+        {
+          "id": "w59",
+          "text": "the",
+          "start": 23.81,
+          "end": 24.03
+        },
+        {
+          "id": "w60",
+          "text": "point.",
+          "start": 24.03,
+          "end": 24.59
+        },
+        {
+          "id": "w61",
+          "text": "An",
+          "start": 24.78,
+          "end": 24.8
+        },
+        {
+          "id": "w62",
+          "text": "agent",
+          "start": 24.8,
+          "end": 25.2
+        },
+        {
+          "id": "w63",
+          "text": "checking",
+          "start": 25.2,
+          "end": 25.83
+        },
+        {
+          "id": "w64",
+          "text": "its",
+          "start": 25.83,
+          "end": 26.07
+        },
+        {
+          "id": "w65",
+          "text": "own",
+          "start": 26.07,
+          "end": 26.31
+        },
+        {
+          "id": "w66",
+          "text": "work",
+          "start": 26.31,
+          "end": 26.59
+        },
+        {
+          "id": "w67",
+          "text": "usually",
+          "start": 26.68,
+          "end": 27.18
+        },
+        {
+          "id": "w68",
+          "text": "agrees",
+          "start": 27.18,
+          "end": 27.6
+        },
+        {
+          "id": "w69",
+          "text": "with",
+          "start": 27.6,
+          "end": 28.14
+        },
+        {
+          "id": "w70",
+          "text": "itself.",
+          "start": 28.14,
+          "end": 28.72
+        },
+        {
+          "id": "w71",
+          "text": "A",
+          "start": 28.72,
+          "end": 28.86
+        },
+        {
+          "id": "w72",
+          "text": "fresh",
+          "start": 28.86,
+          "end": 29.21
+        },
+        {
+          "id": "w73",
+          "text": "sub-agent",
+          "start": 29.26,
+          "end": 30.02
+        },
+        {
+          "id": "w74",
+          "text": "never",
+          "start": 30.02,
+          "end": 30.41
+        },
+        {
+          "id": "w75",
+          "text": "saw",
+          "start": 30.49,
+          "end": 30.67
+        },
+        {
+          "id": "w76",
+          "text": "that",
+          "start": 30.73,
+          "end": 31.07
+        },
+        {
+          "id": "w77",
+          "text": "reasoning",
+          "start": 31.07,
+          "end": 31.68
+        },
+        {
+          "id": "w78",
+          "text": "so",
+          "start": 31.68,
+          "end": 32.22
+        },
+        {
+          "id": "w79",
+          "text": "it",
+          "start": 32.22,
+          "end": 32.34
+        },
+        {
+          "id": "w80",
+          "text": "can",
+          "start": 32.34,
+          "end": 32.66
+        },
+        {
+          "id": "w81",
+          "text": "disagree.",
+          "start": 32.66,
+          "end": 33.52
+        },
+        {
+          "id": "w82",
+          "text": "But",
+          "start": 33.66,
+          "end": 33.73
+        },
+        {
+          "id": "w83",
+          "text": "only",
+          "start": 33.79,
+          "end": 34.11
+        },
+        {
+          "id": "w84",
+          "text": "if",
+          "start": 34.11,
+          "end": 34.28
+        },
+        {
+          "id": "w85",
+          "text": "you",
+          "start": 34.28,
+          "end": 34.52
+        },
+        {
+          "id": "w86",
+          "text": "ask",
+          "start": 34.53,
+          "end": 34.75
+        },
+        {
+          "id": "w87",
+          "text": "it",
+          "start": 34.8,
+          "end": 34.95
+        },
+        {
+          "id": "w88",
+          "text": "the",
+          "start": 34.95,
+          "end": 35.2
+        },
+        {
+          "id": "w89",
+          "text": "right",
+          "start": 35.2,
+          "end": 35.61
+        },
+        {
+          "id": "w90",
+          "text": "way.",
+          "start": 35.61,
+          "end": 36.16
+        },
+        {
+          "id": "w91",
+          "text": "Tell",
+          "start": 36.3,
+          "end": 36.52
+        },
+        {
+          "id": "w92",
+          "text": "it",
+          "start": 36.52,
+          "end": 36.65
+        },
+        {
+          "id": "w93",
+          "text": "to",
+          "start": 36.7,
+          "end": 36.88
+        },
+        {
+          "id": "w94",
+          "text": "calculate",
+          "start": 36.88,
+          "end": 37.66
+        },
+        {
+          "id": "w95",
+          "text": "from",
+          "start": 37.72,
+          "end": 38.04
+        },
+        {
+          "id": "w96",
+          "text": "the",
+          "start": 38.04,
+          "end": 38.31
+        },
+        {
+          "id": "w97",
+          "text": "source",
+          "start": 38.31,
+          "end": 38.84
+        },
+        {
+          "id": "w98",
+          "text": "files",
+          "start": 38.84,
+          "end": 39.13
+        },
+        {
+          "id": "w99",
+          "text": "first",
+          "start": 39.64,
+          "end": 39.76
+        },
+        {
+          "id": "w100",
+          "text": "and",
+          "start": 39.76,
+          "end": 39.95
+        },
+        {
+          "id": "w101",
+          "text": "compare",
+          "start": 40.03,
+          "end": 40.4
+        },
+        {
+          "id": "w102",
+          "text": "with",
+          "start": 40.4,
+          "end": 40.6
+        },
+        {
+          "id": "w103",
+          "text": "the",
+          "start": 40.67,
+          "end": 40.84
+        },
+        {
+          "id": "w104",
+          "text": "report",
+          "start": 40.85,
+          "end": 41.18
+        },
+        {
+          "id": "w105",
+          "text": "second.",
+          "start": 41.24,
+          "end": 41.84
+        },
+        {
+          "id": "w106",
+          "text": "Then",
+          "start": 41.98,
+          "end": 42.39
+        },
+        {
+          "id": "w107",
+          "text": "look",
+          "start": 42.39,
+          "end": 42.93
+        },
+        {
+          "id": "w108",
+          "text": "at",
+          "start": 42.94,
+          "end": 43.21
+        },
+        {
+          "id": "w109",
+          "text": "how",
+          "start": 43.21,
+          "end": 43.53
+        },
+        {
+          "id": "w110",
+          "text": "it",
+          "start": 43.61,
+          "end": 43.89
+        },
+        {
+          "id": "w111",
+          "text": "checked.",
+          "start": 43.89,
+          "end": 44.88
+        },
+        {
+          "id": "w112",
+          "text": "And",
+          "start": 45.02,
+          "end": 45.18
+        },
+        {
+          "id": "w113",
+          "text": "if",
+          "start": 45.18,
+          "end": 45.37
+        },
+        {
+          "id": "w114",
+          "text": "both",
+          "start": 45.42,
+          "end": 45.78
+        },
+        {
+          "id": "w115",
+          "text": "agents",
+          "start": 45.78,
+          "end": 46.38
+        },
+        {
+          "id": "w116",
+          "text": "read",
+          "start": 46.44,
+          "end": 46.81
+        },
+        {
+          "id": "w117",
+          "text": "the",
+          "start": 46.81,
+          "end": 47.11
+        },
+        {
+          "id": "w118",
+          "text": "same",
+          "start": 47.11,
+          "end": 47.52
+        },
+        {
+          "id": "w119",
+          "text": "flawed",
+          "start": 47.52,
+          "end": 47.85
+        },
+        {
+          "id": "w120",
+          "text": "file,",
+          "start": 48.37,
+          "end": 48.77
+        },
+        {
+          "id": "w121",
+          "text": "they",
+          "start": 48.81,
+          "end": 49.09
+        },
+        {
+          "id": "w122",
+          "text": "can",
+          "start": 49.09,
+          "end": 49.31
+        },
+        {
+          "id": "w123",
+          "text": "be",
+          "start": 49.31,
+          "end": 49.45
+        },
+        {
+          "id": "w124",
+          "text": "wrong",
+          "start": 49.45,
+          "end": 49.8
+        },
+        {
+          "id": "w125",
+          "text": "the",
+          "start": 49.82,
+          "end": 50.03
+        },
+        {
+          "id": "w126",
+          "text": "same",
+          "start": 50.03,
+          "end": 50.32
+        },
+        {
+          "id": "w127",
+          "text": "way.",
+          "start": 50.32,
+          "end": 50.56
+        }
+      ]
+    },
+    {
+      "id": "06",
+      "path": "assets/voice/06.wav",
+      "duration_s": 36.391,
+      "words": [
+        {
+          "id": "w0",
+          "text": "These",
+          "start": 0.15,
+          "end": 0.35
+        },
+        {
+          "id": "w1",
+          "text": "four",
+          "start": 0.52,
+          "end": 0.91
+        },
+        {
+          "id": "w2",
+          "text": "parts",
+          "start": 0.91,
+          "end": 1.22
+        },
+        {
+          "id": "w3",
+          "text": "let",
+          "start": 1.46,
+          "end": 1.71
+        },
+        {
+          "id": "w4",
+          "text": "the",
+          "start": 1.73,
+          "end": 2.02
+        },
+        {
+          "id": "w5",
+          "text": "system",
+          "start": 2.02,
+          "end": 2.59
+        },
+        {
+          "id": "w6",
+          "text": "act.",
+          "start": 2.96,
+          "end": 3.13
+        },
+        {
+          "id": "w7",
+          "text": "They",
+          "start": 3.13,
+          "end": 3.36
+        },
+        {
+          "id": "w8",
+          "text": "don't",
+          "start": 3.36,
+          "end": 3.62
+        },
+        {
+          "id": "w9",
+          "text": "make",
+          "start": 3.66,
+          "end": 3.87
+        },
+        {
+          "id": "w10",
+          "text": "it",
+          "start": 3.87,
+          "end": 3.98
+        },
+        {
+          "id": "w11",
+          "text": "right",
+          "start": 3.98,
+          "end": 4.3
+        },
+        {
+          "id": "w12",
+          "text": "and",
+          "start": 4.39,
+          "end": 4.56
+        },
+        {
+          "id": "w13",
+          "text": "any",
+          "start": 4.56,
+          "end": 4.8
+        },
+        {
+          "id": "w14",
+          "text": "one",
+          "start": 4.8,
+          "end": 5.04
+        },
+        {
+          "id": "w15",
+          "text": "of",
+          "start": 5.04,
+          "end": 5.2
+        },
+        {
+          "id": "w16",
+          "text": "them",
+          "start": 5.2,
+          "end": 5.51
+        },
+        {
+          "id": "w17",
+          "text": "can",
+          "start": 5.51,
+          "end": 5.76
+        },
+        {
+          "id": "w18",
+          "text": "break.",
+          "start": 5.76,
+          "end": 6.08
+        },
+        {
+          "id": "w19",
+          "text": "Say",
+          "start": 6.23,
+          "end": 6.39
+        },
+        {
+          "id": "w20",
+          "text": "the",
+          "start": 6.39,
+          "end": 6.7
+        },
+        {
+          "id": "w21",
+          "text": "report",
+          "start": 6.7,
+          "end": 7.24
+        },
+        {
+          "id": "w22",
+          "text": "is",
+          "start": 7.24,
+          "end": 7.54
+        },
+        {
+          "id": "w23",
+          "text": "missing",
+          "start": 7.54,
+          "end": 8.23
+        },
+        {
+          "id": "w24",
+          "text": "a",
+          "start": 8.23,
+          "end": 8.29
+        },
+        {
+          "id": "w25",
+          "text": "region.",
+          "start": 8.33,
+          "end": 9.28
+        },
+        {
+          "id": "w26",
+          "text": "Before",
+          "start": 9.28,
+          "end": 9.78
+        },
+        {
+          "id": "w27",
+          "text": "you",
+          "start": 9.78,
+          "end": 10.03
+        },
+        {
+          "id": "w28",
+          "text": "switch",
+          "start": 10.03,
+          "end": 10.53
+        },
+        {
+          "id": "w29",
+          "text": "models,",
+          "start": 10.53,
+          "end": 11.2
+        },
+        {
+          "id": "w30",
+          "text": "find",
+          "start": 11.2,
+          "end": 11.64
+        },
+        {
+          "id": "w31",
+          "text": "out",
+          "start": 11.64,
+          "end": 11.91
+        },
+        {
+          "id": "w32",
+          "text": "why.",
+          "start": 11.97,
+          "end": 12.64
+        },
+        {
+          "id": "w33",
+          "text": "If",
+          "start": 12.79,
+          "end": 12.81
+        },
+        {
+          "id": "w34",
+          "text": "the",
+          "start": 12.81,
+          "end": 13
+        },
+        {
+          "id": "w35",
+          "text": "file",
+          "start": 13.16,
+          "end": 13.37
+        },
+        {
+          "id": "w36",
+          "text": "was",
+          "start": 13.4,
+          "end": 13.64
+        },
+        {
+          "id": "w37",
+          "text": "never",
+          "start": 13.68,
+          "end": 13.86
+        },
+        {
+          "id": "w38",
+          "text": "loaded,",
+          "start": 14.1,
+          "end": 14.74
+        },
+        {
+          "id": "w39",
+          "text": "that's",
+          "start": 14.74,
+          "end": 15.23
+        },
+        {
+          "id": "w40",
+          "text": "context.",
+          "start": 15.73,
+          "end": 16.16
+        },
+        {
+          "id": "w41",
+          "text": "If",
+          "start": 16.16,
+          "end": 16.26
+        },
+        {
+          "id": "w42",
+          "text": "the",
+          "start": 16.3,
+          "end": 16.49
+        },
+        {
+          "id": "w43",
+          "text": "connector",
+          "start": 16.49,
+          "end": 17.11
+        },
+        {
+          "id": "w44",
+          "text": "points",
+          "start": 17.11,
+          "end": 17.52
+        },
+        {
+          "id": "w45",
+          "text": "at",
+          "start": 17.52,
+          "end": 17.68
+        },
+        {
+          "id": "w46",
+          "text": "the",
+          "start": 17.68,
+          "end": 17.84
+        },
+        {
+          "id": "w47",
+          "text": "wrong",
+          "start": 17.84,
+          "end": 18.29
+        },
+        {
+          "id": "w48",
+          "text": "system,",
+          "start": 18.29,
+          "end": 18.88
+        },
+        {
+          "id": "w49",
+          "text": "that's",
+          "start": 19.03,
+          "end": 19.22
+        },
+        {
+          "id": "w50",
+          "text": "tools.",
+          "start": 19.4,
+          "end": 20.04
+        },
+        {
+          "id": "w51",
+          "text": "If",
+          "start": 20.06,
+          "end": 20.1
+        },
+        {
+          "id": "w52",
+          "text": "Claude",
+          "start": 20.34,
+          "end": 20.75
+        },
+        {
+          "id": "w53",
+          "text": "stopped",
+          "start": 20.75,
+          "end": 21.28
+        },
+        {
+          "id": "w54",
+          "text": "before",
+          "start": 21.34,
+          "end": 21.47
+        },
+        {
+          "id": "w55",
+          "text": "checking",
+          "start": 21.97,
+          "end": 22.51
+        },
+        {
+          "id": "w56",
+          "text": "coverage,",
+          "start": 22.54,
+          "end": 23.44
+        },
+        {
+          "id": "w57",
+          "text": "that's",
+          "start": 23.44,
+          "end": 23.84
+        },
+        {
+          "id": "w58",
+          "text": "the",
+          "start": 23.85,
+          "end": 24.06
+        },
+        {
+          "id": "w59",
+          "text": "loop.",
+          "start": 24.06,
+          "end": 24.53
+        },
+        {
+          "id": "w60",
+          "text": "If",
+          "start": 24.71,
+          "end": 24.74
+        },
+        {
+          "id": "w61",
+          "text": "the",
+          "start": 24.74,
+          "end": 24.91
+        },
+        {
+          "id": "w62",
+          "text": "goal",
+          "start": 25.08,
+          "end": 25.34
+        },
+        {
+          "id": "w63",
+          "text": "never",
+          "start": 25.36,
+          "end": 25.78
+        },
+        {
+          "id": "w64",
+          "text": "said",
+          "start": 26.02,
+          "end": 26.17
+        },
+        {
+          "id": "w65",
+          "text": "which",
+          "start": 26.17,
+          "end": 26.59
+        },
+        {
+          "id": "w66",
+          "text": "regions",
+          "start": 26.6,
+          "end": 27.15
+        },
+        {
+          "id": "w67",
+          "text": "to",
+          "start": 27.15,
+          "end": 27.65
+        },
+        {
+          "id": "w68",
+          "text": "include,",
+          "start": 27.65,
+          "end": 28.18
+        },
+        {
+          "id": "w69",
+          "text": "the",
+          "start": 28.22,
+          "end": 28.46
+        },
+        {
+          "id": "w70",
+          "text": "brief",
+          "start": 28.46,
+          "end": 28.86
+        },
+        {
+          "id": "w71",
+          "text": "was",
+          "start": 28.96,
+          "end": 29.13
+        },
+        {
+          "id": "w72",
+          "text": "the",
+          "start": 29.2,
+          "end": 29.45
+        },
+        {
+          "id": "w73",
+          "text": "problem,",
+          "start": 29.45,
+          "end": 30.32
+        },
+        {
+          "id": "w74",
+          "text": "not",
+          "start": 30.32,
+          "end": 30.59
+        },
+        {
+          "id": "w75",
+          "text": "the",
+          "start": 30.59,
+          "end": 30.77
+        },
+        {
+          "id": "w76",
+          "text": "model.",
+          "start": 31.26,
+          "end": 31.6
+        },
+        {
+          "id": "w77",
+          "text": "So",
+          "start": 31.75,
+          "end": 31.78
+        },
+        {
+          "id": "w78",
+          "text": "ask",
+          "start": 31.78,
+          "end": 31.95
+        },
+        {
+          "id": "w79",
+          "text": "which",
+          "start": 32.12,
+          "end": 32.5
+        },
+        {
+          "id": "w80",
+          "text": "part",
+          "start": 32.5,
+          "end": 32.82
+        },
+        {
+          "id": "w81",
+          "text": "failed,",
+          "start": 33.06,
+          "end": 33.59
+        },
+        {
+          "id": "w82",
+          "text": "and",
+          "start": 33.59,
+          "end": 33.81
+        },
+        {
+          "id": "w83",
+          "text": "what",
+          "start": 33.85,
+          "end": 34.19
+        },
+        {
+          "id": "w84",
+          "text": "evidence",
+          "start": 34.69,
+          "end": 34.95
+        },
+        {
+          "id": "w85",
+          "text": "shows",
+          "start": 34.95,
+          "end": 35.37
+        },
+        {
+          "id": "w86",
+          "text": "it.",
+          "start": 35.42,
+          "end": 35.9
+        }
+      ]
+    },
+    {
+      "id": "07",
+      "path": "assets/voice/07.wav",
+      "duration_s": 21.687,
+      "words": [
+        {
+          "id": "w0",
+          "text": "Now",
+          "start": 0.15,
+          "end": 0.47
+        },
+        {
+          "id": "w1",
+          "text": "try",
+          "start": 0.47,
+          "end": 0.88
+        },
+        {
+          "id": "w2",
+          "text": "it.",
+          "start": 1.28,
+          "end": 1.45
+        },
+        {
+          "id": "w3",
+          "text": "Open",
+          "start": 1.45,
+          "end": 1.69
+        },
+        {
+          "id": "w4",
+          "text": "one",
+          "start": 1.69,
+          "end": 1.86
+        },
+        {
+          "id": "w5",
+          "text": "agent",
+          "start": 1.86,
+          "end": 2.17
+        },
+        {
+          "id": "w6",
+          "text": "session",
+          "start": 2.17,
+          "end": 2.58
+        },
+        {
+          "id": "w7",
+          "text": "you've",
+          "start": 2.58,
+          "end": 2.96
+        },
+        {
+          "id": "w8",
+          "text": "finished",
+          "start": 2.96,
+          "end": 3.55
+        },
+        {
+          "id": "w9",
+          "text": "or",
+          "start": 3.83,
+          "end": 3.84
+        },
+        {
+          "id": "w10",
+          "text": "used",
+          "start": 3.89,
+          "end": 4.16
+        },
+        {
+          "id": "w11",
+          "text": "this",
+          "start": 4.16,
+          "end": 4.48
+        },
+        {
+          "id": "w12",
+          "text": "Jeffershop",
+          "start": 4.48,
+          "end": 5.19
+        },
+        {
+          "id": "w13",
+          "text": "replay.",
+          "start": 5.28,
+          "end": 6.24
+        },
+        {
+          "id": "w14",
+          "text": "Label",
+          "start": 6.39,
+          "end": 6.7
+        },
+        {
+          "id": "w15",
+          "text": "the",
+          "start": 6.7,
+          "end": 6.93
+        },
+        {
+          "id": "w16",
+          "text": "model's",
+          "start": 6.95,
+          "end": 7.61
+        },
+        {
+          "id": "w17",
+          "text": "decision,",
+          "start": 7.63,
+          "end": 8.56
+        },
+        {
+          "id": "w18",
+          "text": "one",
+          "start": 8.56,
+          "end": 8.8
+        },
+        {
+          "id": "w19",
+          "text": "tool",
+          "start": 8.8,
+          "end": 9.11
+        },
+        {
+          "id": "w20",
+          "text": "action,",
+          "start": 9.12,
+          "end": 9.75
+        },
+        {
+          "id": "w21",
+          "text": "the",
+          "start": 9.76,
+          "end": 10.07
+        },
+        {
+          "id": "w22",
+          "text": "context",
+          "start": 10.13,
+          "end": 10.8
+        },
+        {
+          "id": "w23",
+          "text": "it",
+          "start": 10.86,
+          "end": 11.03
+        },
+        {
+          "id": "w24",
+          "text": "used,",
+          "start": 11.1,
+          "end": 11.76
+        },
+        {
+          "id": "w25",
+          "text": "one",
+          "start": 11.91,
+          "end": 11.98
+        },
+        {
+          "id": "w26",
+          "text": "trip",
+          "start": 11.98,
+          "end": 12.26
+        },
+        {
+          "id": "w27",
+          "text": "around",
+          "start": 12.26,
+          "end": 12.64
+        },
+        {
+          "id": "w28",
+          "text": "the",
+          "start": 12.64,
+          "end": 13.14
+        },
+        {
+          "id": "w29",
+          "text": "loop,",
+          "start": 13.14,
+          "end": 13.39
+        },
+        {
+          "id": "w30",
+          "text": "and",
+          "start": 13.39,
+          "end": 13.61
+        },
+        {
+          "id": "w31",
+          "text": "one",
+          "start": 13.61,
+          "end": 13.79
+        },
+        {
+          "id": "w32",
+          "text": "moment",
+          "start": 13.86,
+          "end": 14.28
+        },
+        {
+          "id": "w33",
+          "text": "you",
+          "start": 14.28,
+          "end": 14.5
+        },
+        {
+          "id": "w34",
+          "text": "stepped",
+          "start": 14.5,
+          "end": 15.02
+        },
+        {
+          "id": "w35",
+          "text": "in.",
+          "start": 15.02,
+          "end": 15.31
+        },
+        {
+          "id": "w36",
+          "text": "If",
+          "start": 15.59,
+          "end": 15.64
+        },
+        {
+          "id": "w37",
+          "text": "a",
+          "start": 15.64,
+          "end": 15.74
+        },
+        {
+          "id": "w38",
+          "text": "subagent",
+          "start": 15.74,
+          "end": 16.32
+        },
+        {
+          "id": "w39",
+          "text": "checked",
+          "start": 16.83,
+          "end": 17.24
+        },
+        {
+          "id": "w40",
+          "text": "the",
+          "start": 17.24,
+          "end": 17.47
+        },
+        {
+          "id": "w41",
+          "text": "work,",
+          "start": 17.54,
+          "end": 18.14
+        },
+        {
+          "id": "w42",
+          "text": "note",
+          "start": 18.16,
+          "end": 18.4
+        },
+        {
+          "id": "w43",
+          "text": "what",
+          "start": 18.58,
+          "end": 18.84
+        },
+        {
+          "id": "w44",
+          "text": "brief",
+          "start": 18.84,
+          "end": 18.99
+        },
+        {
+          "id": "w45",
+          "text": "it",
+          "start": 19.27,
+          "end": 19.44
+        },
+        {
+          "id": "w46",
+          "text": "got",
+          "start": 19.44,
+          "end": 19.7
+        },
+        {
+          "id": "w47",
+          "text": "and",
+          "start": 19.7,
+          "end": 19.96
+        },
+        {
+          "id": "w48",
+          "text": "how",
+          "start": 19.96,
+          "end": 20.22
+        },
+        {
+          "id": "w49",
+          "text": "it",
+          "start": 20.22,
+          "end": 20.39
+        },
+        {
+          "id": "w50",
+          "text": "checked.",
+          "start": 20.39,
+          "end": 21.04
+        }
+      ]
+    },
+    {
+      "id": "08",
+      "path": "assets/voice/08.wav",
+      "duration_s": 9.698,
+      "words": [
+        {
+          "id": "w0",
+          "text": "Explore",
+          "start": 0.14,
+          "end": 0.65
+        },
+        {
+          "id": "w1",
+          "text": "other",
+          "start": 0.65,
+          "end": 1.1
+        },
+        {
+          "id": "w2",
+          "text": "videos",
+          "start": 1.11,
+          "end": 1.65
+        },
+        {
+          "id": "w3",
+          "text": "in",
+          "start": 1.66,
+          "end": 1.84
+        },
+        {
+          "id": "w4",
+          "text": "this",
+          "start": 1.84,
+          "end": 2.2
+        },
+        {
+          "id": "w5",
+          "text": "series",
+          "start": 2.2,
+          "end": 2.43
+        },
+        {
+          "id": "w6",
+          "text": "and",
+          "start": 2.93,
+          "end": 3.01
+        },
+        {
+          "id": "w7",
+          "text": "leave",
+          "start": 3.01,
+          "end": 3.31
+        },
+        {
+          "id": "w8",
+          "text": "a",
+          "start": 3.38,
+          "end": 3.45
+        },
+        {
+          "id": "w9",
+          "text": "comment",
+          "start": 3.45,
+          "end": 4.06
+        },
+        {
+          "id": "w10",
+          "text": "in",
+          "start": 4.16,
+          "end": 4.32
+        },
+        {
+          "id": "w11",
+          "text": "the",
+          "start": 4.32,
+          "end": 4.64
+        },
+        {
+          "id": "w12",
+          "text": "Analytics",
+          "start": 4.64,
+          "end": 5.36
+        },
+        {
+          "id": "w13",
+          "text": "AI",
+          "start": 5.36,
+          "end": 5.76
+        },
+        {
+          "id": "w14",
+          "text": "Knowledge",
+          "start": 5.76,
+          "end": 6.2
+        },
+        {
+          "id": "w15",
+          "text": "Sharing",
+          "start": 6.24,
+          "end": 6.72
+        },
+        {
+          "id": "w16",
+          "text": "channel",
+          "start": 6.72,
+          "end": 7.19
+        },
+        {
+          "id": "w17",
+          "text": "so",
+          "start": 7.65,
+          "end": 7.66
+        },
+        {
+          "id": "w18",
+          "text": "we",
+          "start": 7.66,
+          "end": 7.8
+        },
+        {
+          "id": "w19",
+          "text": "can",
+          "start": 7.8,
+          "end": 8.02
+        },
+        {
+          "id": "w20",
+          "text": "improve",
+          "start": 8.02,
+          "end": 8.54
+        },
+        {
+          "id": "w21",
+          "text": "the",
+          "start": 8.54,
+          "end": 8.73
+        },
+        {
+          "id": "w22",
+          "text": "course.",
+          "start": 8.78,
+          "end": 9.28
+        }
+      ]
+    }
+  ],
+  "sfx": [],
+  "bgm": null,
+  "tts_provider": "qwen3-local",
+  "voice_id": "bliu-voice",
+  "total_duration_s": 259.349
+}

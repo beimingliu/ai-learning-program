@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+  <head><meta charset="UTF-8"></head>
+  <body>
+    <template>
+      <style>
+        {{FONTS}}
+        #s06-head { position: absolute; left: 120px; top: 120px; width: 1680px; }
+        #s06-title { margin-top: 16px; }
+        #s06-glow { width: 1100px; height: 1100px; left: 900px; top: 200px; }
+        #s06-ghost { left: 60px; top: 720px; }
+        #s06-card { position: absolute; left: 120px; top: 340px; width: 1680px; padding: 38px 48px; border-radius: 32px; background: var(--ink); color: #fff; box-shadow: 0 24px 60px rgba(9,31,49,0.35); }
+        #s06-card .k { font-size: 22px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--orange); }
+        #s06-grid { margin-top: 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 16px 40px; }
+        .s06-i { display: flex; align-items: center; gap: 18px; font-size: 32px; font-weight: 600; opacity: 0.5; }
+        .s06-i .b { width: 40px; height: 40px; border-radius: 10px; border: 4px solid var(--pale); flex: 0 0 auto; position: relative; }
+        .s06-i .b::after { content: ""; position: absolute; left: 10px; top: 2px; width: 10px; height: 20px; border-right: 5px solid var(--orange); border-bottom: 5px solid var(--orange); transform: rotate(45deg) scale(0); transform-origin: center; }
+        .s06-i.on { opacity: 1; }
+        .s06-i.on .b::after { transform: rotate(45deg) scale(1); }
+        #s06-src { position: absolute; left: 120px; top: 860px; display: flex; gap: 18px; }
+      </style>
+      <div data-hf-id="hf-utsa" id="root" data-composition-id="s06" data-width="1920" data-height="1080">
+        <div data-hf-id="hf-wua0" class="scene">
+          <div data-hf-id="hf-etuw" class="dots" id="s06-dots"></div>
+          <div data-hf-id="hf-jcrl" id="s06-glow" class="glow warm"></div>
+          <svg data-hf-id="hf-4vm4" id="s06-ghost" class="ghost" aria-hidden="true" width="1400" height="330" viewBox="0 0 1400 330"><text data-hf-id="hf-tcdf" x="0" y="280" font-family="Literata, Georgia, serif" font-weight="600" font-size="360" fill="#003DA5" fill-opacity="0.07">try it</text></svg>
+          <div data-hf-id="hf-qzq8" class="rail"><span data-hf-id="hf-avdo">Label one run</span><span data-hf-id="hf-exeh">06 <span data-hf-id="hf-hlzb" class="dot-o">/</span> 06</span></div>
+          <div data-hf-id="hf-nmtx" id="s06-head">
+            <span data-hf-id="hf-izup" id="s06-kicker" class="kicker rv">Your turn</span>
+            <span data-hf-id="hf-zonu" id="s06-title" class="title rv">Label one run, <span data-hf-id="hf-ap7o" class="hl">with evidence.</span></span>
+          </div>
+          <div data-hf-id="hf-mi4i" id="s06-card" class="rv">
+            <div data-hf-id="hf-tjuj" class="k">One finished session · or the Jaffle Shop replay</div>
+            <div data-hf-id="hf-ewbj" id="s06-grid">
+              <div data-hf-id="hf-ybi7" class="s06-i" id="s06-i1"><span data-hf-id="hf-itx1" class="b"></span>the model's decision</div>
+              <div data-hf-id="hf-955i" class="s06-i" id="s06-i2"><span data-hf-id="hf-c8q1" class="b"></span>one tool action</div>
+              <div data-hf-id="hf-f9gz" class="s06-i" id="s06-i3"><span data-hf-id="hf-dfn4" class="b"></span>the context it used</div>
+              <div data-hf-id="hf-so2b" class="s06-i" id="s06-i4"><span data-hf-id="hf-d1c3" class="b"></span>one trip around the loop</div>
+              <div data-hf-id="hf-h7kc" class="s06-i" id="s06-i5"><span data-hf-id="hf-b1sy" class="b"></span>one moment you stepped in</div>
+              <div data-hf-id="hf-dymh" class="s06-i" id="s06-i6"><span data-hf-id="hf-anhx" class="b"></span>subagent: its brief, how it checked</div>
+            </div>
+          </div>
+          <div data-hf-id="hf-liwn" id="s06-src"><span data-hf-id="hf-hkfq" class="pill blue rv" id="s06-p1">every label</span><span data-hf-id="hf-p4iz" class="pill rv" id="s06-p2">points to evidence</span></div>
+        </div>
+      </div>
+      <script>
+        (function () {
+          {{H}}
+          A("#s06-kicker", 0.1, { y: 20, d: 0.3 });
+          A("#s06-title", 0.25, { y: 60, d: 0.6, e: "expo.out" });
+          tl.fromTo("#s06-card", { opacity: 0, y: 60 }, { opacity: 1, y: 0, duration: 0.5, ease: "power4.out" }, {{T:Open one agent}} - 0.3);
+          [["#s06-i1", {{T:model's decision}}], ["#s06-i2", {{T:one tool action}}], ["#s06-i3", {{T:context it used}}], ["#s06-i4", {{T:one trip}}], ["#s06-i5", {{T:one moment}}], ["#s06-i6", {{T:what brief}}]].forEach(function (x) {
+            tl.set(x[0], { className: "s06-i on" }, x[1]);
+            tl.fromTo(x[0], { x: -20 }, { x: 0, duration: 0.35, ease: "back.out(2.4)" }, x[1]);
+          });
+          P("#s06-p1", {{T:what brief}} + 1.0, { s: 0.4, d: 0.4 });
+          P("#s06-p2", {{T:what brief}} + 1.3, { s: 0.4, d: 0.4 });
+          LOOP("#s06-glow", { scale: 1.15 }, 3, 0, DUR - 0.5);
+          tl.to("#s06-dots", { x: -44, y: -22, duration: DUR, ease: "none" }, 0);
+          window.__timelines["s06"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

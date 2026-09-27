@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head><meta charset="UTF-8"></head>
+  <body>
+    <template>
+      <style>
+        @font-face { font-family: "Literata"; src: url("assets/fonts/Literata-600.woff2") format("woff2"); font-weight: 600; }
+        @font-face { font-family: "IBM Plex Sans"; src: url("assets/fonts/IBMPlexSans-var.woff2") format("woff2"); font-weight: 100 700; }
+        @font-face { font-family: "JetBrains Mono"; src: url("assets/fonts/JetBrainsMono-var.woff2") format("woff2"); font-weight: 100 800; }
+        #s03-head { position: absolute; left: 120px; top: 110px; width: 1680px; }
+        #s03-title { margin-top: 14px; font-size: 70px; }
+        #s03-glow { width: 1200px; height: 1200px; left: 900px; top: 200px; }
+        /* Side columns mirror each other; every row shares one height and gap so rows line up across the frame. */
+        #s03-ctx, #s03-tools { position: absolute; top: 300px; width: 440px; display: flex; flex-direction: column; gap: 14px; }
+        #s03-ctx { left: 120px; }
+        #s03-tools { left: 1360px; }
+        .s03-k { height: 28px; font-size: 22px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue); }
+        .s03-k.gap { margin-top: 18px; }
+        .s03-row { height: 56px; display: flex; align-items: center; gap: 14px; padding: 0 22px; white-space: nowrap; }
+        .s03-cc { border-radius: 16px; background: #fff; border: 3px solid var(--pale); font-family: "JetBrains Mono", monospace; font-size: 24px; font-weight: 600; box-shadow: 0 8px 20px rgba(9,31,49,0.1); }
+        .s03-cc svg { width: 30px; height: 30px; flex: 0 0 auto; }
+        #s03-tools .chip { position: relative; font-size: 24px; box-shadow: 0 8px 20px rgba(9,31,49,0.18); }
+        .s03-hum { border-radius: 999px; background: var(--orange); color: var(--ink); font-size: 24px; font-weight: 700; box-shadow: 0 8px 20px rgba(255,105,0,0.3); }
+        .s03-hum svg { width: 28px; height: 28px; flex: 0 0 auto; color: var(--ink); }
+        /* Ring: r=200 centered at x=960; labels sit on it at -90, 30 and 150 degrees. */
+        #s03-mid { position: absolute; left: 650px; top: 300px; width: 620px; height: 520px; }
+        #s03-claude { left: 215px; top: 115px; }
+        #s03-ring { position: absolute; left: 100px; top: 0; width: 420px; height: 420px; overflow: visible; }
+        #s03-dot { position: absolute; left: 297px; top: -3px; width: 26px; height: 26px; border-radius: 50%; background: var(--orange); box-shadow: 0 0 22px rgba(255,105,0,0.7); }
+        #s03-dec { padding: 14px 22px; border-radius: 16px; background: var(--ink); color: #fff; font-family: "JetBrains Mono", monospace; font-size: 22px; white-space: nowrap; }
+        #s03-dec b { color: var(--orange); }
+        #s03-res { position: absolute; left: 120px; top: 850px; display: flex; gap: 20px; align-items: center; }
+        #s03-res .s03-k { display: flex; align-items: center; height: 64px; }
+        .s03-rc { height: 64px; display: flex; align-items: center; gap: 12px; padding: 0 24px; border-radius: 16px; background: #fff; border: 3px solid var(--blue); font-size: 26px; font-weight: 700; box-shadow: 0 8px 20px rgba(9,31,49,0.1); }
+        .s03-rc.bad { border-color: var(--orange); }
+        .s03-rc .m { font-family: "JetBrains Mono", monospace; font-size: 22px; color: var(--muted); font-weight: 600; }
+        .s03-rc .m + .m { margin-left: 18px; }
+        .s03-rc .ok { color: var(--blue); } .s03-rc .no { color: var(--orange); }
+        #s03-cap { left: 120px; top: 980px; }
+      </style>
+      <div data-hf-id="hf-3azd" id="root" data-composition-id="s03" data-width="1920" data-height="1080">
+        <div data-hf-id="hf-wua0" class="scene">
+          <div data-hf-id="hf-7qcj" class="dots" id="s03-dots"></div>
+          <div data-hf-id="hf-ft1i" id="s03-glow" class="glow warm"></div>
+          <div data-hf-id="hf-qzq8" class="rail"><span data-hf-id="hf-bvmj">Replay the Jaffle Shop</span><span data-hf-id="hf-s2le">03 <span data-hf-id="hf-hlzb" class="dot-o">/</span> 06</span></div>
+          <div data-hf-id="hf-2k46" id="s03-head">
+            <span data-hf-id="hf-mwi0" id="s03-kicker" class="kicker rv">From F101.2</span>
+            <span data-hf-id="hf-ux0n" id="s03-title" class="title rv">The same four parts, <span data-hf-id="hf-hwmw" class="hl">in a real run.</span></span>
+          </div>
+          <div data-hf-id="hf-if4f" id="s03-ctx">
+            <div data-hf-id="hf-tsuo" class="s03-k rv" id="s03-ck">Context</div>
+            <div data-hf-id="hf-2zlx" class="s03-row s03-cc rv"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M14 4h26l14 14v42H14z" fill="#003DA5"/><path d="M40 4v14h14z" fill="#EAF2FF"/><rect x="22" y="30" width="24" height="4" rx="2" fill="#EAF2FF"/><rect x="22" y="40" width="24" height="4" rx="2" fill="#EAF2FF"/><rect x="22" y="50" width="16" height="4" rx="2" fill="#EAF2FF"/></svg>brief</div>
+            <div data-hf-id="hf-ga2b" class="s03-row s03-cc rv"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M14 4h26l14 14v42H14z" fill="#003DA5"/><path d="M40 4v14h14z" fill="#EAF2FF"/><rect x="22" y="30" width="24" height="4" rx="2" fill="#EAF2FF"/><rect x="22" y="40" width="24" height="4" rx="2" fill="#EAF2FF"/><rect x="22" y="50" width="16" height="4" rx="2" fill="#EAF2FF"/></svg>raw_orders.csv</div>
+            <div data-hf-id="hf-jcqh" class="s03-row s03-cc rv"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M14 4h26l14 14v42H14z" fill="#003DA5"/><path d="M40 4v14h14z" fill="#EAF2FF"/><rect x="22" y="30" width="24" height="4" rx="2" fill="#EAF2FF"/><rect x="22" y="40" width="24" height="4" rx="2" fill="#EAF2FF"/><rect x="22" y="50" width="16" height="4" rx="2" fill="#EAF2FF"/></svg>raw_payments.csv</div>
+            <div data-hf-id="hf-ykx3" class="s03-row s03-cc rv"><svg viewBox="0 0 64 64" aria-hidden="true"><path d="M14 4h26l14 14v42H14z" fill="#003DA5"/><path d="M40 4v14h14z" fill="#EAF2FF"/><rect x="22" y="30" width="24" height="4" rx="2" fill="#EAF2FF"/><rect x="22" y="40" width="24" height="4" rx="2" fill="#EAF2FF"/><rect x="22" y="50" width="16" height="4" rx="2" fill="#EAF2FF"/></svg>metric-definitions.md</div>
+          </div>
+          <div data-hf-id="hf-xq5i" id="s03-mid">
+            <svg data-hf-id="hf-k2us" id="s03-ring" viewBox="0 0 420 420"><circle data-hf-id="hf-2g4n" cx="210" cy="210" r="200" pathLength="1" fill="none" stroke="#FF6900" stroke-width="5" stroke-dasharray="1" /></svg>
+            <div data-hf-id="hf-fqs4" id="s03-dot" class="rv"></div>
+            <div data-hf-id="hf-uu89" class="anchor" style="left:310px;top:10px"><div data-hf-id="hf-e5tj" class="ring-lab s03-lp rv">read</div></div>
+            <div data-hf-id="hf-w305" class="anchor" style="left:483px;top:310px"><div data-hf-id="hf-637d" class="ring-lab s03-lp rv">calculate</div></div>
+            <div data-hf-id="hf-dpjh" class="anchor" style="left:137px;top:310px"><div data-hf-id="hf-6yrp" class="ring-lab s03-lp rv">check</div></div>
+            <div data-hf-id="hf-tbp5" id="s03-claude" class="claude rv"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#d97757" d="m4.7144 15.9555 4.7174-2.6471.079-.2307-.079-.1275h-.2307l-.7893-.0486-2.6956-.0729-2.3375-.0971-2.2646-.1214-.5707-.1215-.5343-.7042.0546-.3522.4797-.3218.686.0608 1.5179.1032 2.2767.1578 1.6514.0972 2.4468.255h.3886l.0546-.1579-.1336-.0971-.1032-.0972L6.973 9.8356l-2.55-1.6879-1.3356-.9714-.7225-.4918-.3643-.4614-.1578-1.0078.6557-.7225.8803.0607.2246.0607.8925.686 1.9064 1.4754 2.4893 1.8336.3643.3035.1457-.1032.0182-.0728-.164-.2733-1.3539-2.4467-1.445-2.4893-.6435-1.032-.17-.6194c-.0607-.255-.1032-.4674-.1032-.7285L6.287.1335 6.6997 0l.9957.1336.419.3642.6192 1.4147 1.0018 2.2282 1.5543 3.0296.4553.8985.2429.8318.091.255h.1579v-.1457l.1275-1.706.2368-2.0947.2307-2.6957.0789-.7589.3764-.9107.7468-.4918.5828.2793.4797.686-.0668.4433-.2853 1.8517-.5586 2.9021-.3643 1.9429h.2125l.2429-.2429.9835-1.3053 1.6514-2.0643.7286-.8196.85-.9046.5464-.4311h1.0321l.759 1.1293-.34 1.1657-1.0625 1.3478-.8804 1.1414-1.2628 1.7-.7893 1.36.0729.1093.1882-.0183 2.8535-.607 1.5421-.2794 1.8396-.3157.8318.3886.091.3946-.3278.8075-1.967.4857-2.3072.4614-3.4364.8136-.0425.0304.0486.0607 1.5482.1457.6618.0364h1.621l3.0175.2247.7892.522.4736.6376-.079.4857-1.2142.6193-1.6393-.3886-3.825-.9107-1.3113-.3279h-.1822v.1093l1.0929 1.0686 2.0035 1.8092 2.5075 2.3314.1275.5768-.3218.4554-.34-.0486-2.2039-1.6575-.85-.7468-1.9246-1.621h-.1275v.17l.4432.6496 2.3436 3.5214.1214 1.0807-.17.3521-.6071.2125-.6679-.1214-1.3721-1.9246L14.38 17.959l-1.1414-1.9428-.1397.079-.674 7.2552-.3156.3703-.7286.2793-.6071-.4614-.3218-.7468.3218-1.4753.3886-1.9246.3157-1.53.2853-1.9004.17-.6314-.0121-.0425-.1397.0182-1.4328 1.9672-2.1796 2.9446-1.7243 1.8456-.4128.164-.7164-.3704.0667-.6618.4008-.5889 2.386-3.0357 1.4389-1.882.929-1.0868-.0062-.1579h-.0546l-6.3385 4.1164-1.1293.1457-.4857-.4554.0608-.7467.2307-.2429 1.9064-1.3114Z"/></svg></div>
+            <div data-hf-id="hf-fv6m" class="anchor" style="left:310px;top:480px"><div data-hf-id="hf-dxwg" id="s03-dec" class="rv"><b data-hf-id="hf-6ov8">decides:</b> join payments → orders on order_id</div></div>
+          </div>
+          <div data-hf-id="hf-4ggp" id="s03-tools">
+            <div data-hf-id="hf-xfmb" class="s03-k rv" id="s03-tk">Tools</div>
+            <span data-hf-id="hf-swra" class="s03-row chip rv"><span data-hf-id="hf-7qbp" class="svc">read</span> raw_orders.csv</span>
+            <span data-hf-id="hf-qgq0" class="s03-row chip rv"><span data-hf-id="hf-pybu" class="svc">run</span> python</span>
+            <span data-hf-id="hf-4mgr" class="s03-row chip rv"><span data-hf-id="hf-xz18" class="svc">write</span> report.html</span>
+            <div data-hf-id="hf-2g8q" class="s03-k gap rv" id="s03-yk">You</div>
+            <div data-hf-id="hf-ivj9" class="s03-row s03-hum rv" id="s03-h1"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="20" r="12" fill="currentColor"/><path d="M10 58a22 22 0 0 1 44 0z" fill="currentColor"/></svg>Esc · stop early</div>
+            <div data-hf-id="hf-g0sw" class="s03-row s03-hum rv" id="s03-h2"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="20" r="12" fill="currentColor"/><path d="M10 58a22 22 0 0 1 44 0z" fill="currentColor"/></svg>approve the plan</div>
+            <div data-hf-id="hf-ufxg" class="s03-row s03-hum rv" id="s03-h3"><svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="20" r="12" fill="currentColor"/><path d="M10 58a22 22 0 0 1 44 0z" fill="currentColor"/></svg>good enough?</div>
+          </div>
+          <div data-hf-id="hf-a06q" id="s03-res">
+            <div data-hf-id="hf-8ked" class="s03-k rv" id="s03-rk">First pass</div>
+            <div data-hf-id="hf-s9n5" class="s03-rc rv" id="s03-rt">Total <span data-hf-id="hf-xtm7" class="m">$1,103</span> <span data-hf-id="hf-nd5k" class="ok">✓</span></div>
+            <div data-hf-id="hf-jjm8" class="s03-rc bad rv" id="s03-rm">Monthly <span data-hf-id="hf-wml2" class="m">Feb ✗ · Mar ✗</span> <span data-hf-id="hf-uji1" class="m">verified: $400 · $279</span></div>
+          </div>
+          <div data-hf-id="hf-x012" id="s03-cap" class="caption rv">Not "close enough." <b data-hf-id="hf-sm6v">One part broke, and you can find which one.</b></div>
+        </div>
+      </div>
+      <script>
+        (function () {
+          const DUR = 54.05;
+          const tl = gsap.timeline({ paused: true });
+          const A = (s, t, o = {}) => tl.fromTo(s, { opacity: 0, x: o.x || 0, y: o.y === undefined ? 40 : o.y, scale: o.s || 1 }, { opacity: 1, x: 0, y: 0, scale: 1, duration: o.d || 0.5, ease: o.e || "power3.out", stagger: o.st || 0 }, t);
+          const P = (s, t, o = {}) => tl.fromTo(s, { opacity: 0, scale: o.s || 0.5 }, { opacity: 1, scale: 1, duration: o.d || 0.6, ease: o.e || "back.out(1.7)", stagger: o.st || 0 }, t);
+          const OUT = (s, t, d) => tl.to(s, { opacity: 0, duration: d || 0.35, ease: "power2.in" }, t);
+          const DRAW = (s, t, d, st) => tl.fromTo(s, { strokeDashoffset: 1 }, { strokeDashoffset: 0, duration: d || 0.8, ease: "power2.inOut", stagger: st || 0 }, t);
+          const LOOP = (s, props, cyc, from, to) => tl.to(s, Object.assign({ duration: cyc, yoyo: true, repeat: Math.max(0, Math.floor((to - from) / cyc) - 1), ease: "sine.inOut" }, props), from);
+          A("#s03-kicker", 0.15, { y: 20, d: 0.3 });
+          A("#s03-title", 0.3, { y: 60, d: 0.6, e: "expo.out" });
+          P("#s03-claude", 0.9, { s: 0.3, d: 0.6 });
+          DRAW("#s03-ring circle", 1.2, 1.0);
+          var c = 5.50;
+          A("#s03-ck", c - 0.1, { x: -30, y: 0, d: 0.3 });
+          tl.fromTo("#s03-ctx .s03-cc", { opacity: 0, x: -80 }, { opacity: 1, x: 0, duration: 0.4, ease: "power4.out", stagger: 0.35 }, c);
+          var d = 11.77;
+          tl.fromTo("#s03-dec", { opacity: 0, y: -30, scale: 0.7 }, { opacity: 1, y: 0, scale: 1, duration: 0.5, ease: "back.out(2)" }, d + 0.3);
+          tl.to("#s03-claude", { keyframes: { scale: [1, 1.1, 1] }, duration: 0.5 }, d);
+          var t = 15.90;
+          A("#s03-tk", t - 0.1, { x: 30, y: 0, d: 0.3 });
+          tl.fromTo("#s03-tools .chip", { opacity: 0, x: -200 }, { opacity: 1, x: 0, duration: 0.45, ease: "expo.out", stagger: 0.6 }, t + 0.2);
+          var l = 22.97;
+          P(".s03-lp", l, { s: 0, st: 0.15, e: "back.out(2.4)", d: 0.4 });
+          tl.set("#s03-dot", { opacity: 1 }, l + 0.3);
+          tl.to("#s03-dot", { rotation: 360 * 3, transformOrigin: "13px 213px", duration: 5.5, ease: "power1.inOut" }, l + 0.3);
+          var y = 29.26;
+          tl.to("#s03-tools .chip", { opacity: 0.85, duration: 0.4 }, y - 0.3);
+          A("#s03-yk", y - 0.1, { x: 30, y: 0, d: 0.3 });
+          tl.fromTo("#s03-h1", { opacity: 0, scale: 0.4, y: -40 }, { opacity: 1, scale: 1, y: 0, duration: 0.45, ease: "back.out(2.4)" }, 31.17);
+          tl.fromTo("#s03-h2", { opacity: 0, scale: 0.4, y: -40 }, { opacity: 1, scale: 1, y: 0, duration: 0.45, ease: "back.out(2.4)" }, 35.10);
+          tl.fromTo("#s03-h3", { opacity: 0, scale: 0.4, y: -40 }, { opacity: 1, scale: 1, y: 0, duration: 0.45, ease: "back.out(2.4)" }, 37.19);
+          var f = 40.28;
+          A("#s03-rk", f, { x: -30, y: 0, d: 0.3 });
+          A("#s03-rt", 42.21, { y: 30, d: 0.4 });
+          tl.fromTo("#s03-rm", { opacity: 0, y: 30 }, { opacity: 1, y: 0, duration: 0.4, ease: "power4.out" }, 43.95);
+          tl.to("#s03-rm", { keyframes: { x: [0, -12, 10, -6, 0] }, duration: 0.45, ease: "none" }, 43.95 + 0.5);
+          A("#s03-cap", 48.50 - 0.3, { y: 24, d: 0.45 });
+          LOOP("#s03-glow", { scale: 1.12, x: -60 }, 3.2, 0, DUR - 0.5);
+          tl.to("#s03-dots", { x: -44, y: -22, duration: DUR, ease: "none" }, 0);
+          window.__timelines["s03"] = tl;
+        })();
+      </script>
+    </template>
+  </body>
+</html>

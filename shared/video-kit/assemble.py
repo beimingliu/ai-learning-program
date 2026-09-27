@@ -3,12 +3,16 @@
 Each src/NN-*.html is the scene for voice section NN+1. {{T:phrase}} resolves to the
 scene-relative start of the first word of `phrase` in that section's transcript, so cues
 follow the narration when a section is regenerated. {{T:phrase+0.4}} adds an offset.
+
+Run:  python3 shared/video-kit/assemble.py videos/<course>/<lesson>   (default: the current directory)
 """
 import json, pathlib, re, subprocess, sys
 
-ROOT = pathlib.Path(__file__).parent
-sys.path.insert(0, str(ROOT))
+ROOT = pathlib.Path(sys.argv[1] if len(sys.argv) > 1 else ".").resolve()
+sys.path.insert(0, str(pathlib.Path(__file__).parent))
 import build  # noqa: E402  (expands fonts, logos, icons, helpers)
+
+build.load(ROOT)
 
 TAIL = 0.25  # silence kept after the last word of each section
 GAP, LAST_GAP = 0.8, 1.0

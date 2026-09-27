@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 // Narration via the local Qwen3-TTS server instead of HeyGen/Kokoro. Writes the same
 // audio_engine_meta.json + audio_meta.json shapes the faceless-explainer scripts consume.
-//   node scripts/qwen-tts.mjs [--ref Quick-and-punchy] [--tempo 0.9] [--gap 0.45] [--only 03,07]
+// Run inside the lesson folder (it reads ./SCRIPT.md and writes ./assets/voice):
+//   node ../../../shared/video-kit/qwen-tts.mjs [--ref Quick-and-punchy] [--tempo 0.9] [--gap 0.45] [--only 03,07]
 import { execFileSync } from "node:child_process";
 import { existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { join } from "node:path";

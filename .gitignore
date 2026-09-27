@@ -21,3 +21,4 @@
 /videos/**/.hyperframes/assemble/
 /videos/**/.hyperframes/qwen-tmp/
 /videos/**/__pycache__/
+/shared/**/__pycache__/

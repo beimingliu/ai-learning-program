@@ -18,7 +18,7 @@ Voice-only build in the F101.6 style: dark and white scenes, mocked animated com
 ## Assets
 
 - `../../../courses/building-with-ai/201/lessons/B201.3-model-effort.md`: approved narration and cue source.
-- Pipeline copied from `../../foundations-101/F101.6-model-selection` (`build.py`, `assemble.py`, `scripts/qwen-tts.mjs`, `assets/shared.css`).
+- Pipeline: `shared/video-kit/` (assemble, build, qwen-tts); `assets/shared.css` started from F101.6.
 
 ## Customizations
 

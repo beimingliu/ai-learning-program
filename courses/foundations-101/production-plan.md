@@ -60,4 +60,5 @@ produceLesson
 ## Output roots
 
 - Course materials: `courses/foundations-101/`
-- Video projects and final MP4s: `videos/foundations-101/`
+- Video projects: `videos/foundations-101/` (F101.6 onward, built with `shared/video-kit/`); F101.0–F101.5 are in `videos/_legacy/foundations-101/`
+- Final MP4s: `videos/`

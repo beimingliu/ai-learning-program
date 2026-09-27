@@ -3,11 +3,13 @@
 Course curriculum plus the avatar-narrated lesson videos built from it. See `README.md` for the course inventory.
 
 - `courses/<course>/lessons/*.md` — canonical lesson scripts (source of truth for naming)
-- `videos/<course>/<lesson>/` — one HyperFrames composition project per lesson
+- `videos/<course>/<lesson>/` — one HyperFrames composition project per current lesson, built with `shared/video-kit/`
+- `videos/_legacy/<course>/<lesson>/` — published lessons built before the kit (F101.0–F101.5, B201.7); fix in place, never copy
 - `videos/*.mp4` — final exported renders
 - `shared/` — facilitator guide, wording reference, QA and accuracy logs
+- `shared/video-kit/` — the shared build scripts and `GUIDE.md` for lesson videos
 
-Each `videos/**` project has its own `CLAUDE.md` with the HyperFrames rules — read it before touching a composition.
+To make or change a lesson video, use the `/lesson-video` skill. It points to every reference below and hands framework work to `/hyperframes`. The reference lesson is `videos/foundations-101/F101.7-agentic-system`.
 
 # Video generation
 
@@ -28,7 +30,7 @@ Each `videos/**` project has its own `CLAUDE.md` with the HyperFrames rules — 
 - **Drive:** final MP4s go in the "education videos" folder [`1_uPd_gC_AW6Ee-n0f9BN_8t5b2xVCXH1`](https://drive.google.com/drive/folders/1_uPd_gC_AW6Ee-n0f9BN_8t5b2xVCXH1), one subfolder per course: `foundations-101`, `building-with-ai-201` (`1WMKBHxazfXJ_6UyVZalkfuvCm555XwlL`). The MCP gateway's `drive_files_create` takes metadata only and cannot upload a video, so copy the file into the Drive for Desktop mount at `~/Library/CloudStorage/GoogleDrive-bliu@aledade.com/My Drive/analytics ai fluency/education videos/<course>/` and let it sync. Uploads inherit domain "anyone with the link can view". Link videos as `https://drive.google.com/file/d/<id>/view`.
 - **Wiki:** Confluence pages are published from Markdown sources in the `analytics-ai-enablement` repo under `docs/confluence/`; its `README.md` maps each source file to a page ID. Edit the source in a PR first, then publish the full file body. Course pages are siblings under parent `3216572453` in space `IA`: AI Foundations 101 `3219882030`, Building with AI 201 `3219128363`, AI Thinking 201 `3219357757`.
 - **Jira:** course video production and publishing is tracked on [AIRML-9771](https://aledade.atlassian.net/browse/AIRML-9771); extend its scope for new lessons rather than opening new tickets.
-- **Voice-only lessons** (no avatar) use the local Qwen3 TTS clone `bliu-voice` via `videos/<course>/<lesson>/scripts/qwen-tts.mjs`; see B201.7 for the pattern.
+- **Voice-only lessons** (no avatar) use the local Qwen3 TTS clone `bliu-voice` via `shared/video-kit/qwen-tts.mjs`, run from the lesson folder; see `shared/video-kit/GUIDE.md`.
 
 # Knowledge sharing
 

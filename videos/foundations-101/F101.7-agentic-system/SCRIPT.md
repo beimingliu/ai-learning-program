@@ -2,7 +2,7 @@
 
 Spoken text matches the A-roll in the lesson file exactly, apart from pronunciation spellings.
 
-Build: `node scripts/qwen-tts.mjs --ref bliu-voice [--only 02,05]` writes `assets/voice/NN.wav` and `audio_meta.json`; then `python3 assemble.py` trims each section, inserts the 0.8s and 1.0s gaps, writes `audio/narration-bliu.wav`, expands `src/` into `compositions/` with `{{T:phrase}}` cue times from the word timings, and rewrites `index.html`. Edit scenes in `src/`, never `compositions/`.
+Build (from the lesson folder): `node ../../../shared/video-kit/qwen-tts.mjs --ref bliu-voice [--only 02,05]` writes `assets/voice/NN.wav` and `audio_meta.json`; then `python3 ../../../shared/video-kit/assemble.py .` trims each section, inserts the 0.8s and 1.0s gaps, writes `audio/narration-bliu.wav`, expands `src/` into `compositions/` with `{{T:phrase}}` cue times from the word timings, and rewrites `index.html`. Edit scenes in `src/`, never `compositions/`. See `shared/video-kit/GUIDE.md`.
 
 ## Series Introduction (frame 1)
 

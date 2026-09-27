@@ -16,9 +16,9 @@ Teach analytics professionals to distinguish context from memory, recognize cont
 
 ## Assets
 
-- `../../../courses/foundations-101/lessons/F101.3-context-window.md` — approved narration and cue source.
-- `../../../shared/design.md` — course composition and teaching-pattern guidance.
-- `../../../shared/branding-kit/heygen-brand-kit.md` — palette, typography, and no-logo rule.
+- `../../../../courses/foundations-101/lessons/F101.3-context-window.md` — approved narration and cue source.
+- `../../../../shared/design.md` — course composition and teaching-pattern guidance.
+- `../../../../shared/branding-kit/heygen-brand-kit.md` — palette, typography, and no-logo rule.
 - `audio/f1013-voice-final.wav` — archived local Qwen3-TTS narration, 238.560 seconds; no longer used by the composition.
 - `avatar/f1013-avatar-iv.mp4` — Avatar V API render, 231.720 seconds, with its matching audio; the legacy filename is retained so existing project references continue to resolve.
 

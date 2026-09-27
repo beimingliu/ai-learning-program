@@ -1,3 +1,9 @@
+# Lesson videos
+
+- `videos/<course>/<lesson>/` holds current lessons, built with `shared/video-kit/` (see its `GUIDE.md`). The reference lesson is `videos/foundations-101/F101.7-agentic-system`.
+- `videos/_legacy/<course>/<lesson>/` holds published lessons built before the kit (F101.0 to F101.5, B201.7): fix in place, never copy.
+- The step-by-step workflow is `.claude/skills/lesson-video/SKILL.md`; read it before making or changing a lesson video.
+
 # Local Qwen3-TTS
 
 Use the local Qwen3-TTS service first when generating TTS audio.

@@ -17,9 +17,9 @@ Make new AI users see why MCP matters: without a connection Claude is sealed off
 
 ## Assets
 
-- `../../../courses/foundations-101/lessons/F101.5-tools-mcp-access.md`: approved narration, visual treatment, and cue source.
-- `../../../shared/branding-kit/heygen-brand-kit.md`: palette and typography (strict).
-- `../../../shared/design.md` and `../../../shared/app-logos.md`: logo rules and approved product glyphs (Gmail, Slack, Google Drive, Jira, Confluence). Glean and Calendar have no approved glyph, so they use text monogram chips.
+- `../../../../courses/foundations-101/lessons/F101.5-tools-mcp-access.md`: approved narration, visual treatment, and cue source.
+- `../../../../shared/branding-kit/heygen-brand-kit.md`: palette and typography (strict).
+- `../../../../shared/design.md` and `../../../../shared/app-logos.md`: logo rules and approved product glyphs (Gmail, Slack, Google Drive, Jira, Confluence). Glean and Calendar have no approved glyph, so they use text monogram chips.
 - `audio/f1015-narration-bliu.wav`: local Qwen3-TTS narration cloned from the owner's voice (`bliu-voice` reference), section gaps 0.8s and 1.0s.
 
 ## Customizations

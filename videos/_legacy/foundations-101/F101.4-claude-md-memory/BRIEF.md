@@ -17,9 +17,9 @@ Teach learners what CLAUDE.md and auto memory each do, why newer models need les
 
 ## Assets
 
-- `../../../courses/foundations-101/lessons/F101.4-claude-md-memory.md` — approved narration and cue source.
-- `../../../shared/design.md` — course composition and teaching-pattern guidance.
-- `../../../shared/branding-kit/heygen-brand-kit.md` — palette, typography, and no-logo rule.
+- `../../../../courses/foundations-101/lessons/F101.4-claude-md-memory.md` — approved narration and cue source.
+- `../../../../shared/design.md` — course composition and teaching-pattern guidance.
+- `../../../../shared/branding-kit/heygen-brand-kit.md` — palette, typography, and no-logo rule.
 - `audio/f1014-narration-bliu.wav` — local Qwen3-TTS narration cloned from the owner's voice (`bliu-voice` reference), 206.97 seconds, section gaps 0.8s and 1.0s.
 
 ## Customizations

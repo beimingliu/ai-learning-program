@@ -19,7 +19,7 @@ Voice-only build in the F101.5 style: dark and white scenes, mocked animated com
 
 - `../../../courses/foundations-101/lessons/F101.6-model-selection.md`: approved narration and cue source.
 - `../../../shared/branding-kit/heygen-brand-kit.md` and `../../../shared/design.md`: palette, type, logo rules.
-- `audio/narration-bliu.wav`: assembled from `assets/voice/NN.wav` by `assemble.py`.
+- `audio/narration-bliu.wav`: assembled from `assets/voice/NN.wav` by `shared/video-kit/assemble.py`.
 
 ## Customizations
 

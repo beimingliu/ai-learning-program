@@ -1,8 +1,14 @@
 """Expand src/*.html placeholders (fonts, logos, icons, helpers) into compositions/."""
 import json, pathlib, re
 
-ROOT = pathlib.Path(__file__).parent
-LOGOS = json.loads((ROOT / "assets/logos.json").read_text())
+LOGOS = {}
+
+
+def load(lesson):
+    """Read the lesson's own assets/logos.json (logos differ per lesson)."""
+    LOGOS.update(json.loads((pathlib.Path(lesson) / "assets/logos.json").read_text()))
+
+
 FONTS = """@font-face { font-family: "Literata"; src: url("assets/fonts/Literata-600.woff2") format("woff2"); font-weight: 600; }
         @font-face { font-family: "IBM Plex Sans"; src: url("assets/fonts/IBMPlexSans-var.woff2") format("woff2"); font-weight: 100 700; }
         @font-face { font-family: "JetBrains Mono"; src: url("assets/fonts/JetBrainsMono-var.woff2") format("woff2"); font-weight: 100 800; }"""
@@ -16,6 +22,11 @@ ICONS = {
     "person": '<svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="20" r="12" fill="currentColor"/><path d="M10 58a22 22 0 0 1 44 0z" fill="currentColor"/></svg>',
     "check": '<svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="28" fill="#003DA5"/><path d="M19 33l9 9 17-19" fill="none" stroke="#fff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/></svg>',
     "eye": '<svg viewBox="0 0 64 64" aria-hidden="true"><path d="M4 32s10-18 28-18 28 18 28 18-10 18-28 18S4 32 4 32z" fill="#EAF2FF" stroke="#003DA5" stroke-width="5"/><circle cx="32" cy="32" r="10" fill="#003DA5"/></svg>',
+    "pause": '<svg viewBox="0 0 64 64" aria-hidden="true"><rect x="16" y="12" width="11" height="40" rx="3" fill="currentColor"/><rect x="37" y="12" width="11" height="40" rx="3" fill="currentColor"/></svg>',
+    "play": '<svg viewBox="0 0 64 64" aria-hidden="true"><path d="M6 12l24 20-24 20zM34 12l24 20-24 20z" fill="currentColor"/></svg>',
+    "x": '<svg viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="28" fill="#FF6900"/><path d="M21 21l22 22M43 21L21 43" stroke="#091F31" stroke-width="7" stroke-linecap="round"/></svg>',
+    "open": '<svg viewBox="0 0 64 64" aria-hidden="true"><path d="M20 30v-8a12 12 0 0 1 23-5" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round"/><rect x="12" y="28" width="40" height="30" rx="7" fill="currentColor"/></svg>',
+    "table": '<svg viewBox="0 0 64 64" aria-hidden="true"><rect x="6" y="10" width="52" height="44" rx="6" fill="#EAF2FF" stroke="#003DA5" stroke-width="4"/><rect x="6" y="10" width="52" height="12" rx="6" fill="#003DA5"/><path d="M6 34h52M6 44h52M26 22v32" stroke="#003DA5" stroke-width="3"/></svg>',
     "send": '<svg viewBox="0 0 64 64" aria-hidden="true"><path d="M6 30L58 8 44 58 32 38z" fill="#FF6900"/><path d="M32 38L58 8" stroke="#091F31" stroke-width="4"/></svg>',
 }
 HELPERS = """const DUR = {{DUR}};

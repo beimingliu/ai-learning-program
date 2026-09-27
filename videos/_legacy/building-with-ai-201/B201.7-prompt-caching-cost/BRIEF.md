@@ -18,7 +18,7 @@ four habits. 201 level: more technical than 101 and allowed its own look.
 
 ## Assets
 
-- `../../../courses/building-with-ai/201/lessons/B201.7-prompt-caching-cost.md`: approved narration and cues.
+- `../../../../courses/building-with-ai/201/lessons/B201.7-prompt-caching-cost.md`: approved narration and cues.
 - Narration: cloned `bliu-voice` via the local Qwen3 TTS server (`scripts/qwen-tts.mjs`).
 - Fonts copied from F101.4 (Literata, IBM Plex Sans, JetBrains Mono). Three.js vendored in `assets/vendor/`.
 

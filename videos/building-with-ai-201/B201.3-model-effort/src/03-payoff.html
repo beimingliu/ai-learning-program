@@ -11,14 +11,17 @@
         #s03-pa { position: absolute; inset: 0; }
         #s03-task { left: 120px; top: 300px; width: 1680px; padding: 22px 32px; }
         #s03-task .h { font-size: 34px; margin-top: 6px; }
-        .s03-lane { position: absolute; left: 120px; width: 1680px; height: 230px; border-radius: 28px; background: var(--pale); }
-        #s03-lo { top: 460px; } #s03-hi { top: 710px; }
-        .s03-lane .lab { position: absolute; left: 30px; top: 24px; font-size: 24px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue); }
-        .s03-node { position: absolute; padding: 16px 24px; border-radius: 18px; background: #fff; border: 3px solid var(--blue); font-size: 26px; font-weight: 700; white-space: nowrap; }
+        .s03-lane { position: absolute; left: 120px; width: 1680px; height: 260px; border-radius: 28px; background: var(--pale); }
+        #s03-lo { top: 450px; } #s03-hi { top: 726px; }
+        .s03-lane .lab { position: absolute; left: 40px; top: 22px; font-size: 24px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue); }
+        .s03-node { position: absolute; box-sizing: border-box; width: 280px; height: 64px; display: flex; align-items: center; justify-content: center; border-radius: 18px; background: #fff; border: 3px solid var(--blue); font-size: 26px; font-weight: 700; white-space: nowrap; }
         .s03-node.o { border-color: var(--orange); }
         .s03-node.done { background: var(--ink); color: #fff; border-color: var(--ink); }
-        .s03-ln { position: absolute; height: 5px; background: var(--blue); transform-origin: left center; border-radius: 3px; }
-        .s03-score { position: absolute; right: 30px; top: 24px; font-family: "Literata", Georgia, serif; font-weight: 600; font-size: 64px; color: var(--ink); }
+        .s03-ln { position: absolute; height: 5px; margin-top: -2.5px; background: var(--blue); transform-origin: left center; }
+        .s03-wire { position: absolute; left: 0; top: 0; width: 1680px; height: 260px; overflow: visible; pointer-events: none; }
+        .s03-wire path { fill: none; stroke: var(--blue); stroke-width: 5; stroke-dasharray: 1; stroke-dashoffset: 1; }
+        .s03-wire path.o { stroke: var(--orange); }
+        .s03-score { position: absolute; right: 40px; top: 50%; margin-top: -40px; line-height: 80px; font-family: "Literata", Georgia, serif; font-weight: 600; font-size: 64px; color: var(--ink); }
         #s03-hi .s03-score { color: var(--blue); }
         #s03-pb { position: absolute; inset: 0; opacity: 0; }
         .s03-sp { top: 360px; width: 800px; height: 400px; }
@@ -26,7 +29,7 @@
         .s03-sp .h { font-size: 52px; }
         .s03-sp .pill { position: absolute; left: 36px; bottom: 34px; }
         #s03-fn { position: absolute; left: 120px; top: 820px; font-size: 24px; font-weight: 600; color: var(--muted); }
-        #s03-cap { left: 120px; top: 966px; }
+        #s03-cap { left: 120px; top: 1006px; }
       </style>
       <div data-hf-id="hf-3azd" id="root" data-composition-id="s03" data-width="1920" data-height="1080">
         <div data-hf-id="hf-wua0" class="scene">
@@ -41,19 +44,20 @@
             <div data-hf-id="hf-q94m" id="s03-task" class="card rv"><div data-hf-id="hf-vop6" class="k">Benchmark task · Terminal-Bench 3.0</div><div data-hf-id="hf-vzu2" class="h">From protein measurements: which of 8 treatments resemble a target tissue?</div></div>
             <div data-hf-id="hf-5o3h" class="s03-lane rv" id="s03-lo">
               <div data-hf-id="hf-dyrx" class="lab">Low effort</div><div data-hf-id="hf-0rgr" class="s03-score" id="s03-sc1">0/5</div>
-              <div data-hf-id="hf-47ip" class="s03-ln" style="left:300px;top:125px;width:180px"></div><div data-hf-id="hf-a503" class="s03-ln" style="left:760px;top:125px;width:180px"></div>
-              <div data-hf-id="hf-xpth" class="s03-node" style="left:40px;top:96px">prep data one way</div>
-              <div data-hf-id="hf-7xrp" class="s03-node" style="left:480px;top:96px">run the analysis</div>
-              <div data-hf-id="hf-oauu" class="s03-node done" style="left:940px;top:96px">report the result</div>
+              <div data-hf-id="hf-47ip" class="s03-ln" style="left:320px;top:154px;width:100px"></div><div data-hf-id="hf-a503" class="s03-ln" style="left:700px;top:154px;width:100px"></div>
+              <div data-hf-id="hf-xpth" class="s03-node" style="left:40px;top:122px">prep data one way</div>
+              <div data-hf-id="hf-7xrp" class="s03-node" style="left:420px;top:122px">run the analysis</div>
+              <div data-hf-id="hf-oauu" class="s03-node done" style="left:800px;top:122px">report the result</div>
             </div>
             <div data-hf-id="hf-63f3" class="s03-lane rv" id="s03-hi">
               <div data-hf-id="hf-0eih" class="lab">High effort</div><div data-hf-id="hf-qn8e" class="s03-score" id="s03-sc2">4/5</div>
-              <div data-hf-id="hf-9zes" class="s03-node" id="s03-a" style="left:40px;top:70px">prep: method A</div>
-              <div data-hf-id="hf-y5t0" class="s03-node o" id="s03-b" style="left:40px;top:150px">prep: method B</div>
-              <div data-hf-id="hf-ybkh" class="s03-node" id="s03-ra" style="left:420px;top:70px">result A</div>
-              <div data-hf-id="hf-gyff" class="s03-node o" id="s03-rb" style="left:420px;top:150px">result B · differs</div>
-              <div data-hf-id="hf-tt20" class="s03-node" id="s03-why" style="left:820px;top:110px">work out why</div>
-              <div data-hf-id="hf-vrcd" class="s03-node done" id="s03-ch" style="left:1150px;top:110px">choose, then report</div>
+              <svg class="s03-wire" viewBox="0 0 1680 260"><path id="s03-wa" pathLength="1" d="M320 114 H420"/><path id="s03-wb" class="o" pathLength="1" d="M320 194 H420"/><path id="s03-wm1" pathLength="1" d="M700 114 H750 V154 H800"/><path id="s03-wm2" class="o" pathLength="1" d="M700 194 H750 V154"/><path id="s03-wc" pathLength="1" d="M1080 154 H1180"/></svg>
+              <div data-hf-id="hf-9zes" class="s03-node" id="s03-a" style="left:40px;top:82px">prep: method A</div>
+              <div data-hf-id="hf-y5t0" class="s03-node o" id="s03-b" style="left:40px;top:162px">prep: method B</div>
+              <div data-hf-id="hf-ybkh" class="s03-node" id="s03-ra" style="left:420px;top:82px">result A</div>
+              <div data-hf-id="hf-gyff" class="s03-node o" id="s03-rb" style="left:420px;top:162px">result B · differs</div>
+              <div data-hf-id="hf-tt20" class="s03-node" id="s03-why" style="left:800px;top:122px">work out why</div>
+              <div data-hf-id="hf-vrcd" class="s03-node done" id="s03-ch" style="left:1180px;top:122px">choose, then report</div>
             </div>
           </div>
           <div data-hf-id="hf-jkje" id="s03-pb">
@@ -80,7 +84,10 @@
           tl.fromTo("#s03-a, #s03-b", { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.35, stagger: 0.25 }, {{T:tried two}});
           tl.fromTo("#s03-ra, #s03-rb", { opacity: 0, x: -40 }, { opacity: 1, x: 0, duration: 0.35, stagger: 0.25 }, {{T:answer change}} - 0.3);
           tl.to("#s03-rb", { keyframes: { scale: [1, 1.12, 1] }, duration: 0.5 }, {{T:answer change}} + 0.2);
+          DRAW("#s03-wa, #s03-wb", {{T:answer change}} - 0.6, 0.35);
+          DRAW("#s03-wm1, #s03-wm2", {{T:worked out why}} - 0.4, 0.45);
           P("#s03-why", {{T:worked out why}}, { s: 0.6, d: 0.4 });
+          DRAW("#s03-wc", {{T:before choosing}} - 0.35, 0.3);
           P("#s03-ch", {{T:before choosing}}, { s: 0.6, d: 0.4 });
           var s = {{T:attempts correct}};
           P("#s03-sc1", s - 0.8, { s: 1.8, d: 0.4, e: "power4.out" });

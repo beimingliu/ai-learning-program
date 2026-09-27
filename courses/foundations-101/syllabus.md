@@ -3,7 +3,7 @@
 **Version:** 1.0  
 **Last content review:** August 20, 2026  
 **Prerequisite:** Access to an approved AI surface and approved, non-sensitive practice material. F101.2 requires a surface that can inspect the material and save a separate artifact.  
-**Length:** Eight lessons, approximately 29 minutes, plus a 15–30 minute capstone
+**Length:** Eight lessons, approximately 31 minutes of video, plus a 15–30 minute capstone
 
 ## Lesson format
 

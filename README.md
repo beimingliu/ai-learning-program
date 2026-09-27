@@ -14,7 +14,7 @@ Open [course-progress-mind-map.html](course-progress-mind-map.html) for the stan
 
 | Course | Lessons | Approximate lesson time | Required artifact |
 |---|---:|---:|---|
-| AI Foundations 101 | 8 | 29 minutes | Verified artifact + evidence card |
+| AI Foundations 101 | 8 | 31 minutes | Verified artifact + evidence card |
 | Building with AI 201 | 6 | 16 minutes | Reusable recurring-workflow recipe |
 | AI Thinking 201 | 6 | 15 minutes | AI Work Design Canvas |
 | **Total** | **20** | **60 minutes** | Three applied artifacts |

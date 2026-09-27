@@ -20,18 +20,6 @@
         #s04-names b { color: var(--blue); }
         .s04-task { position: absolute; right: 30px; top: 50%; transform: translateY(-50%); padding: 16px 24px; border-radius: 18px; background: var(--ink); color: #fff; font-size: 26px; font-weight: 700; white-space: nowrap; }
         .s04-task::before { content: "task · "; color: var(--orange); }
-        #s04-ev { left: 200px; top: 390px; width: 1520px; opacity: 0; }
-        #s04-ev .g { margin-top: 22px; display: grid; grid-template-columns: 250px 1fr 1fr; gap: 16px 30px; align-items: center; }
-        #s04-ev .hd { font-size: 20px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
-        #s04-ev .nm { font-size: 30px; font-weight: 700; }
-        #s04-ev .cell { display: flex; align-items: center; gap: 16px; }
-        #s04-ev .bar { flex: 1; height: 28px; border-radius: 14px; background: var(--pale); overflow: hidden; }
-        #s04-ev .bar i { display: block; height: 100%; background: var(--blue); transform-origin: left center; }
-        #s04-ev .bar.c i { background: var(--orange); }
-        #s04-ev .v { width: 90px; text-align: right; font-family: "JetBrains Mono", monospace; font-size: 28px; font-weight: 700; }
-        #s04-ev .sum { margin-top: 26px; font-family: "Literata", Georgia, serif; font-weight: 600; font-size: 52px; color: var(--blue); }
-        #s04-ev .src { margin-top: 10px; font-size: 20px; color: var(--muted); }
-        #s04-evlab { left: 260px; top: 320px; background: var(--orange); color: var(--ink); }
       </style>
       <div data-hf-id="hf-h6so" id="root" data-composition-id="s04" data-width="1920" data-height="1080">
         <div data-hf-id="hf-wua0" class="scene">
@@ -51,23 +39,11 @@
               <span data-hf-id="hf-r6ij" class="mchip"><i data-hf-id="hf-0l8b"></i>Opus</span><span data-hf-id="hf-e7fb" class="mchip oai"><i data-hf-id="hf-0zjc"></i>GPT Astra</span><span data-hf-id="hf-l79u" class="s04-task" id="s04-t3">dashboard won't match its source</span></div>
           </div>
           <div data-hf-id="hf-hapg" id="s04-names" class="rv">Names change with each release. <b data-hf-id="hf-q7sr">The kinds of work don't.</b></div>
-          <div data-hf-id="hf-xmtx" id="s04-evlab" class="stamp rv">independent benchmark · Sept 2026</div>
-          <div data-hf-id="hf-oz4p" id="s04-ev" class="card">
-            <div data-hf-id="hf-8h4i" class="k">Artificial Analysis Intelligence Index</div>
-            <div data-hf-id="hf-33xh" class="h">Price and score don't move together.</div>
-            <div data-hf-id="hf-80mv" class="g">
-              <span data-hf-id="hf-uckh"></span><span data-hf-id="hf-jkrp" class="hd">index score</span><span data-hf-id="hf-u2vc" class="hd">cost per task</span>
-              <span data-hf-id="hf-r7qy" class="nm">GPT-6 Sol</span><span data-hf-id="hf-79q9" class="cell"><span data-hf-id="hf-flu0" class="bar"><i data-hf-id="hf-08o9" id="s04-s1"></i></span><span data-hf-id="hf-j1ag" class="v">47</span></span><span data-hf-id="hf-ctg5" class="cell"><span data-hf-id="hf-b5g3" class="bar c"><i data-hf-id="hf-h8d5" id="s04-c1"></i></span><span data-hf-id="hf-7lmu" class="v">$1.06</span></span>
-              <span data-hf-id="hf-2ltd" class="nm">GPT-6 Astra</span><span data-hf-id="hf-e0d8" class="cell"><span data-hf-id="hf-78ow" class="bar"><i data-hf-id="hf-6ee2" id="s04-s2"></i></span><span data-hf-id="hf-eakd" class="v">53</span></span><span data-hf-id="hf-dm27" class="cell"><span data-hf-id="hf-ij03" class="bar c"><i data-hf-id="hf-l6h6" id="s04-c2"></i></span><span data-hf-id="hf-ic2e" class="v">$3.26</span></span>
-            </div>
-            <div data-hf-id="hf-12fw" class="sum" id="s04-sum">3× the cost · +5 points</div>
-            <div data-hf-id="hf-qbph" class="src">artificialanalysis.ai · max effort for both · fetched Sept 2026</div>
-          </div>
         </div>
       </div>
       <script>
         (function () {
-          const DUR = 65.05;
+          const DUR = 38.73;
           const tl = gsap.timeline({ paused: true });
           const A = (s, t, o = {}) => tl.fromTo(s, { opacity: 0, x: o.x || 0, y: o.y === undefined ? 40 : o.y, scale: o.s || 1 }, { opacity: 1, x: 0, y: 0, scale: 1, duration: o.d || 0.5, ease: o.e || "power3.out", stagger: o.st || 0 }, t);
           const P = (s, t, o = {}) => tl.fromTo(s, { opacity: 0, scale: o.s || 0.5 }, { opacity: 1, scale: 1, duration: o.d || 0.6, ease: o.e || "back.out(1.7)", stagger: o.st || 0 }, t);
@@ -92,16 +68,7 @@
           tl.to("#s04-lanes .mchip", { opacity: 0, scale: 0.85, duration: 0.5, ease: "power2.in", stagger: 0.04 }, n);
           tl.to("#s04-lanes .s04-task", { opacity: 0.35, duration: 0.4 }, n);
           A("#s04-names", n + 0.2, { y: 24, d: 0.5 });
-          tl.to("#s04-lanes .lab .n", { color: "#003DA5", scale: 1.06, transformOrigin: "left center", duration: 0.4, ease: "back.out(2)" }, 36.52);
-          var c = 38.31;
-          tl.to("#s04-lanes, #s04-names", { opacity: 0, y: -30, duration: 0.5, ease: "power2.in" }, c - 0.3);
-          tl.fromTo("#s04-ev", { opacity: 0, x: 160 }, { opacity: 1, x: 0, duration: 0.6, ease: "expo.out" }, c + 0.2);
-          P("#s04-evlab", c + 0.5, { s: 1.6, d: 0.4, e: "power4.out" });
-          tl.fromTo("#s04-s1", { scaleX: 0 }, { scaleX: 0.47 / 0.6, duration: 0.9, ease: "power3.out" }, 48.02);
-          tl.fromTo("#s04-c1", { scaleX: 0 }, { scaleX: 1.06 / 3.5, duration: 0.9, ease: "power3.out" }, 51.75);
-          tl.fromTo("#s04-s2", { scaleX: 0 }, { scaleX: 0.53 / 0.6, duration: 0.9, ease: "power3.out" }, 54.10);
-          tl.fromTo("#s04-c2", { scaleX: 0 }, { scaleX: 3.26 / 3.5, duration: 0.9, ease: "power3.out" }, 57.35);
-          P("#s04-sum", 59.27 - 0.2, { s: 1.6, d: 0.5, e: "power4.out" });
+          tl.to("#s04-lanes .lab .n", { color: "#003DA5", scale: 1.06, transformOrigin: "left center", duration: 0.4, ease: "back.out(2)" }, 36.47);
           LOOP("#s04-glow", { scale: 1.12, x: -50 }, 3.2, 0, DUR - 0.5);
           tl.to("#s04-dots", { x: -44, y: -22, duration: DUR, ease: "none" }, 0);
           window.__timelines["s04"] = tl;

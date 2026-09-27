@@ -14,23 +14,11 @@
         #s06-home { position: absolute; left: 230px; top: 800px; }
         #s06-lo, #s06-hi { position: absolute; left: 120px; }
         #s06-lo { top: 880px; } #s06-hi { top: 950px; }
-        #s06-ev { left: 640px; top: 340px; width: 1160px; }
-        #s06-ev .g { margin-top: 20px; display: grid; grid-template-columns: 130px 1fr 1fr; gap: 16px 26px; align-items: center; }
-        #s06-ev .hd { font-size: 20px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
-        #s06-ev .nm { font-size: 30px; font-weight: 700; }
-        #s06-ev .cell { display: flex; align-items: center; gap: 14px; }
-        #s06-ev .bar { flex: 1; height: 26px; border-radius: 13px; background: var(--pale); overflow: hidden; }
-        #s06-ev .bar i { display: block; height: 100%; background: var(--blue); transform-origin: left center; }
-        #s06-ev .bar.c i { background: var(--orange); }
-        #s06-ev .v { width: 84px; text-align: right; font-family: "JetBrains Mono", monospace; font-size: 26px; font-weight: 700; }
-        .s06-run { flex: 1; padding: 30px 34px; border-radius: 28px; background: #fff; border: 4px solid var(--pale); box-shadow: 0 16px 40px rgba(9,31,49,0.14); }
-        .s06-run .k { font-size: 22px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--blue); }
-        .s06-run .li { margin-top: 16px; font-size: 28px; font-weight: 600; display: flex; gap: 12px; align-items: center; }
-        .s06-run .li b { color: var(--muted); font-weight: 500; }
-        .s06-run .ch { color: var(--orange); font-weight: 700; }
-        #s06-same { position: absolute; left: 640px; top: 780px; font-size: 32px; font-weight: 700; color: var(--ink); }
+        #s06-cost { position: absolute; left: 640px; top: 380px; width: 1160px; font-family: "Literata", Georgia, serif; font-weight: 600; font-size: 52px; line-height: 1.2; color: var(--ink); }
+        #s06-cost b { color: var(--orange); }
+        #s06-same { position: absolute; left: 640px; top: 600px; font-size: 32px; font-weight: 700; color: var(--ink); }
         #s06-same span { color: var(--blue); }
-        #s06-fwd { position: absolute; left: 640px; top: 860px; }
+        #s06-fwd { position: absolute; left: 640px; top: 690px; }
       </style>
       <div data-hf-id="hf-utsa" id="root" data-composition-id="s06" data-width="1920" data-height="1080">
         <div data-hf-id="hf-wua0" class="scene">
@@ -48,22 +36,14 @@
           <div data-hf-id="hf-n64l" id="s06-home" class="pill pale rv">medium · our default</div>
           <div data-hf-id="hf-ecnv" id="s06-lo" class="pill pale rv">lower · e.g. a first outline of a memo</div>
           <div data-hf-id="hf-pzez" id="s06-hi" class="pill rv">higher · e.g. quarter-end reconciliation</div>
-          <div data-hf-id="hf-qfqr" id="s06-ev" class="card rv">
-            <div data-hf-id="hf-w21o" class="k">Artificial Analysis · Opus 5.5 · Sept 2026</div>
-            <div data-hf-id="hf-c3ka" class="h">Max effort: 4.5× the cost, +6 points.</div>
-            <div data-hf-id="hf-80mv" class="g">
-              <span data-hf-id="hf-uckh"></span><span data-hf-id="hf-jkrp" class="hd">index score</span><span data-hf-id="hf-u2vc" class="hd">cost per task</span>
-              <span data-hf-id="hf-sjpx" class="nm">medium</span><span data-hf-id="hf-79q9" class="cell"><span data-hf-id="hf-flu0" class="bar"><i data-hf-id="hf-pob7" id="s06-s1"></i></span><span data-hf-id="hf-f36f" class="v">51</span></span><span data-hf-id="hf-ctg5" class="cell"><span data-hf-id="hf-b5g3" class="bar c"><i data-hf-id="hf-oadf" id="s06-c1"></i></span><span data-hf-id="hf-rs1n" class="v">$1.34</span></span>
-              <span data-hf-id="hf-nhuo" class="nm">max</span><span data-hf-id="hf-e0d8" class="cell"><span data-hf-id="hf-78ow" class="bar"><i data-hf-id="hf-h0fc" id="s06-s2"></i></span><span data-hf-id="hf-inxo" class="v">58</span></span><span data-hf-id="hf-dm27" class="cell"><span data-hf-id="hf-ij03" class="bar c"><i data-hf-id="hf-devs" id="s06-c2"></i></span><span data-hf-id="hf-oiw9" class="v">$5.98</span></span>
-            </div>
-          </div>
+          <div data-hf-id="hf-qfqr" id="s06-cost" class="rv">Higher effort <b data-hf-id="hf-c3ka">costs much more</b>, and often adds little.</div>
           <div data-hf-id="hf-bvmd" id="s06-same" class="rv">Change <span data-hf-id="hf-gmx3">one setting</span> at a time.</div>
-          <div data-hf-id="hf-b3m3" id="s06-fwd" class="rv"><span data-hf-id="hf-8q55" class="fwd">Building with AI 201 · B201.3 · Choose a Model and Effort Level in Practice</span></div>
+          <div data-hf-id="hf-b3m3" id="s06-fwd" class="rv"><span data-hf-id="hf-8q55" class="fwd">B201.3 · Choose a Model and Effort Level in Practice · with cost data</span></div>
         </div>
       </div>
       <script>
         (function () {
-          const DUR = 40.25;
+          const DUR = 34.89;
           const tl = gsap.timeline({ paused: true });
           const A = (s, t, o = {}) => tl.fromTo(s, { opacity: 0, x: o.x || 0, y: o.y === undefined ? 40 : o.y, scale: o.s || 1 }, { opacity: 1, x: 0, y: 0, scale: 1, duration: o.d || 0.5, ease: o.e || "power3.out", stagger: o.st || 0 }, t);
           const P = (s, t, o = {}) => tl.fromTo(s, { opacity: 0, scale: o.s || 0.5 }, { opacity: 1, scale: 1, duration: o.d || 0.6, ease: o.e || "back.out(1.7)", stagger: o.st || 0 }, t);
@@ -74,20 +54,17 @@
           A("#s06-title", 0.3, { y: 60, d: 0.6, e: "expo.out" });
           P("#s06-d", 0.9, { s: 0.3, d: 0.6 });
           tl.set("#s06-n", { svgOrigin: "150 150", rotation: 110 }, 0);
-          tl.to("#s06-n", { svgOrigin: "150 150", rotation: -20, duration: 1.2, ease: "elastic.out(1, 0.45)" }, 3.29);
-          P("#s06-home", 3.29 + 0.8, { s: 0.4, d: 0.4 });
-          var a = 6.94;
-          tl.fromTo("#s06-ev", { opacity: 0, y: 50 }, { opacity: 1, y: 0, duration: 0.55, ease: "power4.out" }, a);
-          tl.fromTo("#s06-s1, #s06-s2", { scaleX: 0 }, { scaleX: function (k) { return [0.51, 0.58][k] / 0.62; }, duration: 0.9, ease: "power3.out", stagger: 0.2 }, a + 0.5);
-          tl.fromTo("#s06-c1, #s06-c2", { scaleX: 0 }, { scaleX: function (k) { return [1.34, 5.98][k] / 6.3; }, duration: 1.1, ease: "power3.out", stagger: 0.3 }, 15.63 - 0.6);
-          var hi = 17.67, lo = 25.83;
+          tl.to("#s06-n", { svgOrigin: "150 150", rotation: -20, duration: 1.2, ease: "elastic.out(1, 0.45)" }, 3.40);
+          P("#s06-home", 3.40 + 0.8, { s: 0.4, d: 0.4 });
+          A("#s06-cost", 6.95 - 0.2, { y: 30, d: 0.5 });
+          var hi = 11.27, lo = 17.99;
           tl.to("#s06-n", { svgOrigin: "150 150", rotation: 100, duration: 0.9, ease: "power3.inOut" }, hi);
           P("#s06-hi", hi + 0.3, { s: 0.5, d: 0.45 });
           tl.to("#s06-n", { svgOrigin: "150 150", rotation: -70, duration: 0.8, ease: "power3.inOut" }, lo);
           P("#s06-lo", lo + 0.3, { s: 0.5, d: 0.45 });
-          tl.to("#s06-n", { svgOrigin: "150 150", rotation: -20, duration: 0.8, ease: "power3.inOut" }, 31.43 - 0.4);
-          A("#s06-same", 31.43, { y: 24, d: 0.4 });
-          A("#s06-fwd", 36.10, { x: -40, y: 0, d: 0.45, e: "expo.out" });
+          tl.to("#s06-n", { svgOrigin: "150 150", rotation: -20, duration: 0.8, ease: "power3.inOut" }, 23.59 - 0.4);
+          A("#s06-same", 23.59, { y: 24, d: 0.4 });
+          A("#s06-fwd", 28.31, { x: -40, y: 0, d: 0.45, e: "expo.out" });
           LOOP("#s06-glow", { scale: 1.12, x: 50 }, 3.2, 0, DUR - 0.5);
           tl.to("#s06-dots", { x: -44, y: -22, duration: DUR, ease: "none" }, 0);
           window.__timelines["s06"] = tl;

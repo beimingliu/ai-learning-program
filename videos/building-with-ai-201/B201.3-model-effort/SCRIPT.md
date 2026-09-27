@@ -39,26 +39,31 @@ Build: `node scripts/qwen-tts.mjs --ref bliu-voice [--only 02,05]` writes `asset
 ## A Loop for Everyday Work (frame 5)
 
     Here's a loop he uses, adapted for analytics. First, ask Claude to interview you about the analysis:
-    the grain, the date window, what counts. Second, draft on low or medium effort. Third, review that
-    it got the gist, and iterate quickly. Fourth, raise effort to high and ask Claude to verify:
-    reconcile totals, test nulls and date boundaries, and try a second method. You can change effort
-    mid-conversation with slash effort.
+    the grain, the date window, what counts. Second, draft on medium. Third, review that it got the
+    gist, and iterate quickly. Fourth, raise effort to high and ask Claude to verify: reconcile totals,
+    test nulls and date boundaries, and try a second method. Change effort mid-conversation with slash
+    effort, but keep the same model. Switching models mid-session throws away the cache, and answers can
+    get worse.
 
 ## Test It on Your Own Task (frame 6)
 
-    Treat his rule of thumb as a starting point. Models and their defaults change with each release, so
-    test it on your own work. Pick one recurring task with two or three checks. Run it at the default,
-    and record four things: which checks passed, what it missed, how long it took, and how much it
-    used. Then change only the effort, and run it again. More effort costs more time and tokens, so it
-    has to buy something your checks can see. If the higher run caught edge cases the first one missed,
-    keep high effort for the verify step. If both runs took the wrong approach, go back to the task or
-    the model. One run is a practical check, not an evaluation. A workflow you rely on needs repeated
-    runs.
+    Start every task at medium. That's our default. Higher effort costs far more than it gains. On the
+    Artificial Analysis benchmark, G P T six Sol goes from medium to max for about four times the cost
+    and eight more points. Opus five point five pays four and a half times the cost for six. So test it
+    on your own work. Pick one recurring task with two or three checks, like the weekly A W V summary,
+    checked against the dashboard total, the market count, and the date range. Run it at medium, and
+    record four things: which checks passed, what it missed, how long it took, and how much it used.
+    Then change only the effort, and run it again. The extra cost has to buy something your checks can
+    see. Here, medium missed two rows with blank dates, and high caught them. So keep high for the
+    verify step. If both runs took the wrong approach, like joining on the wrong key, go back to the
+    task or the model. A single run is a practical check, not an evaluation.
 
 ## Write Your Rule (frame 7)
 
-    Finish with one sentence. Use the default for this. Raise effort when this, because the check
-    showed this. Tariq's full article, with the benchmark details, is linked on the course page.
+    Finish with one sentence. Use medium for this. Raise effort when this, because the check showed
+    this. For example: use medium for the weekly memo; raise it to high for the quarter-end
+    reconciliation, because medium missed two blank date rows. Tariq's full article is linked on the
+    course page.
 
 ## Continue Learning (frame 8)
 

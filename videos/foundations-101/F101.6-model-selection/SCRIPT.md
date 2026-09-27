@@ -21,47 +21,50 @@ Build: `node scripts/qwen-tts.mjs --ref bliu-voice [--only 02,05]` writes `asset
 
     Before you change the model, check the task. Is the goal specific? Did Claude read the right source?
     Does it have the tool it needs? Is there a check that shows when it's done? A bigger model can't
-    open a file it was never given, or fix a metric definition that was wrong to begin with. When Claude
-    gets it wrong, look at the context before you touch a setting.
+    open a file it was never given, or fix a metric definition that was wrong to begin with. If your
+    brief says count every visit when you meant completed visits, fix the brief, not the model. When
+    Claude gets it wrong, look at the context before you touch a setting.
 
 ## Two Settings, Two Questions (frame 4)
 
     Once the task is clear, you have two settings. The model decides how capable the worker is. Effort
     decides how hard it works: how much it reasons, how many files it reads, and how far it goes before
     it checks back with you. So ask one question. Did Claude not know enough, or did it not try hard
-    enough? If it had everything it needed, clearly tried, and was still wrong, pick a stronger model.
-    If it skipped a file, didn't run the check, or stopped halfway, try more effort. Anthropic's own
-    tests show the same split: more effort caught more missed edge cases, but it didn't fix a wrong
-    approach. In Claude Code, type slash effort. More effort makes those steps likely, not certain, so
-    you still check.
+    enough? Say Claude gets last month's visit count wrong. If it read the right table, ran your check,
+    and still got it wrong, it didn't know enough: pick a stronger model. If it skipped the check, it
+    didn't try hard enough: raise the effort. Anthropic's own tests show the same split: more effort
+    caught more missed edge cases, but it didn't fix a wrong approach. In Claude Code, type slash
+    effort. More effort makes those steps likely, not certain, so you still check.
 
 ## Choose by the Shape of the Work (frame 5)
 
     Choose by the shape of the work, not the brand or the version number. For routine work you can
     describe exactly, like explaining one sequel file, use a fast, low-cost model: Haiku, G P T Luna, or
-    G L M Flash. Everyday models, like Sonnet or G P T Sol, fit most analysis, writing, and coding. The
-    strongest models, like Opus or G P T Astra, fit ambiguous problems and stubborn bugs. The names will
-    change with the next release; these three kinds of work won't. Cheaper models are closer than you
-    might expect. In a five-task test I ran in September, G P T five point six Luna scored almost as
-    well as Opus five, for about one cent per task instead of almost three dollars. That's one small
-    test, not a ranking, but it's a good reason to try the cheaper model first.
+    G L M Flash. Everyday models, like G P T Sol, fit most analysis, writing, and coding. The strongest
+    models, like Opus or G P T Astra, fit ambiguous problems, like a dashboard number that won't match
+    its source. The names will change; these three kinds of work won't.
 
 ## Match the Model to Its Harness (frame 6)
 
     A model works best in the harness built for it: Claude models in Claude Code, and G P T models in
-    Codex. Building with AI 201 explains why, in Prompt Caching and the Cost of Agentic Work.
+    Codex. Pick the model when you start, and keep it. Switching mid-session throws away the cache, and
+    answers can get worse. If you need a different model, start a new session. Building with AI 201
+    explains why.
 
-## Start With the Default (frame 7)
+## Start at Medium (frame 7)
 
-    Start with the default your setup gives you. Each model's default effort is set for most work. Lower
-    it when you want a quick draft that you'll steer yourself. Raise it when the work has many edge
-    cases to check. When you do change something, change one setting at a time, on the same task with
-    the same check. Building with AI 201 shows how to run that comparison.
+    Start with the model your setup gives you, and set effort to medium. That's our default. Higher
+    effort costs much more, and often adds little. Raise effort when the work has many edge cases, like
+    a quarter-end reconciliation. Lower it for a quick draft you'll steer, like a first outline of a
+    memo. Change one setting at a time, on the same task with the same check. Building with AI 201 shows
+    how, and what each step costs.
 
 ## Record the Decision (frame 8)
 
-    Now try it. Pick one task you do often, and finish this sentence. I'll start with this model,
-    because of this. I'll switch only if this happens, and I'll judge the switch by this check.
+    Now try it. Staff it like a team: routine work goes to an analyst, and the expert comes in only when
+    needed. For one task you do often, finish this sentence. I'll start with this model because of this,
+    and switch only if this check fails. For example: G P T Sol for the weekly memo, because it's
+    everyday writing, and Opus only if the totals don't match the dashboard.
 
 ## Continue Learning (frame 9)
 

@@ -9,7 +9,7 @@
         #s05-title { margin-top: 16px; }
         #s05-glow { width: 1400px; height: 1400px; left: 300px; top: -100px; }
         .s05-pair { position: absolute; left: 260px; width: 1400px; height: 200px; }
-        #s05-P1 { top: 380px; } #s05-P2 { top: 640px; }
+        #s05-P1 { top: 300px; } #s05-P2 { top: 500px; }
         .s05-m, .s05-h { position: absolute; top: 20px; width: 560px; height: 160px; border-radius: 32px; display: flex; align-items: center; justify-content: center; gap: 22px; font-family: "Literata", Georgia, serif; font-weight: 600; font-size: 48px; }
         .s05-m { left: 0; background: #fff; color: var(--ink); }
         .s05-h { right: 0; background: var(--blue); color: #fff; }
@@ -18,30 +18,48 @@
         .s05-link i { position: absolute; top: 0; width: 140px; height: 32px; background: var(--orange); }
         .s05-link .l { left: 0; border-radius: 16px 0 0 16px; }
         .s05-link .r { right: 0; border-radius: 0 16px 16px 0; }
-        .s05-glyph { width: 70px; height: 70px; border-radius: 18px; background: var(--ink); color: #fff; font-family: "JetBrains Mono", monospace; font-size: 34px; font-weight: 800; display: flex; align-items: center; justify-content: center; }
-        .s05-h .s05-glyph { background: #fff; color: var(--blue); }
-        #s05-fwd { position: absolute; left: 260px; top: 920px; }
+        .s05-logo { width: 84px; height: 84px; border-radius: 22px; background: #fff; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 0 3px var(--pale); }
+        .s05-logo svg { width: 56px; height: 56px; }
+        .s05-h .s05-logo { box-shadow: none; }
+        #s05-sess { position: absolute; left: 260px; top: 760px; width: 1400px; opacity: 0; }
+        #s05-sess .lb { height: 32px; align-items: center; display: flex; justify-content: space-between; font-size: 24px; font-weight: 700; color: var(--pale); }
+        #s05-bar { margin-top: 14px; height: 64px; display: flex; gap: 8px; }
+        #s05-bar i { flex: 1; border-radius: 12px; background: var(--blue); }
+        #s05-bar i.x { background: var(--orange); }
+        /* Segment 5/6 boundary: 5 x 168px segments + 4 x 8px gaps = 872; the tick fills the 872-880 gap. */
+        #s05-swap-at { left: 876px; top: 16px; }
+        #s05-swap { padding: 6px 18px; border-radius: 999px; background: var(--orange); color: var(--ink); font-size: 24px; font-weight: 800; white-space: nowrap; }
+        #s05-tick { position: absolute; left: 874px; top: 38px; width: 4px; height: 72px; border-radius: 2px; background: var(--orange); transform-origin: top; }
+        #s05-cap { left: 260px; top: 880px; }
+        #s05-fwd { position: absolute; left: 260px; top: 960px; }
       </style>
-      <div id="root" data-composition-id="s05" data-width="1920" data-height="1080">
-        <div class="scene dark">
-          <div class="dots" id="s05-dots"></div>
-          <div id="s05-glow" class="glow"></div>
-          <div class="rail"><span>Match the model to its harness</span><span>05 <span class="dot-o">/</span> 07</span></div>
-          <div id="s05-head">
-            <span id="s05-kicker" class="kicker rv">One more thing</span>
-            <span id="s05-title" class="title rv">Native models work best <span class="hl">in their native harness.</span></span>
+      <div data-hf-id="hf-fvbf" id="root" data-composition-id="s05" data-width="1920" data-height="1080">
+        <div data-hf-id="hf-ezh0" class="scene dark">
+          <div data-hf-id="hf-s0nl" class="dots" id="s05-dots"></div>
+          <div data-hf-id="hf-foyd" id="s05-glow" class="glow"></div>
+          <div data-hf-id="hf-qzq8" class="rail"><span data-hf-id="hf-zztr">Match the model to its harness</span><span data-hf-id="hf-e78j">05 <span data-hf-id="hf-hlzb" class="dot-o">/</span> 07</span></div>
+          <div data-hf-id="hf-jack" id="s05-head">
+            <span data-hf-id="hf-cm31" id="s05-kicker" class="kicker rv">One more thing</span>
+            <span data-hf-id="hf-eg7w" id="s05-title" class="title rv">Each model has <span data-hf-id="hf-oasr" class="hl">a native harness.</span></span>
           </div>
-          <div class="s05-pair" id="s05-P1">
-            <div class="s05-m rv" id="s05-m1">{{CLAUDE}}Claude models</div>
-            <div class="s05-link"><i class="l rv" id="s05-l1a"></i><i class="r rv" id="s05-l1b"></i></div>
-            <div class="s05-h rv" id="s05-h1"><span class="s05-glyph">&gt;_</span>Claude Code</div>
+          <div data-hf-id="hf-p3dj" class="s05-pair" id="s05-P1">
+            <div data-hf-id="hf-uta3" class="s05-m rv" id="s05-m1">{{CLAUDE}}Claude models</div>
+            <div data-hf-id="hf-z3sb" class="s05-link"><i data-hf-id="hf-lphh" class="l rv" id="s05-l1a"></i><i data-hf-id="hf-kob0" class="r rv" id="s05-l1b"></i></div>
+            <div data-hf-id="hf-t0k6" class="s05-h rv" id="s05-h1"><span data-hf-id="hf-ekr7" class="s05-logo">{{I:claudecodecli}}</span>Claude Code</div>
           </div>
-          <div class="s05-pair" id="s05-P2">
-            <div class="s05-m rv" id="s05-m2"><span class="s05-glyph">G</span>GPT models</div>
-            <div class="s05-link"><i class="l rv" id="s05-l2a"></i><i class="r rv" id="s05-l2b"></i></div>
-            <div class="s05-h rv" id="s05-h2"><span class="s05-glyph">&gt;_</span>Codex</div>
+          <div data-hf-id="hf-gfho" class="s05-pair" id="s05-P2">
+            <div data-hf-id="hf-gpll" class="s05-m rv" id="s05-m2"><span data-hf-id="hf-5jae" class="s05-logo">{{I:openai}}</span>GPT models</div>
+            <div data-hf-id="hf-doln" class="s05-link"><i data-hf-id="hf-yu6c" class="l rv" id="s05-l2a"></i><i data-hf-id="hf-6g09" class="r rv" id="s05-l2b"></i></div>
+            <div data-hf-id="hf-dkt7" class="s05-h rv" id="s05-h2"><span data-hf-id="hf-3azu" class="s05-logo">{{I:openai}}</span>Codex</div>
           </div>
-          <div id="s05-fwd" class="rv"><span class="fwd">Building with AI 201 · B201.7 · Prompt Caching and the Cost of Agentic Work</span></div>
+          <div data-hf-id="hf-ko40" id="s05-sess">
+            <div data-hf-id="hf-adri" class="lb"><span data-hf-id="hf-zotr">one session · one model</span><span data-hf-id="hf-sboj">cache builds with every call</span></div>
+            <div data-hf-id="hf-b8rd" id="s05-bar"><i data-hf-id="hf-wt6k"></i><i data-hf-id="hf-zeb8"></i><i data-hf-id="hf-y7e5"></i><i data-hf-id="hf-ylp6"></i><i data-hf-id="hf-0l8b"></i><i data-hf-id="hf-gr98" class="x"></i><i data-hf-id="hf-iqgk" class="x"></i><i data-hf-id="hf-hjjh" class="x"></i></div>
+            <div data-hf-id="hf-spwm" id="s05-tick" class="rv"></div>
+            <div data-hf-id="hf-envj" class="anchor" id="s05-swap-at"><span data-hf-id="hf-xxyl" id="s05-swap">switch model</span></div>
+          </div>
+          <div data-hf-id="hf-itva" id="s05-cap" class="caption rv">Switching mid-session <b data-hf-id="hf-e390">drops the cache</b> · start a new session instead</div>
+          <div data-hf-id="hf-xffo" id="s05-fwd" class="rv"><span data-hf-id="hf-znvs" class="fwd">Building with AI 201 · B201.7 · Prompt Caching and the Cost of Agentic Work</span></div>
         </div>
       </div>
       <script>
@@ -58,6 +76,17 @@
           };
           pair(1, {{T:Claude models in}} - 0.3);
           pair(2, {{T:GPT models in}} - 0.3);
+          var k = {{T:keep it}};
+          tl.fromTo("#s05-sess", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.5, ease: "expo.out" }, k - 0.8);
+          tl.set("#s05-bar i", { opacity: 0 }, 0);
+          tl.to("#s05-bar i:nth-child(-n+5)", { opacity: 1, duration: 0.2, stagger: 0.18 }, k - 0.5);
+          tl.set("#s05-swap", { opacity: 0 }, 0);
+          var sw = {{T:Switching mid}};
+          P("#s05-swap", sw, { s: 0.5, d: 0.35 });
+          tl.fromTo("#s05-tick", { opacity: 0, scaleY: 0 }, { opacity: 1, scaleY: 1, duration: 0.3, ease: "power3.out" }, sw + 0.15);
+          tl.to("#s05-bar i:nth-child(-n+5)", { opacity: 0.25, duration: 0.3, stagger: 0.05 }, {{T:throws away}});
+          tl.to("#s05-bar i.x", { opacity: 1, duration: 0.2, stagger: 0.15 }, {{T:throws away}} + 0.3);
+          A("#s05-cap", {{T:new session}} - 0.4, { y: 20, d: 0.4 });
           tl.fromTo("#s05-fwd", { opacity: 0, y: 40 }, { opacity: 1, y: 0, duration: 0.5, ease: "expo.out" }, {{T:Building with AI}});
           LOOP("#s05-glow", { scale: 1.1 }, 2.4, 0, DUR - 0.5);
           tl.to("#s05-dots", { x: -44, y: -22, duration: DUR, ease: "none" }, 0);

@@ -327,3 +327,5 @@
 .fwd { display: inline-flex; align-items: center; gap: 12px; padding: 12px 24px; border-radius: 16px; background: var(--pale); color: var(--blue); font-size: 26px; font-weight: 700; white-space: nowrap; }
 .fwd::before { content: "→"; color: var(--orange); font-size: 30px; }
 .dark .fwd { background: rgba(234, 242, 255, 0.12); color: #fff; }
+/* Zero-size point: left/top is the exact spot; the child centers on it. */
+.anchor { position: absolute; width: 0; height: 0; display: flex; align-items: center; justify-content: center; }

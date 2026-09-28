@@ -28,4 +28,4 @@ Voice-only build in the F101.5 style: dark and white scenes, mocked animated com
 
 ## Notes
 
-- Scene script reviewed with GPT-6 Astra (aligned 2026-09-25), then a newcomer read and a visual QA pass.
+- Scene script passed an external review (2026-09-25), then a newcomer read and a visual QA pass.

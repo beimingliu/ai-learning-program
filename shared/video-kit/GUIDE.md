@@ -7,6 +7,9 @@ Reference lesson to copy: [`videos/foundations-101/F101.7-agentic-system`](../..
 ## Pipeline
 
 ```text
+STORYBOARD.md + storyboard.html   one still sketch per section; the owner confirms the layout before any voice
+  │
+  ▼
 SCRIPT.md            narration, one "## Title (frame N)" section per scene, text indented 4 spaces
   │ node ../../../shared/video-kit/qwen-tts.mjs --ref bliu-voice [--only 02,05]   (run inside the lesson folder)
   ▼
@@ -28,6 +31,7 @@ videos/<lesson-file-name>.mp4
 | Path | Edit it? | Notes |
 |---|---|---|
 | `BRIEF.md`, `SCRIPT.md` | yes | brief frontmatter follows `/hyperframes`; `SCRIPT.md` is the TTS source |
+| `STORYBOARD.md`, `storyboard.html` | yes | the plan and the sketch sheet the owner confirms; sketches live only here, never in `src/` |
 | `src/NN-*.html` | yes | the scenes; the only place animation is written |
 | `assets/shared.css`, `assets/logos.json`, `assets/fonts/` | yes | per lesson, because lessons use different logos and components |
 | `assets/voice/`, `audio_meta.json`, `audio_engine_meta.json` | generated | by `qwen-tts.mjs` |

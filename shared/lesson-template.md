@@ -18,7 +18,8 @@ Immediate action:
 Series close (required; invite learners to explore other videos and send feedback in no more than 10 seconds):
 
 A-roll script:
-On-screen cues:
+Visual treatment (layout, the one element that stays on screen across sections, dark or light scenes):
+On-screen cues (one per section: what appears, the phrase it lands on, what the element that stays on screen shows now, what carries into the next section):
 Exercise and feedback loop:
 Source references:
 Product verification date:
